@@ -1,2 +1,2 @@
-class Item:
-    pass
+class Item(category=""):
+    self.category = category
