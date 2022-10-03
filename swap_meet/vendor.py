@@ -2,7 +2,7 @@ from operator import contains, truediv
 from swap_meet.item import Item
 
 class Vendor:
-    def __init__(self, inventory = list()) -> None:
+    def __init__(self, inventory = list()):
         self.inventory = inventory
     
     def add(self, item):
@@ -46,8 +46,23 @@ class Vendor:
             friend_vendor.add(self.remove(my_item))
             return True
         return False
+    
+    def swap_first_item(self, friend_vendor):
+        """
+        Removes the first item from this Vendor's inventory, and adds it to the friend's inventory.
+        Removes the first item from the other Vendor's inventory, and adds it to this Vendor's inventory
+        Returns True when above actions are completed.
+        Returns False, if either itself or the friend have an empty inventory.
+        """
+        if self.inventory and friend_vendor.inventory:
+            self.add(friend_vendor.remove(friend_vendor.get_item_by_index(0)))
+            friend_vendor.add(self.remove(self.get_item_by_index(0)))
+            return True
+        return False
 
+#======================================#        
 #========== Helper Functions ==========#
+#======================================#  
     
     def contain(self, item) -> bool:
         """
@@ -55,3 +70,11 @@ class Vendor:
         """
         return item in self.inventory
     
+    def get_item_by_index(self, index):
+        """
+        Returns the item at the given index in the inventory.
+        """
+        try:
+            return self.inventory[index]
+        except IndexError:
+            raise IndexError("The index is out of range of the inventory list.")
