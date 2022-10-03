@@ -1,2 +1,7 @@
 class Item:
-    pass
+    '''add doc string'''
+    def __init__(self, category=""):
+        self.category = category
+
+
+        
