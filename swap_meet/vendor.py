@@ -6,3 +6,7 @@ class Vendor:
         self.inventory.append(item)
         index = len(self.inventory) - 1
         return self.inventory[index]
+
+    def remove(self, item):
+        self.inventory.remove(item)
+        return item
