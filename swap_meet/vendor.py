@@ -18,7 +18,6 @@ class Vendor:
         self.item_in_category_list = []
         for item in self.inventory:
             if item.category == category:
-                print("made it")
                 self.item_in_category_list.append(item)
         return self.item_in_category_list
 
@@ -28,5 +27,16 @@ class Vendor:
             friend.remove(their_item)
             friend.add(my_item)
             self.remove(my_item)
+            return True
+        return False
+
+    def swap_first_item(self, friend):
+        if len(self.inventory) == 0 or len(friend.inventory) == 0:
+            return False
+        if self.inventory[0] and friend.inventory[0]:
+            self.add(friend.inventory[0])
+            friend.remove(friend.inventory[0])
+            friend.add(self.inventory[0])
+            self.remove(self.inventory[0])
             return True
         return False
