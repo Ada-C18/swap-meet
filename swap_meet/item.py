@@ -6,11 +6,17 @@ class Item:
             self.category = ""
 
     def get_by_category(category_str):
+        '''
+        Returns a list of Items in the inventory with given category.
+        '''
         # a string with the keyword argument category
         # return list of items in that category
-        item_list =[]
-        next_item = Item(category = category_str)
-        if self.next_item.category_str == category_str:
+        
+        next_item = Item(category_str)
+        same_category_list = []
+        if next_item.category == category_str:
+            same_category_list.append(next_item)
+        
             
 
         
