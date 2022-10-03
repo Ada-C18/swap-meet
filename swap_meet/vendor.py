@@ -1,2 +1,17 @@
 class Vendor:
-    pass
+    def __init__(self, inventory = []):
+        self.inventory = inventory
+
+    def add(self, item):
+        if self.inventory == []:
+            self.inventory = [item]
+        else:
+            self.inventory.append(item)
+        return item
+    
+    def remove(self, item):
+        if item not in self.inventory:
+            return False
+        else:
+            self.inventory.remove(item)
+            return item
