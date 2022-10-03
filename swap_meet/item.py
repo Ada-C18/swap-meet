@@ -3,8 +3,15 @@ class Item:
         self.category = category
         self.condition = condition
 
-    def __str__(self):
-        return "Hello World!"
+    def __str__(category):
+        if category == "Clothing":
+            return "The finest clothing you could wear."
+        elif category == "Decor":
+            return "Something to decorate your space."
+        elif category == "Electronics":
+            return "A gadget full of buttons and secrets."
+        else:
+            return "Hello World!"
 
     def condition_description(condition):
         if condition < 1:
