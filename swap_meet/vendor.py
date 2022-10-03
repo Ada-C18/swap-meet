@@ -1,6 +1,3 @@
-from logging import raiseExceptions
-from typing_extensions import Self
-
 class Vendor:
     def __init__(self, inventory=None):
         self.inventory = inventory if inventory is not None else []
