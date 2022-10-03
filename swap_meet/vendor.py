@@ -1,8 +1,9 @@
+from swap_meet.item import Item
 
 class Vendor:
     def __init__(self, inventory=None):
     # inventory is an empty list
-        if inventory == None:
+        if inventory is None:
             self.inventory = []
         else:
             self.inventory = inventory
@@ -18,6 +19,19 @@ class Vendor:
             return item
         else:
             return False
+# wave 2
+    def get_by_category(self, category):
+        items_inventory = []
+        for item in self.inventory:
+            if item.category == category:
+                items_inventory.append(item)
+        return items_inventory
+
+
+
+
+
+
 # In Wave 1 we will create the `Vendor` class.
 
 # - There is a module (file) named `vendor.py` inside of the `swap_meet` package (folder)
