@@ -11,7 +11,7 @@ class Item:
         phrase=""
         if self.condition<1.5:
             phrase="Do not swap"
-        elif self.condtion<2.5:
+        elif self.condition<2.5:
             phrase="Maybe, but probably not"
         elif self.condition<3.5:
             phrase="I suppose it's ok"
