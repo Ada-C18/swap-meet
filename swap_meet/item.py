@@ -1,4 +1,4 @@
-from swap_meet.vendor import Vendor
+# # =========================WAVE 2==============================================
 
 class Item:
     def __init__(self, category=None):
