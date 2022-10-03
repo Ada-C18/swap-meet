@@ -26,6 +26,15 @@ For this project, given some features that the vendors want, create a set of cla
 
 Refer to [the viewing-party README](https://github.com/AdaGold/viewing-party) for detailed instructions on the One-Time Project Setup, Project Development Workflow, and Details About How to Run Tests.
 
+### First Goals
+- [x]  Fork and clone repo `git clone ...`
+- [x]  Create and activate virtual environmen
+    - [x]  create `python3 -m venv venv`
+    - [x]  activate `source venv/bin/activate`
+- [x]  Install dependencies `pip install -r requirements.txt`
+- [x]  Make minimal change (just a comment somewhere)
+- [ ]  Stage change, commit, and push to GitHub
+
 For this project, there are tests that you must complete for Waves 01, 02, and 06.
 
 ## Integration Tests
