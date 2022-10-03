@@ -20,7 +20,8 @@ class Vendor:
         return categories
 
     def swap_items(self, vendor1, my_item, their_item):
-        #vendor1 = Vendor()
+        #vendor1 = Vendor() Ask an instructor why you dont have to create an instance this way
+        # clean this function up
         if my_item in self.inventory and their_item in vendor1.inventory:
             self.inventory.append(their_item)
             self.inventory.remove(my_item)
@@ -28,6 +29,14 @@ class Vendor:
             vendor1.inventory.remove(their_item)
             return True
         return False
+    
+    def swap_first_item(self, vendor1):
+        if not self.inventory or not vendor1.inventory:
+            return False
+        my_first_item = self.inventory[0]
+        friend_first_item =vendor1.inventory[0]
+        return self.swap_items(vendor1, my_first_item, friend_first_item)
+
 
 
 
