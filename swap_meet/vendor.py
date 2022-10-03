@@ -1,2 +1,2 @@
 class Vendor:
-    pass
+   pass
