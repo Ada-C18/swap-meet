@@ -17,5 +17,26 @@
 # - This method returns the item that was removed
 # - If there is no matching item in the `inventory`, the method should return `False`
 
+
+# def add_to_list_ok(word, word_list=None):
+#     word_list = word_list if word_list is not None else []
+#     word_list.append(word)
+#     return word_list
+
+from os import remove
+
+
 class Vendor:
-    pass
+    def __init__(self):
+        self.inventory = []
+    
+    def add(self, item):
+        inventory_list = self.invetory if self.inventory is not None else []
+        inventory_list.append(item)
+        return item 
+    
+    def remove(self, item):
+        if item in self.inventory:
+            self.inventory.remove(item)
+            return item 
+        return False 
