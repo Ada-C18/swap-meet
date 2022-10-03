@@ -1,5 +1,3 @@
-### Wave 2
-
 # In Wave 2 we will create the `Item` class and the `get_by_category` method.
 
 # - There is a module (file) named `item.py` inside of the `swap_meet` package (folder)
@@ -12,4 +10,10 @@
 #   - This method returns a list of `Item`s in the inventory with that category
 
 class Item:
-    pass
+    def __init__(self, category=None):
+        self.category = category if category is not None else []
+    
+    def get_by_category(self, category):
+      def __init__(self, inventory=None):
+        self.inventory = inventory if inventory is not None else []  
+        
