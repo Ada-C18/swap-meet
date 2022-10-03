@@ -8,13 +8,13 @@ def test_vendor_has_inventory():
     assert len(vendor.inventory) == 0
 
 # @pytest.mark.skip
-# def test_vendor_takes_optional_inventory():
-#     inventory = ["a", "b", "c"]
-#     vendor = Vendor(inventory=inventory)
-#     assert len(vendor.inventory) == 3
-#     assert "a" in vendor.inventory
-#     assert "b" in vendor.inventory
-#     assert "c" in vendor.inventory
+def test_vendor_takes_optional_inventory():
+    inventory = ["a", "b", "c"]
+    vendor = Vendor(inventory=inventory)
+    assert len(vendor.inventory) == 3
+    assert "a" in vendor.inventory
+    assert "b" in vendor.inventory
+    assert "c" in vendor.inventory
 
 # # @pytest.mark.skip
 # def test_adding_to_inventory():
