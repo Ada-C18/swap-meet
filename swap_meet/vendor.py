@@ -1,3 +1,6 @@
+from typing import ItemsView
+
+
 class Vendor:
     def __init__(self, inventory=None):
         if not inventory:
@@ -15,3 +18,10 @@ class Vendor:
         else:
             self.inventory.remove(item)
             return item
+    
+    def get_by_category(self, category): 
+        items = []
+        for item in self.inventory:
+            if item.category == category:
+                items.append(item)
+        return items
