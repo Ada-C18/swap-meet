@@ -10,7 +10,7 @@ class Vendor:
    #removes an item from the inventory
    def remove(self, item):
       if item not in self.inventory:
-            return False
+         return False
       self.inventory.remove(item)
       return item
 
@@ -20,5 +20,21 @@ class Vendor:
       all_items = []
       for item in self.inventory:
          if item.category == category:
-            all_items.append(item) 
+            all_items.append(item)
       return all_items
+
+   # swaps items between 2 vendors' inventories
+   def swap_items(self, other_vendor, my_item, their_item):
+      if my_item not in self.inventory or their_item not in other_vendor.inventory:
+         return False
+
+   # move my_item from my inventory to theirs
+      self.remove(my_item)
+      other_vendor.add(my_item)
+
+   # move their_item from their inventory to mine
+      other_vendor.remove(their_item)
+      self.add(their_item)
+      
+      return True
+
