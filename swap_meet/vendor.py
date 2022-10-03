@@ -25,16 +25,12 @@ class Vendor:
         return category_items
     
     def swap_items(self,other_vendor,my_item,their_item):
-        if my_item not in self.inventory or their_item not in other_vendor.inventory:
-            return False
-        else:
-            self.remove(my_item)
-            self.add(their_item)
-            other_vendor.remove(their_item)
-            other_vendor.add(my_item)
-            # self.inventory.append(other_vendor.inventory.pop(other_vendor.inventory.index(their_item)))
-            # other_vendor.inventory.append(self.inventory.pop(self.inventory.index(my_item)))
+        if my_item in self.inventory and their_item in other_vendor.inventory:
+            self.inventory.append(other_vendor.inventory.pop(other_vendor.inventory.index(their_item)))
+            other_vendor.inventory.append(self.inventory.pop(self.inventory.index(my_item)))
             return True
+        return False
+
     
     def swap_first_item(self,other_vendor):
         if not self.inventory or not other_vendor.inventory:
@@ -65,4 +61,17 @@ class Vendor:
             return True
         else:
             return False
+    
+    def get_newest(self):
+        age = 10000000000000
+        newest_item = ""
+        for item in self.inventory:
+            if item.age < age:
+                newest_item = item
+                age = item.age
+        return newest_item
+    
+    def swap_by_newest(self,other):
+        self.swap_items(other,self.get_newest,other.get_newest)
+        
     
