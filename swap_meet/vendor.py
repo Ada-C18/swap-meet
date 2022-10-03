@@ -27,12 +27,13 @@ from os import remove
 
 
 class Vendor:
-    def __init__(self):
-        self.inventory = []
+    def __init__(self, inventory=None):
+        self.inventory = inventory if inventory is not None else []
+        
     
     def add(self, item):
-        inventory_list = self.invetory if self.inventory is not None else []
-        inventory_list.append(item)
+    
+        self.inventory.append(item)
         return item 
     
     def remove(self, item):
