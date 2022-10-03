@@ -9,10 +9,14 @@ class Item:
 
     def condition_description(self):
         phrase=""
-        if self.condition<2.5:
+        if self.condition<1.5:
             phrase="Do not swap"
-        elif self.condition<4:
-            "I suppose it's ok"
+        elif self.condtion<2.5:
+            phrase="Maybe, but probably not"
+        elif self.condition<3.5:
+            phrase="I suppose it's ok"
+        elif self.condition<4.5:
+            phrase="Yeah,sure"
         else:
             "Nice"
         return phrase

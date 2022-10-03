@@ -37,4 +37,19 @@ class Vendor:
         other_vendor.add(self.inventory.pop(0))
         return True
 
-    def get_best_by_category()
+    def get_best_by_category(self,category):
+        best_thing=None
+        highest_rated=0
+        for item in self.inventory:
+            if item.category==category and item.condition>highest_rated:
+                best_thing=item
+                highest_rated=item.condition
+        return best_thing
+    
+    def swap_best_by_category(self,other="", my_priority="", their_priority=""):
+        my_trade_item=self.get_best_by_category(their_priority)
+        other_trade_item=other.get_best_by_category(my_priority)
+        if not my_trade_item or not other_trade_item:
+            return False
+        self.swap_items(other,my_trade_item,other_trade_item)
+        return True
