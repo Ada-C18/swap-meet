@@ -1,3 +1,5 @@
+from swap_meet.item import Item
+
 class Decor:
     def __init__(self, category="Decor", condition=0.0):
         self.category = category
@@ -5,3 +7,6 @@ class Decor:
 
     def __str__(self):
         return "Something to decorate your space."
+
+    def condition_description(self):
+        return Item.condition_description(self.condition)
