@@ -1,3 +1,5 @@
+from swap_meet.item import Item
+
 class Vendor:
     def __init__(self, inventory=None):
         '''A blueprint for different store inventories.'''
@@ -19,3 +21,12 @@ class Vendor:
             return item
         else:
             return False
+    
+    def get_by_category(self, category):
+        category_list = []
+        for i in self.inventory:
+            if i.category == category:
+                category_list.append(i)
+        return category_list
+            
+
