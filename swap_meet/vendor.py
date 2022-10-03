@@ -46,6 +46,11 @@ class Vendor:
             return False
 
     def swap_first_item(self, vendor):
-        vendor.inventory.append(self.inventory.pop(0))
-        self.inventory.append(vendor.inventory.pop(0))
-        return True
+        # checks if either inventories are empty and returns False if true
+        if len(self.inventory) == 0 or len(vendor.inventory) == 0:
+            return False
+        # removes index 0 from both lists and adds to opposite list
+        else:
+            vendor.inventory.append(self.inventory.pop(0))
+            self.inventory.append(vendor.inventory.pop(0))
+            return True
