@@ -17,7 +17,7 @@ def test_vendor_takes_optional_inventory():
     assert "c" in vendor.inventory
 
 # @pytest.mark.skip
-# def test_adding_to_inventory():
+def test_adding_to_inventory():
     vendor = Vendor()
     item = "new item"
 
@@ -49,7 +49,6 @@ def test_removing_not_found_is_false():
 
     result = vendor.remove(item)
     
-    raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
+    assert result == False
+
+
