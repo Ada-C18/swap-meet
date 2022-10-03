@@ -2,10 +2,12 @@ class Vendor:
     def __init__(self, inventory=[]):
         # inventory is an empty list by default
         # we can optionally pass in a list with the keyword argument inventory
+        # ? optional parameter?
         self.inventory = inventory
 
     def add(self, item):
         self.inventory.append(item)
+        return item
 
     def remove(self, item):
         '''
@@ -16,7 +18,7 @@ class Vendor:
         # remove() method removes the first occurrence of the element with the specified value
         # If you need to remove an item by its index number and/or for some reason you want to return (save) the value you removed, use the pop() method instead.
         if item in self.inventory:
-            self.inventory.pop(item)
+            self.inventory.remove(item)
             return item
         else:
             # If there is no matching item in the inventory, the method should return False
