@@ -28,17 +28,17 @@ def test_adding_to_inventory():
     assert result == item
 
 # @pytest.mark.skip
-# def test_removing_from_inventory_returns_item():
-#     item = "item to remove"
-#     vendor = Vendor(
-#         inventory=["a", "b", "c", item]
-#     )
+def test_removing_from_inventory_returns_item():
+    item = "item to remove"
+    vendor = Vendor(
+        inventory=["a", "b", "c", item]
+    )
 
-#     result = vendor.remove(item)
+    result = vendor.remove(item)
 
-#     assert len(vendor.inventory) == 3
-#     assert item not in vendor.inventory
-#     assert result == item
+    assert len(vendor.inventory) == 3
+    assert item not in vendor.inventory
+    assert result == item
 
 # @pytest.mark.skip
 # def test_removing_not_found_is_false():

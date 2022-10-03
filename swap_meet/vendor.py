@@ -7,7 +7,7 @@ class Vendor:
         self.inventory.append(item)
         return item
     def remove(self,item):
-        for inventory_item in inventory:
+        for inventory_item in self.inventory:
             if inventory_item==item:
                 self.inventory.remove(item)
                 return item
