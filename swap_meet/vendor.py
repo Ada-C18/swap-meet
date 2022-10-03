@@ -39,4 +39,4 @@ class Vendor:
         if item in self.inventory:
             self.inventory.remove(item)
             return item 
-        return False 
+        return False
