@@ -13,6 +13,12 @@ class Vendor:
         if item in self.inventory:
             self.inventory.remove(item)
             return item
-        else:
-            return False
-        # return item if self.inventory.remove(item) else return False
+        return False
+      
+    def get_by_category(self, category):
+        category_list = []
+        for item in self.inventory:
+            if item.category == category:
+                category_list.append(item)
+
+        return category_list
