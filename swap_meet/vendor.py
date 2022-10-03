@@ -22,6 +22,6 @@ class Vendor:
     def remove(self, item):
         if item in self.inventory:
             self.inventory.remove(item)
+            return item
         else:
-            raise exception("False")
-        return item
+            return False
