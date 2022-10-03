@@ -1,8 +1,5 @@
 class Vendor:
     def __init__(self, inventory=None) -> None:
-        # if len(self.inventory) == 0:
-        #     return
-
         self.inventory = inventory if inventory is not None else []
 
     def add(self, item):
@@ -15,7 +12,7 @@ class Vendor:
         self.inventory.remove(item)
         return item
 
-    def get_by_category(self,category):
+    def get_by_category(self, category):
         category_list = []
         for item in self.inventory:
             if item.category == category:
