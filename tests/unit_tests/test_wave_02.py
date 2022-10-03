@@ -24,15 +24,20 @@ def test_get_items_by_category():
     assert item_b not in items
 
 # @pytest.mark.skip
-# def test_get_no_matching_items_by_category():
-#     item_a = Item(category="clothing")
-#     item_b = Item(category="clothing")
-#     item_c = Item(category="clothing")
-#     vendor = Vendor(
-#         inventory=[item_a, item_b, item_c]
-#     )
+def test_get_no_matching_items_by_category():
+    item_a = Item(category="clothing")
+    item_b = Item(category="clothing")
+    item_c = Item(category="clothing")
+    vendor = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
 
-#     items = vendor.get_by_category("electronics")
+    items = vendor.get_by_category("electronics")
+
+    assert len(items) == 0
+    assert item_a not in items
+    assert item_c not in items
+    assert item_b not in items
 
 #     raise Exception("Complete this test according to comments below.")
 #     # *********************************************************************
