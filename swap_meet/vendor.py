@@ -3,11 +3,13 @@ class Vendor:
         self.inventory = inventory if inventory is not None else []
 
     def add(self, item):
-        return self.inventory.append(item) 
-    
+        self.inventory.append(item)
+        return item
+
     def remove(self, item):
         matching_item = item
         self.inventory.remove(matching_item)
+        return matching_item
         
     
-Vendor(inventory = None)        
+# Vendor(inventory = None)        
