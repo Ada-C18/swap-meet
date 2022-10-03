@@ -11,9 +11,18 @@ class Vendor:
             return False
         self.inventory.remove(item)
         return item
+
     def get_by_category(self, category):
         categories = []
         for item in self.inventory:
             if item.category == category:
                 categories.append(item)
         return categories
+
+    def swap_items(self, vendor1, my_item, their_item):
+        vendor1 = Vendor()
+        self.inventory.add(my_item)
+        self.inventory.remove(my_item)
+
+
+        
