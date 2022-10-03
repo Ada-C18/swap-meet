@@ -33,12 +33,12 @@ class Vendor:
         return category_items
 
     def swap_items(self, vendor, old_item, new_item):
-        # checks if old_item is in vendor's list
-        if old_item in self.inventory:
-            # removes old_item from vendor's list and appends it to the provided vendor's list
+        # checks if old_item is in inventory list and if new_item is in vendor's inventory list
+        if old_item in self.inventory and new_item in vendor.inventory:
+            # removes old_item from inventory list and appends it to the vendor's inventory list
             self.inventory.remove(old_item)
             vendor.inventory.append(old_item)
-            # adds new_item to vendor's list and removes it from the provided vendor's list
+            # adds new_item to inventory list and removes it from the vendor's inventory list
             self.inventory.append(new_item)
             vendor.inventory.remove(new_item)
             return True
