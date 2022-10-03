@@ -3,7 +3,7 @@ class Item:
     def __init__(self, category= None):
         self.category = category if category is not None else ""
     
-    # takes one argument (string => category) and returns list of items
-    # in the inventory with that category
-
+    # make a string method that always return Hello World!
+    def __str__(self):
+        return "Hello World!"
 
