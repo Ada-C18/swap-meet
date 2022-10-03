@@ -1,4 +1,4 @@
 # Billie Betts
 
 class Vendor:
-    pass
+    print('test')
