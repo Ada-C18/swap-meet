@@ -4,4 +4,6 @@ class Item:
             self.category = category
         else:
             self.category = ""
-
+        
+    def __str__(self_):
+       return "Hello World!"
