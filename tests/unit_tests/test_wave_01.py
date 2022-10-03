@@ -17,15 +17,15 @@ def test_vendor_takes_optional_inventory():
     assert "c" in vendor.inventory
 
 # # @pytest.mark.skip
-# def test_adding_to_inventory():
-#     vendor = Vendor()
-#     item = "new item"
+def test_adding_to_inventory():
+    vendor = Vendor()
+    item = "new item"
 
-#     result = vendor.add(item)
+    result = vendor.add(item)
 
-#     assert len(vendor.inventory) == 1
-#     assert item in vendor.inventory
-#     assert result == item
+    assert len(vendor.inventory) == 1
+    assert item in vendor.inventory
+    assert result == item
 
 # @pytest.mark.skip
 # def test_removing_from_inventory_returns_item():
