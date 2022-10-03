@@ -34,5 +34,4 @@ class Vendor:
             vendor_2.inventory.remove(item_2)
             self.inventory.append(item_2)
             return True
-        
         return False
