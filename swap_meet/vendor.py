@@ -20,9 +20,15 @@ class Vendor:
         return categories
 
     def swap_items(self, vendor1, my_item, their_item):
-        vendor1 = Vendor()
-        self.inventory.add(my_item)
-        self.inventory.remove(my_item)
+        #vendor1 = Vendor()
+        if my_item in self.inventory and their_item in vendor1.inventory:
+            self.inventory.append(their_item)
+            self.inventory.remove(my_item)
+            vendor1.inventory.append(my_item)
+            vendor1.inventory.remove(their_item)
+            return True
+        return False
+
 
 
         
