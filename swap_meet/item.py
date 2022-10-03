@@ -18,5 +18,5 @@ class Item:
         elif self.condition<4.5:
             phrase="Yeah,sure"
         else:
-            "Nice"
+            phrase="Nice"
         return phrase
