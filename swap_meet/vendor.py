@@ -33,8 +33,9 @@ class Vendor:
     def swap_first_item(self,other_vendor):
         if not len(self.inventory) or not len(other_vendor.inventory):
             return False
-        self.add(other_vendor.inventory.pop(0))
-        other_vendor.add(self.inventory.pop(0))
+        self.swap_items(other_vendor,self.inventory[0],other_vendor.inventory[0])
+        #self.add(other_vendor.inventory.pop(0))
+        #other_vendor.add(self.inventory.pop(0))
         return True
 
     def get_best_by_category(self,category):
