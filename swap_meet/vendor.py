@@ -1,3 +1,5 @@
+from swap_meet.item import Item
+
 class Vendor:
     # define __init__ class ,takes inventory as a 
     # parameter. Inventory default == None
@@ -22,6 +24,19 @@ class Vendor:
         except ValueError:
             return False
 
+    def get_by_category(self, category):
+        # reminder to ourselves: each item has a category
+        # vendor inventory list includes each item as an element
 
+        # need a list
+        list_of_items = []
 
-    
+        # we want to check each item to see if its category
+        # matches the category passed in as an argument
+
+        for item in self.inventory:
+            if item.category == category:
+                list_of_items.append(item)
+
+        # return list of items that match the category
+        return list_of_items
