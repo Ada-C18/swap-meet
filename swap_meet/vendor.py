@@ -41,10 +41,5 @@ class Vendor:
             return item 
         return False
 
-    def get_by_category(self, category):
-
-        print(self.inventory)
-        for item in self.inventory:
-            i
-        #  items = self.inventory()
-        # create to list
+    def get_by_category(self, category=""):
+      pass
