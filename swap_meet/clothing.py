@@ -1,2 +1,2 @@
 class Clothing:
-    pass
+    print("Hello, World!")
