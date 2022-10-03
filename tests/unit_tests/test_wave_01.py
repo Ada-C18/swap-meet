@@ -51,6 +51,11 @@ def test_removing_not_found_is_false():
     assert result == False
 
     # raise Exception("Complete this test according to comments below.")
+<<<<<<< HEAD
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
+=======
+    if False:
+        raise FalseType
+>>>>>>> 0c3aba1846dc1d05e0dbfd7732b3574034ef9f85
