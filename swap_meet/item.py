@@ -16,14 +16,4 @@ class Item:
             4:"Yeah, sure",
             5:"Nice"
         }
-        """if self.condition<1.5:
-            phrase="Do not swap"
-        elif self.condition<2.5:
-            phrase="Maybe, but probably not"
-        elif self.condition<3.5:
-            phrase="I suppose it's ok"
-        elif self.condition<4.5:
-            phrase="Yeah,sure"
-        else:
-            phrase="Nice" """
         return condition_dict[return_key]
