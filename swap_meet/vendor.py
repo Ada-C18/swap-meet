@@ -23,7 +23,6 @@
 #     word_list.append(word)
 #     return word_list
 
-from os import remove
 
 
 class Vendor:
@@ -41,3 +40,11 @@ class Vendor:
             self.inventory.remove(item)
             return item 
         return False
+
+    def get_by_category(self, category):
+
+        print(self.inventory)
+        for item in self.inventory:
+            i
+        #  items = self.inventory()
+        # create to list
