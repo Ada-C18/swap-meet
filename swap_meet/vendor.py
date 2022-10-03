@@ -44,3 +44,8 @@ class Vendor:
             return True
         else:
             return False
+
+    def swap_first_item(self, vendor):
+        vendor.inventory.append(self.inventory.pop(0))
+        self.inventory.append(vendor.inventory.pop(0))
+        return True
