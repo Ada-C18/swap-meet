@@ -64,3 +64,12 @@ class Vendor:
             if item.condition >= best_item.condition:
                 best_item = item
         return best_item
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_best = self.get_best_by_category(their_priority)
+        self.inventory.remove(my_best)
+        other.inventory.append(my_best)
+        their_best = other.get_best_by_category(my_priority)
+        other.inventory.remove(their_best)
+        self.inventory.append(their_best)
+        return True
