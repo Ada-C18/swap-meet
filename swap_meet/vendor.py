@@ -61,5 +61,5 @@ class Vendor:
             self.swap_items(other,self.get_best_by_category(their_priority),other.get_best_by_category(my_priority))
             return True
         else:
-            return FALSE
+            return False
     
