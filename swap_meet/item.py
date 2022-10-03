@@ -1,2 +1,4 @@
 class Item:
-    pass
+    def __int__(self, category = ""):
+        self.category = category
+    
