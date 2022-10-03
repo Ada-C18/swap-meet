@@ -20,5 +20,5 @@ class Vendor:
       all_items = []
       for item in self.inventory:
          if item.category == category:
-            all_items.append(item)
+            all_items.append(item) 
       return all_items
