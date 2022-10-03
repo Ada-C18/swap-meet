@@ -13,3 +13,12 @@ class Vendor:
             return False
       self.inventory.remove(item)
       return item
+
+   # takes one argument (string => category) and returns a list of items in the 
+   # in the inventory with that category
+   def get_by_category(self, category):
+      all_items = []
+      for item in self.inventory:
+         if item.category == category:
+            all_items.append(item)
+      return all_items
