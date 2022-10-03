@@ -66,10 +66,16 @@ class Vendor:
         return best_item
 
     def swap_best_by_category(self, other, my_priority, their_priority):
-        my_best = self.get_best_by_category(their_priority)
-        self.inventory.remove(my_best)
-        other.inventory.append(my_best)
-        their_best = other.get_best_by_category(my_priority)
-        other.inventory.remove(their_best)
-        self.inventory.append(their_best)
-        return True
+        if len(self.inventory) == 0 or len(other.inventory) == 0:
+            return False
+        else:
+            my_best = self.get_best_by_category(their_priority)
+            their_best = other.get_best_by_category(my_priority)
+            if not my_best or not their_best:
+                return False
+            else:
+                self.inventory.remove(my_best)
+                other.inventory.append(my_best)
+                other.inventory.remove(their_best)
+                self.inventory.append(their_best)
+                return True
