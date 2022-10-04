@@ -3,19 +3,16 @@ class Item:
     def __init__(self, category=""):
         self.category = category
 
-    def __str__(self):
-        return "Hello World!"
+    def __str__(self, string="Hello World!"):
+        return string
     
     def condition_description(self, condition):
-        if condition == 1:
-            return "Trash"
-        elif condition == 2:
-            return "Desperate"
-        elif condition == 3:
-            return "Alright"
-        elif condition == 4:
-            return "Good"
-        else:
-            return "Like New"
-
+        descriptions = {
+                        1: "Trash", 
+                        2: "Desperate",
+                        3: "Alright", 
+                        4: "Good", 
+                        5: "Like New"
+                        }
+        return descriptions[condition] if condition in descriptions.keys() else "Other"
             

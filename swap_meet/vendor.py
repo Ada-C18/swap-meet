@@ -27,10 +27,10 @@ class Vendor:
     
     def swap_items(self, vendor_2, item_1, item_2):
         if item_1 in self.inventory and item_2 in vendor_2.inventory:
-        # take first item from first vendor and give to other
+        # remove first item from first vendor and give to other
             self.inventory.remove(item_1)
             vendor_2.inventory.append(item_1)
-        # take second item from second vendor and give to other
+        # remove second item from second vendor and give to other
             vendor_2.inventory.remove(item_2)
             self.inventory.append(item_2)
             return True
