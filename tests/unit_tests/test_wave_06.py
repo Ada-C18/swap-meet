@@ -50,7 +50,7 @@ def test_best_by_category_with_duplicates():
     assert best_item.category == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_best_by_category():
     # Arrange
     # me
@@ -87,7 +87,7 @@ def test_swap_best_by_category():
     assert item_d in jesse.inventory
     assert item_e in jesse.inventory
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_best_by_category_reordered():
     # Arrange
     item_a = Decor(condition=2.0)
