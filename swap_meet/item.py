@@ -1,4 +1,5 @@
 class Item:
-    def __int__(self, category = ""):
+    def __init__(self, category = ""):
         self.category = category
-    
+
+
