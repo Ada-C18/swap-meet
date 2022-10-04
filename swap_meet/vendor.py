@@ -54,7 +54,7 @@ class Vendor:
         return True
     
     """
-    get best by category class method
+    get_best_by_category class method returns the item with the best condiiton filtered by the category argument
     """
     
     def get_best_by_category(self, category):
@@ -71,3 +71,21 @@ class Vendor:
         for item in category_list:
             if item.condition == max_condition:
                 return item
+
+    """
+    swap_best_by_category method
+    """
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        #use len of get_by_category to return false if either vendor does not have the other's preference
+        if len(self.get_by_category(their_priority)) == 0 or len(other.get_by_category(my_priority)) == 0:
+            return False
+        
+        #use get_best_by_category to assign variables to each item to swap
+        their_item = other.get_best_by_category(my_priority)
+        my_item = self.get_best_by_category(their_priority)
+
+        #use swap_items to move the items between the vendors
+        self.swap_items(other, my_item, their_item)
+        return True
+
+
