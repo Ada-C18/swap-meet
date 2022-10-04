@@ -2,9 +2,10 @@ from unicodedata import category
 
 
 class Item:
-    def __init__(self, category = "", condition = 0):
+    def __init__(self, category = "", condition = 0, age = float('inf')):
         self.category = category
         self.condition = condition
+        self.age = age
     
     def __str__(self):
         return "Hello World!"
