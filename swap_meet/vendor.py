@@ -1,4 +1,7 @@
 
+from unicodedata import category
+
+
 class Vendor:
      # inventory (list of items)
     # accept item class instances
@@ -50,3 +53,10 @@ class Vendor:
             self.inventory[0] = friend_item
             vendor2.inventory[0] = self_item
             return True
+    
+    def get_best_by_category(self, category):
+
+        return(max(self.get_by_category(category), key=lambda item: item.condition, default=None))
+
+    def swap_best_by_category():
+        pass

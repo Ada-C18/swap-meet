@@ -24,3 +24,6 @@ class Item:
             return f"Decent condition"
         else:
             return f"Great condition"
+    
+    def get_condition(self):
+        return self.condition
