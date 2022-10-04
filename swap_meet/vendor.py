@@ -1,3 +1,7 @@
+# relative import
+# from .item import Item
+
+# full import
 from swap_meet.item import Item
 
 
@@ -27,12 +31,14 @@ class Vendor:
             # If there is no matching item in the inventory, the method should return False
             return False
 
-    def get_by_category(self, category):
+    def get_by_category(self, input_category):
         ''' 
         Input: a string, representing a category
         Output: returns a list of Items in the inventory with that category
         '''
-        category_list = []
-        if Item == self.category:
-            category_list.append(category)
-        return category_list
+        category_items = []
+
+        for item in self.inventory:
+            if item.category == input_category:
+                category_items.append(item)
+        return category_items
