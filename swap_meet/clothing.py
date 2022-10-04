@@ -1,2 +1,12 @@
-class Clothing:
-    print("hey Makeesha!")
+from swap_meet.item import Item
+class Clothing(Item):
+    def __init__(self, category = None, condition = 0):
+        self.category = category
+        self.condition = condition
+        if self.category is None:
+            self.category = "Clothing"
+
+    def __str__(self):
+        return "The finest clothing you could wear."
+    
+    
