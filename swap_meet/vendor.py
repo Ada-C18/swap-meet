@@ -1,8 +1,10 @@
 from swap_meet.item import Item
 
 class Vendor:
-    def __init__(self, inventory=[]):
+    def __init__(self, inventory=None):
         self.inventory = inventory
+        if not inventory:
+            self.inventory = []
     
     def add(self, item):
         # adds provided item to the vendor's inventory
