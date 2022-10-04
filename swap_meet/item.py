@@ -12,3 +12,6 @@ class Item:
             self.category = category
         else: 
             self.category = "" # default
+
+    def __str__(self):
+        return "Hello World!"
