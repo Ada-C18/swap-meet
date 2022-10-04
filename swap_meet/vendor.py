@@ -23,6 +23,7 @@ class Vendor:
     def swap_items(self, vendor, my_item, their_item):
         if my_item not in self.inventory or their_item not in vendor.inventory:
             return False
+
         self.remove(my_item)
         self.add(their_item)
         vendor.remove(their_item)
@@ -32,8 +33,8 @@ class Vendor:
     def swap_first_item(self, vendor):
         if not self.inventory or not vendor.inventory:
             return False
-        self.inventory[0], vendor.inventory[0] = vendor.inventory[0], self.inventory[0]
-        return True
+        return self.swap_items(vendor, self.inventory[0], vendor.inventory[0])
+
 
     def get_best_by_category(self, category):
         best_condition = 0
@@ -53,10 +54,4 @@ class Vendor:
         item_to_give = self.get_best_by_category(their_priority)
         item_to_recieve = other.get_best_by_category(my_priority)
 
-        self.inventory[self.inventory.index(item_to_give)], other.inventory[other.inventory.index(item_to_recieve)] = item_to_recieve, item_to_give
-
-        return True 
-
-
-
-
+        return self.swap_items(other, item_to_give, item_to_recieve)
