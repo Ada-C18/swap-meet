@@ -55,7 +55,8 @@ class Vendor:
         if self.inventory and other.inventory:
             my_item_choice = other.get_best_by_category(my_priority)
             their_item_choice = self.get_best_by_category(their_priority)
-            self.swap_items(other, their_item_choice, my_item_choice)
-            return True
+            if my_item_choice and their_item_choice:
+                self.swap_items(other, their_item_choice, my_item_choice)
+                return True
         return False
 
