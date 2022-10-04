@@ -40,3 +40,23 @@ class Vendor:
             if item.category == input_category:
                 category_items.append(item)
         return category_items
+
+    # wave 3 - write method swap_items
+    def swap_items(self, friend_vendor, my_item, their_item):
+        '''
+        Input: instance of Vendor (friend_vendor), instance of Item (my_item), instance of Item (their_item)
+        Output: 
+        - True, if my_item in inventory and their_item in their inventory
+        -- inventories updated (their_item in my inventory, my_item in their inventory)
+        - False, if my_item not in inventory or their_item not in their inventory
+        '''
+
+        if my_item not in self.inventory or their_item not in friend_vendor.inventory:
+            return False
+        else:
+            self.add(their_item)
+            self.remove(my_item)
+
+            friend_vendor.add(my_item)
+            friend_vendor.remove(their_item)
+            return True
