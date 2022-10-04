@@ -28,8 +28,14 @@ class Vendor:
         vendor.remove(their_item)
         return True
 
-        #my_item is self.inventory @ specific value
-        #their_item is vendor.inventory @ specific value
+    def swap_first_item(self, vendor):
+        if not self.inventory or not vendor.inventory:
+            return False
+        their_first_item = vendor.inventory[0]
+        my_first_item = self.inventory[0]
+        first_item_swap = self.swap_items(vendor, my_first_item, their_first_item)
+        return first_item_swap
+
         
     
     
