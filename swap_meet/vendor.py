@@ -25,3 +25,9 @@ class Vendor:
         vendor_friend.add(my_item)
         return True
         
+    def swap_first_item(self, friend):
+        if not self.inventory or not friend.inventory:
+            return False
+        my_first_item = self.inventory[0]
+        friend_first_item = friend.inventory[0]
+        return self.swap_items(friend, my_first_item, friend_first_item)
