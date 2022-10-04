@@ -19,10 +19,10 @@ class Vendor:
         return None
 
     def get_by_category(self, category):
-        things_in_category = []
-        for thing in self.inventory:
-            if thing.category == category:
-                things_in_category.append(thing)
+        things_in_category = [thing for thing in self.inventory if thing.category == category]
+        # for thing in self.inventory:
+        #     if thing.category == category:
+        #         things_in_category.append(thing)
         return things_in_category
     
     def swap_items(self, vendor_2, item_1, item_2):
@@ -53,15 +53,14 @@ class Vendor:
 
     def get_best_by_category(self, category):
         items_in_category = self.get_by_category(category)
-
-        the_best = None
-        the_best_score = 0
+        
         if len(items_in_category) == 0:
-            return the_best
-        for thing in items_in_category:
-            if thing.condition > the_best_score:
+            return None
+
+        the_best = items_in_category[0]
+        for thing in items_in_category[1:]:
+            if thing.condition > the_best.condition:
                 the_best = thing
-                the_best_score = thing.condition
         
         return the_best
 
@@ -69,7 +68,7 @@ class Vendor:
         my_best = self.get_best_by_category(their_priority)
         their_best = other.get_best_by_category(my_priority)
 
-        if my_best == None or their_best == None:
+        if not my_best or not their_best:
             return False
         else:
             self.swap_items(other, my_best, their_best)
