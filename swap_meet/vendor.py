@@ -1,3 +1,4 @@
+from unicodedata import category
 from swap_meet.item import Item
 class Vendor(Item):
     def __init__(self, inventory=[]):
@@ -54,8 +55,37 @@ class Vendor(Item):
         else:
             return False
     
-  
-        
+    # Wave 6
+    def get_best_by_category(self, category_str):
+        best_rate = 0
+        result = []
+        for item in self.inventory:
+            if item.category == category_str and best_rate < item.condition:
+                best_rate = item.condition
+                if result == []:
+                    result.append(item)
+                else:
+                    result.pop()
+                    result.append(item)
+        if result == []:
+            return None
+        return result[0]
+    
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_swap = self.get_best_by_category(my_priority)
+        # print(my_swap.condition)
+        other_swap = other.get_best_by_category(their_priority)
+        # print(other_swap.condition)
+        if other.inventory == []:
+            return False
+        elif my_swap == None or other_swap == None:
+            return False
+        else:
+            self.remove(my_swap)
+            other.remove(other_swap)
+            other.add(my_swap)
+            self.add(other_swap)
+            return True
 
 
             
