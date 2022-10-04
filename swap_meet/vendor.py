@@ -3,10 +3,9 @@ import pytest
 
 class Vendor:
     def __init__(self, inventory = None):
-        if inventory == None:
-            self.inventory = []
-        else:
-            self.inventory = inventory
+        if inventory is None:
+            inventory = []
+        self.inventory = inventory
 
     def add(self, item):
         self.inventory.append(item)
@@ -53,4 +52,22 @@ class Vendor:
         self.remove(self.inventory[0])
         other_vendor.remove(other_vendor.inventory[0])
         return True
+    
+    """
+    get best by category class method
+    """
+    
+    def get_best_by_category(self, category):
+        #leverage the get_by_category method to get a list of inventory items in the given category
+        category_list = self.get_by_category(category)
         
+        #iterate through list of items to find best condition 
+        max_condition = 0.0
+        for item in category_list:
+            if item.condition > max_condition:
+                max_condition = item.condition
+        
+        #iterate through the category list again to find the best item 
+        for item in category_list:
+            if item.condition == max_condition:
+                return item
