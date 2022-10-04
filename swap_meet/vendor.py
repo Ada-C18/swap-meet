@@ -2,7 +2,9 @@ from operator import contains, truediv
 from swap_meet.item import Item
 
 class Vendor:
-    def __init__(self, inventory = list()):
+    def __init__(self, inventory = None):
+        if not inventory:
+            inventory = list()
         self.inventory = inventory
     
     def add(self, item):
