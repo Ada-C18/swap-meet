@@ -1,4 +1,3 @@
-import swap_meet.item
 class Vendor:
     
     def __init__(self, inventory=None):
@@ -14,16 +13,3 @@ class Vendor:
             return False
         self.inventory.remove(item)
         return item
-
-
-
-
-
-    def swap_items(self, my_friend, my_item, their_item):
-        if my_item not in self.inventory or their_item not in my_friend.inventory:
-            return False 
-        self.inventory.remove(my_item)
-        my_friend.inventory.append(my_item)
-        my_friend.inventory.remove(their_item)
-        self.inventory.append(their_item)
-        return True
