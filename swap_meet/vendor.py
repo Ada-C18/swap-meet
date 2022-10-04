@@ -33,19 +33,16 @@ class Vendor:
         else:
             return False
     
-    def swap_first_item(self, other_vendor = None):
+    def swap_first_item(self, other_vendor):
+        
+        if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
+            return False
         first_item = self.inventory[0]
         first_item_vendor = other_vendor.inventory[0]
-        # vendor_empty_list = []
-        # self_empty_list = []
-        if first_item in self.inventory and first_item_vendor in other_vendor.inventory:
-            self.remove(first_item)
-            other_vendor.add(first_item)
-            self.add(first_item_vendor)
-            other_vendor.remove(first_item_vendor)
-            return True
-        elif self.inventory and other_vendor == None:
-            return False
+        self.swap_items(other_vendor, first_item,first_item_vendor)
+        
+        return True
+    
         
     
     
