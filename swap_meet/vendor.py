@@ -58,11 +58,6 @@ class Vendor():
             return True
         else:
             return False
-        # if their_item in friend.inventory:
-            # friend.inventory.remove(their_item)
-            # self.inventory.append(their_item)
-        # else:
-        #     return False
 
 #WAVE 3 PSEUDOCODE
 #step 1: stringify intance Item
@@ -72,3 +67,23 @@ class Vendor():
             #return True
             #if this vendor's inventory doesnt contain my_item or friends_inventory doesnt contain "their_item"
             # return false
+
+#WAVE 4 PSEUDOCODE
+#create instance method swap_first_item(self, friend)
+    #logic:
+    # check to make sure self inventory and friend inventory is not empty? 
+    # loop through the self.inventory to get first item
+            # remove it and then add it to the friends friends inventory[0]
+            #if self or friend have an empty inventory return false
+
+    def swap_first_item(self, friend):
+        if self.inventory and friend.inventory != []:
+            for item in self.inventory:
+                self.inventory.remove(item[0])
+                friend.inventory[0].add(item[0])
+            for f_item in friend.inventory:
+                friend.inventory.remove(f_item[0])
+                self.inventory[0].add(f_item[0])
+                return True
+        else:
+            return False 
