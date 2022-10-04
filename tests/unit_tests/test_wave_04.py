@@ -49,20 +49,20 @@ def test_swap_first_item_from_my_empty_returns_false():
     assert not result
 
 # @pytest.mark.skip
-# def test_swap_first_item_from_their_empty_returns_false():
-#     item_a = Item(category="clothing")
-#     item_b = Item(category="clothing")
-#     item_c = Item(category="clothing")
-#     fatimah = Vendor(
-#         inventory=[item_a, item_b, item_c]
-#     )
+def test_swap_first_item_from_their_empty_returns_false():
+    item_a = Item(category="clothing")
+    item_b = Item(category="clothing")
+    item_c = Item(category="clothing")
+    fatimah = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
 
-#     jolie = Vendor(
-#         inventory=[]
-#     )
+    jolie = Vendor(
+        inventory=[]
+    )
 
-#     result = fatimah.swap_first_item(jolie)
+    result = fatimah.swap_first_item(jolie)
 
-#     assert len(fatimah.inventory) == 3
-#     assert len(jolie.inventory) == 0
-#     assert not result
+    assert len(fatimah.inventory) == 3
+    assert len(jolie.inventory) == 0
+    assert not result
