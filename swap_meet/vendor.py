@@ -1,5 +1,5 @@
 class Vendor:
-    
+# Wave 1    
     def __init__(self, inventory=[]):
         # we can also do none or false using if else
         self.inventory = inventory 
@@ -12,6 +12,8 @@ class Vendor:
                 self.inventory.remove(item)
                 return item
         return False
+
+# Wave 2
     def get_by_category(self, category):
         item_list = []
         for item in self.inventory:
@@ -19,6 +21,7 @@ class Vendor:
                 item_list.append(item)
         return item_list
 
+# Wave 3
     def swap_items(self, friend_vendor, my_item, their_item):
         if my_item in self.inventory and their_item in friend_vendor.inventory:
             self.inventory.remove(my_item)
@@ -28,6 +31,19 @@ class Vendor:
             return True
         else:
             return False
+
+# Wave 4
+    def swap_first_item(self, friend_vendor):
+        if len(self.inventory)==0 or len(friend_vendor.inventory)==0:
+            return False
+        self_first_inventory = self.inventory[0]
+        friend_first_inventory = friend_vendor.inventory[0]
+        self.inventory.remove(self_first_inventory)
+        friend_vendor.inventory.remove(friend_first_inventory)
+        self.inventory.append(friend_first_inventory)
+        friend_vendor.inventory.append(self_first_inventory)
+        return True
+        
 
 
 
