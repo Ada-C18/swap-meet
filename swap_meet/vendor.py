@@ -8,10 +8,11 @@ class Vendor:
 
 # Wave 1    
     def __init__(self, inventory = None):    
-        if inventory:
-            self.inventory = inventory
-        else:
-            self.inventory = []
+        if inventory is None:
+            inventory = []
+        self.inventory = inventory
+    
+            
 
     def add(self, add_item):
         '''
@@ -74,7 +75,18 @@ class Vendor:
         if len(self.inventory) >= 1 and len(swap_vendor.inventory) >= 1:
             return self.swap_items(swap_vendor, self.inventory[0], swap_vendor.inventory[0])
          
-# Wave 5
+# Wave 6
+    def get_best_by_category(self, category):
+        '''
+        Returns the item with the best condition in a certain category.
+        '''
+
+    #def swap_best_by_category(self, other, my_priority, their_priority):
+        '''
+        Returns True if swap the best item (category) action is successful.
+        Otherwise, returns False.
+        '''
+
         
 
 

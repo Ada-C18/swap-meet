@@ -10,26 +10,30 @@ class Item:
     '''
 
 # Wave 2 & 5
-    def __init__(self, category = None):
-        # category & condition are the property of Item
-        #if condition:
-            #self.condition = condition
-        #else:
-            #self.condition = ""
+# category & condition are the property of Item 
 
-        self.condition = 0  
-
-        if category:
-            self.category = category
-        else:
-            self.category = ""
+    def __init__(self, category = None, condition = 0.0):      
+        if category is None:
+            category = ""
+        self.category = category 
+        self.condition = condition 
 
 
  # Wave 3
     def __str__(self):        
         return "Hello World!"
 
+
 # Wave 5
     def condition_description(self, condition):
         if self.condition == 1:
-            print ("Sparkling")
+            return "Sparkling"
+        elif self.condition == 2:
+            return "Nice Enough"
+        elif self.condition == 3:
+            return "So so"
+        elif self.condition == 4:
+            return"Bad Enough"
+        elif self.condition == 5:
+            return "Uhhh"
+
