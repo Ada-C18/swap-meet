@@ -64,7 +64,7 @@ class Vendor:
     
     def get_newest(self):
         if len(self.inventory) > 0:
-            newest = None
+            newest = self.inventory[0]
             youngest_age = self.inventory[0].age
             for item in self.inventory:
                 if item.age < youngest_age:
@@ -75,8 +75,9 @@ class Vendor:
 
     def swap_by_newest(self, other):
         if self.inventory and other.inventory:
-            self.swap_items(other, self.get_newest(), other.get_newest())
-            return True
+            self_newest = self.get_newest()
+            other_newest = other.get_newest()
+            return self.swap_items(other, self_newest, other_newest)
         return False
         
 
