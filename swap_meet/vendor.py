@@ -1,3 +1,4 @@
+
 class Vendor:
      # inventory (list of items)
     # accept item class instances
@@ -16,4 +17,10 @@ class Vendor:
             self.inventory.remove(item) #explore other removal methods
             return item
     
-       
+    def get_by_category(self, category):
+        items_list = []
+        for element in self.inventory:
+            if element.category == category:
+                items_list.append(element)
+
+        return items_list
