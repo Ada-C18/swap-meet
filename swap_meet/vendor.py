@@ -32,3 +32,12 @@ class Vendor:
         friend_first_item = friend.inventory[0]
         return self.swap_items(friend, my_first_item, friend_first_item)
     
+    def get_best_by_category(self, category):
+        return max(self.get_by_category(category), key=lambda item: item.condition, default=None)
+    
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        their_item = other.get_best_by_category(my_priority)
+        my_item = self.get_best_by_category(their_priority)
+        if not my_item or not their_item:
+            return False
+        return self.swap_items(other, my_item, their_item)
