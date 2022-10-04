@@ -76,16 +76,34 @@ class Vendor:
             return self.swap_items(swap_vendor, self.inventory[0], swap_vendor.inventory[0])
          
 # Wave 6
-    def get_best_by_category(self, category):
+    def get_best_by_category(self, given_category):
         '''
         Returns the item with the best condition in a certain category.
         '''
+        
+        items = self.get_by_category(given_category)
+        if len(items) > 0:
+            best_item = items[0]   
+            for item in items:
+                if item.condition > best_item.condition:
+                    best_item = item
+            return best_item
+        return None
+        
 
-    #def swap_best_by_category(self, other, my_priority, their_priority):
+    def swap_best_by_category(self, swap_vendor, my_priority, their_priority):
         '''
         Returns True if swap the best item (category) action is successful.
         Otherwise, returns False.
         '''
+        my_best_item = self.get_best_by_category(their_priority)
+        if my_best_item:
+            #my_best_item = self.get_best_by_category(their_priority)
+            their_best_item = self.get_best_by_category(my_priority)
+            return self.swap_items(swap_vendor, my_best_item, their_best_item)
+        #return False
+
+
 
         
 
