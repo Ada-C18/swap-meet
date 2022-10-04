@@ -1,3 +1,6 @@
+from hashlib import new
+
+
 class Vendor:
     
     def __init__(self, inventory=None):
@@ -76,6 +79,29 @@ class Vendor:
         return False
 
     
+
+    def get_newest(self):
+        age = 5000
+        newest_item = None
+
+        for item in self.inventory:
+            if item.age < age:
+                age = item.age
+                newest_item = item
+
+        return newest_item
+
+
     
-    def swap_by_newest(self):
-        pass
+    def swap_by_newest(self, other):
+        #what self wants to receive from other:
+        others_item = other.get_newest()
+
+        #what other wants to receive from self
+        self_item = self.get_newest()
+
+        if others_item and self_item:
+            self.swap_items(other, self_item, others_item)
+            return True
+        
+        return False
