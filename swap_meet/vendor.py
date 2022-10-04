@@ -21,7 +21,7 @@ class Vendor:
     def get_by_category(self,category=""):
         item_list=[]
         for item in self.inventory:
-            if item.category==category:
+            if item.category == category:
                 item_list.append(item)
         return item_list
     
@@ -29,6 +29,9 @@ class Vendor:
         self.vendor = vendor # friend vendor is swapping with 
         self.item = my_item # item vendor is giving away 
         self.item = their_item # their friend is giving away  
+
+        if my_item not in self.inventory or their_item not in vendor.inventory:
+            return False
 
         if my_item in self.inventory: 
             self.remove(my_item) 
@@ -38,7 +41,8 @@ class Vendor:
             self.add(their_item)
         return True
 
-        
+
+
 
 
     
