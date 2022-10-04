@@ -22,14 +22,14 @@ def test_electronics_has_default_category_and_to_str():
     assert str(electronics) == "A gadget full of buttons and secrets."
 
 # @pytest.mark.skip
-# def test_items_have_condition_as_float():
-#     items = [
-#         Clothing(condition=3.5),
-#         Decor(condition=3.5),
-#         Electronics(condition=3.5)
-#     ]
-#     for item in items:
-#         assert item.condition == pytest.approx(3.5)
+def test_items_have_condition_as_float():
+    items = [
+        Clothing(condition=3.5),
+        Decor(condition=3.5),
+        Electronics(condition=3.5)
+    ]
+    for item in items:
+        assert item.condition == pytest.approx(3.5)
 
 # @pytest.mark.skip
 # def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type():
