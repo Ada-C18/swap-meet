@@ -46,7 +46,9 @@ class Vendor:
     def swap_first_item(self, other_vendor):
         '''Swap the first item in this vendor's inventory with
         first item of other vendor.'''
-        if self.inventory or other_vendor.inventory:
+        # why do you have to put the conditional parameters to return T or F if
+        # the swap_items function already contained a return value of T or F
+        if self.inventory and other_vendor.inventory:
             my_item = self.inventory[0]
             their_item = other_vendor.inventory[0]
             self.swap_items(other_vendor, my_item, their_item)
