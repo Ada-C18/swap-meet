@@ -40,3 +40,17 @@ class Vendor:
         Returns a list of items in the inventory wihh the specified category
         """
         return [item for item in self.inventory if item.category == category]
+
+    def swap_items(self, other_vendor, my_item, their_item):
+        if my_item not in self.inventory:
+            return False
+        if their_item not in other_vendor.inventory:
+            return False
+        
+        self.add(their_item)
+        self.remove(my_item)
+
+        other_vendor.add(my_item)
+        other_vendor.remove(their_item)
+
+        return True
