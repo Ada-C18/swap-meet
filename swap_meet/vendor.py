@@ -11,3 +11,10 @@ class Vendor:
             return False
         self.inventory.remove(item)
         return item
+
+    def get_by_category(self, category):
+        items_list = []
+        for item in self.inventory:
+            if getattr(item, 'category') == category:
+                items_list.append(item)
+        return items_list
