@@ -22,7 +22,7 @@ class Vendor(Item):
                 result.append(each_item)
         return result
     
-    #Wave 3
+    # Wave 3
     def swap_items(self, friend, my_item, their_item):
         my_swap = False
         friend_swap = False
@@ -41,7 +41,7 @@ class Vendor(Item):
             return self.inventory 
         return False
     
-    #Wave 4
+    # Wave 4
     def swap_first_item(self, friend):
         if self.inventory != [] and friend.inventory != []:
             my_swap = self.inventory[0]
@@ -53,7 +53,8 @@ class Vendor(Item):
             return self.inventory
         else:
             return False
-            
+    
+  
         
 
 
