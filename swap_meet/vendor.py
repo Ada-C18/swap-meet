@@ -40,3 +40,19 @@ class Vendor:
 
         # return list of items that match the category
         return list_of_items
+
+    def swap_items(self, vendor, item_s, item_v):
+        
+        if item_s not in self.inventory or item_v not in vendor.inventory:
+            return False
+        # remove item_s from self 
+        self.remove(item_s)
+        # add item_s to vendor
+        vendor.add(item_s)
+        # remove item_v from vendor
+        vendor.remove(item_v)
+        # add item_v to self
+        self.add(item_v)
+        # return True
+        return True
+        
