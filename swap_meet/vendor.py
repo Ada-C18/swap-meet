@@ -31,5 +31,15 @@ class Vendor:
         return False
 
         
-    def swap_first_item(self):
-        pass
+    def swap_first_item(self, friend):
+        vendor_item = self.inventory
+        friend_item = friend.inventory
+        
+        if self.inventory and friend.inventory:
+            vendor_item = self.inventory.pop(0)
+            friend_item = friend.inventory.pop(0)
+            self.inventory.append(friend_item)
+            friend.inventory.append(vendor_item)
+            return True
+        return False
+
