@@ -28,3 +28,14 @@ class Vendor:
                 list_of_category_match.append(i)
         return list_of_category_match
         
+    def swap_items(self, Vendor, my_item, their_item):
+        if my_item not in Vendor.inventory or their_item not in self.inventory:
+            return False
+        Vendor.inventory.add(my_item)
+        self.inventory.remove(my_item)
+        Vendor.inventory.remove(their_item)
+        self.inventory.add(their_item)
+        return True
+    
+        
+    
