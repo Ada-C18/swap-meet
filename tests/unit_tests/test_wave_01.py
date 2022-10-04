@@ -5,6 +5,7 @@ from swap_meet.vendor import Vendor
 # @pytest.mark.skip
 def test_vendor_has_inventory():
     vendor = Vendor()
+    print(f"{vendor.inventory=}")
     assert len(vendor.inventory) == 0
 
 # @pytest.mark.skip
