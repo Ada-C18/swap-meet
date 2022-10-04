@@ -9,7 +9,6 @@ class Vendor:
         # set up default empty list for self.inventory
         # Conditional expression doc: 
         # https://docs.python.org/3/reference/expressions.html#conditional-expressions        
-        # empty list evaluates to Falsy 
         self.inventory = inventory if inventory else []
 
     def add(self, item):
