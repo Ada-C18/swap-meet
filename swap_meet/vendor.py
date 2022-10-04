@@ -40,6 +40,20 @@ class Vendor(Item):
             self.add(their_item)     
             return self.inventory 
         return False
+    
+    #Wave 4
+    def swap_first_item(self, friend):
+        if self.inventory != [] and friend.inventory != []:
+            my_swap = self.inventory[0]
+            friend_swap = friend.inventory[0]
+            self.remove(my_swap)
+            friend.add(my_swap) 
+            friend.remove(friend_swap)
+            self.add(friend_swap)
+            return self.inventory
+        else:
+            return False
+            
         
 
 
