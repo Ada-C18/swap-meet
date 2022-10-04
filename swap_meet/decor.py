@@ -5,6 +5,7 @@ class Decor(Item):
 # Wave 5    
     def __init__(self, condition = 0.0):
         self.category = "Decor"
+        self.condition = condition
         
     def __str__(self):
         return "Something to decorate your space."
