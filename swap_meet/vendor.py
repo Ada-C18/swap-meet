@@ -27,15 +27,15 @@ class Vendor:
                 items.append(item)
         return items
 
-    # def swap_items(self, another_vendor, my_item, their_item):
-    #     if my_item not in self.inventory or their_item not in another_vendor.inventory:
-    #         return False
-    #     else:
-    #         self.remove(my_item) 
-    #         another_vendor.add(my_item)
-    #         another_vendor.remove(their_item)
-    #         self.add(their_item)
-    #         return True
+    def swap_items(self, another_vendor, my_item, their_item):
+        if my_item not in self.inventory or their_item not in another_vendor.inventory:
+            return False
+        else:
+            self.remove(my_item) 
+            another_vendor.add(my_item)
+            another_vendor.remove(their_item)
+            self.add(their_item)
+            return True
 
 
 
@@ -47,6 +47,9 @@ vendor = Vendor()
 vendor = Vendor(inventory =["a", "b", "c"])
 
 
+
+
+
 item = Item()
 item_a=Item("clothing")
 item_b =Item("electronics")
@@ -54,22 +57,22 @@ item_c = Item("clothing")
 vendor = Vendor(
         inventory=[item_a, item_b, item_c]
     )
-items = vendor.get_by_category("clothing")
 
-# my_items = Item()
 
-# item_a = Item(category="clothing")
-# item_b = Item(category="clothing")
-# item_c = Item(category="clothing")
-# fatimah = Vendor(
-#     inventory=[item_a, item_b, item_c]
-#     )
 
-# item_d = Item(category="electronics")
-# item_e = Item(category="decor")
-# jolie = Vendor(
-#     inventory=[item_d, item_e]
-#     )
+
+my_item = item_a = Item(category="clothing")
+my_item = item_b = Item(category="clothing")
+my_item =item_c = Item(category="clothing")
+fatimah = Vendor(
+    inventory=[item_a, item_b, item_c]
+    )
+
+their_item = item_d = Item(category="electronics")
+their_item =item_e = Item(category="decor")
+jolie = Vendor(
+        inventory=[item_d, item_e]
+    )
 
 
 
