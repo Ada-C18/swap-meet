@@ -3,7 +3,7 @@
 class Vendor:
     # def __init__(self, inventory = []):
     # By having MUTABLE TYPE in DEFAULT argument, HAVE PROBLEMS in INTERGRATION TEST ISSUE
-    # default value none is immutable. mutable xx
+    # default value none is immutable. mutable type should not be used.
     # self.inventory : list of Strings, multiple items; Vendor(inventory=[item_a, item_b, item_c]
 
 # Wave 1    
@@ -50,6 +50,10 @@ class Vendor:
 
 # Wave 3
     def swap_items(self, swap_vendor, my_item, their_item): 
+        '''
+        Returns True if swap items action is successful.
+        Otherwise, returns False.
+        '''
         if their_item in swap_vendor.inventory and my_item in self.inventory:
             # Mistake made; using swap_vendor.inventory
             # Class methods must be called on a class objects, not a list 
@@ -61,11 +65,16 @@ class Vendor:
         #- okay to delete?
         return False 
 
-# Wave 4
+# Wave 4      
     def swap_first_item(self, swap_vendor):
+        '''
+        Returns True if swap first avaiable item action is successful.
+        Otherwise, returns False.
+        '''
         if len(self.inventory) >= 1 and len(swap_vendor.inventory) >= 1:
             return self.swap_items(swap_vendor, self.inventory[0], swap_vendor.inventory[0])
          
+# Wave 5
         
 
 
