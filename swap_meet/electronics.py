@@ -1,12 +1,20 @@
 from swap_meet.item import Item
 
-class Electronics:
+class Electronics(Item):
     def __init__(self, category="Electronics", condition=0.0):
         self.category = category
         self.condition = condition
 
     def __str__(self):
-        return Item.__str__(self.category)
+        return "A gadget full of buttons and secrets."
 
-    def condition_description(self):
-        return Item.condition_description(self.condition)
+
+
+
+    #     self.category = category
+    #     self.condition = condition
+
+    
+
+    # def condition_description(self):
+    #     return Item.condition_description(self.condition)
