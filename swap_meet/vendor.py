@@ -1,8 +1,11 @@
 class Vendor:
     '''add doc string'''
-    def __init__(self, inventory=[]):
-        print(f"🎃 {inventory}")
-        self.inventory = inventory  # list of item objects
+    def __init__(self, inventory=None):
+        # print(f"🎃 {inventory}")
+        if inventory is None:
+            self.inventory = []
+        else:
+            self.inventory = inventory  # list of item objects
 
     def add(self, item):
         self.inventory.append(item)
