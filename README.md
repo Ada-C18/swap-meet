@@ -1,5 +1,8 @@
 # Swap Meet
+## COLLABORATION NOTES:
 
+https://github.com/dainizzz/swap-meet
+https://replit.com/@adacore/SwapMeetAdditionalTopics#main.py
 ## Skills Assessed
 
 - Following directions and reading comprehension
