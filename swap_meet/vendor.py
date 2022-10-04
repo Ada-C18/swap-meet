@@ -53,11 +53,11 @@ class Vendor:
                         self.current_condition = item.condition
                         self.best_item = item
         return self.best_item
-    def swap_best_by_category(self, friend, my_priority, their_priority):
+    def swap_best_by_category(self, other, my_priority, their_priority):
         
         self.my_item = Vendor.get_best_by_category(self, category = their_priority)
-        friend.their_item = Vendor.get_best_by_category(friend, category = my_priority)
-        if self.my_item and friend.their_item:
-            Vendor.swap_items(self, friend, my_item = self.my_item, their_item = friend.their_item)
+        other.their_item = Vendor.get_best_by_category(other, category = my_priority)
+        if self.my_item and other.their_item:
+            Vendor.swap_items(self, other, my_item = self.my_item, their_item = other.their_item)
             return True
         return False
