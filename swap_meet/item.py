@@ -1,9 +1,18 @@
+from attr import validate
+
 class Item:
-    def __init__(self, category = ""):
+    def __init__(self, category = None):
         #  category is an empty string
-        self.category = category
+        if category is None:
+            category = ""
+        self.category = category       
+
+    def __str__(self):
+        return "Hello World!"
+        
         
 
+    
     
     
         

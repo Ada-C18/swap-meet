@@ -1,11 +1,11 @@
 from xmlrpc.client import INVALID_ENCODING_CHAR
 
-from pytest import Item
-
-
+########### wave 1 ###########
 class Vendor:
-    def __init__(self, inventory = []):
+    def __init__(self, inventory = None):
         # inventory is a empty list
+        if inventory is None:
+            inventory = []
         self.inventory = inventory
     
     def add(self, item):
@@ -18,13 +18,46 @@ class Vendor:
         self.inventory.remove(item)
         return item
 
+
+
+    ########### wave 2 ###########
     def get_by_category(self, str_category):
         category_list = []
         for string in self.inventory:
             if string.category == str_category:
                 category_list.append(string)
         return category_list
-       
+
+
+
+    ########### wave 3 ############
+    def swap_items(self, another_vendor, my_item, their_item):
+        if my_item not in self.inventory or\
+           their_item not in another_vendor.inventory:
+            return False
+
+        another_vendor.inventory.append(self.remove(my_item))
+        another_vendor.inventory.remove(their_item)
+        self.inventory.append(their_item)
+   
+        # self.inventory.remove(my_item)
+        # another_vendor.inventory.append(my_item)
+        # another_vendor.inventory.remove(their_item)
+        # self.inventory.append(their_item)
+
+        return True
+
+
+    ########### wave 4 ############
+    
+
+
+
+    ########### wave 4 ############
+    def swap_first_item(self):
+        pass 
+        
+
 
             
         
