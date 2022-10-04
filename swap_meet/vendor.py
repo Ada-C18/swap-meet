@@ -13,5 +13,6 @@ class Vendor:
             return False
         elif item in self.inventory: 
             self.inventory.remove(item)
-        
-        return self.item 
+        return self.item
+
+
