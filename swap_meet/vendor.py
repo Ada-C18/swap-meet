@@ -1,6 +1,8 @@
+from swap_meet.item import Item
+
 class Vendor:
     def __init__(self, inventory = []):
-        self.inventory = inventory
+        self.inventory = inventory.copy()
 
     def add(self, item):
         self.inventory.append(item)
