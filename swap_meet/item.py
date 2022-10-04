@@ -19,4 +19,4 @@ class Item:
             case 4:
                 return 'Open but unused'
             case 5:
-                return 'Brand New'
+                return 'Brand new'
