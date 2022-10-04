@@ -40,14 +40,21 @@ class Vendor:
 
     def get_best_by_category(self, category):
         best_condition = -1
-        for item in self.inventory:
-            if item.category == category:
+        category_list = self.get_by_category(category)
+        if category_list:
+            for item in category_list:
                 if item.condition > best_condition:
                     best_condition = item.condition
                     best_item = item
-        # Returns None if there are no items that match the specified category
-        try:
-            return best_item
-        except UnboundLocalError:
+        else:
             return None
+
+        return best_item
+        # Returns None if there are no items that match the specified category
+        # try:
+        #     return best_item
+        # except UnboundLocalError:
+        #     return None
+
+    # def swap_best_by_category(self, other, my_priority, their_priority):
 
