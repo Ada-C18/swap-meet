@@ -33,12 +33,9 @@ class Vendor:
         self.my_item = my_item
         self.their_item = their_item
         
-        if self.their_item not in friend.inventory:
+        if self.their_item not in friend.inventory or self.my_item not in self.inventory:
             return False
-        
-        if self.my_item not in self.inventory:
-            return False
-        
+
         if self.my_item:
             friend.inventory.append(my_item)
             self.inventory.remove(my_item)
@@ -48,10 +45,31 @@ class Vendor:
             friend.inventory.remove(their_item)
             return True
         
+    def swap_first_item(self, friend):
+        self.friend = friend
+        
+        if len(friend.inventory)==0 or len(self.inventory)==0 :
+            return False
+        
+        self_item = self.inventory.pop(0)
+        friend.inventory.append(self_item)
+
+        friend_item= friend.inventory.pop(0)
+        self.inventory.append(friend_item)
+
+        return True
 
 
 
-#   - It removes the `my_item` from this `Vendor`'s inventory, and adds it to the friend's inventory
-#   - It removes the `their_item` from the other `Vendor`'s inventory, and adds it to this `Vendor`'s inventory
+
+
+
+# in Wave 4 we will write one method, `swap_first_item`.
+
+# - Instances of `Vendor` have an instance method named `swap_first_item`
+#   - It takes one argument: an instance of another `Vendor`, representing the friend that the vendor is swapping with
+#   - This method considers the first item in the instance's `inventory`, and the first item in the friend's `inventory`
+#   - It removes the first item from its `inventory`, and adds the friend's first item
+#   - It removes the first item from the friend's `inventory`, and adds the instances first item
 #   - It returns `True`
-#   - If this `Vendor`'s inventory doesn't contain `my_item` or the friend's inventory doesn't contain `their_item`, the method returns `False`
+#   - If either itself or the friend have an empty `inventory`, the method returns `False`
