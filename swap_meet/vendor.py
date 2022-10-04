@@ -42,15 +42,19 @@ class Vendor:
     def exciting_inventory(self, item):
         #if item in self.inventory return True
         return item in self.inventory
-
-
-
-
+        #or
         # if item in self.inventory:
         #     return True
         # else:
         #     return False
+    
 
-        
+    def swap_first_item(self,friend):
+        #If either itself or the friend have an empty inventory return False
+        if not self.inventory or not friend.inventory:
+            return False
+        #use swap_items(), removes the first item from its inventory, and adds the friend's first item
+        #removes the first item from the friend's inventory, and adds the instances first item
+        return self.swap_items(friend, self.inventory[0],friend.inventory[0])
             
             
