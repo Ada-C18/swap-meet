@@ -32,6 +32,13 @@ class Vendor:
 
         if my_item not in self.inventory or their_item not in vendor.inventory:
             return False
+        
+        #all tests pass without this code that checks for length
+        # unsure why, but added it anyway to be thorough. 
+        if len(self.inventory) == 0:  
+            return False
+        if len(vendor.inventory) == 0: 
+            return False 
 
         if my_item in self.inventory: 
             self.remove(my_item) 
