@@ -45,5 +45,9 @@ class Vendor:
                 if item.condition > best_condition:
                     best_condition = item.condition
                     best_item = item
-        return best_item
+        # Returns None if there are no items that match the specified category
+        try:
+            return best_item
+        except UnboundLocalError:
+            return None
 
