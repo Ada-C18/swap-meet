@@ -1,6 +1,8 @@
+from swap_meet.item import Item
 class Vendor:
     def __init__(self, inventory = []):
         self.inventory = inventory
+        
         
 
     def add(self, item):
@@ -16,23 +18,62 @@ class Vendor:
         else:
              return False
 
+
+    
+    def get_by_category(self, category):
+        items = []
+        for item in self.inventory:
+            if item.category == category:
+                items.append(item)
+        return items
+
+    # def swap_items(self, another_vendor, my_item, their_item):
+    #     if my_item not in self.inventory or their_item not in another_vendor.inventory:
+    #         return False
+    #     else:
+    #         self.remove(my_item) 
+    #         another_vendor.add(my_item)
+    #         another_vendor.remove(their_item)
+    #         self.add(their_item)
+    #         return True
+
+
+
+    
+
+
 vendor = Vendor()
-inventory = ["a", "b", "c"]
-vendor = Vendor(inventory)
+
+vendor = Vendor(inventory =["a", "b", "c"])
+
+
+item = Item()
+item_a=Item("clothing")
+item_b =Item("electronics")
+item_c = Item("clothing")
+vendor = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+items = vendor.get_by_category("clothing")
+
+# my_items = Item()
+
+# item_a = Item(category="clothing")
+# item_b = Item(category="clothing")
+# item_c = Item(category="clothing")
+# fatimah = Vendor(
+#     inventory=[item_a, item_b, item_c]
+#     )
+
+# item_d = Item(category="electronics")
+# item_e = Item(category="decor")
+# jolie = Vendor(
+#     inventory=[item_d, item_e]
+#     )
 
 
 
 
-
-
-
-
-
-
-
-
-    # def swap_items(self,vendor_2 my_item, their_item):
-    #     if my_item in self.inventory and their_item in vendor_2.inventory
 
 
 
