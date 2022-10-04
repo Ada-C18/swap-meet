@@ -20,3 +20,14 @@ class Vendor:
                 item_list.append(item)
         return item_list
     # We can do list comprehension for this
+
+    def swap_items(self, friend, my_item, their_item):  
+        if my_item not in self.inventory or their_item not in friend.inventory:
+            return False
+
+        self.inventory.remove(my_item)
+        friend.inventory.remove(their_item)
+        self.inventory.append(their_item)
+        friend.inventory.append(my_item)
+        return True
+
