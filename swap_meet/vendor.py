@@ -43,11 +43,8 @@ class Vendor:
             return True
 
     def swap_first_item(self, vendor):
-        # try refactoring using self.swap_items as a helper function
         if self.inventory and vendor.inventory:
-            swaperoo = self.inventory.pop(0)
-            self.inventory.insert(0, vendor.inventory.pop(0))
-            vendor.inventory.insert(0, swaperoo)
+            self.swap_items(vendor, self.inventory[0], vendor.inventory[0])
             return True
 
         return False
