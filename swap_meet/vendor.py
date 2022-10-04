@@ -2,6 +2,10 @@ class Vendor:
     def __init__(self, inventory=None) -> None:
         self.inventory = inventory if inventory is not None else []
 
+    def __str__(self, item):
+        f"{self.item}"
+        # return f"my_item: {self.my_item}, their_item: {self.their_item}"
+
     def add(self, item):
         self.inventory.append(item)
         return item
@@ -30,8 +34,7 @@ class Vendor:
         self.add(their_item)
         return True
 
-    # def __str__(self):
-        # return f"my_item: {self.my_item}, their_item: {self.their_item}"
+    
 
     def swap_first_item(self, friend):
         if not self.inventory or not friend.inventory:
