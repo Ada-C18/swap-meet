@@ -56,3 +56,14 @@ class Vendor:
         # return True
         return True
         
+    def swap_first_item(self, vendor):
+        # figure out what index[0] is for each vendor's inventory
+        if not self.inventory or not vendor.inventory:
+            return False
+
+        item_s = self.inventory[0]
+        item_v = vendor.inventory[0]
+
+
+        # run swap_items with specified index[0] items
+        return self.swap_items(vendor, item_s, item_v)
