@@ -28,9 +28,7 @@ def test_get_no_matching_items_by_category():
     item_a = Item(category="clothing")
     item_b = Item(category="clothing")
     item_c = Item(category="clothing")
-    vendor = Vendor(
-        inventory=[item_a, item_b, item_c]
-    )
+    vendor = Vendor(inventory=[item_a, item_b, item_c])
 
     items = vendor.get_by_category("electronics")
 
@@ -39,4 +37,7 @@ def test_get_no_matching_items_by_category():
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
     assert len(items) == 0
+    assert item_a in vendor.inventory
+    assert item_b in vendor.inventory
+    assert item_c in vendor.inventory
     

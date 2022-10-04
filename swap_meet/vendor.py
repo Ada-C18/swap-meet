@@ -36,8 +36,9 @@ class Vendor:
         if not self.inventory or not vendor.inventory:
             return False
         else:
-            self.add(vendor.remove(vendor.inventory[0]))
-            vendor.add(self.remove(self.inventory[0]))
+            self.swap_items(vendor, self.inventory[0], vendor.inventory[0])
+            # self.add(vendor.remove(vendor.inventory[0]))
+            # vendor.add(self.remove(self.inventory[0]))
             return True
         
     def get_best_by_category(self, category):

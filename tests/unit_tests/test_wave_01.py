@@ -54,4 +54,6 @@ def test_removing_not_found_is_false():
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
     assert result == False
+    assert item not in vendor.inventory
+    assert len(vendor.inventory) == 3
     
