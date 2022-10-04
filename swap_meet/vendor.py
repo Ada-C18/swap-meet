@@ -2,8 +2,11 @@ class Vendor:
     """creates a vendor object with an attribute called "inventory" and 2 methods: 
     "add" that adds items to the inventory, and 
     "remove" that removes item from the inventory."""
-    def __init__(self, inventory = []):
-        self.inventory = inventory
+    def __init__(self, inventory=None):
+        if inventory is None:
+            self.inventory = []
+        else:
+            self.inventory = inventory
         
     def add(self, item):
         """adds given item to the inventory. Returns the item that was added."""
