@@ -2,7 +2,7 @@
 module: vendor.py
     class: Vendor
         attribute: .inventory
-        mothod: .add .remove
+        method: .add .remove .get_by_category .swap_items .swap_first_item
 '''
 
 from .item import Item
@@ -44,3 +44,12 @@ class Vendor:
             self.add(their_item)
             return True
          
+    def swap_first_item(self, another_vendor):
+        if not self.inventory or not another_vendor.inventory: 
+            return False
+        else:
+            temp1 = self.inventory[0]
+            temp2 = another_vendor.inventory[0]
+            self.inventory[0] = temp2
+            another_vendor.inventory[0] = temp1
+            return True
