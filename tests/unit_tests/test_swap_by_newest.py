@@ -4,7 +4,30 @@ from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
 
-def test_swap_newest():
+def test_get_newest_returns_correct_item():
+    item_a = Decor(condition=2.0, age=3)
+    item_b = Electronics(condition=4.0, age=2)
+    item_c = Decor(condition=4.0, age=1)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    result = tai.get_newest()
+
+    assert result == item_c
+    assert item_a in tai.inventory
+    assert item_b in tai.inventory
+    assert item_c in tai.inventory
+
+def test_get_newest_returns_false_for_empty_list():
+    jesse = Vendor(inventory=[])
+
+    result = jesse.get_newest()
+
+    assert result == False
+    assert len(jesse.inventory) == 0
+    
+def test_swap_newest_swaps_correct_items():
     # Arrange
     # me
     item_a = Decor(condition=2.0, age=3)
