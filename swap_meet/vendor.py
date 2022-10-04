@@ -19,6 +19,7 @@ class Vendor:
             return False
 
     def get_by_category(self,category):
+        #create list and if item,category equal category add item to list
         category_list = []
         for item in self.inventory:
             if item.category == category:
@@ -26,6 +27,7 @@ class Vendor:
         return category_list
 
     def swap_items(self, friend, my_item, their_item):
+        
         if not self.exciting_inventory(my_item):
             return False
         elif not friend.exciting_inventory(their_item):
@@ -38,7 +40,12 @@ class Vendor:
             return True
             
     def exciting_inventory(self, item):
+        #if item in self.inventory return True
         return item in self.inventory
+
+
+
+
         # if item in self.inventory:
         #     return True
         # else:
