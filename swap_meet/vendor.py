@@ -41,3 +41,12 @@ class Vendor:
             self.inventory.append(their_item)
             vendor.inventory.append(my_item)
             return True
+
+    def swap_first_item(self, vendor):
+        if self.inventory and vendor.inventory:
+            swaperoo = self.inventory.pop(0)
+            self.inventory.insert(0, vendor.inventory.pop(0))
+            vendor.inventory.insert(0, swaperoo)
+            return True
+
+        return False
