@@ -24,3 +24,16 @@ class Vendor:
                 items_list.append(element)
 
         return items_list
+
+    def swap_items(self,vendor2,item1,item2):
+        #print(f"Vendor 1:{self.inventory}, Vendor 2:{vendor2.inventory}")
+        if item1 in self.inventory and item2 in vendor2.inventory:
+            self.inventory.remove(item1)
+            vendor2.inventory.remove(item2)
+            vendor2.inventory.append(item1)
+            self.inventory.append(item2)
+            
+            return True
+        #print(f"Vendor 1:{self.inventory}, Vendor 2:{vendor2.inventory}")
+        else:
+            return False
