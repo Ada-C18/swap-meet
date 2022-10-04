@@ -25,14 +25,14 @@ class Vendor:
         return category_list
 
     """
-    Swap_items vendor method removes and adds items from both vendor's inventories.
+    Swap_items vendor method checks if the items are in each vendor's inventory,
+    then removes and adds items from both vendor's inventories.
     """
     def swap_items(self, other_vendor, my_item, their_item):
-        #remove
-        self.remove(my_item)
-        other_vendor.remove(their_item)
-        #add
-        self.add(their_item)
-        other_vendor.add(my_item)
-
-        return True
+        
+        if my_item not in self.inventory or their_item not in other_vendor.inventory:
+            return False
+        else:
+            self.remove(my_item) and other_vendor.remove(their_item)
+            self.add(their_item) and other_vendor.add(my_item)
+            return True
