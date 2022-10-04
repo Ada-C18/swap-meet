@@ -17,7 +17,7 @@ class Vendor:
 
     def get_by_category(self, category):
         items_by_category = []
-        
+
         for item in self.inventory:
             if category == item.category:
                 items_by_category.append(item)
@@ -32,3 +32,13 @@ class Vendor:
         self.inventory.append(their_item)
         vendor.inventory.append(my_item)
         return True 
+
+    def swap_first_item(self, vendor):
+        if not self.inventory or not vendor.inventory:
+            return False
+        
+        my_first_inventory = self.inventory.pop(0)
+        friend_first_inventory = vendor.inventory.pop(0)
+        self.inventory.append(friend_first_inventory)
+        vendor.inventory.append(my_first_inventory)
+        return True
