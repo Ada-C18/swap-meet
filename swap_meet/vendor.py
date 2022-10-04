@@ -77,7 +77,18 @@ class Vendor():
             #if self or friend have an empty inventory return false
 
     def swap_first_item(self, friend):
-        if self.inventory and friend.inventory != []:
+        if len(self.inventory) < 1 or len(friend.inventory) < 1:
+            return False
+        else:
+            first_item = self.inventory.pop(0)
+            other_first_item = friend.inventory.pop(0)
+
+            self.remove(first_item)
+            friend.add(first_item)
+            friend.remove(other_first_item)
+            self.add(other_first_item)
+            return True
+
             for item in self.inventory:
                 self.inventory.remove(item[0])
                 friend.inventory[0].add(item[0])
@@ -85,5 +96,3 @@ class Vendor():
                 friend.inventory.remove(f_item[0])
                 self.inventory[0].add(f_item[0])
                 return True
-        else:
-            return False 
