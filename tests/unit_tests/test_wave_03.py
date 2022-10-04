@@ -93,24 +93,24 @@ def test_swap_items_when_their_item_is_missing_returns_false():
     assert not result
 
 # @pytest.mark.skip
-# def test_swap_items_from_my_empty_returns_false():
-#     fatimah = Vendor(
-#         inventory=[]
-#     )
+def test_swap_items_from_my_empty_returns_false():
+    fatimah = Vendor(
+        inventory=[]
+    )
 
-#     item_d = Item(category="electronics")
-#     item_e = Item(category="decor")
-#     jolie = Vendor(
-#         inventory=[item_d, item_e]
-#     )
+    item_d = Item(category="electronics")
+    item_e = Item(category="decor")
+    jolie = Vendor(
+        inventory=[item_d, item_e]
+    )
 
-#     nobodys_item = Item(category="clothing")
+    nobodys_item = Item(category="clothing")
 
-#     result = fatimah.swap_items(jolie, nobodys_item, item_d)
+    result = fatimah.swap_items(jolie, nobodys_item, item_d)
 
-#     assert len(fatimah.inventory) == 0
-#     assert len(jolie.inventory) == 2
-#     assert not result
+    assert len(fatimah.inventory) == 0
+    assert len(jolie.inventory) == 2
+    assert not result
 
 # @pytest.mark.skip
 # def test_swap_items_from_their_empty_returns_false():
