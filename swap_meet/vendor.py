@@ -1,7 +1,8 @@
 class Vendor:
 # Wave 1    
-    def __init__(self, inventory=[]):
-        # we can also do none or false using if else
+    def __init__(self, inventory = None):
+        if inventory is None:
+            inventory = []
         self.inventory = inventory 
     def add(self,item):
         self.inventory.append(item)
