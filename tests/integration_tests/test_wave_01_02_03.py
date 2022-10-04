@@ -43,9 +43,10 @@ def test_integration_wave_01_02_03():
     # swap items
     item3 = Item(category="Decor")
     other_vendor.add(item3)
-
+    # assert id(vendor.inventory) == id(other_vendor.inventory)
     vendor.swap_items(other_vendor, item2, item3)
-
+    # assert item2 in vendor.inventory
+    # assert type(vendor.inventory) == list
     assert len(vendor.inventory) == 1
     assert len(other_vendor.inventory) == 1
     assert item2 in other_vendor.inventory
