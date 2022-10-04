@@ -1,10 +1,10 @@
+from operator import inv
 from swap_meet.item import Item
 
-item1 = Item()
-item1.get_by_category()
-
 class Vendor:
-    def __init__(self, inventory = []):
+    def __init__(self, inventory = None):
+        if inventory is None:
+            inventory = []
         self.inventory = inventory
 
     def add(self, item):
@@ -22,6 +22,18 @@ class Vendor:
         item_list = []
         for item in self.inventory:
             if item.category == category:
-                item_list.append(item)
-            
+                item_list.append(item) 
         return item_list
+    
+    def swap_items(self, friend_list, my_item, their_item):
+        if my_item in self.inventory:
+            if their_item in friend_list.inventory:
+                friend_list.remove(their_item)
+                friend_list.add(my_item)
+                self.add(their_item)
+                self.remove(my_item)
+                return True
+            else:
+                return False
+        else:
+            return False
