@@ -5,6 +5,8 @@ module: vendor.py
         mothod: .add .remove
 '''
 
+from .item import Item
+
 class Vendor:
 
     def __init__(self, inventory = None):
@@ -24,3 +26,10 @@ class Vendor:
             return one_item
         else:
             return False
+
+    def get_by_category(self, category): # category in str
+        items = []
+        for item in self.inventory:
+            if item.category == category:
+                items.append(item)
+        return items
