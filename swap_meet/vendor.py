@@ -14,7 +14,7 @@ class Vendor(Item):
                 self.inventory.remove(item)
                 return item
         return False
-      
+    # Wave 2 
     def get_by_category(self, category):
         result = []
         for each_item in self.inventory:
@@ -22,7 +22,25 @@ class Vendor(Item):
                 result.append(each_item)
         return result
     
+    #Wave 3
+    def swap_items(self, friend, my_item, their_item):
+        my_swap = False
+        friend_swap = False
+        for i in self.inventory:
+            if i == my_item:
+                my_swap = True
+        for fi in friend.inventory:
+            if fi == their_item:
+                friend_swap = True
         
+        if my_swap == True and friend_swap == True:  
+            self.remove(my_item)
+            friend.add(my_item)
+            friend.remove(their_item)
+            self.add(their_item)     
+            return self.inventory 
+        return False
         
-      
-      
+
+
+            
