@@ -18,3 +18,13 @@ class Vendor:
             if item.category == category:
                 items.append(item)
         return items
+    def swap_first_item(self, friend):
+        if len(self.inventory) == 0 or len(friend.inventory) == 0:
+            return False
+        else:
+            self.inventory.append(friend.inventory[0])
+            friend.inventory.append(self.inventory[0])
+            self.inventory.remove(self.inventory[0])
+            friend.inventory.remove(friend.inventory[0])
+        return True
+        
