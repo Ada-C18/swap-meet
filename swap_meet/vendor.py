@@ -48,6 +48,20 @@ class Vendor:
             self.add(their_item)
         return True
 
+    def swap_first_item(self, vendor):
+        if len(self.inventory) == 0:  
+            return False
+        if len(vendor.inventory) == 0: 
+            return False
+            
+        self.vendor = vendor #friend vendor is swapping with
+        vendor_first_item = self.inventory[0] 
+        friend_first_item = vendor.inventory[0]
+        self.inventory[0] = friend_first_item 
+        vendor.inventory[0] = vendor_first_item 
+        return True 
+
+
 
 
 
