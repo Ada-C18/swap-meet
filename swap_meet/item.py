@@ -21,4 +21,4 @@ class Item:
         elif self.condition ==5:
             return "New"
         else:
-            return "Recicle"
+            return "Recycle"

@@ -1,7 +1,9 @@
 from swap_meet.item import Item
 
-class Decor:
-    def __init__(self, condition=0, age=0):
-        super().__int__(category='Decor', condition=condition, age=age)#Inheritance importing category from Item
+class Decor(Item):
+    def __init__(self, condition=0, category="Decor", age=0):
+        self.category = category
+        self.condition = condition
+        self.age = age
     def __str__(self):
         return "Something to decorate your space."
