@@ -31,3 +31,4 @@ class Vendor:
         my_first_item = self.inventory[0]
         friend_first_item = friend.inventory[0]
         return self.swap_items(friend, my_first_item, friend_first_item)
+    
