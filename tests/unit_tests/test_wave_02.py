@@ -33,6 +33,9 @@ def test_get_no_matching_items_by_category():
     )
 
     items = vendor.get_by_category("electronics")
+    
+    assert item_a not in items
+    assert item_a != items
 
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
