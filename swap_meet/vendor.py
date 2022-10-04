@@ -1,10 +1,9 @@
 from xml.dom.expatbuilder import theDOMImplementation
+from swap_meet.item import Item
 
-
-class Vendor:
+class Vendor(Item):
     '''add doc string'''
     def __init__(self, inventory=None):
-        # print(f"🎃 {inventory}")
         if inventory is None:
             self.inventory = []
         else:
@@ -57,4 +56,29 @@ class Vendor:
 
 ### Wave 6
             
+    def get_best_by_category(self, category):
+        self.best_item = 0.0
+        best_item_count = 0
+        
+        for item in self.inventory:
+            if item.category == category:
+                best_item_count += 1
+                if item.condition > self.best_item:
+                    self.best_item = item.condition
+
+        for item in self.inventory:
+            if item.condition == self.best_item:
+                return item
+        
+        if best_item_count == 0:
+            return None
+        
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        if my_priority == other.get_best_by_category and their_priority == self.get_best_by_category:
+            self.inventory.add(my_priority)
+            self.inventory.remove(their_priority)
+            other.add(their_priority)
+            other.remove(my_priority)
+        else:
+            return False
 
