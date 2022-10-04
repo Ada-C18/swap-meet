@@ -1,4 +1,4 @@
-#from swap_meet.vendor import Vendor
+
 class Item:
     def __init__(self, category = "", condition = 0):
        self.category = category
