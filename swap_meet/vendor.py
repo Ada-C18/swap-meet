@@ -1,7 +1,9 @@
 from .item import Item
 
 class Vendor():
-    def __init__(self, inventory = []):
+    def __init__(self, inventory = None):
+        if inventory is None:
+            inventory = []
         self.inventory = inventory
 
     def add(self, item):
@@ -45,6 +47,25 @@ class Vendor():
             return False
         self.swap_items(friend, self.inventory[0],friend.inventory[0])
         return True
+
+    def get_best_by_category(self, category):
+        max_condition = 0
+        max_item = None
+        items_list = self.get_by_category(category)
+        for item in items_list:
+            if item.condition > max_condition:
+                max_condition = item.condition
+                max_item = item
+        return max_item
+    
+           
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_inventory_list = self.get_best_by_category(their_priority)
+
+
+
+                
 
         
 
