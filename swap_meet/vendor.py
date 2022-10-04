@@ -26,21 +26,19 @@ class Vendor:
         return item_list
     
     def swap_items(self, vendor, my_item, their_item):
-        self.vendor = vendor 
-        self.my_item = my_item # this vendor giving away 
-        self.their_item = their_item # their friend giving away  
+        self.vendor = vendor # friend vendor is swapping with 
+        self.item = my_item # item vendor is giving away 
+        self.item = their_item # their friend is giving away  
 
-        for my_item in self.inventory: 
-            self.inventory.remove(my_item)
-            vendor.inventory.append(my_item) 
-        for their_item in vendor.inventory:
-            vendor.inventory.remove(their_item)
-            self.inventory.append(their_item)
+        if my_item in self.inventory: 
+            self.remove(my_item) 
+            vendor.add(my_item) 
+        if their_item in vendor.inventory:
+            vendor.remove(their_item)
+            self.add(their_item)
+        return True
 
-        if my_item not in self.inventory or their_item not in vendor.inventory:
-            return False
-        else: 
-            return True 
+        
 
 
     
