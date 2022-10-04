@@ -60,3 +60,12 @@ class Vendor:
         return self.swap_items(friend, self.inventory[0],friend.inventory[0])
             
             
+    def get_best_by_category(self, category):
+        max_condition =0
+        max_item =None
+        items_list = self.get_by_category(category)
+        for item in items_list:
+            if item.condition > max_condition:
+                max_condition = item.condition
+                max_item = item
+        return max_item
