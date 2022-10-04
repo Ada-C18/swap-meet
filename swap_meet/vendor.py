@@ -23,6 +23,10 @@ class Vendor:
         return category_items
 
     def swap_items(self, swapper, my_item, their_item):
-        swapper.add(self.inventory.pop(self.inventory.index(my_item)))
-        self.add(swapper.inventory.pop(swapper.inventory.index(their_item)))
-        return True
+        if my_item in self.inventory and their_item in swapper.inventory:
+            # Pops each item from their respective inventories and swaps them using Vendor.add()
+            swapper.add(self.inventory.pop(self.inventory.index(my_item)))
+            self.add(swapper.inventory.pop(swapper.inventory.index(their_item)))
+            return True
+        else:
+            return False
