@@ -1,4 +1,5 @@
-# import swap_meet.item
+from swap_meet.item import Item
+
 class Vendor:
     def __init__(self, inventory = []):
         self.inventory = inventory
@@ -48,3 +49,28 @@ class Vendor:
             friend.remove(friend.inventory[0])
             
             return True
+    
+    def get_best_by_category(self, category):
+#COULD COME BACK AND TRY USING A MAX FXN AND LAMDA EXPRESSION
+#If there are no items in the inventory that match the category, it returns None
+
+        # instance = self.get_by_category(category)
+        # attribute = instance.a_category
+        best_condition = None
+        best_condition_val = 0
+
+#Loop through the items of the correct category
+        for item in self.get_by_category(category):
+#If the condition of the item is more than the current best condition of all items
+            if item.condition > best_condition_val:
+#Update the best_condition_val with the current highest condition
+                best_condition_val = item.condition
+#append the value of best_condition with the item with the current highest condition
+                best_condition = item 
+        # if best_condition == "":
+            # return None
+        return best_condition
+
+
+    def swap_best_by_category():
+        pass
