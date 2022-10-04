@@ -3,9 +3,11 @@ from swap_meet.item import Item
 class Vendor:
     def __init__(self, inventory= []):
         self.inventory = inventory
+
     def add(self, item):
         self.inventory.append(item)
         return item
+
     def remove(self,item):
         if item in self.inventory:
             self.inventory.remove(item)
@@ -15,11 +17,11 @@ class Vendor:
             return False
     
     def get_by_category(self,category):
-        empty_list= []
-        for item in self.vendor:
+        category_list= []
+        for item in self.inventory:
             if item.category == category:
-                empty_list.append(item)
-        return empty_list
+                category_list.append(item)
+        return category_list
 
 
 # In Wave 1 we will create the `Vendor` class.
