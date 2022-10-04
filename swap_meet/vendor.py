@@ -53,8 +53,9 @@ class Vendor:
             return False
         # removes index 0 from both lists and adds to opposite list
         else:
-            vendor.inventory.append(self.inventory.pop(0))
-            self.inventory.append(vendor.inventory.pop(0))
+            old_item = self.inventory[0]
+            new_item = vendor.inventory[0]
+            self.swap_items(vendor, old_item, new_item)
             return True
 
     def get_best_by_category(self, category):
@@ -76,8 +77,5 @@ class Vendor:
             if not my_best or not their_best:
                 return False
             else:
-                self.inventory.remove(my_best)
-                other.inventory.append(my_best)
-                other.inventory.remove(their_best)
-                self.inventory.append(their_best)
+                self.swap_items(other, my_best, their_best)
                 return True
