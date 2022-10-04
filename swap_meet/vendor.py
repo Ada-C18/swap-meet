@@ -1,6 +1,8 @@
 class Vendor:
     
-    def __init__(self, inventory=[]):
+    def __init__(self, inventory=None):
+        if inventory is None:
+            inventory = []
         self.inventory = inventory
 
     def add(self, item):
@@ -19,4 +21,5 @@ class Vendor:
             if item.category == category:
                 items.append(item)
         return items
+
 
