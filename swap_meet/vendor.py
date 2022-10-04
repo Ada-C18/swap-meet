@@ -6,7 +6,7 @@ class Vendor:
     def __init__(self, inventory = None):
 
         self.inventory = inventory if inventory is not None else []
-
+        
     def add(self, item):
         self.inventory.append(item)
         return item
@@ -25,3 +25,10 @@ class Vendor:
         #     if category == item.category:
         #         items_list.append(item)
         # return items_list
+
+    def different_vendor():
+        #composite/component relationship
+        pass
+
+    def swap_items(self, different_vendor(), my_item, their_item):
+        pass
