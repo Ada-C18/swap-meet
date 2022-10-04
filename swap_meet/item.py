@@ -1,12 +1,26 @@
-from swap_meet.vendor import Vendor
+# from swap_meet.vendor import Vendor
 
 class Item:
-    def __init__(self):
-        self.category = ""
+    def __init__(self, category = "", condition = 0):
+        self.category = category
+        self.condition = condition
 
-    def get_by_category(self, category_name):
-        list_item = []
-        for item in list(Item):
-            if category_name == self.category:
-                list_item.append(item)
-                return list_item
+    def __str__(self):
+        return "Hello World!"
+
+    def condition_description(self):
+        if self.condition == 0:
+            return "Worn"
+        elif self.condition == 1:
+            return "No good"
+        elif self.condition == 2:
+            return "Not bad"
+        elif self.condition == 3:
+            return "Average"
+        elif self.condition == 4:
+            return "Very good"
+        elif self.condition == 5:
+            return "Excellent"
+        else:
+            Raise Exception("Condition is not right!")
+        
