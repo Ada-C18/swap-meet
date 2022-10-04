@@ -14,6 +14,14 @@ class Vendor:
         else:
             self.inventory.remove(self.item)
             return self.item
-            
 
-vender1 = Vendor([])
+    def get_by_category(self, category):
+        items_filtered_by_category = []   
+
+        for item in self.inventory:
+            if item.category == category:
+                items_filtered_by_category.append(item)
+
+        return items_filtered_by_category
+            
+vendor1 = Vendor([])
