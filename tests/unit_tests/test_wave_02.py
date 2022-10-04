@@ -33,10 +33,8 @@ def test_get_no_matching_items_by_category():
     )
 
     items = vendor.get_by_category("electronics")
-
-    assert len(items) == 0 
-    assert item_b not in items 
-
+    assert len(items)==0
+    assert item_b not in items
     #raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
