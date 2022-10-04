@@ -1,3 +1,5 @@
+from .item import Item
+
 class Vendor:
     
     def __init__(self, inventory=None):
@@ -32,9 +34,9 @@ class Vendor:
             return item 
         except ValueError:
             return False 
-
-
-
-
-
     
+    def get_by_category(self, category):
+        """
+        Returns a list of items in the inventory wihh the specified category
+        """
+        return [item for item in self.inventory if item.category == category]
