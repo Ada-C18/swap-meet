@@ -18,17 +18,7 @@ class Vendor:
         else:
             self.inventory.remove(item)
             return item
-<<<<<<< HEAD
     
-    def get_by_category(self, category):
-        filtered_list = []
-        for item in self.inventory:
-            if item.get_category() == category:
-                filtered_list.append(item)
-        return filtered_list
-
-=======
-        
     def get_by_category(self, category):
         items_list =[]
         for item in self.inventory:
@@ -37,5 +27,10 @@ class Vendor:
         return items_list
 
     def swap_items(self, friend, my_item, their_item):
-        pass
->>>>>>> 20f29eebc8654f4bb5fc94ae0655806d90d063f6
+        if my_item in self.inventory and their_item in friend.inventory:
+            self.remove(my_item)
+            friend.add(my_item)
+            friend.remove(their_item)
+            self.add(their_item)
+            return True
+        return False
