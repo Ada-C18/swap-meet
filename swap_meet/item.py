@@ -5,7 +5,7 @@ class Item:
     category = ""
 
     def _init_(self,category):
-        self.category
+        self.category = category
 
     # def get_by_category():
     #     pass
