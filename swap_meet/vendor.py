@@ -14,10 +14,12 @@ class Vendor:
         else:
             return False
     def get_by_category(self, category):
-        #if item category matches input category
-        #return list of items 
         items = []
         for item in self.inventory:
             if item.category == category:
                 items.append(item)
         return items
+    def swap_items(self, vendor, my_item, their_item):
+        #my_item is self.inventory @ specific value
+        #their_item is vendor.inventory @ specific value
+        
