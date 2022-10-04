@@ -58,11 +58,13 @@ class Vendor:
             self.remove(my_item)
             swap_vendor.add(my_item)
             return True
-        #return False - okay to delete?
+        #- okay to delete?
+        return False 
 
 # Wave 4
     def swap_first_item(self, swap_vendor):
-        return self.swap_items(swap_vendor, self.inventory[0], swap_vendor.inventory[0])
+        if len(self.inventory) >= 1 and len(swap_vendor.inventory) >= 1:
+            return self.swap_items(swap_vendor, self.inventory[0], swap_vendor.inventory[0])
          
         
 
