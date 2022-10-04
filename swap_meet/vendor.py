@@ -8,7 +8,7 @@ class Vendor:
         # if "inventory" arugment is passed in, use that
         if inventory:
             self.inventory = inventory
-        # otherwise, if there's no inventory argument, initialize and empty list
+        # otherwise, if there's no inventory argument, initialize an empty list
         else:
             self.inventory = []
     
@@ -24,7 +24,7 @@ class Vendor:
 
 # Wave 2
 #======================================================
-# import from Item
+# need to import from Item for this method to work
     def get_by_category(self, category):
         inventory_categories = []
         for item in self.inventory:
@@ -43,4 +43,25 @@ class Vendor:
             return True
         else:
             return False
+
+# Wave 4
+#======================================================
+    def swap_first_item(self, friend_vendor):
+        # need try and except otherwise if the inventory list is empty
+        # the code won't work
+        try:
+            self.swap_items(friend_vendor, self.inventory[0], friend_vendor.inventory[0])
+            return True
+        except: 
+            if not self.inventory or not friend_vendor.inventory:
+                return False
+
+        # if self.inventory and friend_vendor.inventory:
+        #     self.remove(self.inventory[0])
+        #     friend_vendor.add(self.inventory[0])
+        #     friend_vendor.remove(friend_vendor.inventory[0])
+        #     self.add(friend_vendor.inventory[0])
+        #     return True
+        # if not self.inventory or not friend_vendor.inventory:
+        #     return False
 
