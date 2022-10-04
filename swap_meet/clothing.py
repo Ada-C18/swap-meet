@@ -1,2 +1,2 @@
 class Clothing:
-    pass
+    def __init__()
