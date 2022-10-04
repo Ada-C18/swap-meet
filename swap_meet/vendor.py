@@ -1,5 +1,3 @@
-from typing import ItemsView
-
 
 class Vendor:
     def __init__(self, inventory=None):
@@ -25,3 +23,11 @@ class Vendor:
             if item.category == category:
                 items.append(item)
         return items
+
+    def swap_items(self, vendor, my_item, their_item):
+        if my_item not in self.inventory or their_item not in vendor.inventory:
+            return False
+        else:
+            vendor.remove(self.add(their_item))
+            vendor.add(self.remove(my_item))
+            return True
