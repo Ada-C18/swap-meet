@@ -1,6 +1,6 @@
 class Vendor:
     
-    def __init__(self, inventory=0):
+    def __init__(self, inventory=None):
         # try:
         #     self.inventory = inventory
         # except TypeError as err:
@@ -74,3 +74,8 @@ class Vendor:
             return True
         
         return False
+
+    
+    
+    def swap_by_newest(self):
+        pass
