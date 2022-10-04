@@ -24,7 +24,25 @@ class Vendor:
         return result_list
 
     def swap_items(self, friends_vendor, my_item, their_item):
-        self.inventory.remove(my_item)
-        friends_vendor
+        inventory_list = self.inventory
+        
+        if my_item not in inventory_list or their_item not in friends_vendor.inventory:
+            return False
 
-    
+        # print([item.category for item in inventory_list])
+        # print([item.category for item in friends_vendor.inventory])
+        swap_happened = False
+        for item in inventory_list:
+            if item == my_item:
+                friends_vendor.add(my_item)
+                self.remove(my_item)
+                swap_happened = True
+        for item in friends_vendor.inventory:
+            if item == their_item:
+                self.add(their_item)
+                friends_vendor.remove(their_item)
+                swap_happened = True
+                
+        # print([item.category for item in inventory_list])
+        # print([item.category for item in friends_vendor.inventory])
+        return swap_happened
