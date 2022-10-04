@@ -3,7 +3,7 @@ class Item:
         self.category = category
 
     def __str__(self):
-        return f"Hello World!{self.category}"
+        return f"Hello World!"
 
     def condition_description(self):
-        return f"There are {self.condition} {self.category}"
+        return f""
