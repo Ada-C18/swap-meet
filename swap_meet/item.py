@@ -2,6 +2,8 @@ from unicodedata import category
 
 
 class Item:
-    pass
+    def __init__(self,category =""):
+        self.category = category
+
 
 
