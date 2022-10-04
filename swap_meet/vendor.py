@@ -23,25 +23,27 @@ class Vendor:
         return list
     
     
-    def swap_items(self,friend,my_item,their_item):
-        if my_item not in self.inventory or their_item not in friend.inventory:
+    def swap_items(self,vendor,my_item,their_item):
+        if my_item not in self.inventory or their_item not in vendor.inventory:
             return False
         else:
-
-            # self.inventory.append(their_item)
-            # self.inventory.remove(my_item)
-            # friend.inventory.append(my_item)
-            # friend.inventory.remove(their_item)
             self.add(their_item)
-            friend.add(my_item)
+            vendor.add(my_item)
             self.remove(my_item)
-            friend.remove(their_item)
+            vendor.remove(their_item)
             return True
-        # if True:
-        #     self.inventory.add(their_item)
-        #     friend.inventory.add(my_item)
-        #     self.inventory.remove(my_item)
-        #     friend.inventory.remove(their_item)
-        #     return True
-        # else:
+
+    def swap_first_item(self,vendor):
+        if not self.inventory or not vendor.inventory: #check for empty list and return False
+            return False
+        else:
+            self.swap_items(vendor,self.inventory[0],vendor.inventory[0])
+            vendor.swap_items(vendor,vendor.inventory[0],self.inventory[0])
+            return True
+#Need to investigate why this does not work
+        # if bool(self.inventory) or bool(vendor.inventory):
         #     return False
+        # else: 
+        #     self.swap_items(vendor,self.inventory[0],vendor.inventory[0])
+        #     vendor.swap_items(vendor,vendor.inventory[0],self.inventory[0])
+        #     return True
