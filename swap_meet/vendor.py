@@ -23,14 +23,15 @@ class Vendor:
 
 # Wave 3
     def swap_items(self, friend_vendor, my_item, their_item):
-        if my_item in self.inventory and their_item in friend_vendor.inventory:
-            self.inventory.remove(my_item)
-            friend_vendor.inventory.append(my_item)
-            friend_vendor.inventory.remove(their_item)
-            self.inventory.append(their_item)
-            return True
-        else:
-            return False
+        if my_item not in self.inventory or their_item not in friend_vendor.inventory:
+            return False 
+
+        self.inventory.remove(my_item)
+        friend_vendor.inventory.append(my_item)
+        friend_vendor.inventory.remove(their_item)
+        self.inventory.append(their_item)
+        return True
+        
 
 # Wave 4
     def swap_first_item(self, friend_vendor):
