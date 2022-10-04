@@ -1,3 +1,5 @@
+from swap_meet.item import Item
+
 class Vendor:
     def __init__(self, inventory= []):
         self.inventory = inventory
@@ -11,6 +13,14 @@ class Vendor:
         else:
             item not in self.inventory
             return False
+    
+    def get_by_category(self,category):
+        empty_list= []
+        for item in self.vendor:
+            if item.category == category:
+                empty_list.append(item)
+        return empty_list
+
 
 # In Wave 1 we will create the `Vendor` class.
 
@@ -28,3 +38,8 @@ class Vendor:
 # - This method removes the matching item from the `inventory`
 # - This method returns the item that was removed
 # - If there is no matching item in the `inventory`, the method should return `False`
+
+
+# - Instances of `Vendor` have an instance method named `get_by_category`
+#   - It takes one argument: a string, representing a category
+#   - This method returns a list of `Item`s in the inventory with that category
