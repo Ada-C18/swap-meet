@@ -65,12 +65,21 @@ class Vendor:
             if item.condition > best_condition_val:
 #Update the best_condition_val with the current highest condition
                 best_condition_val = item.condition
-#append the value of best_condition with the item with the current highest condition
+#Update the value of best_condition with the item with the current highest condition
                 best_condition = item 
         # if best_condition == "":
             # return None
         return best_condition
 
 
-    def swap_best_by_category():
-        pass
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        self.other = other
+        self.my_priority =  my_priority
+        self. their_priority = their_priority
+
+        they_want = self.get_best_by_category(their_priority)
+        i_want = other.get_best_by_category(my_priority)
+        
+        return self.swap_items(other, they_want, i_want)
+
+        
