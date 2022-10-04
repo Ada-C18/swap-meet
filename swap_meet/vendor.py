@@ -64,7 +64,11 @@ class Vendor:
         return best_item
 
 
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        #what self wants to receive from other:
+        other_item = other.get_best_by_category(my_priority)
 
+        #what other wants to receive from self
+        self_item = self.get_best_by_category(their_priority)
 
-    def swap_best_by_category(self):
-        pass
+        self.swap_items(other, self_item, other_item)
