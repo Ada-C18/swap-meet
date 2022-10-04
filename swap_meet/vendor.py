@@ -35,11 +35,10 @@ class Vendor:
     
     def swap_items(self, other, my_item, their_item):
         """
-        Removes the my_item from this Vendor's inventory, and adds it to the friend's inventory.
-        Removes the their_item from the other Vendor's inventory, and adds it to this Vendor's inventory
-        Returns True when above actions are completed.
+        Swaps this Vendor's my_item with the other Vendor's their_item. 
+        Returns True if swap is successful.
         Returns False, if this Vendor's inventory doesn't contain my_item
-        or the friend's inventory doesn't contain their_item. the method returns False
+        or the other Vendor's inventory doesn't contain their_item.
         """
         if self.contain(my_item) and other.contain(their_item):
             return self.swap(other, my_item, their_item)
@@ -47,10 +46,9 @@ class Vendor:
     
     def swap_first_item(self, other):
         """
-        Removes the first item from this Vendor's inventory, and adds it to the friend's inventory.
-        Removes the first item from the other Vendor's inventory, and adds it to this Vendor's inventory
-        Returns True when above actions are completed.
-        Returns False, if either itself or the friend have an empty inventory.
+        Swaps this Vendor's first item with the other Vendor's first item.
+        Returns True if swap is successful.
+        Returns False, if either this Vendor or the other Vendor have an empty inventory.
         """
         if self.inventory and other.inventory:
             return self.swap(other, self.get_item_by_index(0), other.get_item_by_index(0))
@@ -68,10 +66,16 @@ class Vendor:
         return best_item
     
     def swap_best_by_category(self, other, my_priority, their_priority):
-        me_item = other.get_best_by_category(my_priority)
-        them_item = self.get_best_by_category(their_priority)
-        if not me_item and not them_item:
-            return self.swap(other, me_item, them_item)
+        """
+        Swaps this Vendor's best item whose category matches their_priority with 
+        the other Vendor's best item whose category matches my_priority.
+        Returns True if swap is successful.
+        Returns False, if either this Vendor or the other Vendor have no item matching the given category.
+        """
+        my_item = self.get_best_by_category(their_priority)
+        their_item = other.get_best_by_category(my_priority)
+        if my_item and their_item:
+            return self.swap(other, my_item, their_item)
         return False
 
 #======================================#        
@@ -95,6 +99,8 @@ class Vendor:
         
     def swap(self, other, my_item, their_item):
         """
+        Removes the my_item from this Vendor's inventory, and adds it to the friend's inventory.
+        Removes the their_item from the other Vendor's inventory, and adds it to this Vendor's inventory
         Returns True when swap is completed.
         """
         self.add(other.remove(their_item))
