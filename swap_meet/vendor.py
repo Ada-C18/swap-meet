@@ -1,4 +1,5 @@
-from swap_meet.item import Item
+# from swap_meet.item import Item
+
 class Vendor:
     
     def __init__(self, inventory = []):
@@ -11,6 +12,7 @@ class Vendor:
     def remove(self, item):
         if item in self.inventory:
             self.inventory.remove(item)
+            print(self.inventory)
             return item
         return False
 
@@ -24,10 +26,15 @@ class Vendor:
     def swap_items(self, friend, my_item, their_item):
         if my_item not in self.inventory or their_item not in friend.inventory:
             return False
-        self.remove(my_item)
-        friend.add(my_item)
-        friend.remove(their_item)
-        self.add(their_item)
+
+        item_being_removed = self.remove(my_item)
+        friend.add(item_being_removed)
+        print(self.inventory, friend.inventory)
+
+        item_being_removed = friend.remove(their_item)
+        self.add(item_being_removed)
+        print(self.inventory, friend.inventory)
+
         return True
 
     def swap_first_item(self, friend):
@@ -40,6 +47,12 @@ class Vendor:
         item_being_removed = friend.remove(friend.inventory[0])
         self.add(item_being_removed)
         return True
-    
-    
+
+vendor = Vendor()
+vendor.add("item_3")
+
+friend = Vendor()
+friend.add("item_4")
+vendor.remove("item_3")
+# vendor.swap_items(friend, vendor.inventory[0], friend.inventory[0])
 
