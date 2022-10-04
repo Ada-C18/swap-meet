@@ -60,3 +60,17 @@ class Vendor:
             friend_vendor.add(my_item)
             friend_vendor.remove(their_item)
             return True
+
+    def swap_first_item(self, friend_vendor):
+        ''''
+        Input: instance of another Vendor (friend_vendor)
+        Output: 
+        True (and swaps first item in both inventories)
+        False if self.inventory or friend_vendor.inventory are empty
+        '''
+        if len(self.inventory) == 0 or len(friend_vendor.inventory) == 0:
+            return False
+
+        self.swap_items(
+            friend_vendor, self.inventory[0], friend_vendor.inventory[0])
+        return True
