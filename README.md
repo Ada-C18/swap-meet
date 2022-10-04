@@ -64,7 +64,7 @@ In Wave 1 we will create the `Vendor` class.
 
 - There is a module (file) named `vendor.py` inside of the `swap_meet` package (folder)
 - Inside this module, there is a class named `Vendor`
-- Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
+- Each `Vendor` will have an attribute named `inventory`, which is an empty list by defa
 - When we instantiate an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
 
 
