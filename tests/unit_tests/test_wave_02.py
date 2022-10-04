@@ -36,7 +36,7 @@ def test_get_no_matching_items_by_category():
 
     assert len(items) == 0
     assert item_a not in items
-    
+
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********

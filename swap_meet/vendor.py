@@ -47,5 +47,28 @@ class Vendor():
                 list_of_items.append(item)
         return list_of_items
 
+    def swap_items(self, friend, my_item, their_item):
 
 
+        if my_item in self.inventory and their_item in friend.inventory:
+            self.inventory.remove(my_item)
+            friend.inventory.append(my_item)
+            friend.inventory.remove(their_item)
+            self.inventory.append(their_item)
+            return True
+        else:
+            return False
+        # if their_item in friend.inventory:
+            # friend.inventory.remove(their_item)
+            # self.inventory.append(their_item)
+        # else:
+        #     return False
+
+#WAVE 3 PSEUDOCODE
+#step 1: stringify intance Item
+#step 2: in the Vendor file, create instance method "swap_items(self, friend_vendor, my_item, their_item)"
+    #logic: loop through items in inventory and remove my_item from inventory and append's to friends_inventory(initiate an empty list or is this in friend_vendor?)
+            #loop through friends_inventory and remove their_item from friends_inventory and add to inventory
+            #return True
+            #if this vendor's inventory doesnt contain my_item or friends_inventory doesnt contain "their_item"
+            # return false
