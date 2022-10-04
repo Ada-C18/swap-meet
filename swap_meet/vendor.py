@@ -26,24 +26,26 @@ class Vendor:
             if item.category == category:
                 items_inventory.append(item)
         return items_inventory
+        
+# wave 3
 
+    def swap_items(self, friend_vendor, my_item, their_item):  #attributes can be instances of classes? 
+        self.friend_vendor = friend_vendor
+        self.my_item = my_item
+        self.their_item = their_item
+        #remove my item and add it to friend_vendor inventory: 
+        # remove their_item from friend_vendor inventory and add it to my inventory
+        # if no item in inventory return False
+        if my_item in self.inventory and their_item in friend_vendor.inventory:
+            self.remove(my_item)
+            self.add(their_item)
+            friend_vendor.inventory.append(my_item)
 
+            friend_vendor.remove(their_item)
+            return True
+        else:
+            return False
 
-
-
-
-# In Wave 1 we will create the `Vendor` class.
-
-# - There is a module (file) named `vendor.py` inside of the `swap_meet` package (folder)
-# - Inside this module, there is a class named `Vendor`
-# - Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
-# - When we instantiate an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
-
-# - Every instance of `Vendor` has an instance method named `add`, which takes in one item
-# - This method adds the item to the `inventory`
-# - This method returns the item that was added
-
-# - Similarly, every instance of `Vendor` has an instance method named `remove`, which takes in one item
-# - This method removes the matching item from the `inventory`
-# - This method returns the item that was removed
-# - If there is no matching item in the `inventory`, the method should return `False`
+    # friend_vendor = Vendor()
+    # my_item = Item()
+    # their_item = Item()
