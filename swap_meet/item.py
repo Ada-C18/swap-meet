@@ -1,8 +1,4 @@
-from unicodedata import category
-
-
 class Item:
-    category = ""
 
     def _init_(self,category):
         self.category = category
@@ -10,7 +6,7 @@ class Item:
     # def get_by_category():
     #     pass
 
-item_one = Item(category)
+item_one = Item()
 
 
 
