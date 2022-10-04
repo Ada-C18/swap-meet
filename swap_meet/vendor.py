@@ -3,8 +3,11 @@ class Vendor:
      # inventory (list of items)
     # accept item class instances
 
-    def __init__(self, inventory=[]):
-        self.inventory = inventory
+    def __init__(self, inventory=None):
+        if not inventory:
+            self.inventory = []
+        else:
+            self.inventory = inventory
 
     def add(self, item):
         self.inventory.append(item)
@@ -37,3 +40,13 @@ class Vendor:
         #print(f"Vendor 1:{self.inventory}, Vendor 2:{vendor2.inventory}")
         else:
             return False
+    
+    def swap_first_item(self, vendor2):
+        if not self.inventory or not vendor2.inventory:
+            return False
+        else:
+            self_item = self.inventory[0]
+            friend_item = vendor2.inventory[0]
+            self.inventory[0] = friend_item
+            vendor2.inventory[0] = self_item
+            return True
