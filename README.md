@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 # Swap Meet
-#maggie swap-meet project
-=======
+
 # Swap Meet Maggie and Valentina
 
->>>>>>> 4fa7d6968f9204940181135b75fc8ac11f7789e8
 ## Skills Assessed
 
 - Following directions and reading comprehension

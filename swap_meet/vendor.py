@@ -1,5 +1,6 @@
 from types import MemberDescriptorType
 
+#from swap_meet.item import Item
 
 class Vendor:
 
@@ -18,3 +19,16 @@ class Vendor:
         else:
             return False
 
+    def get_by_category(self, category):
+
+        item_list = []
+
+        for item in self.inventory:
+            if category == item.category:
+                item_list.append(item)
+
+        return item_list
+ 
+    
+
+    
