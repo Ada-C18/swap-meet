@@ -1,9 +1,13 @@
 from swap_meet.item import Item
+from swap_meet.electronics import Electronics
+from swap_meet.decor import Decor
+from swap_meet.clothing import Clothing
 
 class Vendor:
     '''
     object contains an attribute: inventory that is an empty list with an optional parameter
-    it also contains the methods: add, remove, get_by_category, swap_items, and swap_first_item
+    it also contains the methods: add, remove, get_by_category, swap_items, swap_first_item,
+    get_best_by_category
     '''
     def __init__(self, inventory = None):
         if inventory is None:
@@ -12,7 +16,8 @@ class Vendor:
 
     def add(self, item):
         '''
-        adds item parameter to self.inventory
+        appends item parameter to inventory list
+        returns the last item in the inventory list
         '''
         self.inventory.append(item)
         last_inventory_item = self.inventory[-1]
@@ -21,12 +26,13 @@ class Vendor:
 
     def remove(self, item):
         '''
-        removes item parameter from self.inventory
+        removes item parameter from inventory
+        returns item if item is removed, returns False if nothing is removed
         '''
         for product in self.inventory:
             if product == item:
                 self.inventory.remove(item)
-                return item
+                return product
         
         return False
 
@@ -79,3 +85,39 @@ class Vendor:
         except:
             return False
 
+    def get_best_by_category(self, category):
+        '''
+        returns the best condition item by category
+        '''
+        try:
+            condition_check = 0.0
+            best_in_category = []
+
+            for item in self.inventory:
+                if item.category == category and item.condition > condition_check:
+                    condition_check = item.condition
+                    best_in_category.clear()
+                    best_in_category.append(item)
+
+            return best_in_category[0]
+        
+        except:
+            return None
+
+    def swap_best_by_category(self, other = None, my_priority = None, their_priority = None):
+        '''
+        takes the best item by category for two vendors and swaps them with each other
+        '''
+        try:
+            # Helpers
+            my_best_category = self.get_best_by_category(their_priority)
+            their_best_category = other.get_best_by_category(my_priority)
+
+            if len(self.inventory) == 0 or len(other.inventory) == 0 or my_best_category is None or their_best_category is None:
+                return False
+
+            self.swap_items(other, my_best_category, their_best_category)
+            return True
+        
+        except:
+            return False
