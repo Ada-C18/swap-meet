@@ -1,6 +1,3 @@
-from os import remove
-
-
 class Vendor:
     def __init__(self, inventory = []):
         self.inventory = inventory
@@ -27,21 +24,17 @@ class Vendor:
             
         return items_in_category
 
-    def swap_items(self, another_vendor_inventory, my_item, their_item):
+
+    def swap_items(self, another_vendor, my_item, their_item):
         if their_item not in another_vendor.inventory or my_item not in self.inventory:
             return False 
         self.inventory.remove(my_item)
-        another_vendor_inventory.inventory.remove(their_item)
-        another_vendor_inventory.append(my_item)
+        another_vendor.inventory.remove(their_item)
+        another_vendor.inventory.append(my_item)
         self.inventory.append(their_item)
         return True 
 
-"""
-removes the my_item from this Vendor's inventory
-adds it to the friend's inventory
-my_item = representing the item this Vendor instance plans to give
-their_item = representing the item the friend Vendor plans to give
-"""
+
     
 
 
