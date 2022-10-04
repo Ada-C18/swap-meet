@@ -37,3 +37,13 @@ class Vendor:
             swapper.add(self.inventory.pop(0))
             self.add(swapper.inventory.pop(0))
             return True
+
+    def get_best_by_category(self, category):
+        best_condition = -1
+        for item in self.inventory:
+            if item.category == category:
+                if item.condition > best_condition:
+                    best_condition = item.condition
+                    best_item = item
+        return best_item
+
