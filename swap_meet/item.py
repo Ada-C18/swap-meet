@@ -1,2 +1,12 @@
+from unicodedata import category
+
 class Item:
-    pass
+    
+    def __init__(self, category= None):
+        self.category = category
+
+        if self.category is None:
+            self.category = ""
+
+    def __str__(self):
+        return "Hello World!"
