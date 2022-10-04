@@ -4,21 +4,15 @@ from hashlib import new
 class Vendor:
     
     def __init__(self, inventory=None):
-        # try:
-        #     self.inventory = inventory
-        # except TypeError as err:
-        #     self.inventory = []
-       
-        if inventory:
-            self.inventory = inventory
-        else:
-            self.inventory = []
-        
+        if inventory is None:
+            inventory = []    
+        self.inventory = inventory
     
 
     def add(self, item):
         self.inventory.append(item)
         return item
+
 
     def remove(self, item):
         try:
@@ -27,6 +21,7 @@ class Vendor:
         except ValueError as err:
             return False
 
+
     def get_by_category(self, category):
         return_list = []
         for item in self.inventory:
@@ -34,6 +29,7 @@ class Vendor:
                 return_list.append(item)
 
         return return_list
+
 
     def swap_items(self, vendor, my_item, their_item):
         if not self.inventory or not vendor.inventory or my_item not in self.inventory or their_item not in vendor.inventory:
@@ -45,12 +41,14 @@ class Vendor:
             vendor.inventory.append(my_item)
             return True
 
+
     def swap_first_item(self, vendor):
         if self.inventory and vendor.inventory:
             self.swap_items(vendor, self.inventory[0], vendor.inventory[0])
             return True
 
         return False
+
 
     def get_best_by_category(self, category):
         best_condition = 0
@@ -81,7 +79,7 @@ class Vendor:
     
 
     def get_newest(self):
-        age = 5000
+        age = 5000000000
         newest_item = None
 
         for item in self.inventory:
