@@ -2,8 +2,8 @@
 
 class Vendor:
     
-    def __init__(self, inventory = []):
-        self.inventory = inventory
+    def __init__(self, inventory = None):
+        self.inventory = inventory if inventory is not None else []
     
     def add(self, item):
         self.inventory.append(item)
@@ -12,7 +12,7 @@ class Vendor:
     def remove(self, item):
         if item in self.inventory:
             self.inventory.remove(item)
-            print(self.inventory)
+            # print(self.inventory)
             return item
         return False
 
@@ -48,11 +48,12 @@ class Vendor:
         self.add(item_being_removed)
         return True
 
-vendor = Vendor()
-vendor.add("item_3")
+# vendor = Vendor()
+# vendor.add("item_3")
 
-friend = Vendor()
-friend.add("item_4")
-vendor.remove("item_3")
+# friend = Vendor()
+# friend.add("item_4")
+
+# vendor.remove("item_3")
 # vendor.swap_items(friend, vendor.inventory[0], friend.inventory[0])
 
