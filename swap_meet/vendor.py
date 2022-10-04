@@ -1,6 +1,3 @@
-from re import L
-
-
 class Vendor:
     
     def __init__(self, inventory=[]):
