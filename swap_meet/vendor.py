@@ -44,5 +44,25 @@ class Vendor:
             return True
         else:#if either itself or the friend have an empty inventory, the method returns False
             return False
- 
+
+
+    def get_best_by_category(self, category):
+        category_list = self.get_by_category(category)
+        if len(category_list) >= 1:
+            best_item = category_list[0]
+            for i in category_list:
+                if i.condition > best_item.condition:
+                    best_item = i
+            return best_item
+        return None
+        
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        if self.get_best_by_category == None or other.get_best_by_category(their_priority) == None:
+            return False
+        else:
+            their_best = other.get_best_by_category(my_priority)
+            my_best = self.get_best_by_category(their_priority)
+            self.swap_items(other, my_best, their_best)
+            return True
 
