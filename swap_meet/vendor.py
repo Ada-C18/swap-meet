@@ -21,3 +21,8 @@ class Vendor:
             if item.category == category:
                 category_items.append(item)
         return category_items
+
+    def swap_items(self, swapper, my_item, their_item):
+        swapper.add(self.inventory.pop(self.inventory.index(my_item)))
+        self.add(swapper.inventory.pop(swapper.inventory.index(their_item)))
+        return True
