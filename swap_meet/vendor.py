@@ -17,14 +17,7 @@ class Vendor:
     def get_by_category(self, category):
         items = [item for item in self.inventory if item.category == category]
         return items
-        # items = []
-        # if not self.inventory: # If inventory is empty, return an empty list.  
-        #     return items
-        # for item in self.inventory:
-        #     if item.category == category:
-        #         items.append(item)
-
-        # return items
+    
         
     def swap_items(self, another_vendor, my_item, their_item):
         if my_item not in self.inventory or their_item not in another_vendor.inventory:
@@ -42,6 +35,12 @@ class Vendor:
         self.inventory[0], another_vendor.inventory[0] = another_vendor.inventory[0], self.inventory[0]
         return True
         
+    def get_best_by_category(self, category):
+        pass
+        # get the item with the best condition in a certain category
+        # look through the instance's inventory for the item with the highest condition and matching category
+        # If there are no items in the inventory that match the category, it returns None
+        # It returns a single item even if there are duplicates (two or more of the same item with the same condition)
 
 
 
