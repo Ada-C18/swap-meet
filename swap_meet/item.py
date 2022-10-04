@@ -4,4 +4,4 @@ class Item:
         self.category = category
 
     def __str__(self):
-        return str(Item)
+        return "Hello World!"
