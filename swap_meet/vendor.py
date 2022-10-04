@@ -33,6 +33,12 @@ class Vendor:
         self.my_item = my_item
         self.their_item = their_item
         
+        if self.their_item not in friend.inventory:
+            return False
+        
+        if self.my_item not in self.inventory:
+            return False
+        
         if self.my_item:
             friend.inventory.append(my_item)
             self.inventory.remove(my_item)
