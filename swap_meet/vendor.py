@@ -24,7 +24,4 @@ class Vendor:
         return result_list
 
     def swap_items(self, friends_vendor, my_item, their_item):
-        self.inventory.remove(my_item)
-        friends_vendor
 
-    
