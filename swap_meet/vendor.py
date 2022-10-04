@@ -72,4 +72,8 @@ class Vendor:
         #what other wants to receive from self
         self_item = self.get_best_by_category(their_priority)
 
-        self.swap_items(other, self_item, other_item)
+        if other_item and self_item:
+            self.swap_items(other, self_item, other_item)
+            return True
+        
+        return False
