@@ -1,16 +1,16 @@
-from swap_meet.item import Item
+class Vendor:
+    def __init__(self, inventory=None):
+        if not inventory:
+            inventory = []
+        self.inventory = inventory
 
-class Vendor: 
-    def __init__(self, inventory = None):
-        self.inventory = inventory if inventory is not None else []
-    
     def add(self, item):
         self.inventory.append(item)
         return item
     
-    def remove(self, item):
-        if item in self.inventory:
+    def remove (self, item):
+        try:
             self.inventory.remove(item)
             return item
-        else: 
+        except:
             return False
