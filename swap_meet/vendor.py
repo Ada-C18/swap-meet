@@ -1,8 +1,6 @@
 class Vendor:
     def __init__(self,inventory=None):
-        if inventory==None:
-            inventory=[]
-        self.inventory=inventory
+        self.inventory=inventory or []
 
     def add(self,item):
         self.inventory.append(item)
@@ -53,4 +51,21 @@ class Vendor:
         if not my_trade_item or not other_trade_item:
             return False
         self.swap_items(other,my_trade_item,other_trade_item)
+        return True
+    
+    def get_newest(self):
+        newest_thing=None
+        smallest_age=100000000
+        for item in self.inventory:
+            if item.age<smallest_age:
+                smallest_age=item.age
+                newest_thing=item
+        return newest_thing
+
+    def swap_by_newest(self, other):
+        my_newest=self.get_newest()
+        their_newest=other.get_newest()
+        if not my_newest or not their_newest:
+            return False
+        self.swap_items(other,my_newest,their_newest)
         return True
