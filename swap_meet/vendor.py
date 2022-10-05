@@ -22,3 +22,10 @@ class Vendor:
             if item.category is category:
                 merch.append(item)
         return merch
+
+    def swap_items(self, vendor2, my_item, their_item):
+        self.vendor2 = vendor2
+        self.my_item = my_item
+        self.their_item = their_item
+
+        # how do I call add, remove?
