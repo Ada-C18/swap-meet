@@ -41,3 +41,33 @@ class Vendor:
         friend.remove(friend.inventory[0])
         
         return True
+    
+    def get_item_condition(self, item): #This can be converted to lambda 
+            return item.condition 
+
+    def get_best_by_category(self, category = ""):
+        self.category = category 
+
+        category_inventory = self.get_by_category(category)
+        if len(category_inventory) == 0:
+            return None
+
+        return max(category_inventory, key=self.get_item_condition)
+    
+
+    def swap_best_by_category(self,other, my_priority,their_priority):
+        self.my_priority = my_priority #My priority category
+        self.their_priority = their_priority #Their priority category
+
+        their_list = other.get_by_category(my_priority) #Their things that I want
+        my_list = self.get_by_category(their_priority) #My things that they want
+
+        if len (their_list) == 0 or len (my_list) == 0:
+            return False
+        self.add(max(their_list, key=other.get_item_condition))
+        other.remove(max(their_list, key=other.get_item_condition))
+        other.add(max(my_list, key=self.get_item_condition))
+        self.remove(max(my_list, key=self.get_item_condition))
+        
+        return True
+
