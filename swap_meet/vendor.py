@@ -1,3 +1,4 @@
+from multiprocessing.sharedctypes import Value
 from swap_meet import item
 
 
@@ -53,3 +54,10 @@ class Vendor:
             return True
         else:
             return False 
+
+    def swap_first_item(self, other_vendor):
+        try:
+            self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
+            return True
+        except(IndexError):
+            return False
