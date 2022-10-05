@@ -43,10 +43,13 @@ class Vendor:
             return False
         first_item = self.inventory[0]
         friend_frist_item = friend.inventory[0]
-        if self.inventory and friend.inventory:
-            self.inventory.remove(first_item)
-            self.inventory.append(friend_frist_item)
-            friend.inventory.remove(friend_frist_item)
-            friend.inventory.append(first_item)
-            return True
+        self.inventory.remove(first_item)
+        self.inventory.append(friend_frist_item)
+        friend.inventory.remove(friend_frist_item)
+        friend.inventory.append(first_item)
+        return True
     
+    def get_best_by_category(self, category):
+        pass
+
+        
