@@ -12,6 +12,7 @@ from .item import Item
 #         self.category = category
 
 # DISCUSS WITH GALINA - why can I not just inherit condition? When you call a superclass you can leave off "self"
+#you have to say it again because if not, the child's lack of default would override the super's default -- when Python is looking at what to take in as an argument, it wouldn't look at the super at all (until super().__init__ is called). So, you would get an error if you didn't pass in a value for condition when instantiating an apple
 class Decor(Item):
     def __init__(self, condition=0):
         super().__init__(category="Decor", condition=condition)
