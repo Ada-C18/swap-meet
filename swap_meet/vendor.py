@@ -57,20 +57,19 @@ class Vendor(Item):
 ### Wave 6
             
     def get_best_by_category(self, category):
-        self.best_item = 0.0
+
+        best_item_condition = 0.0
         best_item_count = 0
         
         for item in self.inventory:
             if item.category == category:
                 best_item_count += 1
-                if item.condition > self.best_item:
-                    self.best_item = item.condition
-            # print(f"{self.best_item=}")
-            # print(f"{item.condition=}")
+                if item.condition > best_item_condition:
+                    best_item_condition = item.condition
 
         for item in self.inventory:
-            if item.condition == self.best_item:
-                # print(f"{item=}")
+            if item.condition == best_item_condition and item.category == category:
+
                 return item
         
         if best_item_count == 0:
@@ -89,18 +88,15 @@ class Vendor(Item):
 
         # 
         if my_priority in other_categories and their_priority in my_categories:
-            for item in other.inventory:
-                if my_priority == item.category:
-                    # take item from their list and put it in my list
-                    other.remove(item)
-                    self.add(item)
+            my_best_by_category = self.get_best_by_category(their_priority)
+            their_best_by_category = other.get_best_by_category(my_priority)
 
-            for item in self.inventory:
-                if their_priority == item.category:
-                    # take item from their list and put it in my list
-                    self.remove(item)
-                    other.add(item) 
+            other.add(my_best_by_category)
+            self.remove(my_best_by_category)
 
+            self.add(their_best_by_category)
+            other.remove(their_best_by_category)
+            
             return True
         
         else:

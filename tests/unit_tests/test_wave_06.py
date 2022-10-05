@@ -80,13 +80,13 @@ def test_swap_best_by_category():
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
     # my inventory after swap
-    assert item_d in tai.inventory
-    assert item_f in tai.inventory
+    assert item_a in tai.inventory
     assert item_b in tai.inventory
+    assert item_f in tai.inventory
     # their inventory after swap
-    assert item_e in jesse.inventory
-    assert item_a in jesse.inventory
     assert item_c in jesse.inventory
+    assert item_d in jesse.inventory
+    assert item_e in jesse.inventory
 
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
@@ -100,13 +100,14 @@ def test_swap_best_by_category():
 # @pytest.mark.skip
 def test_swap_best_by_category_reordered():
     # Arrange
+    # me
     item_a = Decor(condition=2.0)
     item_b = Electronics(condition=4.0)
     item_c = Decor(condition=4.0)
     tai = Vendor(
         inventory=[item_c, item_b, item_a]
     )
-
+    # them
     item_d = Clothing(condition=2.0)
     item_e = Decor(condition=4.0)
     item_f = Clothing(condition=4.0)
@@ -126,12 +127,12 @@ def test_swap_best_by_category_reordered():
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
     # their inventory after swap
-    assert item_a in jesse.inventory
     assert item_c in jesse.inventory
+    assert item_d in jesse.inventory
     assert item_e in jesse.inventory
     # my inventory after swap
+    assert item_a in tai.inventory
     assert item_b in tai.inventory
-    assert item_d in tai.inventory
     assert item_f in tai.inventory
     
     # raise Exception("Complete this test according to comments below.")
