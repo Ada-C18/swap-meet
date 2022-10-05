@@ -243,3 +243,77 @@ def test_swap_best_by_category_no_other_match_is_false():
     assert item_d in jesse.inventory
     assert item_e in jesse.inventory
     assert item_f in jesse.inventory
+
+def test_swap_newest():
+    # Arrange
+    item_a = Decor(age=6)
+    item_b = Electronics(age=3)
+    item_c = Decor(age=1)
+    tai = Vendor(
+        inventory=[item_c, item_b, item_a]
+    )
+
+    item_d = Clothing(age=2)
+    item_e = Decor(age=8)
+    item_f = Clothing(age=5)
+    jesse = Vendor(
+        inventory=[item_f, item_e, item_d]
+    )
+
+    # Act
+    result = tai.swap_by_newest(other=jesse)
+
+    # Assert
+    assert result
+    assert len(tai.inventory) == 3
+    assert item_a in tai.inventory
+    assert item_b in tai.inventory
+    assert item_d in tai.inventory
+    assert item_c not in tai.inventory
+    assert len(jesse.inventory) == 3
+    assert item_e in jesse.inventory
+    assert item_f in jesse.inventory
+    assert item_c in jesse.inventory
+    assert item_d not in jesse.inventory
+
+def test_swap_by_newest_no_inventory_is_false():
+    item_a = Clothing(age=6)
+    item_b = Decor(age=3)
+    item_c = Clothing(age=1)
+    tai = Vendor(
+        inventory=[]
+    )
+
+    jesse = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    result = tai.swap_by_newest(other=jesse)
+
+    assert not result
+    assert len(tai.inventory) == 0
+    assert len(jesse.inventory) == 3
+    assert item_a in jesse.inventory
+    assert item_b in jesse.inventory
+    assert item_c in jesse.inventory
+
+def test_swap_by_newest_no_other_inventory_is_false():
+    item_a = Clothing(age=6)
+    item_b = Decor(age=3)
+    item_c = Clothing(age=1)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    jesse = Vendor(
+        inventory=[]
+    )
+
+    result = tai.swap_by_newest(other=jesse)
+
+    assert not result
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 0
+    assert item_a in tai.inventory
+    assert item_b in tai.inventory
+    assert item_c in tai.inventory
