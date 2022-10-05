@@ -12,5 +12,5 @@ class Clothing:
         better.condition = "better"
         best.condition = "best"
         great.condition = "great"
-        
+    # needs to equal a number can think tomorrow 
         
