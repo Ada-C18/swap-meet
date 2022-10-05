@@ -40,3 +40,5 @@ class Vendor:
             self.add(friend.inventory.pop(0))
             friend.add(self.inventory.pop(0))
             return True
+
+    
