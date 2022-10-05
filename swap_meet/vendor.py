@@ -72,12 +72,6 @@ class Vendor():
         else:
             return False
 
-    # NOT SURE WHAT THIS CODE IS FOR? -->
-    # if their_item in friend.inventory:
-                # friend.inventory.remove(their_item)
-                # self.inventory.append(their_item)
-            # else:
-            #     return False
 
 # WAVE 4 PSUEDO CODE===========================================================
 # write method = SWAP_FIRST_ITEM()
@@ -130,3 +124,28 @@ class Vendor():
         # should describe the condition IN WORDS based on the VALUE = range 0-5
         # feel free to have fun with condition descriptions
         # the condition_description method behaves the same for all three classes
+
+    def get_best_by_category(self, category):
+        list_of_items = self.get_by_category(category)
+        best_item = self.find_max_item(list_of_items) 
+        return best_item  
+        
+        #stuck at the part where we return the associated category with that condition 
+
+
+        #go through the list of items from get_by_category and compare the conditons
+    def find_max_item(self, items):
+        if len(items) == 0:
+            return None
+        best_item = items[0] 
+        for item in items:
+            if item.condition > best_item.condition:
+                best_item = item
+        return best_item
+    
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        #use the get_best_by_category to switch items by calling the instance method 
+        # my_priority = self.get_best_by_category()
+        # their_priority = other.get_best_by_category() 
+        # can we use the swap_items method from above as well?
+        pass
