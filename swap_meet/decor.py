@@ -1,13 +1,13 @@
 from swap_meet.item import Item
 
 class Decor(Item):
-    def __init__(self, category="Decor", condition=0):
+    def __init__(self, age=None, category="Decor", condition=0):
         """
         Input: requires age, sets default category as "Decor" 
         and optionally takes in condition as a parameter.
         Result: defines attributes category and condition
         """
-        # self.age = age
+        self.age = age
         self.category = category
         self.condition = condition
 

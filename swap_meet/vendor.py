@@ -88,13 +88,21 @@ class Vendor:
         
         return self.swap_items(other, they_want, i_want)
 
-    # def find_newest_item(self):
-    #     newest_item = min(self.inventory, default=None,\
-    #     key=lambda item: item.age)
+    def find_newest_item(self):
+        """
+        Input: Just call on instance of class Vendor
+        Output/Results: Returns newest item in the vendor's inventory
+        """
+        newest_item = min(self.inventory, default=None,\
+        key=lambda item: item.age)
 
-    #     return newest_item
+        return newest_item
 
-    # def swap_by_newest(self, friend):
-    #     if len(self.inventory) != 0 and len(friend.inventory) != 0:
-    #         return self.swap_items(friend, self.find_newest_item,\
-    #             friend.find_newest_item)
+    def swap_by_newest(self, friend):
+        """
+        Input: A second vendor.
+        Output/Results: Swap newest items between two vendors
+        """
+        if len(self.inventory) != 0 and len(friend.inventory) != 0:
+            return self.swap_items(friend, self.find_newest_item(),\
+            friend.find_newest_item())

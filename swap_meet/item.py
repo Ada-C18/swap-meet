@@ -1,11 +1,11 @@
 class Item:
-    def __init__(self, category = "", condition=0):
+    def __init__(self, age=None, category = "", condition=0):
         """
         Input: requires age, and takes in a category and condition
         as parameters.
         Result: defines attributes category and condition
         """
-        # self.age = age
+        self.age = age
         self.category = category
         self.condition = condition
     
