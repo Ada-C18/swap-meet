@@ -4,7 +4,7 @@ from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
 
-@pytest.mark.skip
+
 def test_best_by_category():
     item_a = Clothing(condition=2.0)
     item_b = Decor(condition=2.0)
@@ -20,7 +20,7 @@ def test_best_by_category():
     assert best_item.category == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
 
-@pytest.mark.skip
+
 def test_best_by_category_no_matches_is_none():
     item_a = Decor(condition=2.0)
     item_b = Decor(condition=2.0)
@@ -33,7 +33,7 @@ def test_best_by_category_no_matches_is_none():
 
     assert best_item is None
 
-@pytest.mark.skip
+
 def test_best_by_category_with_duplicates():
     # Arrange
     item_a = Clothing(condition=2.0)
@@ -50,7 +50,7 @@ def test_best_by_category_with_duplicates():
     assert best_item.category == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
 
-@pytest.mark.skip
+
 def test_swap_best_by_category():
     # Arrange
     # me
@@ -75,8 +75,14 @@ def test_swap_best_by_category():
         my_priority="Clothing",
         their_priority="Decor"
     )
+    assert result == True
+    assert len(jesse.inventory) == 3
+    assert len(tai.inventory) == 3
+    assert tai.inventory == [item_a, item_b, item_f]
+    assert jesse.inventory == [item_d, item_e, item_c]
+    
 
-    raise Exception("Complete this test according to comments below.")
+
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
