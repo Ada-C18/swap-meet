@@ -16,12 +16,8 @@ class Vendor:
         return item
 
     def get_by_category(self, category):
-        item_list = []
-        for item in self.inventory:
-            if item.category == category:
-                item_list.append(item)
-        return item_list
-    # We can do list comprehension for this
+        return [item for item in self.inventory if item.category == category]
+
 
     def swap_items(self, friend, my_item, their_item):  
         if my_item not in self.inventory or their_item not in friend.inventory:
