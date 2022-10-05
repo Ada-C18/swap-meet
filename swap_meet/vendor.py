@@ -51,4 +51,24 @@ class Vendor:
         if not self.inventory or not other_vendor.inventory:
             return False 
         elif self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0]):
-            return True 
+            return True
+    
+
+    def get_best_by_category(self, category):
+    
+        if not self.inventory:
+            return None
+
+        condition = -1
+        best_item = None
+        items = self.get_by_category(category)
+        for item in items:
+            if item.condition > condition:
+                best_item = item 
+                condition = item.condition
+        return best_item
+        
+
+
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        pass
