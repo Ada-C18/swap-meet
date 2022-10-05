@@ -52,3 +52,16 @@ def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type(
         assert item.condition_description() == one_condition_description
 
     assert one_condition_description != five_condition_description
+
+def test_condition_descriptions():
+    items = [
+        Clothing(condition=4.5),
+        Decor(condition=3.5),
+        Electronics(condition=2.5),
+        Decor(condition=1.5)
+    ]
+
+    assert items[0].condition_description() == "Almost absolutely perfect! Aren't you lucky ☘☘☘"
+    assert items[1].condition_description() == "Not too shabby!"
+    assert items[2].condition_description() == "They're a little fixer upper"
+    assert items[3].condition_description() == "Be gentle with this one, it's a bit (or very) used" 
