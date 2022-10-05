@@ -1,5 +1,6 @@
+
 from swap_meet.item import Item
-# from item import Item  #using for debugging - ask why
+
 #Wave1
 
 class Vendor:
@@ -51,6 +52,61 @@ class Vendor:
             friend_vendor.remove(their_items)
             self.add(their_items)
             return True
+        
+    
+    #Wave 4
+
+    def swap_first_item(self, friend_vendor):
+        """
+        Returns .....
+        """
+        if not self.inventory  or not friend_vendor.inventory:
+            return False
+        removed_first = self.remove(self.inventory[0])
+        friend_vendor.add(removed_first)
+        removed_friends_first = friend_vendor.remove(friend_vendor.inventory[0])
+        self.add(removed_friends_first)
+        return True
+
+    #Wave 6
+
+    def get_best_by_category(self, category):
+        items_by_category = self.get_by_category(category)
+        if not items_by_category:
+            return None
+        # best_item = max(items_by_category, key = attrgetter('condition'))
+        
+        # Another way to find max from attributes of object's list
+        best_item = max(items_by_category,key=lambda x:x.condition)
+            
+        # best_cond = 0
+        # best_item = items_by_category[0]
+        # for item in items_by_category:
+        #     if item.condition > best_cond:
+        #         best_cond = item.condition
+        #         best_item = item
+        return best_item
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other.get_best_by_category(my_priority)
+        
+        if my_best_item is None or their_best_item is None:
+            return False
+        else:
+            self.swap_items(other, my_best_item, their_best_item)
+            return True
+        
+
+
+
+
+    
+
+        
+
+
+        
         
 
 
