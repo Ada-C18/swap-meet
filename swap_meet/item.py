@@ -8,15 +8,15 @@ class Item:
 
     def condition_description(self):
         if self.condition < 1:
-            return "extremly used"
+            return "Poor condition"
         if self.condition >= 1 and self.condition < 2:
-            return "used"
+            return "Worn condition"
         if self.condition >= 2 and self.condition < 3:
-            return "ok condition"
+            return "Good condition"
         if self.condition >= 3 and self.condition < 4:
-            return "almost new"
+            return "Excellent Condition"
         if self.condition >=4:
-            return "good as new"
+            return "Brand New Condition"
         
 # In Wave 2 we will create the `Item` class and the `get_by_category` method.
 

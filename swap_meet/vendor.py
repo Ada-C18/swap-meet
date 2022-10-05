@@ -24,24 +24,7 @@ class Vendor:
             if item.category == category:
                 category_list.append(item)
         return category_list
-<<<<<<< HEAD
-
-#Wave 3
-    def swap_items(self, vendor, my_item, their_item):
-        if my_item not in self.inventory or their_item not in vendor.inventory:
-            return False
-        else:
-            my_swap = my_item
-            their_swap = their_item
-            self.add(their_swap)
-            self.remove(my_item)
-            vendor.add(my_swap)
-            vendor.remove(their_item)
-        return True
-
-=======
     
->>>>>>> 2ab0b8ba9c2455653540b0accb488eb3cd68262d
     def swap_items(self, other_vendor, my_item,their_item):
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
@@ -52,10 +35,6 @@ class Vendor:
             other_vendor.remove(their_item)
             return True
         
-<<<<<<< HEAD
-=======
-
->>>>>>> 2ab0b8ba9c2455653540b0accb488eb3cd68262d
 #Wave 4
     def swap_first_item(self, other_vendor):
         if len(self.inventory)<1 or len(other_vendor.inventory) < 1:
@@ -71,6 +50,29 @@ class Vendor:
             
             self.swap_items(vendor, self.inventory[0], vendor.inventory[0])
             return True
+
+    def get_best_by_category(self, category):
+        best_list = self.get_by_category(category)
+        best_item = ""
+        best_rating = 0
+        if len(best_list) < 1:
+            return None
+        for item in best_list:
+            if item.condition > best_rating:
+                best_item = item
+                best_rating = item.condition
+        return best_item
+            
+        
+    # def    (self, other, my_priority, their_priority)
+
+# Vendors have a method named get_best_by_category, which will get the item with the best condition in a certain category
+# It takes one argument: a string that represents a category
+# This method looks through the instance's inventory for the item with the highest condition and matching category
+# It returns this item
+# If there are no items in the inventory that match the category, it returns None
+# It returns a single item even if there are duplicates (two or more of the same item with the same condition)
+
 
 
 # In Wave 1 we will create the `Vendor` class.
