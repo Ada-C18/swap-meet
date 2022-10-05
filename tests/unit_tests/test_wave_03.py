@@ -36,7 +36,7 @@ def test_swap_items_returns_true():
     assert item_d not in jolie.inventory
     assert item_e in jolie.inventory
     assert item_b in jolie.inventory
-    assert result
+    assert result 
 
 # @pytest.mark.skip
 def test_swap_items_when_my_item_is_missing_returns_false():

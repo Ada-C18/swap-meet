@@ -1,7 +1,7 @@
 from operator import itemgetter
 from typing import ItemsView
 
-from swap_meet.item import Item
+from .item import Item
 
 
 class Vendor:
