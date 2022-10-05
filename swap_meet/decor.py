@@ -5,4 +5,4 @@ class Decor(Item):
 
         
     def __str__(self):
-        return f"Something to decorate your space."
+        return "Something to decorate your space."

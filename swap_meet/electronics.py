@@ -4,4 +4,4 @@ class Electronics(Item):
         super().__init__(category = 'Electronics', condition=condition)
         
     def __str__(self):
-        return f"A gadget full of buttons and secrets."
+        return "A gadget full of buttons and secrets."

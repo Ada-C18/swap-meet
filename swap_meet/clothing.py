@@ -5,4 +5,4 @@ class Clothing(Item):
         super().__init__(condition=condition, category='Clothing')
         
     def __str__(self):
-        return f"The finest clothing you could wear."
+        return "The finest clothing you could wear."

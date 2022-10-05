@@ -1,8 +1,9 @@
-from unicodedata import category
 from swap_meet.item import Item
 class Vendor(Item):
-    def __init__(self, inventory=[]):
+    def __init__(self, inventory = None):
         super().__init__(category='')
+        if inventory is None:
+            inventory = []
         self.inventory = inventory
         
     def add(self, item):
@@ -72,19 +73,19 @@ class Vendor(Item):
         return result[0]
     
     def swap_best_by_category(self, other, my_priority, their_priority):
-        my_swap = self.get_best_by_category(my_priority)
+        my_swap = other.get_best_by_category(my_priority)
         # print(my_swap.condition)
-        other_swap = other.get_best_by_category(their_priority)
+        other_swap = self.get_best_by_category(their_priority)
         # print(other_swap.condition)
-        if other.inventory == []:
+        if other.inventory == [] or self.inventory == []:
             return False
         elif my_swap == None or other_swap == None:
             return False
         else:
-            self.remove(my_swap)
-            other.remove(other_swap)
-            other.add(my_swap)
-            self.add(other_swap)
+            self.remove(other_swap)
+            other.remove(my_swap)
+            other.add(other_swap)
+            self.add(my_swap)
             return True
 
 
