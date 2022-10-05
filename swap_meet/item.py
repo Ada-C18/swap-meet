@@ -7,22 +7,22 @@ class Item:
         return "Hello World!"
     
     def condition_description(self):
-        one_condition_description = "New with tags"
-        two_condition_description = "Never been worn"
+        five_condition_description = "New with tags"
+        four_condition_description = "Never been worn"
         three_condition_description = "Used"
-        four_condition_description = " Heavily used"
-        five_condition_description = "Hazmat suit needed"
+        two_condition_description = " Heavily used"
+        one_condition_description = "Hazmat suit needed"
         
-        if self.condition == 1:
-            condition_description = one_condition_description
-        if self.condition == 2:
-            condition_description = two_condition_description
-        if self.condition == 3:
-            condition_description = three_condition_description
-        if self.condition == 4:
-            condition_description = four_condition_description
         if self.condition == 5:
             condition_description = five_condition_description
+        if self.condition == 4:
+            condition_description = four_condition_description
+        if self.condition == 3:
+            condition_description = three_condition_description
+        if self.condition == 2:
+            condition_description = two_condition_description
+        if self.condition == 1:
+            condition_description = one_condition_description
         
         return condition_description
         
