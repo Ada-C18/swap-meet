@@ -1,6 +1,7 @@
-from swap_meet.item import Item
+from .item import Item
 class Clothing(Item):
     def __init__(self, category = None, condition = 0):
+        # super().__init__(category, condition)
         self.category = category
         self.condition = condition
         if self.category is None:
