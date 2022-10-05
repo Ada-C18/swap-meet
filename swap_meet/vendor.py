@@ -40,9 +40,8 @@ class Vendor:
         
     def get_best_by_category(self, category):
         list_items_by_category = self.get_by_category(category)
-        best_by_category = max(list_items_by_category, key=attrgetter('condition'))
-        return best_by_category
-        
+        return max(list_items_by_category, key=attrgetter('condition')) if list_items_by_category else None
+
 
         # best_item = max(list_best_category.condition)
         # return best_item
