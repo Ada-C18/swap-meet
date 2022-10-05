@@ -76,6 +76,14 @@ def test_swap_best_by_category():
         their_priority="Decor"
     )
 
+    # Assert
+
+    assert result == True 
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert item_c in jesse.inventory
+    assert item_f in tai.inventory
+
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
@@ -94,7 +102,7 @@ def test_swap_best_by_category_reordered():
     tai = Vendor(
         inventory=[item_c, item_b, item_a]
     )
-
+    
     item_d = Clothing(condition=2.0)
     item_e = Decor(condition=4.0)
     item_f = Clothing(condition=4.0)
@@ -108,8 +116,14 @@ def test_swap_best_by_category_reordered():
         my_priority="Clothing",
         their_priority="Decor"
     )
+    # Assert
+    assert result == True 
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert item_c in jesse.inventory
+    assert item_f in tai.inventory
 
-    raise Exception("Complete this test according to comments below.")
+    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -226,6 +240,7 @@ def test_swap_best_by_category_no_other_match_is_false():
         my_priority="Electronics",
         their_priority="Decor"
     )
+    # Assert
 
     raise Exception("Complete this test according to comments below.")
     # *********************************************************************
