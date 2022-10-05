@@ -43,3 +43,13 @@ class Vendor:
         self.add(other_vendor.inventory[0])
         other_vendor.remove(other_vendor.inventory[0])
         return True
+
+    def get_best_by_category(self, category):
+        self.category = category
+        if category in self.inventory:
+            return self.item
+        elif category not in self.inventory:
+            return None
+
+
+
