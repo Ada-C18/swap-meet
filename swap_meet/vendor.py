@@ -45,6 +45,24 @@ class Vendor:
         self.inventory.append(friend_first_inventory)
         friend_vendor.inventory.append(self_first_inventory)
         return True
+
+# Wave 6
+
+    def get_best_by_category(self, category): 
+        highest_condition = 0
+        highest_item = None
+        for inv in self.inventory:
+            if inv.category == category:
+                if (inv.condition > highest_condition):
+                    highest_condition = inv.condition
+                    highest_item = inv 
+        return highest_item
+
+                
+                    
+
+
+
         
 
 
