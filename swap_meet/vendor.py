@@ -24,7 +24,7 @@ class Vendor:
         except ValueError:
             return False
 
-    def get_by_category(self, category):
+    def get_by_category(self, item_category):
         # reminder to ourselves: each item has a category
         # vendor inventory list includes each item as an element
 
@@ -35,7 +35,7 @@ class Vendor:
         # matches the category passed in as an argument
 
         for item in self.inventory:
-            if item.category == category:
+            if item.category == item_category:
                 list_of_items.append(item)
 
         # return list of items that match the category
@@ -67,3 +67,16 @@ class Vendor:
 
         # run swap_items with specified index[0] items
         return self.swap_items(vendor, item_s, item_v)
+
+    def get_best_by_category(self, item_category):
+        try:
+            return max(self.get_by_category(item_category), key= lambda item: item.condition)
+        
+        except ValueError:
+            return None
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        item_s = self.get_best_by_category(their_priority)
+        item_v = other.get_best_by_category(my_priority)
+
+        return self.swap_items(other, item_s, item_v)
