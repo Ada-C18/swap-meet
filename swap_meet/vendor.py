@@ -1,5 +1,4 @@
-from swap_meet.item import Item
-
+from swap_meet.item import *
 
 class Vendor:
     def __init__(self, inventory = None):
@@ -97,8 +96,9 @@ class Vendor:
         
     def swap_best_by_category(self,other,my_priority,their_priority):
         my_item= self.get_best_by_category(their_priority)
+        
         their_item= other.get_best_by_category(my_priority)
-        if my_priority ==their_item and their_priority == my_item:
+        if my_priority == their_item and their_priority == my_item:
             self.swap_items(other,my_item,their_item)
             return True
         else:
