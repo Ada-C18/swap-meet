@@ -5,8 +5,11 @@ from swap_meet.item import Item
 
 
 class Vendor:
-    def __init__(self, inventory = []):
-        self.inventory = inventory
+    def __init__(self, inventory = None):
+        if inventory is None:
+            self.inventory = []
+        else:
+            self.inventory = inventory
         
     def add(self, item):
         self.inventory.append(item)
@@ -34,3 +37,16 @@ class Vendor:
             self.add(their_item)
             return True
         return False
+    
+    def swap_first_item(self, friend):
+        if self.inventory == [] or friend.inventory == []:
+            return False
+        first_item = self.inventory[0]
+        friend_frist_item = friend.inventory[0]
+        if self.inventory and friend.inventory:
+            self.inventory.remove(first_item)
+            self.inventory.append(friend_frist_item)
+            friend.inventory.remove(friend_frist_item)
+            friend.inventory.append(first_item)
+            return True
+    
