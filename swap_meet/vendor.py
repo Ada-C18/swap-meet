@@ -57,6 +57,8 @@ class Vendor:
         vendor_first_item = Vendor.inventory[0]
 
     def get_by_category(self,category):
+        if not category:
+            return None
         new_list = []
         for item in self.inventory:
             if category == item.category:
@@ -98,19 +100,9 @@ class Vendor:
     def swap_best_by_category(self,other,my_priority,their_priority):
         my_item= self.get_best_by_category(their_priority)
         their_item= other.get_best_by_category(my_priority)
-        if my_priority ==their_item and their_priority == my_item:
+        if not my_item or not their_item:
+            return False
+        if my_priority == their_item.category and their_priority == my_item.category:
             self.swap_items(other,my_item,their_item)
             return True
-        else:
-            return False    
-        # try:
-        #     my_item= self.get_best_by_category(their_priority)
-        #     their_item= other.get_best_by_category(my_priority)
-    
-        #     if my_priority == their_item.category and their_priority == my_item.category:
-        #         self.swap_items(other,my_item,their_item)
-        #         return True
-        #     else:
-        #         return False
-        # except AttributeError:
-        #     return False    
+        
