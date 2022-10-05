@@ -70,10 +70,12 @@ class Vendor:
             if not item.category in other.inventory == my_priority:
                 return False
     
-            self.inventory.append(sorted_other_condition[-1])
-            other.inventory.append(sorted_condition[-1])
-            self.inventory.remove(sorted_condition[-1])
-            other.inventory.remove(sorted_other_condition[-1])
+            return self.swap_items(self, other, sorted_other_condition[-1], sorted_condition[-1])
+            
+            # self.inventory.append(sorted_other_condition[-1])
+            # other.inventory.append(sorted_condition[-1])
+            # self.inventory.remove(sorted_condition[-1])
+            # other.inventory.remove(sorted_other_condition[-1])
 
             
         
