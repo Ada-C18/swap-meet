@@ -46,3 +46,15 @@ class Vendor:
         # print([item.category for item in inventory_list])
         # print([item.category for item in friends_vendor.inventory])
         return swap_happened
+
+    def swap_first_item(self, friend_vendor):
+        if len(self.inventory) <= 0 or len(friend_vendor.inventory) <= 0:
+            return False
+       
+        friends_first_item = friend_vendor.inventory[0]
+        my_first_item = self.inventory[0]
+        friend_vendor.inventory[0] = my_first_item
+        self.inventory[0] = friends_first_item
+       
+        return True
+
