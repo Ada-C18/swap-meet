@@ -73,11 +73,42 @@ class Vendor:
         return best_item
 
     def swap_best_by_category(self, other, my_priority, their_priority):
-        self.other = other 
-        self.my_priority = my_priority
-        self.their_priority = their_priority 
+        self.other = other # represents another vendor instance 
+        self.my_priority = my_priority # category this vendor receives
+        self.their_priority = their_priority # represents a category other vendor recieves 
+
+        # if self vendor has no items matching their priority
+        # or other vendor has not item matching my priority 
+        # return False
+
+        # if not self.inventory or not other.inventory:
+        #     return False 
+
+        #check to see if you have an items in your iventory that match their priority
+        #check to see if they have your my priority items
+
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = self.get_best_by_category(my_priority)
+        result = self.swap_items(other, my_best_item, their_best_item)
+        return True   
+
+            
+
 
         
+
+
+        #if i have their priority, find the best conditioned one, and give it to other vendor
+        # if they have my priority, they find the best conditioned one, and give to self vendor 
+        #return True
+
+
+    
+
+
+        
+
+
 
             
 
