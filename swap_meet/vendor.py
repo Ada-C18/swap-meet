@@ -8,8 +8,12 @@ class Vendor:
         self.inventory.append(item)
         return item
 
+    def get_by_category(self, category):
+        return list(filter(lambda item: item.category == category, self.inventory))
+
     def remove(self, item):
         if item in self.inventory:
             self.inventory.remove(item)
             return item
         return False
+
