@@ -106,28 +106,43 @@ def test_swap_best_by_category():
     
 
 # @pytest.mark.skip
-# def test_swap_best_by_category_reordered():
-#     # Arrange
-#     item_a = Decor(condition=2.0)
-#     item_b = Electronics(condition=4.0)
-#     item_c = Decor(condition=4.0)
-#     tai = Vendor(
-#         inventory=[item_c, item_b, item_a]
-#     )
+def test_swap_best_by_category_reordered():
+    # Arrange
+    item_a = Decor(condition=2.0)
+    item_b = Electronics(condition=4.0)
+    item_c = Decor(condition=4.0)
+    tai = Vendor(
+        inventory=[item_c, item_b, item_a]
+    )
+    actual_length_tai = len(tai.inventory)
 
-#     item_d = Clothing(condition=2.0)
-#     item_e = Decor(condition=4.0)
-#     item_f = Clothing(condition=4.0)
-#     jesse = Vendor(
-#         inventory=[item_f, item_e, item_d]
-#     )
+    item_d = Clothing(condition=2.0)
+    item_e = Decor(condition=4.0)
+    item_f = Clothing(condition=4.0)
+    jesse = Vendor(
+        inventory=[item_f, item_e, item_d]
+    )
+    actual_length_jesse = len(jesse.inventory)
 
-#     # Act
-#     result = tai.swap_best_by_category(
-#         other=jesse,
-#         my_priority="Clothing",
-#         their_priority="Decor"
-#     )
+    # Act
+    result = tai.swap_best_by_category(
+        other=jesse,
+        my_priority="Clothing",
+        their_priority="Decor"
+    )
+
+    # Assert
+    assert result == True
+    expected_length_tai = len(tai.inventory)
+    assert expected_length_tai == actual_length_tai
+
+    expected_length_jesse = len(jesse.inventory)
+    assert expected_length_jesse == actual_length_jesse
+
+    assert (item_f in tai.inventory) == True
+    assert (item_c not in tai.inventory) == True 
+    assert (item_c in jesse.inventory) == True
+    assert (item_f not in jesse.inventory) == True 
 
 #     raise Exception("Complete this test according to comments below.")
 #     # *********************************************************************
