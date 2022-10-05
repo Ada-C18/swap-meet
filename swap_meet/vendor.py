@@ -1,3 +1,6 @@
+from sre_constants import CATEGORY_LINEBREAK
+
+
 class Vendor:
     def __init__(self, inventory=None):
         self.inventory = inventory if inventory is not None else []
@@ -32,3 +35,22 @@ class Vendor:
         my_first_item = self.inventory[0]
         friend_first_item = vendor1.inventory[0]
         return self.swap_items(vendor1, my_first_item, friend_first_item)
+
+    def get_best_by_category(self, category):
+        best_match = self.get_by_category(category)
+        best_condition_item = 0
+        if best_match:
+            for item in category:
+                if item > best_condition_item:
+                    best_condition_item = item
+            return best_condition_item
+
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_best_item = self.swap_best_by_category(their_priority)
+        their_best_item = other.swap_best_by_category(my_priority)
+        if my_best_item and their_best_item:
+            return True
+        return False
+
+
