@@ -16,7 +16,7 @@ def test_best_by_category():
     )
 
     best_item = tai.get_best_by_category("Clothing")
-
+    # assert item_a in best_item
     assert best_item.category == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
 
