@@ -39,7 +39,7 @@ class Vendor:
             return True
 
     def swap_first_item(self,vendor):
-        #another way of writing the if statement:
+        #another way of writing the if statement using bool() function:
         #if not bool(self.inventory) or not bool(vendor.inventory)
         if not self.inventory or not vendor.inventory: #check for empty list and return False
             return False

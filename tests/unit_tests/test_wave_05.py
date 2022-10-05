@@ -52,3 +52,27 @@ def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type(
         assert item.condition_description() == one_condition_description
 
     assert one_condition_description != five_condition_description
+
+####Adding additional tests for higher coverage
+
+def test_items_have_condition_as_three():
+    items = [
+        Clothing(condition=3),
+        Decor(condition=3),
+        Electronics(condition=3)
+    ]
+
+    for item in items:
+        item.condition = 3
+        assert item.condition_description() == f"Good condition: {round(item.condition,1)}"
+            
+def test_items_have_condition_as_four():
+    items = [
+        Clothing(condition=4),
+        Decor(condition=4),
+        Electronics(condition=4)
+    ]
+
+    for item in items:
+        item.condition = 4
+        assert item.condition_description() == f"Great condition: {round(item.condition,1)}"

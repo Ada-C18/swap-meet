@@ -51,6 +51,7 @@ def test_removing_not_found_is_false():
 
     # raise Exception("Complete this test according to comments below.")
     assert len(vendor.inventory) == 3
+    assert not result
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
