@@ -43,9 +43,9 @@ class Vendor:
     #       return True
 
     def swap_items(self, friend, my_item, their_item):
-        self.friend = Vendor()
-        self.my_item = Item()
-        self.their_item = Item()
+        # self.friend = Vendor()
+        # self.my_item = Item()
+        # self.their_item = Item()
         if my_item not in self.inventory or their_item not in friend.inventory:
             return False
         
@@ -68,7 +68,7 @@ class Vendor:
 # Return True
 
     def swap_first_item (self, friend):
-        self.friend = Vendor()
+        # self.friend = Vendor()
         if self.inventory == [] or friend.inventory == []:
             return False
         

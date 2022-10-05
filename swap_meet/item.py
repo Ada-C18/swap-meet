@@ -19,4 +19,14 @@ class Item:
 # (eg. 'mint', 'heavily used') but feel free to have fun with these (e.g. 'You probably want a glove for this one..."). 
 # The one requirement is that the `condition_description` for all three classes above have the same behavior.
 
+        if condition == :
+            return ""
+        if condition == :
+            return ""
+        if condition == :
+            return ""
+        if condition == :
+            return ""
+        if condition == :
+            return ""
         
