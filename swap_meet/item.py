@@ -22,8 +22,8 @@ class Item():
 
         }
 
-        for key, value in CONDITION_DICT.items():
-            if self.condition is key:
+        for condition, value in CONDITION_DICT.items():
+            if self.condition is condition:
                 return value
 
         # #or 
