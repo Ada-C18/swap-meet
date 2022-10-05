@@ -50,5 +50,30 @@ def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type(
     for item in items:
         item.condition = 1
         assert item.condition_description() == one_condition_description
+        #####################################################
+    
+    items[0].condition = 2
+    one_condition_description = items[0].condition_description()
+    assert isinstance(one_condition_description, str)
 
+    for item in items:
+        item.condition = 2
+        assert item.condition_description() == one_condition_description
+
+    items[0].condition = 3
+    one_condition_description = items[0].condition_description()
+    assert isinstance(one_condition_description, str)
+
+    for item in items:
+        item.condition = 3
+        assert item.condition_description() == one_condition_description
+
+    items[0].condition = 4
+    one_condition_description = items[0].condition_description()
+    assert isinstance(one_condition_description, str)
+
+    for item in items:
+        item.condition = 4
+        assert item.condition_description() == one_condition_description
+         #############################################333
     assert one_condition_description != five_condition_description
