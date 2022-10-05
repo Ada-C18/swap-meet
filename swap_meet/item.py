@@ -12,10 +12,9 @@ class Item:
     def condition_description(self):
         condition_list = ["heavily used", "moderately used", "slightly used", "used", "almost new", "brand new"]
         
-        for i in range(len(condition_list) + 1):
-            # print(i)
+        for i in range(len(condition_list)):
             if i == self.condition:
-                return condition_list[i - 1]
+                return condition_list[i]
 
         
         
