@@ -37,6 +37,11 @@ class Vendor:
         else:
             return False
 
-
     # Wave_4
-    
+    def swap_first_item(self, swapping_other_vendor):
+        if self.inventory == [] or swapping_other_vendor.inventory == []:
+            return False
+        
+        self.swap_items(swapping_other_vendor, self.inventory[0], swapping_other_vendor.inventory[0])
+        return True
+        
