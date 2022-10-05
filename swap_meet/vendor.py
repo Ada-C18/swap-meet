@@ -18,7 +18,7 @@
 # - If there is no matching item in the `inventory`, the method should return `False`
 
 from pickle import FALSE
-
+from swap_meet.item import Item
 
 class Vendor:
     def __init__(self, inventory=[]):
@@ -33,3 +33,11 @@ class Vendor:
         else:
             self.inventory.remove(removed_item)
             return removed_item  
+
+    def get_by_category(self, category=""):
+        items = []
+        for Item in self.inventory:
+            if category == Item.category:
+                items.append(Item)
+
+        return items
