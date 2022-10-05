@@ -14,15 +14,15 @@ class Item:
         if type(self.condition) == float:
             self.condition = int(self.condition)
 
-        if self.condition == 0:
+        if self.condition == 0.0:
             return "Bad"
-        elif self.condition == 1:
+        elif self.condition == 1.0:
             return "Almost bad"
-        elif self.condition == 2:
+        elif self.condition == 2.0:
             return "Meh"
-        elif self.condition == 3:
+        elif self.condition == 3.0:
             return "Good"
-        elif self.condition == 4:
+        elif self.condition == 4.0:
             return "Great"
-        elif self.condition == 5:
+        elif self.condition == 5.0:
             return "Nothing is perfect, but it almost is"
