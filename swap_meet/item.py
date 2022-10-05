@@ -1,9 +1,13 @@
 class Item:
-    def __init__(self, category = ""):
+    def __init__(self, condition = 0, category = ""):
         self.category = category
-
+        self.condition = condition
+    
     def __str__(self):
-        return f'Hello World!'
+        return 'Hello World!'
+
+    # def condition_description(self):
+
 
     
     

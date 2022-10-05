@@ -1,6 +1,12 @@
 from swap_meet.item import Item
 
-class Electronics:
+class Electronics(Item):
     # might need Super() in __init__
     # override the __str__ method
-    pass
+    def __init__(self, condition = None):
+    
+        super().__init__(condition, category = "Electronics")
+    
+
+    def __str__(self):
+        return "A gadget full of buttons and secrets."
