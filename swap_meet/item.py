@@ -14,13 +14,14 @@ class Item:
     # return a condition description based on condition
     def condition_description(self):
 
+        # switched the order of the statements to match the requirements
         condition_statements = {
-            0: "mint condition",
-            1: "new",
-            2: "like new",
-            3: "gently used",
-            4: "signs of wear & tear",
-            5: "heavily used"
+            0: "heavily used",
+            1: "signs of wear & tear",
+            2: "gently used",
+            3: "like new",
+            4: "new",
+            5: "mint condition"
         }
 
         for i in range(6):
