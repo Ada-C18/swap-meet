@@ -2,11 +2,7 @@ import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
-<<<<<<< HEAD
 #@pytest.mark.skip
-=======
-# @pytest.mark.skip
->>>>>>> 51259ffd5f1b40cb4fe5a8e2e353ae0fcf0aac51
 def test_item_overrides_to_string():
     item = Item()
 
