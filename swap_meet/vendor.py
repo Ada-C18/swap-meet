@@ -129,11 +129,7 @@ class Vendor():
         list_of_items = self.get_by_category(category)
         best_item = self.find_max_item(list_of_items) 
         return best_item  
-        
-        #stuck at the part where we return the associated category with that condition 
 
-
-        #go through the list of items from get_by_category and compare the conditons
     def find_max_item(self, items):
         if len(items) == 0:
             return None
@@ -144,8 +140,8 @@ class Vendor():
         return best_item
     
     def swap_best_by_category(self, other, my_priority, their_priority):
-        #use the get_best_by_category to switch items by calling the instance method 
-        # my_priority = self.get_best_by_category()
-        # their_priority = other.get_best_by_category() 
-        # can we use the swap_items method from above as well?
-        pass
+            #swap my_best_item with their_best_item
+            my_best_item = self.get_best_by_category(their_priority)
+            their_best_item = other.get_best_by_category(my_priority)
+            return self.swap_items(other, my_best_item, their_best_item)
+            
