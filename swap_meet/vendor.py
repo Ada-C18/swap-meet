@@ -1,8 +1,11 @@
+from tkinter import N
 from xml.dom.expatbuilder import theDOMImplementation
 from swap_meet.item import Item
-# refactor start 10/5
+
 class Vendor(Item):
-    '''add doc string'''
+    '''Creating vendor with inventory. Includes methods for adding and removing
+    items from inventory by category and condition. Includes methods for swapping
+    items by category and condition.'''
     def __init__(self, inventory=None):
         if inventory is None:
             self.inventory = []
@@ -10,15 +13,18 @@ class Vendor(Item):
             self.inventory = inventory  # list of item objects
 
     def add(self, item):
+        '''Add item to inventory list.'''
         self.inventory.append(item)
         return item
 
     def remove(self, item):
+        '''Remove item from inventory list.'''
         if item in self.inventory:
             self.inventory.remove(item)
         return item
 
     def get_by_category(self, category):
+        '''Get item from inventory by category.'''
         inventory_by_category = []
         
         for item in self.inventory:  # items in inventory have categories
@@ -28,7 +34,8 @@ class Vendor(Item):
         return inventory_by_category      
 
     def swap_items(self, another_vendor, my_item, their_item):
-        
+        '''Swap item between self and another vendor. Call add and remove
+        methods.'''
         if len(self.inventory) == 0 or len(another_vendor.inventory) == 0:
             return False
         
@@ -43,7 +50,8 @@ class Vendor(Item):
         
 
     def swap_first_item(self, another_vendor):
-
+        '''Swap first item in self inventory with first item in another
+        vendor's inventory.'''
         if len(self.inventory) > 0 and len(another_vendor.inventory) > 0:
             my_item = self.inventory[0]
             their_item = another_vendor.inventory[0]
@@ -54,7 +62,7 @@ class Vendor(Item):
 
             
     def get_best_by_category(self, category):
-
+        '''Get item in best condition by category.'''
         best_item_condition = 0.0
         best_item_count = 0
         
@@ -73,29 +81,17 @@ class Vendor(Item):
             return None
         
     def swap_best_by_category(self, other, my_priority, their_priority):
-        
-        # create category lists for self and other
-        other_categories = []
-        my_categories = []
-        for item in other.inventory:
-            other_categories.append(item.category)
+        '''Swap item in best condition by desired category of other vendor 
+        and vice versa. Returns False if desired category not in either
+        inventory.'''
+        my_best_by_category = self.get_best_by_category(their_priority)
+        their_best_by_category = other.get_best_by_category(my_priority)
 
-        for item in self.inventory:
-            my_categories.append(item.category)
-
-        if my_priority in other_categories and their_priority in my_categories:
-            my_best_by_category = self.get_best_by_category(their_priority)
-            their_best_by_category = other.get_best_by_category(my_priority)
-
-            other.add(my_best_by_category)
-            self.remove(my_best_by_category)
-
-            self.add(their_best_by_category)
-            other.remove(their_best_by_category)
+        if my_best_by_category and their_best_by_category:
+            self.swap_items(other, my_best_by_category, their_best_by_category)
             
             return True
-        
+
         else:
             return False
             
-
