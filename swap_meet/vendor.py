@@ -9,16 +9,6 @@ class Vendor:
 
         self.inventory = inventory if inventory is not None else []
 
-    # def __str__(self):
-    #     string = ""
-    #     for obj in self.inventory:
-    #         string.join(obj.__str__())
-    #     return self.inventory
-
-    # def __eq__(self, other):
-    #     if isinstance(other, str):
-    #         return self.inventory == other
-
     def add(self, item):
         self.inventory.append(item)
         return item
