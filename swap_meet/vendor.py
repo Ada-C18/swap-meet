@@ -2,6 +2,7 @@
 # from .item import Item
 
 # full import
+from unicodedata import category
 from swap_meet.item import Item
 
 
@@ -75,18 +76,30 @@ class Vendor:
             friend_vendor, self.inventory[0], friend_vendor.inventory[0])
         return True
 
-    def get_best_by_category(self, category):
+    def get_best_by_category(self, given_category):
         '''
-        Find item with the best condition in a specified category
+        Method looks through the instance inventory for the item with the highest condition and matching category
+
         Input: category string
         Output:
-        Return item, if item in inventory (1 item if > 2 items with same best condition)
-        Return None, if item category not in inventory
+        Return item, if item category in inventory (return 1 item if 2+ items with same best condition)
+        Return None, if no items in the inventory that match the category
         '''
-        for item in self.get_by_category:
-            if item in self.get_by_category(category):
-                return True
-        return False
+        # if item not in self.get_by_category(category):
+        #     return None
+
+        # self.get_by_category gets items with category in parameter
+        for item in self.get_by_category(given_category):
+            # Find item with the best condition in a specified category
+            best_item = ""
+            highest_condition = 0
+
+            if item.condition > highest_condition:
+                highest_condition = item.condition
+                best_item = item
+            # if item.condition == highest_condition:
+            #     best_items.append(item)
+            return best_item
 
 
 # 2. `swap_best_by_category` - swap the best item of certain categories with another `Vendor`
