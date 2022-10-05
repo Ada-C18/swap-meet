@@ -1,4 +1,5 @@
-
+from operator import itemgetter
+from .item import Item
 
 
 class Vendor:
@@ -24,6 +25,7 @@ class Vendor:
             if item.category == category:
                 items_list.append(item)
         return items_list
+     
 
     def swap_items(self, other_vendor, my_item, their_item):
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
