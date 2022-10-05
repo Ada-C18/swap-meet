@@ -22,34 +22,35 @@ class Vendor:
                 category_items.append(item)
         return category_items
 
-    def swap_items(self, swapper, my_item, their_item):
-        if my_item in self.inventory and their_item in swapper.inventory:
+    def swap_items(self, other, my_item, their_item):
+        if my_item in self.inventory and their_item in other.inventory:
             # Pops each item from their respective inventories and swaps them using Vendor.add()
-            swapper.add(self.inventory.pop(self.inventory.index(my_item)))
-            self.add(swapper.inventory.pop(swapper.inventory.index(their_item)))
+            other.add(self.inventory.pop(self.inventory.index(my_item)))
+            self.add(other.inventory.pop(other.inventory.index(their_item)))
             return True
         else:
             return False
 
-    def swap_first_item(self, swapper):
-        if self.inventory and swapper.inventory:
+    def swap_first_item(self, other):
+        if self.inventory and other.inventory:
             # Pops first item from both inventories and swaps them using Vendor.add()
-            swapper.add(self.inventory.pop(0))
-            self.add(swapper.inventory.pop(0))
+            other.add(self.inventory.pop(0))
+            self.add(other.inventory.pop(0))
             return True
 
     def get_best_by_category(self, category):
         best_condition = -1
         category_list = self.get_by_category(category)
         if category_list:
-            for item in category_list:
-                if item.condition > best_condition:
-                    best_condition = item.condition
-                    best_item = item
+            return max(category_list, key=lambda item: item.condition)
+            # for item in category_list:
+            #     if item.condition > best_condition:
+            #         best_condition = item.condition
+            #         best_item = item
         else:
             return None
 
-        return best_item
+        # return best_item
 
     def swap_best_by_category(self, other, my_priority, their_priority):
         if self.inventory and other.inventory:
