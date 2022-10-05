@@ -5,7 +5,8 @@ module: clothing.py
         method: __str__
 '''
 
-from .item import Item
+from swap_meet.item import Item
+
 
 class Clothing(Item):
     def __init__(self, condition = 0, category = "Clothing"):

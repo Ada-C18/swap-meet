@@ -5,7 +5,7 @@ module: vendor.py
         method: .add .remove .get_by_category .swap_items .swap_first_item
 '''
 
-from .item import Item
+from swap_meet.item import Item
 
 class Vendor:
 
@@ -52,4 +52,25 @@ class Vendor:
             temp2 = another_vendor.inventory[0]
             self.inventory[0] = temp2
             another_vendor.inventory[0] = temp1
+            return True
+
+    def get_best_by_category(self, category):
+        ref_condition = 0
+        item_highest = None
+        if not self.inventory:
+            return None
+        for item in self.inventory:
+            if item.category == category and item.condition >= ref_condition:
+                ref_condition = item.condition
+                item_highest = item
+        return item_highest
+
+    def swap_best_by_category(self, other, my_priority, their_priority): # priority: category
+
+        my_best_item_they_want = self.get_best_by_category(their_priority) 
+        their_best_item_i_want = other.get_best_by_category(my_priority) 
+        if not my_best_item_they_want or not their_best_item_i_want:
+            return False
+        else: 
+            self.swap_items(other, my_best_item_they_want, their_best_item_i_want)
             return True
