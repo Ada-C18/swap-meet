@@ -21,17 +21,17 @@ def test_best_by_category():
     assert best_item.condition == pytest.approx(4.0)
 
 # @pytest.mark.skip
-# def test_best_by_category_no_matches_is_none():
-#     item_a = Decor(condition=2.0)
-#     item_b = Decor(condition=2.0)
-#     item_c = Decor(condition=4.0)
-#     tai = Vendor(
-#         inventory=[item_a, item_b, item_c]
-#     )
+def test_best_by_category_no_matches_is_none():
+    item_a = Decor(condition=2.0)
+    item_b = Decor(condition=2.0)
+    item_c = Decor(condition=4.0)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
 
-#     best_item = tai.get_best_by_category("Electronics")
+    best_item = tai.get_best_by_category("Electronics")
 
-#     assert best_item is None
+    assert best_item is None
 
 # @pytest.mark.skip
 # def test_best_by_category_with_duplicates():
