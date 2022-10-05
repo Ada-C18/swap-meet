@@ -35,10 +35,7 @@ class Vendor:
         if self.inventory == [] or friend.inventory == []:
             return False
         else:
-            self.add(friend.inventory[0])
-            friend.add(self.inventory[0])
-            self.remove(self.inventory[0])
-            friend.remove(friend.inventory[0])
+            self.swap_items(friend, self.inventory[0], friend.inventory[0])
             return True
 
     def get_best_by_category(self, category):
