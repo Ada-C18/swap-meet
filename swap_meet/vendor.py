@@ -1,3 +1,5 @@
+from operator import attrgetter
+
 #~~~~~~~~~~~~~~~~~~~~~~~ WAVE 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 class Vendor:
     def __init__(self, inventory=None):
@@ -34,9 +36,16 @@ class Vendor:
             return False
         self.inventory[0], another_vendor.inventory[0] = another_vendor.inventory[0], self.inventory[0]
         return True
+
         
     def get_best_by_category(self, category):
-        pass
+        list_items_by_category = self.get_by_category(category)
+        best_by_category = max(list_items_by_category, key=attrgetter('condition'))
+        return best_by_category
+        
+
+        # best_item = max(list_best_category.condition)
+        # return best_item
         # get the item with the best condition in a certain category
         # look through the instance's inventory for the item with the highest condition and matching category
         # If there are no items in the inventory that match the category, it returns None
