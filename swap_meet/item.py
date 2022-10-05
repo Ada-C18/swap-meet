@@ -1,3 +1,4 @@
+#~~~~~~~~~~~~~~~~~~~~~~~WAVE 3~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 class Item:
     def __init__(self, category=None, condition=0):
         self.category = category if category is not None else ""
