@@ -55,13 +55,22 @@ class Vendor:
         if len(condition_list) == 0:
             return None
         else:
-            best_condition = 0
-            best_item = 0
-            for item in condition_list:
-                if item.condition > best_condition:
-                    best_condition = item.condition
-                    best_item = item
+            #Solution 1 using loop
+            # best_condition = 0
+            # best_item = 0
+            # for item in condition_list:
+            #     if item.condition > best_condition:
+            #         best_condition = item.condition
+            #         best_item = item
+            
+            #solution 2 using attrgetter
+            # best_item = max(condition_list, key = attrgetter('condition'))
+            
+            #solution 3 using lambda
+            best_item = max(condition_list, key = lambda x:x.condition)
+
             return best_item
+            
             
     def swap_best_by_category(self,other,my_priority,their_priority):
         my_best_item = self.get_best_by_category(their_priority)
