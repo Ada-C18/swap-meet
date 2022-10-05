@@ -56,7 +56,6 @@ class Vendor:
         self_first_item = self.inventory[0]
         vendor_first_item = Vendor.inventory[0]
 
-<<<<<<< HEAD
     def get_by_category(self,category):
         new_list = []
         for item in self.inventory:
@@ -95,6 +94,7 @@ class Vendor:
             return None 
         item = max(items, key=lambda Item: Item.condition) 
         return item
+        
     def swap_best_by_category(self,other,my_priority,their_priority):
         my_item= self.get_best_by_category(their_priority)
         their_item= other.get_best_by_category(my_priority)
@@ -104,14 +104,3 @@ class Vendor:
         else:
             return False    
 
-=======
-        #removes first items from inventory's
-        del self.inventory[0]
-        del Vendor.inventory[0]
-
-        # swaps first items and adds to beginning of inventory
-        self.inventory.insert(0, vendor_first_item)
-        Vendor.inventory.insert(0, self_first_item)
-
-        return True
->>>>>>> 8bfc1380dd2f16d39f599646627f0dfefc0fb610
