@@ -75,6 +75,8 @@ def test_swap_best_by_category():
         my_priority="Clothing",
         their_priority="Decor"
     )
+    their_best = tai.get_best_by_category("Decor")
+
     assert result == True
     assert len(jesse.inventory) == 3
     assert len(tai.inventory) == 3
@@ -115,7 +117,7 @@ def test_swap_best_by_category_reordered():
         their_priority="Decor"
     )
 
-    raise Exception("Complete this test according to comments below.")
+    #Assert
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
