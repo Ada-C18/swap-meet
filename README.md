@@ -91,10 +91,10 @@ In Wave 1 we will create the `Vendor` class.
 
 ### Wave 3
 
-In Wave 3 we will write a method to stringify an `Item` using `str()` and write the method `swap_items`.
+<!-- In Wave 3 we will write a method to stringify an `Item` using `str()` and write the method `swap_items`.
 
 - When we stringify (convert to a string) an instance of `Item` using `str()`, it returns `"Hello World!"`
-  - This implies `Item` overrides its stringify method. We may need to research the `__str__` method for more details!
+  - This implies `Item` overrides its stringify method. We may need to research the `__str__` method for more details! -->
 
 The remaining tests in wave 3 imply:
 
