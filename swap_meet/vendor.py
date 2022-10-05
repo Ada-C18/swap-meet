@@ -38,7 +38,7 @@ class Vendor:
 
     def get_best_by_category(self, category):
         best_match = self.get_by_category(category)
-        best_condition_item = 0
+        best_condition_item = None
         if best_match:
             for item in category:
                 if item > best_condition_item:
