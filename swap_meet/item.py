@@ -8,16 +8,17 @@ class Item:
     def __str__(self):
         return "Hello World!"
 
-    def condition_description(self, condition):
+    def condition_description(self):
         describers = ["You might want gloves for this one..",
         "It could look worse", 
         "Average wear and tear",
         "This looks almost new!",
         "This is NEW!"
         ]
-        # if float(condition):
-        #    condition = round(condition)
+        counter = 0
+        while counter < len(describers):
 
-        for item in len(describers):
-            if describers.index(item) == condition:
-                return item
+            for item in range(len(describers) + 1):
+                if item == self.condition:
+                    return describers[item - 1]
+                counter += 1
