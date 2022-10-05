@@ -1,9 +1,11 @@
 class Item:
-    def __init__(self, category = ""):
+    def __init__(self, condition = None, category = ""):
         self.category = category
+        self.condition = condition
+        
 
     def __str__(self):
-        return f'Hello World!'
+        return 'Hello World!'
 
     
     
