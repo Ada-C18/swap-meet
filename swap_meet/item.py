@@ -20,3 +20,10 @@ class Item:
         elif self.condition == 0:
             return "As Is"
 
+
+
+
+
+
+
+
