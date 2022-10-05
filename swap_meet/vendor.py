@@ -56,3 +56,36 @@ class Vendor:
         else:
             return False
 
+    def get_best_by_category(self, category):
+        '''Returns item with the best condition in a certain category.'''
+
+        condition_max = 0
+        best_item = ""
+        for item in self.inventory:
+            category_counter = 0
+            if item.category == category:
+                category_counter += 1
+                if item.condition > condition_max:
+                    condition_max = item.condition
+                    best_item = item
+    
+        if category_counter == 0:
+            return None
+        else:
+            return best_item
+        
+
+       
+
+        
+
+                    
+    
+    
+                    
+
+
+            # if item.condition == max_condition:
+            #     return max_condition
+
+        
