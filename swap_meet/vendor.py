@@ -58,4 +58,4 @@ class Vendor:
         if not other_item or not my_item:
             return False
 
-        self.swap_items(other, my_item, other_item)
+        return self.swap_items(other, my_item, other_item)
