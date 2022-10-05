@@ -1,4 +1,6 @@
+from tokenize import String
 from types import MemberDescriptorType
+from swap_meet.item import Item
 
 
 class Vendor:
@@ -6,7 +8,17 @@ class Vendor:
     def __init__(self, inventory = None):
 
         self.inventory = inventory if inventory is not None else []
-        
+
+    # def __str__(self):
+    #     string = ""
+    #     for obj in self.inventory:
+    #         string.join(obj.__str__())
+    #     return self.inventory
+
+    # def __eq__(self, other):
+    #     if isinstance(other, str):
+    #         return self.inventory == other
+
     def add(self, item):
         self.inventory.append(item)
         return item
@@ -26,9 +38,13 @@ class Vendor:
         #         items_list.append(item)
         # return items_list
 
-    def different_vendor():
-        #composite/component relationship
-        pass
+    def swap_items(self, friend, my_item, their_item):
+        if my_item not in self.inventory or their_item not in friend.inventory:
+            return False
 
-    def swap_items(self, different_vendor(), my_item, their_item):
-        pass
+        self.add(their_item)
+        friend.add(my_item)
+        self.remove(my_item)
+        friend.remove(their_item)
+
+        return True
