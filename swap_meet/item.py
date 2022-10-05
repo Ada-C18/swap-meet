@@ -10,9 +10,9 @@ class Item:
         return "Hello World!"
 
     def condition_description(self):
-        # handle condition if it's a float
-        if type(self.condition) == float:
-            self.condition = int(self.condition)
+        # handle condition if it's an int
+        if type(self.condition) == int:
+            self.condition = float(self.condition)
 
         if self.condition == 0.0:
             return "Bad"
@@ -25,4 +25,4 @@ class Item:
         elif self.condition == 4.0:
             return "Great"
         elif self.condition == 5.0:
-            return "Nothing is perfect, but it almost is"
+            return "Almost Perfect"
