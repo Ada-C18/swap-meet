@@ -1,3 +1,6 @@
+from unicodedata import name
+
+
 class Item:
     # each item will have attribute- empty list by default
     def __init__(self, category= None):
@@ -6,5 +9,3 @@ class Item:
     # make a string method that always return Hello World!
     def __str__(self):
         return "Hello World!"
-
-
