@@ -1,10 +1,9 @@
 # from msilib.schema import Condition
 
 class Item:
-    def __init__(self,category= "", condition =0.0, conditional_desc=""):
+    def __init__(self,category= "", condition =0.0):
         self.category = category
         self.condition = condition
-        self.conditional_desc = conditional_desc
         
     def get_category(self):
         return self.category
@@ -13,25 +12,17 @@ class Item:
         return "Hello World!"
     
     def condition_description(self):
-        return str(self.condition)
-    
-        # if self.condition == 0.0:
-        #     self.coditional_desc = "bad"
-        #     return self.coditional_desc
-        # elif self.condition <= 1.0:
-        #     self.conditional_desc = "poor"
-        #     return self.coditional_desc
-        # elif self.condition <= 2.0:
-        #     self.conditional_desc = "acceptable"
-        #     return self.coditional_desc
-        # elif self.condition <= 3.0:
-        #     self.conditional_desc = "fair"
-        #     return self.coditional_desc
-        # elif self.condition <= 4.0:
-        #     self.conditional_desc = "good"
-        #     return self.coditional_desc
-        # elif self.condition <= 5.0:
-        #     self.conditional_desc ="excellent"
-        #     return self.coditional_desc
+        if self.condition == 0.0:
+            return "bad"
+        elif self.condition <= 1.0:
+            return "poor"
+        elif self.condition <= 2.0:
+            return "acceptable"
+        elif self.condition <= 3.0:
+            return "fair"
+        elif self.condition <= 4.0:
+            return "good"
+        elif self.condition <= 5.0:
+            return "excellent"
     
 
