@@ -50,7 +50,7 @@ class Vendor:
         return output_list
     
     def swap_items(self, friend, my_item, their_item):
-        """swap one item between the current vendor object and their friends"""
+        """swaps one item between the current vendor object and their friends"""
         if my_item in self.inventory and their_item in friend.inventory:
             self.remove(my_item)
             friend.add(my_item)
@@ -58,6 +58,21 @@ class Vendor:
             self.add(their_item)
             return True
         return False
+    def swap_first_item(self, friend):
+        """swaps the first item in current vendor object's inventory with
+        the first item of friend's inventory list"""
+
+        if self.inventory == [] or friend.inventory == []:
+            return False
+        else:
+            temp = self.inventory[0] 
+            self.inventory[0] = friend.inventory[0]
+            friend.inventory[0]= temp
+            return True
+
+
+
+
 
 
 
