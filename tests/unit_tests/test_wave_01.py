@@ -51,4 +51,3 @@ def test_removing_not_found_is_false():
 
     # raise Exception("Complete this test according to comments below.")
     assert result is False
-    
