@@ -1,3 +1,6 @@
+from operator import truediv
+
+
 class Vendor:
     def __init__(self, inventory = None):
         self.inventory = inventory if inventory is not None else []
@@ -50,11 +53,11 @@ class Vendor:
     def swap_first_item(self, friend_vendor):
         if len(self.inventory) <= 0 or len(friend_vendor.inventory) <= 0:
             return False
-       
+
         friends_first_item = friend_vendor.inventory[0]
         my_first_item = self.inventory[0]
         friend_vendor.inventory[0] = my_first_item
         self.inventory[0] = friends_first_item
-       
+
         return True
 
