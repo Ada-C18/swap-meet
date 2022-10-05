@@ -16,10 +16,6 @@ class Vendor:
             self.inventory.remove(item)
             return item
         return False
-    
-    def get_by_category(self, category):
-        self.inventory.append(category)
-        return self.inventory 
         
     def get_by_category(self, category):
         list_of_category_match = []
@@ -79,12 +75,3 @@ class Vendor:
         other.remove(their_best_item)
 
         return True
-
-"""
-
-
-
-    - If the `Vendor` has no item that matches `their_priority` category, swapping does not happen, and it returns `False`
-    - If `other` has no item that matches `my_priority` category, swapping does not happen, and it returns `False`       
-
-"""
