@@ -41,3 +41,9 @@ class Vendor:
         self.inventory.remove(self.inventory[0])
         friend.inventory.remove(friend.inventory[0])
         return True
+
+    def get_best_by_category(self, other, my_priority, their_priority):
+        self.swap_item(other, my_priority, their_priority)
+
+    def swap_best_by_category(self):
+        pass
