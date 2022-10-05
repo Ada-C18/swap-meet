@@ -38,3 +38,8 @@ class Vendor:
 
         return True
 
+    # swaps first item between 2 vendors
+    # def swap_first_item(self, other_vendor)
+    # if either inventory is empty, return False
+    # should look just like the last method, but instead of my_item etc use inventory[0]
+    # else return True
