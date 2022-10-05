@@ -24,7 +24,7 @@ class Vendor(Item):
         for item in self.inventory:  # items in inventory have categories
             if item.category == category:
                 inventory_by_category.append(item)
-        
+
         return inventory_by_category      
 
     def swap_items(self, another_vendor, my_item, their_item):
@@ -42,8 +42,6 @@ class Vendor(Item):
         return False
         
 
-### Wave 4
-
     def swap_first_item(self, another_vendor):
 
         if len(self.inventory) > 0 and len(another_vendor.inventory) > 0:
@@ -54,7 +52,6 @@ class Vendor(Item):
         else:
             return False
 
-### Wave 6
             
     def get_best_by_category(self, category):
 
@@ -86,7 +83,6 @@ class Vendor(Item):
         for item in self.inventory:
             my_categories.append(item.category)
 
-        # 
         if my_priority in other_categories and their_priority in my_categories:
             my_best_by_category = self.get_best_by_category(their_priority)
             their_best_by_category = other.get_best_by_category(my_priority)
