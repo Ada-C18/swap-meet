@@ -65,20 +65,45 @@ class Vendor(Item):
                 best_item_count += 1
                 if item.condition > self.best_item:
                     self.best_item = item.condition
+            # print(f"{self.best_item=}")
+            # print(f"{item.condition=}")
 
         for item in self.inventory:
             if item.condition == self.best_item:
+                # print(f"{item=}")
                 return item
         
         if best_item_count == 0:
             return None
         
     def swap_best_by_category(self, other, my_priority, their_priority):
-        if my_priority == other.get_best_by_category and their_priority == self.get_best_by_category:
-            self.inventory.add(my_priority)
-            self.inventory.remove(their_priority)
-            other.add(their_priority)
-            other.remove(my_priority)
+        
+        # create category lists for self and other
+        other_categories = []
+        my_categories = []
+        for item in other.inventory:
+            other_categories.append(item.category)
+
+        for item in self.inventory:
+            my_categories.append(item.category)
+
+        # 
+        if my_priority in other_categories and their_priority in my_categories:
+            for item in other.inventory:
+                if my_priority == item.category:
+                    # take item from their list and put it in my list
+                    other.remove(item)
+                    self.add(item)
+
+            for item in self.inventory:
+                if their_priority == item.category:
+                    # take item from their list and put it in my list
+                    self.remove(item)
+                    other.add(item) 
+
+            return True
+        
         else:
             return False
+            
 
