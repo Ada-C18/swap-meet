@@ -59,7 +59,26 @@ class Vendor:
         friend_first_item = vendor.inventory[0]
         self.inventory[0] = friend_first_item 
         vendor.inventory[0] = vendor_first_item 
-        return True 
+        return True
+    
+    # def get_best_by_category(self, category):
+    #     self.category = category 
+    #     best_condition = self.inventory[0]
+        
+    #     if len(self.inventory) == 0:
+    #         return None
+            
+    #     for item in self.inventory:
+    #         if item.category == self.category:
+    #             if item.condition > self.condition:
+    #                 best_condition = item.category
+    #                 return best_condition 
+                
+
+
+
+    # def swap_best_by_category(self): 
+    #     pass 
 
 
 
