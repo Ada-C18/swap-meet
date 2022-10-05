@@ -1,5 +1,5 @@
 class Item:
-    def __init__(self, category="", condition=0.0):
+    def __init__(self, category="", condition=0):
         self.category = category
         self.condition = condition
 
@@ -7,18 +7,10 @@ class Item:
         return "Hello World!"
 
     def condition_description(self):
-        if self.condition ==  5:
-            return "New"
-        elif self.condition == 4:
-            return "Like New"
-        elif self.condition == 3:
-            return "Very Good"
-        elif self.condition == 2:
-            return "Good"
-        elif self.condition == 1:
-            return "Acceptable"
-        elif self.condition == 0:
-            return "As Is"
+        condition_list = ["As Is", "Acceptable", "Good", "Very Good", "Like New", "New"]
+        for i in range(len(condition_list)):
+            if i == self.condition:
+                return condition_list[i]
 
 
 
