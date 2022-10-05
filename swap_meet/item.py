@@ -21,15 +21,6 @@ class Item:
 # The one requirement is that the `condition_description` for all three classes above have the same behavior.
 
 
-        if condition ==  :
-            return ""
-        elif condition == :
-            return ""
-        elif condition == :
-            return ""
-        elif condition == :
-            return ""
-        if condition == :
-            return ""
+        
         
 
