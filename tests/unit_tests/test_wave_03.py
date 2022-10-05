@@ -14,11 +14,7 @@ def test_item_overrides_to_string():
 
     assert stringified_item == "Hello World!"
 
-<<<<<<< HEAD
 #@pytest.mark.skip
-=======
-# @pytest.mark.skip
->>>>>>> 51259ffd5f1b40cb4fe5a8e2e353ae0fcf0aac51
 def test_swap_items_returns_true():
     item_a = Item(category="clothing")
     item_b = Item(category="clothing")
