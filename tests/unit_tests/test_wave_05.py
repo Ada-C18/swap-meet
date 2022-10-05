@@ -41,11 +41,11 @@ def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type(
     five_condition_description = items[0].condition_description()
     assert isinstance(five_condition_description, str)
     for item in items:
-        assert item.condition_description() == five_condition_description # this gives mint
+        assert item.condition_description() == five_condition_description
 
     items[0].condition = 1
     one_condition_description = items[0].condition_description()
-    assert isinstance(one_condition_description, str) # this also gives mint, but should not
+    assert isinstance(one_condition_description, str)
 
     for item in items:
         item.condition = 1
