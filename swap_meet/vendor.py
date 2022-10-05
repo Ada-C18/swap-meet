@@ -66,11 +66,29 @@ class Vendor:
 #     - If there are no items in the `inventory` that match the category, it returns `None`
 #     - It returns a single item even if there are duplicates (two or more of the same item with the same condition)
 
+    # def get_best_by_category(self, category):
+    #     if not category:
+    #         return None
+    #     category_list = self.get_by_category(category)
+    #     best_condition = category
+    #      return True
+    
+
     def get_best_by_category(self, category):
-        if not category:
+    
+        if not self.inventory:
             return None
-        category_list = self.get_by_category(category)
-        best_condition = category
+
+        condition = -1
+        best_item = None
+        items = self.get_by_category(category)
+        for item in items:
+            if item.condition > condition:
+                best_item = item 
+                condition = item.condition
+        return best_item
         
 
 
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        pass
