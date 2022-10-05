@@ -79,9 +79,10 @@ class Vendor:
         other_best = other.get_best_by_category(my_priority)
         my_best = self.get_best_by_category(their_priority)
         if my_best in self.inventory and other_best in other.inventory:
-            self.add(other_best)
-            self.remove(my_best)
-            other.add(my_best)
-            other.remove(other_best)
+            self.swap_items(other, my_best, other_best)
+            # self.add(other_best)
+            # self.remove(my_best)
+            # other.add(my_best)
+            # other.remove(other_best)
             return True
         return False
