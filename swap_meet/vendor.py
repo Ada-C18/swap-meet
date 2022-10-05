@@ -47,21 +47,35 @@ class Vendor:
 # Wave 4
 #======================================================
     def swap_first_item(self, friend_vendor):
-        # need try and except otherwise if the inventory list is empty
-        # the code won't work
-        try:
+        if not self.inventory or not friend_vendor.inventory:
+            return False        
+        if self.inventory and friend_vendor.inventory:
             self.swap_items(friend_vendor, self.inventory[0], friend_vendor.inventory[0])
             return True
-        except: 
-            if not self.inventory or not friend_vendor.inventory:
-                return False
 
-        # if self.inventory and friend_vendor.inventory:
-        #     self.remove(self.inventory[0])
-        #     friend_vendor.add(self.inventory[0])
-        #     friend_vendor.remove(friend_vendor.inventory[0])
-        #     self.add(friend_vendor.inventory[0])
-        #     return True
-        # if not self.inventory or not friend_vendor.inventory:
-        #     return False
+# Wave 6
+#========================================= 
+    def get_best_by_category(self, category):
+        items_by_category = self.get_by_category(category)
+        if not items_by_category:
+            return None        
+        
+        best_item = items_by_category[0]
+        best_condition = 0
+        for item in items_by_category:
+            if item.condition > best_condition:
+                best_condition = item.condition
+                best_item = item
+        return best_item
+        # need to import something else for this line below to work
+        #best_condition = max(items_by_category, key= item.condition)
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other.get_best_by_category(my_priority)
+        if not my_best_item or not their_best_item:
+            return False
+        else:
+            self.swap_items(other, my_best_item, their_best_item)
+            return True
 

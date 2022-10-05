@@ -32,3 +32,4 @@ class Item:
             return "Like new"
         elif self.condition == 5:
             return "New"
+
