@@ -5,9 +5,7 @@ class Vendor:
         if not inventory:
             inventory = []
         self.inventory = inventory
-        if self.inventory is None:
-            self.inventory = []
-
+        
     def add(self, item):
         self.inventory.append(item)
         return item
@@ -26,6 +24,7 @@ class Vendor:
             if item.category == category:
                 category_list.append(item)
         return category_list
+<<<<<<< HEAD
 
 #Wave 3
     def swap_items(self, vendor, my_item, their_item):
@@ -40,6 +39,9 @@ class Vendor:
             vendor.remove(their_item)
         return True
 
+=======
+    
+>>>>>>> 2ab0b8ba9c2455653540b0accb488eb3cd68262d
     def swap_items(self, other_vendor, my_item,their_item):
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
@@ -50,6 +52,10 @@ class Vendor:
             other_vendor.remove(their_item)
             return True
         
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2ab0b8ba9c2455653540b0accb488eb3cd68262d
 #Wave 4
     def swap_first_item(self, other_vendor):
         if len(self.inventory)<1 or len(other_vendor.inventory) < 1:
