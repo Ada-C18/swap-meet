@@ -25,8 +25,8 @@ class Vendor:
     
     def swap_items(self,other_vendor,my_item,their_item):
         if my_item in self.inventory and their_item in other_vendor.inventory:
-            self.inventory.append(other_vendor.inventory.pop(other_vendor.inventory.index(their_item)))
-            other_vendor.inventory.append(self.inventory.pop(self.inventory.index(my_item)))
+            self.add(other_vendor.remove(their_item))
+            other_vendor.add(self.remove(my_item))
             return True
         return False
 
@@ -71,6 +71,9 @@ class Vendor:
         return newest_item
     
     def swap_by_newest(self,other):
-        self.swap_items(other,self.get_newest,other.get_newest)
+        my_item = self.get_newest()
+        their_item = other.get_newest()
+        self.swap_items(other,my_item,their_item)
+
         
     
