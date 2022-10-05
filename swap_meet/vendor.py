@@ -58,6 +58,20 @@ class Vendor:
                     highest_item = inv 
         return highest_item
 
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other.get_best_by_category(my_priority)
+        if my_best_item == None or their_best_item == None:
+            return False
+        self.inventory.remove(my_best_item)
+        other.inventory.append(my_best_item)
+        other.inventory.remove(their_best_item)
+        self.inventory.append(their_best_item)
+        return True
+
+
+
+
                 
                     
 

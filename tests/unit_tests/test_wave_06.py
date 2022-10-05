@@ -51,30 +51,30 @@ def test_best_by_category_with_duplicates():
     assert best_item.condition == pytest.approx(4.0)
 
 # @pytest.mark.skip
-# def test_swap_best_by_category():
-#     # Arrange
-#     # me
-#     item_a = Decor(condition=2.0)
-#     item_b = Electronics(condition=4.0)
-#     item_c = Decor(condition=4.0)
-#     tai = Vendor(
-#         inventory=[item_a, item_b, item_c]
-#     )
+def test_swap_best_by_category():
+    # Arrange
+    # me
+    item_a = Decor(condition=2.0)
+    item_b = Electronics(condition=4.0)
+    item_c = Decor(condition=4.0)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
 
-#     # them
-#     item_d = Clothing(condition=2.0)
-#     item_e = Decor(condition=4.0)
-#     item_f = Clothing(condition=4.0)
-#     jesse = Vendor(
-#         inventory=[item_d, item_e, item_f]
-#     )
+    # them
+    item_d = Clothing(condition=2.0)
+    item_e = Decor(condition=4.0)
+    item_f = Clothing(condition=4.0)
+    jesse = Vendor(
+        inventory=[item_d, item_e, item_f]
+    )
 
-#     # Act
-#     result = tai.swap_best_by_category(
-#         other=jesse,
-#         my_priority="Clothing",
-#         their_priority="Decor"
-#     )
+    # Act
+    result = tai.swap_best_by_category(
+        other=jesse,
+        my_priority="Clothing",
+        their_priority="Decor"
+    )
 
 #     raise Exception("Complete this test according to comments below.")
 #     # *********************************************************************
