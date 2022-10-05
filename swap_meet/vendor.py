@@ -5,9 +5,7 @@ class Vendor:
         if not inventory:
             inventory = []
         self.inventory = inventory
-        if self.inventory is None:
-            self.inventory = []
-
+        
     def add(self, item):
         self.inventory.append(item)
         return item
