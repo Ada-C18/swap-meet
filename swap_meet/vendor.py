@@ -43,4 +43,4 @@ class Vendor:
         return max(self.get_by_category(category), key = lambda item: item.condition, default = None)
 
     def swap_best_by_category(self, other, my_priority, their_priority):
-        return self.swap_items(other, self.get_best_by_category(their_priority), self.get_best_by_category(my_priority))
+        return self.swap_items(other, self.get_best_by_category(their_priority), other.get_best_by_category(my_priority))
