@@ -60,52 +60,50 @@ class Vendor:
         return True
 
     
-    def get_best_by_category(self, category):
-        get_category = self.get_by_category(category)
-        if not get_category:
-            return None
-        best_condition = 0 
-        best_item = get_category[0]
-        for item in get_category:
-            if item.condition > best_condition:
-                best_condition = item.condition
-                best_item = item
-        return best_item
-
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-        # item_list = []
-        # if category not in self.inventory:
-        #     return None
-        # for item in self.inventory:
-        #     if item.category == category:
-        #         item_list.append(item)
-
-        # return max(item_list, key = item.condition)
-    # def get_condition(inventory):
-    #     return self.condition
-    
     # def get_best_by_category(self, category):
     #     get_category = self.get_by_category(category)
     #     if not get_category:
     #         return None
-    #     print(str(get_category))
-    #     for item in get_category:
-    #         return max(item, key = item.condition)
-    
-    # def get_condition(self):
-    #     for item in self.inventory:
-    #         return int(item.condition)
+        # best_condition = 0 
+        # best_item = get_category[0]
+        # for item in get_category:
+        #     if item.condition > best_condition:
+        #         best_condition = item.condition
+        #         best_item = item
+        # return best_item
+
+    def get_best_by_category(self, category):
+        get_category = self.get_by_category(category)
+        if not get_category:
+            return None
+        for item in get_category:
+            return max(get_category, key = lambda item : item.condition)
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        self.other = other
+        self.their_priority = their_priority
+        self.my_priority = my_priority
+            
+        their_best_item = self.get_best_by_category(their_priority)
+        my_best_item = self.get_best_by_category(my_priority)
+        item_swap = self.swap_items(other, my_priority, their_priority)
+        
+        if not their_best_item and not my_best_item:
+            return False
+        elif item_swap:
+            return True
+
+            
+            
+       
+       
+       
+       
+       
+       
+       
+       
+        
 
 
     
