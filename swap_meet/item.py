@@ -1,8 +1,8 @@
 class Item:
-    def __init__(self, category=None, condition=None):
+    def __init__(self, condition=None, category=None):
+        self.condition = condition if condition is not None else 0.0
         category = category if category is not None else ""
         self.category = category
-        condition = condition if condition is not None else 0.0
     def __str__(self):
         return f"Hello World!"
     def condition_description(self):
