@@ -3,7 +3,11 @@ from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
 # @pytest.mark.skip
+<<<<<<< HEAD
 @pytest.mark.integration_test
+=======
+# @pytest.mark.integration_test
+>>>>>>> 9ac1a2181ddd25374017e5feec69107b7b3d195d
 def test_integration_wave_01_02_03():
     # make a vendor  
     vendor = Vendor()
