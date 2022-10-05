@@ -1,4 +1,4 @@
-# from swap_meet.item import Item will need this to import in last test wave 5
+from swap_meet.item import Item
 class Decor:
     def __init__(self, category=None, condition=0.0):
         self.category = "Decor"
