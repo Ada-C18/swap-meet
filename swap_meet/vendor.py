@@ -23,9 +23,17 @@ class Vendor:
                 merch.append(item)
         return merch
 
-    def swap_items(self, vendor2, my_item, their_item):
-        self.vendor2 = vendor2
+    def swap_items(self, friend, my_item, their_item):
+        self.friend = friend
         self.my_item = my_item
         self.their_item = their_item
 
-        # how do I call add, remove?
+        if my_item in self.inventory and their_item in self.friend.inventory:
+            self.remove(my_item)
+            friend.add(my_item)
+            friend.remove(their_item)
+            self.add(their_item)
+            return True
+
+        else:
+            return False
