@@ -50,16 +50,14 @@ class Vendor:
         # print([item.category for item in friends_vendor.inventory])
         return swap_happened
 
-    def swap_first_item(self, friends_vendor):
-        swap_first_element = False
-        if len(self.inventory) > 1 and len(friends_vendor.inventory) > 1:
-            temp = self.inventory[0]
-            self.inventory[0] = friends_vendor.inventory[0]
-            friends_vendor.inventory[0] = temp
-            swap_first_element = True            
-        
-        else:
-            swap_first_element = False
-            
-        return swap_first_element
-        
+    def swap_first_item(self, friend_vendor):
+        if len(self.inventory) <= 0 or len(friend_vendor.inventory) <= 0:
+            return False
+       
+        friends_first_item = friend_vendor.inventory[0]
+        my_first_item = self.inventory[0]
+        friend_vendor.inventory[0] = my_first_item
+        self.inventory[0] = friends_first_item
+       
+        return True
+
