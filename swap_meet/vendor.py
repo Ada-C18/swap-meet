@@ -2,14 +2,14 @@ from swap_meet.item import Item
 
 class Vendor:
     
-    def __init__(self, inventory = None):
+    def __init__(self, inventory= None):
         self.inventory = inventory if inventory is not None else []
         
 # default list error here (inventory= None)
 
     def add(self, item):
         self.inventory.append(item)
-        # return item 
+        return item 
         
     def remove(self, item):
         if item in self.inventory:
