@@ -23,10 +23,10 @@ class Vendor:
         #vendor1 = Vendor() Ask an instructor why you dont have to create an instance this way
         # clean this function up
         if my_item in self.inventory and their_item in vendor1.inventory:
-            self.inventory.append(their_item)
-            self.inventory.remove(my_item)
-            vendor1.inventory.append(my_item)
-            vendor1.inventory.remove(their_item)
+            self.add(their_item)
+            self.remove(my_item)
+            vendor1.add(my_item)
+            vendor1.remove(their_item)
             return True
         return False
     
