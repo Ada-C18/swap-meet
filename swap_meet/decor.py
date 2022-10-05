@@ -10,4 +10,5 @@ class Decor(Item):
         return "Something to decorate your space."
 
     def condition_description(self):
-        super().condition_description()
+        return super().condition_description()
+
