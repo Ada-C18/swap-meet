@@ -51,7 +51,7 @@ def test_swaps_first_items_if_age_is_a_tie():
     assert item_a in george.inventory
     assert item_c in george.inventory
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_newest_item_no_inventory_is_false():
     # Arrange
     item_a = Clothing(age=2)
@@ -71,7 +71,7 @@ def test_swap_newest_item_no_inventory_is_false():
     assert item_a in lily.inventory
     assert item_b in lily.inventory
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_newest_item_no_inventory_is_false_reversed():
     # Arrange
     item_c = Electronics(age=1)
