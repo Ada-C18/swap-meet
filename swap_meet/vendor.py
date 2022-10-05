@@ -1,3 +1,4 @@
+from operator import attrgetter
 
 # from unicodedata import category
 from swap_meet.item import Item
@@ -130,3 +131,43 @@ class Vendor():
         # should describe the condition IN WORDS based on the VALUE = range 0-5
         # feel free to have fun with condition descriptions
         # the condition_description method behaves the same for all three classes
+
+# WAVE 6 ======================================================================
+# write TWO METHODS
+
+# FIRST METHOD TO CREATE
+# VENDORs have method get_best_by_category 
+# take 1 argument: CATEGORY, as a string
+# looks through INVENTORY for the item with highest CONDITION and matching CATEGORY
+# RETURNs this item
+# if no items in INVENTORY that match, RETURN None
+# if 1 item in INVENTORY that match, RETURN 1 item only
+
+    def get_best_by_category(self, category=""):
+
+        if len(self.get_by_category(category)) == 0:
+            return None
+        best_item = (max(self.get_by_category(category), key=lambda x:x.condition))
+        return best_item
+
+# SECOND METHOD TO CREATE
+# takes in 3 arguments
+        # OTHER = VENDOR instance to trade with
+        # MY_PRIORITY = CATEGORY that VENDOR wants to receive
+        # THEIR_PRIORITY = CATEGORY that OTHER wants to recieve
+
+# best item that matches THEIR_PRIORITY is swapped
+# best item that matches MY_PRIORITY is swapped
+
+# it returns True
+# if VENDOR has no item that matches THEIR_PRIORITY, returns False
+# if OTHER has no item that matches THEIR_PRIORITY, returns False
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        
+        swap_items = self.swap_items(other, my_priority, their_priority)
+
+        if swap_items == False:
+            return False
+        return True
+    
+    pass
