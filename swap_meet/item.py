@@ -1,5 +1,5 @@
 class Item:
-    def __init__(self, category='', condition=0, age=None):
+    def __init__(self, category='', condition=0, age=0):
         self.category = category
         self.condition = condition
         self.age = age
@@ -8,5 +8,3 @@ class Item:
     def condition_description(self):
         description_options = ['Poor','Used fair','Used good','Used very good','Used like new', 'New']
         return description_options[self.condition]
-
-    
