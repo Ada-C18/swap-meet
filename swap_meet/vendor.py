@@ -12,7 +12,6 @@ class Vendor:
     def remove(self, item):
         if item in self.inventory:
             self.inventory.remove(item)
-            # print(self.inventory)
             return item
         return False
 
@@ -45,24 +44,18 @@ class Vendor:
     def swap_first_item(self, friend):
         if not self.inventory or not friend.inventory:
             return False
-
-        item_being_removed = self.remove(self.inventory[0])
-        friend.add(item_being_removed)
-
-        item_being_removed = friend.remove(friend.inventory[0])
-        self.add(item_being_removed)
-        return True
+        my_first_item = self.inventory[0]
+        friend_first_item = friend.inventory[0]
+        return self.swap_items(friend, my_first_item, friend_first_item)
 
     def get_best_by_category(self, category):
         best_item = Item()
-        item_exists = False
-
+        
         for item in self.inventory:
             if item.category == category and item.condition > best_item.condition:
                 best_item = item
-                item_exists = True
         
-        if not item_exists:
+        if not best_item.category:
             return None
         
         return best_item
