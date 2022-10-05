@@ -1,7 +1,13 @@
 from swap_meet.item import Item
 
 class Vendor:
+<<<<<<< HEAD
     def __init__(self, inventory= None):
+=======
+    def __init__(self, inventory  = None):
+        if not inventory:
+            inventory = []
+>>>>>>> 7add7e25754c8493620a7e7ef96ce582ee7f860e
         self.inventory = inventory
         if self.inventory is None:
             self.inventory = []
@@ -24,6 +30,7 @@ class Vendor:
             if item.category == category:
                 category_list.append(item)
         return category_list
+<<<<<<< HEAD
 #Wave 3
     def swap_items(self, vendor, my_item, their_item):
         if my_item not in self.inventory or their_item not in vendor.inventory:
@@ -36,6 +43,19 @@ class Vendor:
             vendor.add(my_swap)
             vendor.remove(their_item)
         return True
+=======
+    
+    def swap_items(self, other_vendor, my_item,their_item):
+        if my_item not in self.inventory or their_item not in other_vendor.inventory:
+            return False
+        if my_item in self.inventory:
+            self.inventory.remove(my_item)
+            other_vendor.add(my_item)
+            self.inventory.append(their_item)
+            other_vendor.remove(their_item)
+            return True
+        
+>>>>>>> 7add7e25754c8493620a7e7ef96ce582ee7f860e
 
 #Wave 4
     def swap_first_item(self, vendor):
