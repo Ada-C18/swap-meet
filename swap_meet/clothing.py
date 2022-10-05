@@ -8,7 +8,7 @@ class Clothing(Item):
 
         # pass variables to the super().__init__ function
         # including the default category. 
-        super().__init__(category, condition)
+        super().__init__(category=category, condition=condition)
 
     def __str__(self):
         return "The finest clothing you could wear."
