@@ -207,8 +207,15 @@ def test_swap_best_by_category_no_match_is_false():
         my_priority="Clothing",
         their_priority="Clothing"
     )
+    #Assert
+    assert result == False
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert all(item in [item_d, item_e, item_f] for item in jesse.inventory)
+    assert all(item in [item_a, item_b, item_c] for item in tai.inventory)
 
-    raise Exception("Complete this test according to comments below.")
+
+    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -241,8 +248,14 @@ def test_swap_best_by_category_no_other_match_is_false():
         their_priority="Decor"
     )
     # Assert
-
-    raise Exception("Complete this test according to comments below.")
+    assert result == False
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert all(item in [item_d, item_e, item_f] for item in jesse.inventory)
+    assert all(item in [item_a, item_b, item_c] for item in tai.inventory)
+    
+    
+    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
