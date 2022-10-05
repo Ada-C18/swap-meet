@@ -40,16 +40,22 @@ class Vendor:
         
     def get_best_by_category(self, category):
         list_items_by_category = self.get_by_category(category)
-        best_by_category = max(list_items_by_category, key=attrgetter('condition'))
-        return best_by_category
-        
+        if list_items_by_category:
+            best_by_category = max(list_items_by_category, key=attrgetter('condition'))
+            return best_by_category
+        return None
 
-        # best_item = max(list_best_category.condition)
-        # return best_item
-        # get the item with the best condition in a certain category
-        # look through the instance's inventory for the item with the highest condition and matching category
-        # If there are no items in the inventory that match the category, it returns None
-        # It returns a single item even if there are duplicates (two or more of the same item with the same condition)
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        their_item = other.get_best_by_category(my_priority)
+        my_item = self.get_best_by_category(their_priority)
+        
+        if their_item and my_item: 
+            return self.swap_items(other, my_item, their_item)
+        return False
+
+        
+       
 
 
 
