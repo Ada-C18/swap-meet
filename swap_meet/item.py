@@ -15,13 +15,4 @@ class Item:
         for i in range(len(condition_list)):
             if i == self.condition:
                 return condition_list[i]
-
-        
-        
-        
-        
-# matched condition with index
-
-#self.condtion get us a numbers
-
-# pytest tests/unit_tests/test_wave_05.py    
+  
