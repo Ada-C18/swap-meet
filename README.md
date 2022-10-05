@@ -61,30 +61,29 @@ At submission time, no matter where you are, submit the project via Learn.
 ### Wave 1
 
 In Wave 1 we will create the `Vendor` class.
-
+<!-- 
 - There is a module (file) named `vendor.py` inside of the `swap_meet` package (folder)
 - Inside this module, there is a class named `Vendor`
 - Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
-- When we instantiate an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
-
-
+- When we instantiate an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory` -->
+<!-- 
 - Every instance of `Vendor` has an instance method named `add`, which takes in one item
 - This method adds the item to the `inventory`
-- This method returns the item that was added
+- This method returns the item that was added -->
 
-- Similarly, every instance of `Vendor` has an instance method named `remove`, which takes in one item
+<!-- - Similarly, every instance of `Vendor` has an instance method named `remove`, which takes in one item
 - This method removes the matching item from the `inventory`
 - This method returns the item that was removed
-- If there is no matching item in the `inventory`, the method should return `False`
+- If there is no matching item in the `inventory`, the method should return `False` -->
 
 ### Wave 2
 
-In Wave 2 we will create the `Item` class and the `get_by_category` method.
+<!-- In Wave 2 we will create the `Item` class and the `get_by_category` method.
 
-- There is a module (file) named `item.py` inside of the `swap_meet` package (folder)
+- There is a module (file) named `item.py` inside of the `swap_meet` package (folder) -->
 
-- Inside this module, there is a class named `Item`
-- Each `Item` will have an attribute named `category`, which is an empty string by default
+<!-- - Inside this module, there is a class named `Item` -->
+<!-- - Each `Item` will have an attribute named `category`, which is an empty string by default -->
 - When we initialize an instance of `Item`, we can optionally pass in a string with the keyword argument `category`
 - Instances of `Vendor` have an instance method named `get_by_category`
   - It takes one argument: a string, representing a category
