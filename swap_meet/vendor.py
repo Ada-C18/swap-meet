@@ -1,5 +1,3 @@
-# from swap_meet.item import Item
-
 class Vendor:
     def __init__(self, inventory = None):
         if inventory is None:
@@ -41,31 +39,10 @@ class Vendor:
             return self.swap_items(friend, self.inventory[0], friend.inventory[0])
     
     def get_best_by_category(self, category):
-#COULD COME BACK AND TRY USING A MAX FXN AND LAMBDA EXPRESSION
-        # best_condition = None
-        # if len(self.inventory) == 0:
-        #     return None
-        # else:
         best_condition = max(self.get_by_category(category), default=None,\
         key=lambda item: item.condition)
 
         return best_condition
-
-
-# #If there are no items in the inventory that match the category, it returns None
-#         best_condition = None
-#         best_condition_val = 0
-# #Loop through the items of the correct category
-#         for item in self.get_by_category(category):
-# #If the condition of the item is more than the current best condition of all items
-#             if item.condition > best_condition_val:
-# #Update the best_condition_val with the current highest condition
-#                 best_condition_val = item.condition
-# #Update the value of best_condition with the item with the current highest condition
-#                 best_condition = item 
-
-#         return best_condition
-
 
     def swap_best_by_category(self, other, my_priority, their_priority):
         they_want = self.get_best_by_category(their_priority)
