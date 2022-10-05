@@ -191,7 +191,7 @@ def test_swap_best_by_category_no_other_inventory_is_false():
     assert item_b in tai.inventory
     assert item_c in tai.inventory
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_best_by_category_no_match_is_false():
     # Arrange
     item_a = Decor(condition=2.0)
@@ -208,6 +208,9 @@ def test_swap_best_by_category_no_match_is_false():
         inventory=[item_d, item_e, item_f]
     )
 
+    tai_copy = [item_a, item_b, item_c]
+    jesse_copy = [item_d, item_e, item_f]
+
     # Act
     result = tai.swap_best_by_category(
         other=jesse,
@@ -215,14 +218,21 @@ def test_swap_best_by_category_no_match_is_false():
         their_priority="Clothing"
     )
 
-    raise Exception("Complete this test according to comments below.")
+    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
     # Assertions should check:
     # - That result is falsy
+    assert result is False
     # - That tai and jesse's inventories are the correct length
+    assert len(tai.inventory) == 3 and len(jesse.inventory) == 3
     # - That all the correct items are in tai and jesse's inventories
+    for item in jesse_copy:
+        assert item in jesse.inventory
+    for item in tai_copy:
+        assert item in tai.inventory
+
 
 @pytest.mark.skip
 def test_swap_best_by_category_no_other_match_is_false():
