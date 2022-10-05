@@ -65,9 +65,25 @@ class Vendor:
 
         return best_item
 
-    # def swap_best_by_category(self, other, my_priority, their_priority):
-    #     for i in 
+    def swap_best_by_category(self, other, my_priority, their_priority):
+       
 
-    #     return True
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other.get_best_by_category(my_priority)
 
-                
+        other.add(my_best_item)
+        self.remove(my_best_item)
+
+        self.add(their_best_item)
+        other.remove(their_best_item)
+
+        return True
+
+"""
+
+
+   
+    - If the `Vendor` has no item that matches `their_priority` category, swapping does not happen, and it returns `False`
+    - If `other` has no item that matches `my_priority` category, swapping does not happen, and it returns `False`       
+
+"""
