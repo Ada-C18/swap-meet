@@ -66,3 +66,15 @@ class Vendor:
         self.swap_items(other_vendor, my_item, their_item)
 
         return True
+    
+    def get_best_by_category(self, category):
+        """
+        Takes a string category and returns the item with the 
+        best condition matching the category.
+        """
+
+        category_list = [item for item in self.inventory if item.category == category]
+        return max(category_list, default=None, key=lambda i:i.condition)
+
+    def swap_best_by_category(other, my_priority=, their_priority="Decor"):
+        pass 
