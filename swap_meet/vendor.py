@@ -47,26 +47,16 @@ class Vendor:
 
 # Vendors have a method named get_best_by_category, which will get the item with the best condition in a certain category
     def get_best_by_category(self, category):
-        if not self.inventory:
-            return None
 
-        # changed lambda to be a separate function so we can specify
-        # to only give the condition if it's the right category
-        def get_item_condition(item):
-            if item.category == "Clothing":
-                return item.condition
-            else:
-                return 0
+        all_items_in_cat = []
         
-        # same as the lambda function from before
-        # made it a max instead
-        best_item = max(self.inventory, key = get_item_condition)
+        for item in self.inventory:
+            if item.category is category:
+                all_items_in_cat.append(item)
 
-        # we should move this check before finding best_item
-        # we can probably replace our current if not statement
-        if best_item.category != category:
+        if not all_items_in_cat:
             return None
-
+        best_item = max(all_items_in_cat, key = lambda item: item.condition)
         return best_item
 
 # Vendors have a method named swap_best_by_category, which will swap the best item of certain categories with another Vendor
