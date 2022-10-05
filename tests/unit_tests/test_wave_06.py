@@ -154,30 +154,30 @@ def test_swap_best_by_category_reordered():
 #     # - That all the correct items are in tai and jesse's inventories, and that the items that were swapped are not there
 
 # @pytest.mark.skip
-# def test_swap_best_by_category_no_inventory_is_false():
-#     tai = Vendor(
-#         inventory=[]
-#     )
+def test_swap_best_by_category_no_inventory_is_false():
+    tai = Vendor(
+        inventory=[]
+    )
 
-#     item_a = Clothing(condition=2.0)
-#     item_b = Decor(condition=4.0)
-#     item_c = Clothing(condition=4.0)
-#     jesse = Vendor(
-#         inventory=[item_a, item_b, item_c]
-#     )
+    item_a = Clothing(condition=2.0)
+    item_b = Decor(condition=4.0)
+    item_c = Clothing(condition=4.0)
+    jesse = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
 
-#     result = tai.swap_best_by_category(
-#         other=jesse,
-#         my_priority="Clothing",
-#         their_priority="Decor"
-#     )
+    result = tai.swap_best_by_category(
+        other=jesse,
+        my_priority="Clothing",
+        their_priority="Decor"
+    )
 
-#     assert not result
-#     assert len(tai.inventory) == 0
-#     assert len(jesse.inventory) == 3
-#     assert item_a in jesse.inventory
-#     assert item_b in jesse.inventory
-#     assert item_c in jesse.inventory
+    assert not result
+    assert len(tai.inventory) == 0
+    assert len(jesse.inventory) == 3
+    assert item_a in jesse.inventory
+    assert item_b in jesse.inventory
+    assert item_c in jesse.inventory
 
 # @pytest.mark.skip
 # def test_swap_best_by_category_no_other_inventory_is_false():
