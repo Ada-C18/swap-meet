@@ -53,6 +53,20 @@ class Vendor:
         self.swap_items(other, other_wants, vendor_wants)
         return True
 
-    def swap_by_newest(self, other):
+    def swap_by_newest(self, other, my_priority,their_priority):
+        # Our logic is the user would say what category they want, 
+        # and then swap the newest item in that category
+        my_newest_list = self.get_by_category(my_priority)
+        other_newest_list = other.get_by_category(their_priority)
+
+        if not my_newest_list or not other_newest_list:
+            return None
         
+        my_newest_list.sort(key = lambda x:x.newest)
+        other_newest_list.sort(key = lambda x:x.newest)
+
+        self.swap(other,other_newest_list[0], my_newest_list[0])
+        return True
+
+
         
