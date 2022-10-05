@@ -1,7 +1,9 @@
+from swap_meet.item import Item
 class Vendor:
     
     def __init__(self,inventory=None):
         self.inventory = inventory if inventory is not None else []
+        self.item = Item()
 
 
     def add(self,item):
@@ -43,12 +45,20 @@ class Vendor:
         return False
 
     def get_best_by_category(self, category):
-        print(self.inventory)
+
+        # trial = self.get_by_category(category)
+
+        # if not trial:
+        #     return None
+        
+        # for item in trial:
+        #     print(item.condition, item.category)
+
+        # # for idx, ele in enumerate(self.inventory):
+        # #     print(ele.inventory)
+        # #     if category not in ele:
+        # #         return None
 
 
-    #     for items in self.inventory:
-    #         if category == items.category:
-    #             return max(category.condition, key = items.condition)
-
-    # def swap_best_by_category(self, other):
-    #     pass
+    def swap_best_by_category(self, other):
+        pass

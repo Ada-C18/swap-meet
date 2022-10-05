@@ -5,6 +5,3 @@ class Decor(Item):
 
     def __str__(self):
         return f"Something to decorate your space."
-
-    def condition_description(self):
-        return f"{self.condition}"
