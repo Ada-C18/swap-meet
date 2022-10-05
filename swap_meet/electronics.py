@@ -1,2 +1,3 @@
-class Electronics:
-    pass
+from swap_meet.item import Item
+
+#class Electronics:
