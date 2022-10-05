@@ -10,7 +10,7 @@ class Item:
 
     def condition_description(self, condition):
         describers = ["You might want gloves for this one..",
-        "It..", 
+        "It could look worse", 
         "Average wear and tear",
         "This looks almost new!",
         "This is NEW!"
