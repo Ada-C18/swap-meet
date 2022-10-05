@@ -8,6 +8,8 @@ class Item:
         return "Hello World!"
 
     def condition_description(self):
+        rounded_condition = round(self.condition)
+
         if self.condition == 0:
             return "You probably want a glove for this one..."
         elif self.condition == 1:
