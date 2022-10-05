@@ -21,7 +21,7 @@ class Item:
 #=========================================  
     def condition_description(self):
         if self.condition == 0:
-            return "Wouldn't wear this if offered money"
+            return "Wouldn't touch this if offered money"
         elif self.condition == 1:
             return "Heavily used"
         elif self.condition == 2:
@@ -32,4 +32,3 @@ class Item:
             return "Like new"
         elif self.condition == 5:
             return "New"
-

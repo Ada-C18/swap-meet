@@ -1,4 +1,5 @@
 from swap_meet.item import Item
+from operator import attrgetter
 
 # Wave 1
 #======================================================
@@ -60,15 +61,14 @@ class Vendor:
         if not items_by_category:
             return None        
         
-        best_item = items_by_category[0]
-        best_condition = 0
-        for item in items_by_category:
-            if item.condition > best_condition:
-                best_condition = item.condition
-                best_item = item
+        best_item = max(items_by_category, key= attrgetter("condition"))
+        # best_item = items_by_category[0]
+        # best_condition = 0
+        # for item in items_by_category:
+        #     if item.condition > best_condition:
+        #         best_condition = item.condition
+        #         best_item = item
         return best_item
-        # need to import something else for this line below to work
-        #best_condition = max(items_by_category, key= item.condition)
 
     def swap_best_by_category(self, other, my_priority, their_priority):
         my_best_item = self.get_best_by_category(their_priority)
