@@ -94,6 +94,7 @@ class Vendor:
             return None 
         item = max(items, key=lambda Item: Item.condition) 
         return item
+        
     def swap_best_by_category(self,other,my_priority,their_priority):
         my_item= self.get_best_by_category(their_priority)
         their_item= other.get_best_by_category(my_priority)
@@ -103,6 +104,7 @@ class Vendor:
         else:
             return False    
 
+<<<<<<< HEAD
         #removes first items from inventory's
         del self.inventory[0]
         del Vendor.inventory[0]
@@ -112,3 +114,5 @@ class Vendor:
         Vendor.inventory.insert(0, self_first_item)
 
         return True
+=======
+>>>>>>> 51259ffd5f1b40cb4fe5a8e2e353ae0fcf0aac51
