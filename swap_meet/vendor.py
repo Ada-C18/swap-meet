@@ -21,7 +21,6 @@ class Vendor:
     def get_by_category(self, category):
         items_list = []
         for item in self.inventory:
-            print(self.inventory)
             if item.category == category:
                 items_list.append(item)
         return items_list
@@ -51,7 +50,28 @@ class Vendor:
         if not self.inventory or not other_vendor.inventory:
             return False 
         elif self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0]):
-            return True
+            return True 
+
+
+# Create a method named `get_best_by_category`
+#   which will get the item with the best condition in a certain category
+#   takes one argument: 
+#           a string that represents a category
+# write guard clause to check if catergory is empty string
+# create a variable best_condition
+#   - set to first item in inventory
+# loop through self`inventory` 
+#       for the item with the highest `condition` and matching `category`
+#     - It returns this item
+#     - If there are no items in the `inventory` that match the category, it returns `None`
+#     - It returns a single item even if there are duplicates (two or more of the same item with the same condition)
+
+    # def get_best_by_category(self, category):
+    #     if not category:
+    #         return None
+    #     category_list = self.get_by_category(category)
+    #     best_condition = category
+    #      return True
     
 
     def get_best_by_category(self, category):
