@@ -76,5 +76,24 @@ class Vendor:
         category_list = [item for item in self.inventory if item.category == category]
         return max(category_list, default=None, key=lambda i:i.condition)
 
-    def swap_best_by_category(other, my_priority=, their_priority="Decor"):
-        pass 
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        """ 
+        - `Vendor`s have a method named `swap_best_by_category`, which will swap the best item of certain categories with another `Vendor`
+  - It takes in three arguments
+    - `other`, which represents another `Vendor` instance to trade with
+    - `my_priority`, which represents a category that the `Vendor` wants to receive
+    - `their_priority`, which represents a category that `other` wants to receive
+  - The best item in my inventory that matches `their_priority` category is swapped with the best item in `other`'s inventory that matches `my_priority`
+    - It returns `True`
+    - If the `Vendor` has no item that matches `their_priority` category, swapping does not happen, and it returns `False`
+    - If `other` has no item that matches `my_priority` category, swapping does not happen, and it returns `False`
+        """
+
+        my_item_to_give = self.get_best_by_category(category=their_priority)
+        their_item_to_give = other.get_best_by_category(category=my_priority)
+        if my_item_to_give == None or their_item_to_give == None:
+            return False 
+        self.swap_items(other, my_item_to_give, their_item_to_give)
+        return True 
+
+
