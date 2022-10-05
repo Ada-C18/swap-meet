@@ -34,6 +34,7 @@ class Vendor:
     def swap_items(self, another_vendor, my_item, their_item):
         if my_item not in self.inventory or\
            their_item not in another_vendor.inventory:
+           # another_vendor.inventory --> (parameter_name.attribute_name)
             return False
 
         another_vendor.inventory.append(self.remove(my_item))
@@ -49,13 +50,20 @@ class Vendor:
 
 
     ########### wave 4 ############
-    
+    def swap_first_item(self, another_vendor):
+        if self.inventory == [] or another_vendor.inventory == []:
+            return False
+
+        my_item = self.inventory[0]
+        their_item = another_vendor.inventory[0]
+        self.inventory.remove(my_item)
+        self.inventory.append(their_item)
+        another_vendor.inventory.remove(their_item)
+        another_vendor.inventory.append(my_item)
+        
+        return True
 
 
-
-    ########### wave 4 ############
-    def swap_first_item(self):
-        pass 
         
 
 
