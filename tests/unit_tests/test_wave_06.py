@@ -206,28 +206,45 @@ def test_swap_best_by_category_no_other_inventory_is_false():
     assert item_c in tai.inventory
 
 # @pytest.mark.skip
-# def test_swap_best_by_category_no_match_is_false():
-#     # Arrange
-#     item_a = Decor(condition=2.0)
-#     item_b = Electronics(condition=4.0)
-#     item_c = Decor(condition=4.0)
-#     tai = Vendor(
-#         inventory=[item_a, item_b, item_c]
-#     )
+def test_swap_best_by_category_no_match_is_false():
+    # Arrange
+    item_a = Decor(condition=2.0)
+    item_b = Electronics(condition=4.0)
+    item_c = Decor(condition=4.0)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+    actual_length_tai = len(tai.inventory)
 
-#     item_d = Clothing(condition=2.0)
-#     item_e = Decor(condition=4.0)
-#     item_f = Clothing(condition=4.0)
-#     jesse = Vendor(
-#         inventory=[item_d, item_e, item_f]
-#     )
+    item_d = Clothing(condition=2.0)
+    item_e = Decor(condition=4.0)
+    item_f = Clothing(condition=4.0)
+    jesse = Vendor(
+        inventory=[item_d, item_e, item_f]
+    )
+    actual_length_jesse = len(jesse.inventory)
 
-#     # Act
-#     result = tai.swap_best_by_category(
-#         other=jesse,
-#         my_priority="Clothing",
-#         their_priority="Clothing"
-#     )
+    # Act
+    result = tai.swap_best_by_category(
+        other=jesse,
+        my_priority="Clothing",
+        their_priority="Clothing"
+    )
+
+    # Assert
+    assert result == False
+    expected_length_tai = len(tai.inventory)
+    assert expected_length_tai == actual_length_tai
+
+    expected_length_jesse = len(jesse.inventory)
+    assert expected_length_jesse == actual_length_jesse
+
+    assert (item_a in tai.inventory) == True
+    assert (item_b in tai.inventory) == True 
+    assert (item_c in tai.inventory) == True 
+    assert (item_d in jesse.inventory) == True
+    assert (item_e in jesse.inventory) == True
+    assert (item_f in jesse.inventory) == True 
 
 #     raise Exception("Complete this test according to comments below.")
 #     # *********************************************************************
