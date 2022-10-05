@@ -13,6 +13,3 @@ class Clothing(Item):
         item_condition = super().condition_description()
 
         return item_condition
-
-
-    

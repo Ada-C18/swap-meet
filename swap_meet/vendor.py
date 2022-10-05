@@ -53,13 +53,3 @@ class Vendor:
         if their_item and my_item: 
             return self.swap_items(other, my_item, their_item)
         return False
-
-        
-       
-
-
-
-        
-
-            
-        
