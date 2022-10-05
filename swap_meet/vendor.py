@@ -33,3 +33,9 @@ class Vendor:
         else:
             self.inventory.remove(removed_item)
             return removed_item  
+
+    def get_by_category(self, item_category):
+        self.category =  item_category 
+        items_in_category = []
+        if item.category == self.category:
+            items_in_category.append(item.category)
