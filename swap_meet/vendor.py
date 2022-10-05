@@ -74,3 +74,31 @@ class Vendor:
         self.swap_items(
             friend_vendor, self.inventory[0], friend_vendor.inventory[0])
         return True
+
+    def get_best_by_category(self, category):
+        '''
+        Find item with the best condition in a specified category
+        Input: category string
+        Output:
+        Return item, if item in inventory (1 item if > 2 items with same best condition)
+        Return None, if item category not in inventory
+        '''
+        for item in self.get_by_category:
+            if item in self.get_by_category(category):
+                return True
+        return False
+
+
+# 2. `swap_best_by_category` - swap the best item of certain categories with another `Vendor`
+#     1. can use `swap_items` here
+#     2. return `True` → if their_priority in my inventory, swap their_priority with my_priority
+#     3. return `False` → if their_priority not in Vendor/my inventory OR my_priority not in their `other`/inventory
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        '''
+        Input: instance of Vendor(other), my_priority(category str), their_priority(category str)
+        Output:
+        `True` → if their_priority in Vendor inventory, swap their_priority with my_priority
+        `False` → if their_priority not in Vendor inventory OR my_priority not in `other`
+        '''
+        pass
