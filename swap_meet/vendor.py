@@ -42,3 +42,34 @@ class Vendor:
         friend_vendor.remove(friend_first_item)
         self.add(friend_first_item)
         return True
+
+    def get_best_by_category(self, category):
+        get_category = self.get_by_category(category)
+        best_item = None
+        # loop through get_category
+        if best_item in get_category:
+            return max(get_category(best_item))
+
+
+
+    # # refactoring - look at get_by_category to update this function
+    #     best_item_dictionary = {}
+
+    #     # building dictionarty with categories as keys and values as None
+    #     for category in self.get_by_category:
+    #         if category not in best_item_dictionary:
+    #             best_item_dictionary[category] = None
+        
+    #     #looping through the inventory to get each item
+    #     for item in self.inventory:
+    #         # for each item, create dictionary entry based on category
+    #         best_item_dictionary[category] = [item]
+    #         # if the category already exists in the dictionary, add item
+    #         # to value list
+            
+    #         if item > best_item_dictionary and best_item == category:
+    #             return item
+
+
+            # best_item = self.inventory[0]
+
