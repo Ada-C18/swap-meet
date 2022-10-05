@@ -49,11 +49,16 @@ class Vendor:
         for item in self.inventory:
             if  item.category==category:
                 category_list.append(item)
+        if len(category_list)==0:
+            return None
         best_item=category_list[0]
         best_item_condition=best_item.condition
+        
         for item in category_list:
             if item.condition > best_item_condition:
                 best_item=item 
                 best_item_condition=item.condition
-        return best_item        
+        return best_item    
+            
+               
            
