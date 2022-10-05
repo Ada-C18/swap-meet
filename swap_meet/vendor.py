@@ -50,10 +50,11 @@ class Vendor:
             return False
         first_inventory = self.inventory[0]
         friend_first = friend_vendor.inventory[0]
-        self.remove(first_inventory)
-        friend_vendor.add(first_inventory)
-        self.add(friend_first)
-        friend_vendor.remove(friend_first)
+        self.swap_items(friend_vendor, first_inventory, friend_first)
+        # self.remove(first_inventory)
+        # friend_vendor.add(first_inventory)
+        # self.add(friend_first)
+        # friend_vendor.remove(friend_first)
         return True
 
 # Wave 6
