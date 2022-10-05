@@ -10,6 +10,7 @@ class Item:
 
     def condition_description(self):
         # changed from if-elif to dictionary
+        '''Returns descriptions of condition based on condition value.'''
         condition_dict = {
             0:"Yo this is trash.",
             1:"Definitely used. Perhaps too much.",
