@@ -20,7 +20,7 @@ class Vendor:
             return False
 
         return item
-
+    # iterates through inventory and puts into seperate list based on category attribute
     def get_by_category(self, category):
         filter = []
         for item in self.inventory:
