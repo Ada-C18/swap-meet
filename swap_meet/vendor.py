@@ -50,11 +50,6 @@ class Vendor:
         return best_item
 
         #  go back and refactor
-        
-        
-        
-
-
 
     def swap_best_by_category(self, other, my_priority, their_priority):
         my_best_item = self.get_best_by_category(their_priority)
