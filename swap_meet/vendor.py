@@ -20,3 +20,11 @@ class Vendor:
             return False
 
         return item
+
+    def get_by_category(self, category):
+        filter = []
+        for item in self.inventory:
+            if item.category == category:
+                filter.append(item)
+
+        return filter 
