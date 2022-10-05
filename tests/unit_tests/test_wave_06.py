@@ -1,4 +1,3 @@
-from re import T
 import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.clothing import Clothing

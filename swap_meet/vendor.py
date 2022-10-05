@@ -87,6 +87,46 @@ class Vendor(Item):
             other.add(other_swap)
             self.add(my_swap)
             return True
+        
+        
+    #optional enhancements
+    def swap_by_newest(self, friend):
+        if self.inventory != [] and friend.inventory != []:
+            new_item_age = self.inventory[0].age
+            friend_item_age = friend.inventory[0].age
+            my_new_item = []
+            friend_new_item = []
+            for item in self.inventory:
+                if item.age <= new_item_age:
+                    new_item_age = item.age
+                    if my_new_item == []:
+                        my_new_item.append(item)
+                    else:
+                        my_new_item.pop()
+                        my_new_item.append(item)
+                        
+            for item in friend.inventory:
+                if item.age <= friend_item_age:
+                    friend_item_age = item.age
+                    if friend_new_item == []:
+                        friend_new_item.append(item)
+                    else:
+                        friend_new_item.pop()
+                        friend_new_item.append(item)
+            friend.remove(friend_new_item[0])
+            self.add(friend_new_item[0])
+            self.remove(my_new_item[0])
+            friend.add(my_new_item[0])
+            return True
+        return False
+        
+        
+                    
+        
+                
+                
 
 
-            
+    
+
+    
