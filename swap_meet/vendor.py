@@ -19,8 +19,6 @@ class Vendor:
         return [item for item in self.inventory if item.category == category]
 
     def swap_items(self, vendor1, my_item, their_item):
-        # vendor1 = Vendor() Ask an instructor why you dont have to create an instance this way
-        # clean this function up
         if my_item in self.inventory and their_item in vendor1.inventory:
             self.add(their_item)
             self.remove(my_item)
