@@ -73,23 +73,5 @@ class Vendor:
                 best_item = item
         return best_item    
     
-# AISHA        
-#     def get_best_by_category(self, category):
-#         get_category = self.get_by_category(category)
-#         if not get_category:
-#             return None
-#         best_condition = 0
-#         best_item = get_category[0]
-#         for item in get_category:
-#             if item.condition > best_condition:
-#                 best_condition = item.condition
-#                 best_item = item
-#         return best_item
-
-# # Method 2:
-#     def get_best_by_category(self, category):
-#         get_category = self.get_by_category(category)
-#         if not get_category:
-#             return None
-#         for item in get_category:
-#             return max(get_category, key = lambda item : item.condition)
+    def swap_best_by_category(other, my_priority, their_priority):
+        
