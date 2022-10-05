@@ -17,10 +17,15 @@ class Vendor:
         return False
 
     def get_by_category(self, category):
-        list_of_items = []
-        for item in self.inventory:
-            if item.category == category:
-                list_of_items.append(item)
+        # alternative solution: 
+        # list_of_items = []
+        # for item in self.inventory:
+        #     if item.category == category:
+        #         list_of_items.append(item)
+        # return list_of_items
+
+        list_of_items = [item for item in self.inventory 
+        if item.category == category]
         return list_of_items
 
     def swap_items(self, friend, my_item, their_item):
@@ -47,13 +52,3 @@ class Vendor:
         item_being_removed = friend.remove(friend.inventory[0])
         self.add(item_being_removed)
         return True
-
-# vendor = Vendor()
-# vendor.add("item_3")
-
-# friend = Vendor()
-# friend.add("item_4")
-
-# vendor.remove("item_3")
-# vendor.swap_items(friend, vendor.inventory[0], friend.inventory[0])
-

@@ -1,5 +1,5 @@
 class Item:
-    def __init__(self, category = "", condition = 0):
+    def __init__(self, condition = 0.0, category = ""):
         self.category = category
         self.condition = condition
     
@@ -7,15 +7,15 @@ class Item:
         return "Hello World!"
 
     def condition_description(self):
-        if self.condition == 0:
+        if self.condition < 1.0:
             return "This should be trash"
-        if self.condition == 1:
+        elif self.condition < 2.0:
             return "Needs a lot of love and repairs"
-        if self.condition == 2:
+        elif self.condition < 3.0:
             return "Acceptable with low standards"
-        if self.condition == 3:
+        elif self.condition < 4.0:
             return "Fair condition"
-        if self.condition == 4:
+        elif self.condition < 5.0:
             return "Gently used"
-        if self.condition == 5:
+        elif self.condition == 5.0:
             return "Mint condition!"
