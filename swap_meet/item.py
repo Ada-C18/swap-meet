@@ -1,10 +1,13 @@
+
+
 class Item:
-    def __init__(self, category = "", condition = 0):
-        self.category = category
+    def __init__(self, category = None, condition = 0):
+        self.category = category if category != None else ""
         self.condition = condition
 
-    def __str__(self) -> str:
-        return("Hello World!")
+    
+    def __str__(self):
+        return f"Hello World!"
     
     def condition_description(self) -> str:
         if self.condition == 0:
@@ -24,3 +27,5 @@ class Item:
         
         elif self.condition == 5:
             return("Woah!")
+
+

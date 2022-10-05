@@ -1,34 +1,34 @@
 class Vendor:
     def __init__(self, inventory = None):
-        if inventory == None:
-            self.inventory = []
-        else:
-            self.inventory = inventory
-
+        self.inventory = inventory if inventory != None else []
+      
     def add(self, item):
         self.inventory.append(item)
         return item
     
     def remove(self, item):
-        if item not in self.inventory:
-            return False
-        else:
+        if item in self.inventory:
             self.inventory.remove(item)
             return item
-
-    def get_by_category(self, category):
-        item_list =[item for item in self.inventory if item.category == category]
-        return item_list
-
-    def swap_items(self, other, my_item, their_item):
-        if my_item not in self.inventory or their_item not in other.inventory:
+        else:
             return False
 
-        self.add(their_item)
-        other.add(my_item)
-        self.remove(my_item)
-        other.remove(their_item)
-        return True
+    def get_by_category(self, category):
+        items = []
+        for item in self.inventory:
+            if item.category == category:
+                items.append(item)
+        return items
+
+    def swap_items(self, another_vendor, my_item, their_item):
+        if my_item in self.inventory and their_item in another_vendor.inventory:
+            self.add(their_item)
+            self.remove(my_item)
+            another_vendor.add(my_item)
+            another_vendor.remove(their_item)
+            return True
+        else:
+            return False
 
     def get_best_by_category(self, category):
         items_cat = self.get_by_category(category)
@@ -56,3 +56,4 @@ class Vendor:
             friend.inventory.pop(0)
             self.inventory.pop(0)
             return True
+
