@@ -39,5 +39,4 @@ class Vendor:
             friend.add(self.inventory[0])
             self.remove(self.inventory[0])
             friend.remove(friend.inventory[0])
-            
-        return True
+            return True
