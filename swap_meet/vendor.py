@@ -19,7 +19,6 @@ class Vendor:
     def get_by_category(self, category):
         items = [item for item in self.inventory if item.category == category]
         return items
-    
         
     def swap_items(self, another_vendor, my_item, their_item):
         if my_item not in self.inventory or their_item not in another_vendor.inventory:
@@ -37,22 +36,17 @@ class Vendor:
         self.inventory[0], another_vendor.inventory[0] = another_vendor.inventory[0], self.inventory[0]
         return True
 
-        
+#~~~~~~~~~~~~~~~~~~~~~~~ WAVE 6 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def get_best_by_category(self, category):
         list_items_by_category = self.get_by_category(category)
         return max(list_items_by_category, key=attrgetter('condition')) if list_items_by_category else None
 
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other.get_best_by_category(my_priority)
 
-        # best_item = max(list_best_category.condition)
-        # return best_item
-        # get the item with the best condition in a certain category
-        # look through the instance's inventory for the item with the highest condition and matching category
-        # If there are no items in the inventory that match the category, it returns None
-        # It returns a single item even if there are duplicates (two or more of the same item with the same condition)
-
-
-
-        
-
-            
-        
+        if my_best_item and their_best_item:
+            self.swap_items(other, my_best_item, their_best_item)
+            return True
+        else:
+            return False
