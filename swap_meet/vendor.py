@@ -43,7 +43,39 @@ class Vendor:
         return result
         
         
-        #re-use code o
+    def get_best_by_category(self, category):
+        #create list of items within specified category
+        priority_items=[]
+        priority_items=self.get_by_category(category)
+        print(priority_items)
+        if len(priority_items)==0:
+            return None
+        else:
+            #return item in category with max(item.condition)
+            #best_item=max(priority_items.condition)
+            #best_item=max(priority_items, key=condition)
+            best_item=max(priority_items, key=lambda priority_item: priority_item.condition)
+            return best_item
+
+    def isCategoryInventory(self, category):
+        for item in self.inventory:
+            if item.category==category:
+                return True
+        return False
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        
+        if self.isCategoryInventory(their_priority)==False:
+            return False
+        else:
+            #swap my.best_item with their.best_item
+            my_best_item=self.get_best_by_category(their_priority)
+            their_best_item=other.get_best_by_category(my_priority)
+            self.swap_items(other, my_best_item, their_best_item)
+            return True     
+
+#Wave 4- 6 methods are all working, but tests need to be finished
+
         
         
 
