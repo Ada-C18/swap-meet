@@ -56,7 +56,6 @@ class Vendor:
         self_first_item = self.inventory[0]
         vendor_first_item = Vendor.inventory[0]
 
-<<<<<<< HEAD
     def get_by_category(self,category):
         new_list = []
         for item in self.inventory:
@@ -104,7 +103,6 @@ class Vendor:
         else:
             return False    
 
-=======
         #removes first items from inventory's
         del self.inventory[0]
         del Vendor.inventory[0]
@@ -114,4 +112,3 @@ class Vendor:
         Vendor.inventory.insert(0, self_first_item)
 
         return True
->>>>>>> 8bfc1380dd2f16d39f599646627f0dfefc0fb610
