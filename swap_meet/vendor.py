@@ -31,3 +31,14 @@ class Vendor:
         item_to_get = friend_vendor.remove(their_item)
         self.add(item_to_get)
         return True
+
+    def swap_first_item(self, friend_vendor):
+        if not self.inventory or not friend_vendor.inventory:
+            return False
+        my_first_item = self.inventory[0]
+        friend_first_item = friend_vendor.inventory[0]
+        self.remove(my_first_item)
+        friend_vendor.add(my_first_item)
+        friend_vendor.remove(friend_first_item)
+        self.add(friend_first_item)
+        return True
