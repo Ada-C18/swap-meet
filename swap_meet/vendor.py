@@ -43,12 +43,8 @@ class Vendor:
             return False
         first_item = self.inventory[0]
         friend_frist_item = friend.inventory[0]
-        self.inventory.remove(first_item)
-        self.inventory.append(friend_frist_item)
-        friend.inventory.remove(friend_frist_item)
-        friend.inventory.append(first_item)
-        return True
-    
+        return self.swap_items(friend, first_item, friend_frist_item)
+        
     def get_best_by_category(self, category):
         cat_in_inventory = []
         for item in self.inventory:
@@ -57,9 +53,9 @@ class Vendor:
         if not cat_in_inventory:
             return None
         return max(cat_in_inventory, key=lambda item: item.condition)
-    
-    def swap_best_by_category(self,other,my_priority,thier_priority):
-        pass 
 
-
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        their_best_item = other.get_best_by_category(my_priority)
+        my_best_item = self.get_best_by_category(their_priority)
+        return self.swap_items(other, my_best_item, their_best_item)
         

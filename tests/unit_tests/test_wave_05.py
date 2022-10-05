@@ -23,6 +23,8 @@ def test_electronics_has_default_category_and_to_str():
 
 # @pytest.mark.skip
 def test_items_have_condition_as_float():
+
+# @pytest.mark.skip
     items = [
         Clothing(condition=3.5),
         Decor(condition=3.5),
