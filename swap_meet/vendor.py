@@ -42,11 +42,24 @@ class Vendor:
             return False
 
     def get_by_category(self, category):
+        """returns the item that matches given category."""
         output_list = []
         for item in self.inventory:
             if item.category == category:
                 output_list.append(item)
         return output_list
+    
+    def swap_items(self, friend, my_item, their_item):
+        """swap one item between the current vendor object and their friends"""
+        if my_item in self.inventory and their_item in friend.inventory:
+            self.remove(my_item)
+            friend.add(my_item)
+            friend.remove(their_item)
+            self.add(their_item)
+            return True
+        return False
+
+
 
     
 
