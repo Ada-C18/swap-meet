@@ -61,3 +61,16 @@ class Vendor:
         item_v = other.get_best_by_category(my_priority)
 
         return self.swap_items(other, item_s, item_v)
+
+    def get_newest_by_category(self, item_category):
+        try:
+            return min(self.get_by_category(item_category), key= lambda item: item.age)
+        
+        except ValueError:
+            return None
+
+    def swap_by_newest(self, other, my_priority, their_priority):
+        item_s = self.get_newest_by_category(their_priority)
+        item_v = other.get_newest_by_category(my_priority)
+
+        return self.swap_items(other, item_s, item_v)
