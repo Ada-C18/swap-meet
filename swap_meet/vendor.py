@@ -1,3 +1,5 @@
+from .item import Item
+
 class Vendor:
     def __init__(self, inventory = None):
         self.inventory = inventory if inventory is not None else []
@@ -36,3 +38,9 @@ class Vendor:
             return False
 
         return self.swap_items(friend, self.inventory[0], friend.inventory[0])
+
+    def get_best_by_category(self, category):
+        return max(self.get_by_category(category), key = lambda item: item.condition, default = None)
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        return self.swap_items(other, self.get_best_by_category(their_priority), self.get_best_by_category(my_priority))
