@@ -60,6 +60,7 @@ def test_swap_best_by_category():
     tai = Vendor(
         inventory=[item_a, item_b, item_c]
     )
+    actual_length_tai = len(tai.inventory)
 
     # them
     item_d = Clothing(condition=2.0)
@@ -68,6 +69,7 @@ def test_swap_best_by_category():
     jesse = Vendor(
         inventory=[item_d, item_e, item_f]
     )
+    actual_length_jesse = len(jesse.inventory)
 
     # Act
     result = tai.swap_best_by_category(
@@ -84,6 +86,24 @@ def test_swap_best_by_category():
 #     # - That the results is truthy
 #     # - That tai and jesse's inventories are the correct length
 #     # - That all the correct items are in tai and jesse's inventories, including the items which were swapped from one vendor to the other
+    
+    # Assert
+    assert result == True
+    expected_length_tai = len(tai.inventory)
+    assert expected_length_tai == actual_length_tai
+
+    expected_length_jesse = len(jesse.inventory)
+    assert expected_length_jesse == actual_length_jesse
+
+    assert (item_f in tai.inventory) == True
+    assert (item_c not in tai.inventory) == True 
+    assert (item_c in jesse.inventory) == True
+    assert (item_f not in jesse.inventory) == True 
+
+
+
+
+    
 
 # @pytest.mark.skip
 # def test_swap_best_by_category_reordered():
