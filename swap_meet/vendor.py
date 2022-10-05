@@ -1,4 +1,4 @@
-# from swap_meet.item import Item
+from swap_meet.item import Item
 
 class Vendor:
     
@@ -52,3 +52,29 @@ class Vendor:
         item_being_removed = friend.remove(friend.inventory[0])
         self.add(item_being_removed)
         return True
+
+    def get_best_by_category(self, category):
+        best_item = Item()
+        item_exists = False
+
+        for item in self.inventory:
+            if item.category == category and item.condition > best_item.condition:
+                best_item = item
+                item_exists = True
+        
+        if not item_exists:
+            return None
+        
+        return best_item
+    
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other.get_best_by_category(my_priority)
+
+        if not my_best_item or not their_best_item:
+            return False
+
+        self.swap_items(other, my_best_item, their_best_item)
+        return True
+
+        
