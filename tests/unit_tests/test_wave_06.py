@@ -34,21 +34,21 @@ def test_best_by_category_no_matches_is_none():
     assert best_item is None
 
 # @pytest.mark.skip
-# def test_best_by_category_with_duplicates():
-#     # Arrange
-#     item_a = Clothing(condition=2.0)
-#     item_b = Clothing(condition=4.0)
-#     item_c = Clothing(condition=4.0)
-#     tai = Vendor(
-#         inventory=[item_a, item_b, item_c]
-#     )
+def test_best_by_category_with_duplicates():
+    # Arrange
+    item_a = Clothing(condition=2.0)
+    item_b = Clothing(condition=4.0)
+    item_c = Clothing(condition=4.0)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
 
-#     # Act
-#     best_item = tai.get_best_by_category("Clothing")
+    # Act
+    best_item = tai.get_best_by_category("Clothing")
 
-#     # Assert
-#     assert best_item.category == "Clothing"
-#     assert best_item.condition == pytest.approx(4.0)
+    # Assert
+    assert best_item.category == "Clothing"
+    assert best_item.condition == pytest.approx(4.0)
 
 # @pytest.mark.skip
 # def test_swap_best_by_category():
