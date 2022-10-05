@@ -4,21 +4,21 @@ from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_by_newest():
     # Arrange
     # me
-    item_a = Decor(age=2.0)
-    item_b = Electronics(age=4.0)
-    item_c = Decor(age=1.0)
+    item_a = Decor(year_created=2010)
+    item_b = Electronics(year_created=2005)
+    item_c = Decor(year_created=2017)
     tai = Vendor(
         inventory=[item_a, item_b, item_c]
     )
 
     # them
-    item_d = Clothing(age=2.0)
-    item_e = Decor(age=4.0)
-    item_f = Clothing(age=1)
+    item_d = Clothing(year_created=2005)
+    item_e = Decor(year_created=2010)
+    item_f = Clothing(year_created=2020)
     jesse = Vendor(
         inventory=[item_d, item_e, item_f]
     )

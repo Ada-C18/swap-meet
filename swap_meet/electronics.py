@@ -2,10 +2,8 @@ from swap_meet.item import Item
 
 class Electronics(Item):
 
-    def __init__(self, condition = 0):
-        super().__init__(category = "",condition = 0)
-        self.category = "Electronics"
-        self.condition = condition
+    def __init__(self, category = "Electronics", condition = 0,year_created = None):
+        super().__init__(category,condition,year_created)
 
     
     def __str__(self):

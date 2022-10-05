@@ -1,7 +1,8 @@
 class Item:
-    def __init__(self,category = "",condition = 0):
+    def __init__(self,category = "",condition = 0,year_created = None):
         self.category = category
         self.condition = condition
+        self.year_created = year_created
     
     def __str__(self):
         return 'Hello World!'
@@ -19,3 +20,4 @@ class Item:
         for rating,description in descriptions.items():
             if self.condition == rating:
                 return description 
+    

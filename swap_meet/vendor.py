@@ -2,10 +2,9 @@ from pickle import FALSE
 
 class Vendor:
     def __init__(self,inventory = None):
-        if inventory == None:
-            self.inventory = []
-        else:
-            self.inventory = inventory
+        if inventory is None:
+            inventory = []
+        self.inventory = inventory
 
     def add(self,item):
         self.inventory.append(item)
@@ -63,12 +62,12 @@ class Vendor:
             return False
     
     def get_newest(self):
-        age = 10000000000000
+        year = -1
         newest_item = ""
         for item in self.inventory:
-            if item.age < age:
+            if item.year_created > year:
                 newest_item = item
-                age = item.age
+                year = item.year_created
         return newest_item
     
     def swap_by_newest(self,other):
