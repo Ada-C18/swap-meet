@@ -4,9 +4,7 @@ class Vendor:
     def __init__(self, inventory = []):
         self.inventory = inventory
 
-        
     def add(self,item):
-        
         self.inventory.append(item)
         return item 
     
@@ -18,12 +16,10 @@ class Vendor:
             return False 
     
     def get_by_category(self,category):
-       #return a list of "items" in the inventory with that category
         list_of_items = []
         for item in self.inventory:
             if category ==item.category:
                 list_of_items.append(item)
-                
         return list_of_items
         
     def swap_items(self,friends_vendor, my_item,their_item):
@@ -36,12 +32,11 @@ class Vendor:
         return True
         
     def swap_first_item(self , friends_vendor):
-       if len(self.inventory)==0 or len(friends_vendor.inventory)==0 :
-        return False
-       
-       w=self.inventory[0]
-       self.inventory.remove(self.inventory[0]) 
-       self.inventory.append(friends_vendor.inventory[0])
-       friends_vendor.inventory.remove(friends_vendor.inventory[0]) 
-       friends_vendor.inventory.append(w)
-       return True
+        if len(self.inventory)==0 or len(friends_vendor.inventory)==0 :
+            return False
+        w=self.inventory[0]
+        self.inventory.remove(self.inventory[0]) 
+        self.inventory.append(friends_vendor.inventory[0])
+        friends_vendor.inventory.remove(friends_vendor.inventory[0]) 
+        friends_vendor.inventory.append(w)
+        return True
