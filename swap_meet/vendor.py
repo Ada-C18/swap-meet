@@ -41,3 +41,12 @@ class Vendor:
         self.inventory.append(friend_item)
 
         return True
+
+    def get_best_by_category(self, category):
+        best_item_condition = -1
+        best_item = None
+        for item in self.inventory:
+            if item.category == category and item.condition > best_item_condition:
+                best_item_condition = item.condition
+                best_item = item
+        return best_item
