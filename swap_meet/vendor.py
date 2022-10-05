@@ -103,3 +103,14 @@ class Vendor:
             return True
         else:
             return False    
+        # try:
+        #     my_item= self.get_best_by_category(their_priority)
+        #     their_item= other.get_best_by_category(my_priority)
+    
+        #     if my_priority == their_item.category and their_priority == my_item.category:
+        #         self.swap_items(other,my_item,their_item)
+        #         return True
+        #     else:
+        #         return False
+        # except AttributeError:
+        #     return False    
