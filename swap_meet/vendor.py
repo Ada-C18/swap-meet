@@ -1,3 +1,5 @@
+#import swap_meet
+
 class Vendor:
     def __init__(self, inventory = []):
         self.inventory = inventory
@@ -32,4 +34,16 @@ class Vendor:
         other_vendor.inventory.append(self_item)
         other_vendor.inventory.remove(other_vendor_item)
         return True
+
+    def swap_first_item(self, other_vendor):
+        #do I need a clause for if self.inventory or other_vendor_inventory not empty
+        self_first_item=self.inventory[0]
+        other_vendor_first_item=other_vendor.inventory[0]
+        result=self.swap_items(other_vendor, self_first_item, other_vendor_first_item)
+        return result
+        
+        
+        #re-use code o
+        
+        
 
