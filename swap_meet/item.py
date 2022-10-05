@@ -7,3 +7,5 @@ class Item:
     def __str__(self):
         return "Hello World!"
     
+    def condition_description(self):
+        pass
