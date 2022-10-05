@@ -46,11 +46,7 @@ def test_swap_items_returns_true():
     assert item_b in jolie.inventory
     assert result
 
-<<<<<<< HEAD
 #@pytest.mark.skip
-=======
-# @pytest.mark.skip
->>>>>>> 51259ffd5f1b40cb4fe5a8e2e353ae0fcf0aac51
 def test_swap_items_when_my_item_is_missing_returns_false():
     item_a = Item(category="clothing")
     item_b = Item(category="clothing")

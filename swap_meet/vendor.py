@@ -102,17 +102,4 @@ class Vendor:
             self.swap_items(other,my_item,their_item)
             return True
         else:
-            return False    
-
-<<<<<<< HEAD
-        #removes first items from inventory's
-        del self.inventory[0]
-        del Vendor.inventory[0]
-
-        # swaps first items and adds to beginning of inventory
-        self.inventory.insert(0, vendor_first_item)
-        Vendor.inventory.insert(0, self_first_item)
-
-        return True
-=======
->>>>>>> 51259ffd5f1b40cb4fe5a8e2e353ae0fcf0aac51
+            return False
