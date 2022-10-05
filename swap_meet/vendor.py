@@ -94,7 +94,7 @@ class Vendor:
             return None 
         item = max(items, key=lambda Item: Item.condition) 
         return item
-        
+
     def swap_best_by_category(self,other,my_priority,their_priority):
         my_item= self.get_best_by_category(their_priority)
         their_item= other.get_best_by_category(my_priority)
@@ -102,4 +102,4 @@ class Vendor:
             self.swap_items(other,my_item,their_item)
             return True
         else:
-            return False
+            return False    
