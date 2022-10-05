@@ -124,9 +124,9 @@ def test_swap_best_by_category_reordered():
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
     assert item_c not in tai.inventory
-    assert tai.inventory == [item_b, item_a, item_f] # not in correct order, should be [item_f, item_b, item_a]
+    assert tai.inventory == [item_f, item_b, item_a] 
     assert item_f not in jesse.inventory
-    assert jesse.inventory == [item_e, item_d, item_c] # not in correct order, should be [item_c, item_e, item_d]
+    assert jesse.inventory == [item_c, item_e, item_d] 
 
 #@pytest.mark.skip
 def test_swap_best_by_category_no_inventory_is_false():
