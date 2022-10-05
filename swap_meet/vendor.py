@@ -50,3 +50,7 @@ class Vendor:
             friend.inventory.append(first_item)
             return True
     
+    
+
+
+
