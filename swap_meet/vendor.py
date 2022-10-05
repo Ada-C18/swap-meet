@@ -33,9 +33,7 @@ class Vendor:
 
     def swap_first_item(self, other):
         if self.inventory and other.inventory:
-            # Pops first item from both inventories and swaps them using Vendor.add()
-            other.add(self.inventory.pop(0))
-            self.add(other.inventory.pop(0))
+            self.swap_items(other, self.inventory[0], other.inventory[0])
             return True
 
     def get_best_by_category(self, category):
