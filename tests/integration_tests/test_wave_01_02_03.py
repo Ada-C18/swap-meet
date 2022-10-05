@@ -21,6 +21,7 @@ def test_integration_wave_01_02_03():
     assert result1 == item1
     assert result2 == item2
 
+
     # remove an item
     remove_result = vendor.remove(item1)
 
