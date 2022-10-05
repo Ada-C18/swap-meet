@@ -1,4 +1,3 @@
-# from pytest import Item
 
 from swap_meet.item import Item
 class Clothing(Item):
@@ -8,8 +7,3 @@ class Clothing(Item):
     def __str__(self):
         return "The finest clothing you could wear."
     
-
-# cloth = Clothing("Clothing",3.5)
-
-# condition = cloth.condition_description()
-# print(condition)
