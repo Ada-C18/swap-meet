@@ -5,7 +5,8 @@ class Item:
 
     def __str__(self):
         return "Hello World!"
-    
+
+    # added so child classes could inherit. This class itself doesn't have "condition"   
     def condition_description(self):
         descriptions = {
                         0: "Trash",
