@@ -56,7 +56,13 @@ class Vendor:
 
         friend_item= friend.inventory.pop(0)
         self.inventory.append(friend_item)
-        
         return True
 
+    def get_best_by_category(self, category):
+        get_category = self.get_by_category(category)
+        if not get_category:
+            return None
+        for item in get_category:
+            return max(get_category, key = lambda item : item.condition)
 
+    
