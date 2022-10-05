@@ -15,8 +15,9 @@ class Item:
         "This looks almost new!",
         "This is NEW!"
         ]
-       # if float(condition):
-        #    condition = round(condition)
+
+        if float(condition):
+           condition = round(condition)
 
         for item in len(describers):
             if describers.index(item) == condition:
