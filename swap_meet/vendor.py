@@ -60,5 +60,3 @@ class Vendor:
         return best_item
 
 # Vendors have a method named swap_best_by_category, which will swap the best item of certain categories with another Vendor
-
-        
