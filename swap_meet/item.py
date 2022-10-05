@@ -14,14 +14,14 @@ class Item:
 
     def condition_description(self):
         if self.condition == 0:
-            return (f'Proceed with caution')
+            return 'Proceed with caution'
         elif self.condition == 1:
-            return (f'Yikes...')
+            return 'Yikes...'
         elif self.condition == 2:
-            return (f'You sure about this?')
+            return 'You sure about this?'
         elif self.condition == 3:
-            return (f"Doesn't look too bad")
+            return "Doesn't look too bad"
         elif self.condition == 4:
-            return (f"looks like new")
+            return "looks like new"
         elif self.condition == 5:
-            return (f"You're coming home with me")
+            return "You're coming home with me"
