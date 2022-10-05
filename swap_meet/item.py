@@ -11,15 +11,15 @@ class Item:
     def condition_description(self):
         if self.condition == 0:
             return "mint"
-        elif self.condition == 1:
+        elif self.condition <= 1.0:
             return "brand new"
-        elif self.condition == 2:
+        elif self.condition <= 2.0:
             return "almost new"
-        elif self.condition == 3:
+        elif self.condition <= 3.0:
             return "used"
-        elif self.condition == 4:
+        elif self.condition <= 4.0:
             return "heavily used"
-        elif self.condition == 5:
+        elif self.condition <= 5.0:
             return "You probably want a glove for this one..."
             
 
