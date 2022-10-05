@@ -76,6 +76,11 @@ def test_swap_best_by_category():
         their_priority="Decor"
     )
 
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert item_f in jesse.inventory
+    assert item_c in tai.inventory
+    
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
