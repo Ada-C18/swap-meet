@@ -33,7 +33,7 @@ class Vendor:
         return True 
     
     def swap_first_item(self, friend):
-        if len (self.inventory) ==0 or len (friend.inventory) ==0:
+        if len (self.inventory) == 0 or len (friend.inventory) == 0:
             return False
         friend.add(self.inventory[0])
         self.remove(self.inventory[0])
@@ -41,3 +41,22 @@ class Vendor:
         friend.remove(friend.inventory[0])
         
         return True
+
+    def get_best_by_category(self, category):
+        category_list = []
+        for item in self.inventory:
+            category_list.append(item.category)
+        if category not in category_list:
+            return None
+        best_item = self.inventory[0]
+        for item in self.inventory:
+            if item.category == category and item.condition > best_item.condition:
+                best_item = item
+        return best_item
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        their_best = other.get_best_by_category(my_priority)
+        my_best = self.get_best_by_category(their_priority)
+        if their_best and my_best:
+            self.swap_items(other, my_best, their_best)
+            return True
