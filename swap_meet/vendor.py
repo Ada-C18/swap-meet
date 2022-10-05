@@ -5,8 +5,6 @@ class Vendor:
     def __init__(self, inventory= None):
         self.inventory = inventory if inventory is not None else []
         
-# default list error here (inventory= None)
-
     def add(self, item):
         self.inventory.append(item)
         return item 
