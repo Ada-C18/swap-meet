@@ -36,6 +36,19 @@ class Vendor:
         first_item_swap = self.swap_items(vendor, my_first_item, their_first_item)
         return first_item_swap
 
-        
+    def get_best_by_category(self, category):
+        condition_list = self.get_by_category(category)
+
+        best_value = 0
+        best_item = None
+        if not condition_list:
+            return False
+        for item in condition_list:
+            if item.condition > best_value:
+                best_value = item.condition
+                best_item = item
+        return best_item
+
+    
     
     

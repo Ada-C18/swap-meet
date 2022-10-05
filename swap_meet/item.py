@@ -7,15 +7,15 @@ class Item:
         return f"Hello World!"
     def condition_description(self):
         if 0 <= self.condition < 1: 
-            return f"Mint!"
+            return f"Heavily used"
         elif 1 <= self.condition < 2:
-            return f"New!"
+            return f"Used!"
         elif 2 <= self.condition < 3:
             return f"Good!"
         elif 3 <= self.condition < 4:
-            return f"Used!"
+            return f"New!"
         elif 4 <= self.condition <= 5:
-            return f"Heavily used!"
+            return f"Mint!"
 
 
 
