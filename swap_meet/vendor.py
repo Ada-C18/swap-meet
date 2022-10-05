@@ -23,6 +23,16 @@ class Vendor:
                 category_list.append(item)
         return category_list
 
+#Wave 4
+    def swap_first_item(self, vendor):
+        if len(self.inventory)<1 or len(vendor.inventory) < 1:
+            return False
+        else:
+            swap = self.inventory[0]
+            self.inventory[0] = vendor.inventory[0]
+            vendor.inventory[0] = swap
+            return True
+            
 
 # In Wave 1 we will create the `Vendor` class.
 
