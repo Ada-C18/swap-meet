@@ -53,7 +53,27 @@ def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type(
 
     assert one_condition_description != five_condition_description
 
-####Adding additional tests for higher coverage
+####Adding test for higher coverage
+def test_items_have_condition_as_less_than_three():
+    items = [
+        Clothing(condition=3),
+        Decor(condition=3),
+        Electronics(condition=3)
+    ]
+    three_condition_description = items[0].condition_description()
+    assert isinstance(three_condition_description, str)
+    for item in items:
+        assert item.condition_description() == three_condition_description
+
+    items[0].condition = 2
+    two_condition_description = items[0].condition_description()
+    assert isinstance(two_condition_description, str)
+
+    for item in items:
+        item.condition = 2
+        assert item.condition_description() == two_condition_description
+
+    assert two_condition_description != three_condition_description
 
 def test_items_have_condition_as_three():
     items = [
