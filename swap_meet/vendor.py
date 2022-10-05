@@ -1,6 +1,6 @@
 from xml.dom.expatbuilder import theDOMImplementation
 from swap_meet.item import Item
-
+# refactor start 10/5
 class Vendor(Item):
     '''add doc string'''
     def __init__(self, inventory=None):
