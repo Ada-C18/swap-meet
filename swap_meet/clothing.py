@@ -2,9 +2,12 @@
 from swap_meet.item import Item
 
 
-class Clothing:
-    def __init__(self, condition = 0):
-        self.category = condition
+class Clothing(Item):
+    def __init__(self, Clothing, condition = 0):
+
+        super().__init__(condition)
+        self.category = Clothing 
+
 
 
     def __str__(self):
