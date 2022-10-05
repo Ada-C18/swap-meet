@@ -17,5 +17,5 @@ class Item:
             return "3 flaws: in between gently used and roughly used"
         if 4 >= self.condition > 3:
             return "4 flaws: you're going to need a LOT of glue"
-        if 5 >= self.condition > 5:
+        if 5 >= self.condition > 4:
             return "5 flaws: gift it to someone you 'love'"
