@@ -80,7 +80,7 @@ def test_swap_best_by_category():
     assert len(jesse.inventory) == 3
     assert item_c in jesse.inventory
     assert item_f in tai.inventory
-    # assert result 
+    assert result 
     
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
