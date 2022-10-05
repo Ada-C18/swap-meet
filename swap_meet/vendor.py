@@ -18,7 +18,7 @@ class Vendor:
     def get_by_category(self, category):
 
         items_list = [item for item in self.inventory if category == item.category]
-
+        
         return items_list
 
     def swap_items(self, vendor, my_item, their_item):
@@ -43,15 +43,14 @@ class Vendor:
         if all(item.category is not category for item in self.inventory):
             return None
 
-        condition = 0
-        highest_item = None
+        condition_and_item = (0, None)
         items_list = self.get_by_category(category)
 
         for item in items_list:
-            if item.condition > condition:
-                condition = item.condition
-                highest_item = item
-        return highest_item
+            if item.condition > condition_and_item[0]:
+                condition_and_item = (item.condition, item)
+
+        return condition_and_item[1]
 
     def swap_best_by_category(self, other, my_priority, their_priority):
 
