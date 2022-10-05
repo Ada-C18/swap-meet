@@ -1,4 +1,4 @@
-from swap_meet.vendor import Vendor
+# from swap_meet.vendor import Vendor
 
 class Item:
     def __init__(self, category = None):
@@ -6,3 +6,4 @@ class Item:
 
     def __str__(self):
         return "Hello World!"
+    
