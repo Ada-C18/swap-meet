@@ -134,6 +134,7 @@ def test_swap_best_by_category_reordered():
     assert item_c not in tai.inventory
     assert item_f not in jesse.inventory
     assert item_c in jesse.inventory
+    # assert all(elem in list1  for elem in list2)
     
 # @pytest.mark.skip
 def test_swap_best_by_category_no_inventory_is_false():

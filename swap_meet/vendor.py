@@ -87,3 +87,23 @@ class Vendor:
             # other.remove(other_best)
             return True
         return False
+
+# Optional Enhancements
+    def swap_by_newest(self, friend_vendor):
+        my_newest = self.get_newest()
+        friend_newest = friend_vendor.get_newest()
+        if my_newest in self.inventory and friend_newest in friend_vendor.inventory:
+            self.swap_items(friend_vendor, my_newest, friend_newest)
+            return True
+        return False
+
+    def get_newest(self):
+        if len(self.inventory) == 0:
+            return None
+        newest_item = self.inventory[0]
+        newest_age = self.inventory[0].age
+        for item in self.inventory:
+            if item.age < newest_age:
+                newest_age = item.age
+                newest_item = item
+        return newest_item
