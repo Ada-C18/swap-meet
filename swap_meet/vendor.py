@@ -54,7 +54,7 @@ class Vendor:
 
         for item in self.inventory:
             if item.category == category:
-                if item.condition > best_item.condition:
+                if item.condition >= best_item.condition:
                     best_item = item
                 category_not_in_inventory = False
         
