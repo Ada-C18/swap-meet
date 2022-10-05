@@ -11,6 +11,9 @@ class Item:
     def __str__(self):
         return "Hello World!"
 
+<<<<<<< HEAD
+        
+=======
     def condition_description(self, condition):
         
 # - All three classes and the `Item` class have an instance method named `condition_description`, 
@@ -19,6 +22,7 @@ class Item:
 # (eg. 'mint', 'heavily used') but feel free to have fun with these (e.g. 'You probably want a glove for this one..."). 
 # The one requirement is that the `condition_description` for all three classes above have the same behavior.
 
+<<<<<<< HEAD
         if condition == :
             return ""
         if condition == :
@@ -30,3 +34,7 @@ class Item:
         if condition == :
             return ""
         
+=======
+        
+>>>>>>> 3bf8151819973e065f0f42cddd6430e0f0a0cbb7
+>>>>>>> 8a360742e2bec8ec89a9fb58b9a4c1e61c136970
