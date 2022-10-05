@@ -1,13 +1,26 @@
 class Item:
     def __init__(self, category = "", condition=0):
+        """
+        Input: requires age, and takes in a category and condition
+        as parameters.
+        Result: defines attributes category and condition
+        """
         # self.age = age
         self.category = category
         self.condition = condition
     
     def __str__(self):
+        """
+        When stringifying an Item using str(), turns it into "Hello World!"
+        """
         return "Hello World!"
 
     def condition_description(self):
+        """
+        Input: an instance with a value for an attribute condition
+        Output: returns a description based on the condition value
+        """
+
         if self.condition == 5:
             return "Absolutely perfect! I love that for you (^‿◕)"
         elif self.condition > 4:
