@@ -2,19 +2,19 @@ class Vendor:
     def __init__(self, inventory=None):
         self.inventory = inventory if inventory is not None else []
 
-    #adds an item to the inventory
+    # adds an item to the inventory
     def add(self, item):
         self.inventory.append(item)
         return item
 
-    #removes an item from the inventory
+    # removes an item from the inventory
     def remove(self, item):
         if item not in self.inventory:
             return False
         self.inventory.remove(item)
         return item
 
-    # takes one argument (string => category) and returns a list of items in the 
+    # takes one argument (string => category) and returns a list of items in the
     # in the inventory with that category
     def get_by_category(self, category):
         all_items = []
@@ -38,9 +38,9 @@ class Vendor:
 
         return True
 
-
     def swap_first_item(self, other_vendor):
         if not self.inventory or not other_vendor.inventory:
             return False
-        self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
+        self.swap_items(
+            other_vendor, self.inventory[0], other_vendor.inventory[0])
         return True
