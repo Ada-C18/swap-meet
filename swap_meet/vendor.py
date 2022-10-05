@@ -3,7 +3,9 @@ from swap_meet import item
 
 class Vendor:
     # init attributes: inventory(list)
-    def __init__(self, inventory =  []):
+    def __init__(self, inventory = None):
+        if not inventory:
+            inventory = []
         self.inventory = inventory
 
     # method to add items to inventory
@@ -31,23 +33,23 @@ class Vendor:
 
     def swap_items(self, other_vendor, item_a, item_b):
         
-        try:
-            index_1 = self.inventory.index(item_a)
-            index_2 = other_vendor.inventory.index(item_b)
-        except(ValueError):
-            return False 
-        
-        self.inventory.append(other_vendor.inventory.pop(index_2))
-        other_vendor.inventory.append(self.inventory.pop(index_1))
-        return True
-
-        # if item_a in self.inventory and item_b in other_vendor.inventory:
-        
-        #     self.inventory.remove(item_a)
-        #     self.inventory.append(item_b)
-
-        #     other_vendor.inventory.remove(item_b)
-        #     other_vendor.inventory.append(item_a)
-        #     return True
-        # else:
+        # try:
+        #     index_1 = self.inventory.index(item_a)
+        #     index_2 = other_vendor.inventory.index(item_b)
+        # except(ValueError):
         #     return False 
+        
+        # self.inventory.append(other_vendor.inventory.pop(index_2))
+        # other_vendor.inventory.append(self.inventory.pop(index_1))
+        # return True
+
+        if item_a in self.inventory and item_b in other_vendor.inventory:
+        
+            self.inventory.remove(item_a)
+            self.inventory.append(item_b)
+
+            other_vendor.inventory.remove(item_b)
+            other_vendor.inventory.append(item_a)
+            return True
+        else:
+            return False 
