@@ -2,7 +2,7 @@ import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
-@pytest.mark.skip
+# @pytest.mark.skip
 @pytest.mark.integration_test
 def test_integration_wave_01_02_03():
     # make a vendor  
@@ -20,6 +20,7 @@ def test_integration_wave_01_02_03():
     assert item2 in vendor.inventory
     assert result1 == item1
     assert result2 == item2
+
 
     # remove an item
     remove_result = vendor.remove(item1)

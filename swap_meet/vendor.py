@@ -1,8 +1,10 @@
 from swap_meet.item import Item
 
 class Vendor:
-    def __init__(self, inventory= []):
+    def __init__(self, inventory= None):
         self.inventory = inventory
+        if self.inventory is None:
+            self.inventory = []
 
     def add(self, item):
         self.inventory.append(item)
@@ -22,17 +24,26 @@ class Vendor:
             if item.category == category:
                 category_list.append(item)
         return category_list
+#Wave 3
+    def swap_items(self, vendor, my_item, their_item):
+        if my_item not in self.inventory or their_item not in vendor.inventory:
+            return False
+        else:
+            my_swap = my_item
+            their_swap = their_item
+            self.add(their_swap)
+            self.remove(my_item)
+            vendor.add(my_swap)
+            vendor.remove(their_item)
+        return True
 
 #Wave 4
     def swap_first_item(self, vendor):
         if len(self.inventory)<1 or len(vendor.inventory) < 1:
             return False
         else:
-            swap = self.inventory[0]
-            self.inventory[0] = vendor.inventory[0]
-            vendor.inventory[0] = swap
+            self.swap_items(vendor, self.inventory[0], vendor.inventory[0])
             return True
-            
 
 # In Wave 1 we will create the `Vendor` class.
 
