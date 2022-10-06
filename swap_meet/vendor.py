@@ -1,4 +1,7 @@
+
+from operator import attrgetter
 from swap_meet.item import Item
+from swap_meet.decor import Decor
 class Vendor:
     
     def __init__(self, inventory=None):
@@ -35,4 +38,11 @@ class Vendor:
         return True
         
 
-        
+    def get_best_by_category(self, category):
+        items_by_category = self.get_by_category(category)
+        if len(items_by_category) == 0:
+            return None 
+        best_item = max(items_by_category, key=attrgetter('condition'))
+        return best_item
+    
+
