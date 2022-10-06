@@ -4,10 +4,9 @@ class Vendor:
     def __init__(self, inventory=None):
         '''A blueprint for different store inventories.'''
         # inventory is a list
-        if inventory:
-            self.inventory = inventory
-        else:
-            self.inventory = [] 
+        if inventory is None:
+            inventory = [] 
+        self.inventory = inventory
     
     def add(self, item):
         '''Add an item to the inventory list.'''
@@ -48,6 +47,7 @@ class Vendor:
         first item of other vendor.'''
         # why do you have to put the conditional parameters to return T or F if
         # the swap_items function already contained a return value of T or F
+        # because two completely different conditional situations...
         if self.inventory and other_vendor.inventory:
             my_item = self.inventory[0]
             their_item = other_vendor.inventory[0]
@@ -74,18 +74,6 @@ class Vendor:
         else:
             return best_item
         
-
+    # def swap_best_by_category(self, other, my_priority, their_priority):
+        #use swap_items function
        
-
-        
-
-                    
-    
-    
-                    
-
-
-            # if item.condition == max_condition:
-            #     return max_condition
-
-        
