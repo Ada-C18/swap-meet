@@ -45,39 +45,55 @@ class Vendor:
         self.add(friend_first_item)
         return True
 
-    def get_best_by_category(self, category):
-        # get_category = self.get_by_category(category)
-        # best_item = None
-        # # loop through get_category
-        # if best_item in get_category:
-        #     return max(get_category(best_item))
-        # category_list = self.get_by_category
-        best_item_dictionary = {}
-        # building dictionary with categories as keys and values as None
-        for item in self.inventory:
-            if item.category not in best_item_dictionary:
-                best_item_dictionary[item.category] = item.condition
-            else:
-                if item.condition > best_item_dictionary[item.category]:
-                    best_item_dictionary[item.category] = item.condition
-        # print(best_item_dictionary)
-        if category not in best_item_dictionary.keys():
-            return None
-        for key, value in best_item_dictionary.items():
-            if key == category:
-                print(key, value)
-                return f"{key} {value}"
-                # return item.category
+    # def get_best_by_category(self, category):
+    #     # get_category = self.get_by_category(category)
+    #     # best_item = None
+    #     # # loop through get_category
+    #     # if best_item in get_category:
+    #     #     return max(get_category(best_item))
+    #     # category_list = self.get_by_category
+    #     best_item_dictionary = {}
+    #     # building dictionary with categories as keys and values as None
+    #     for item in self.inventory:
+    #         if item.category not in best_item_dictionary:
+    #             best_item_dictionary[item.category] = item.condition
+    #         else:
+    #             if item.condition > best_item_dictionary[item.category]:
+    #                 best_item_dictionary[item.category] = item.condition
+    #     # print(best_item_dictionary)
+    #     if category not in best_item_dictionary.keys():
+    #         return None
+    #     for key, value in best_item_dictionary.items():
+    #         if key == category:
+    #             print(key, value)
+    #             return f"{key} {value}"
+    #             # return item.category
         
-        #looping through the inventory to get each item
-        # for item in self.inventory:
-        #     if item.condition > best_item_dictionary[category]:
-        #         best_item_dictionary[category] = item
-        # return best_item_dictionary
+    #     #looping through the inventory to get each item
+    #     # for item in self.inventory:
+    #     #     if item.condition > best_item_dictionary[category]:
+    #     #         best_item_dictionary[category] = item
+    #     # return best_item_dictionary
+
+    def get_best_by_category(self,category):
+        get_category = self.get_by_category(category)
+        best_item = None
+
+        if not get_category:
+            return best_item
+
+        if get_category: 
+            best_item = max(get_category, key = lambda item: item.condition)
+
+        return best_item
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+
+        best_item_they_want = self.get_best_by_category(their_priority)
+        their_best_item_i_want = other.get_best_by_category(my_priority)
+        if not best_item_they_want or not their_best_item_i_want:
+            return False
+        else:
+            return self.swap_items(other, best_item_they_want,their_best_item_i_want)
             
-    #         if item > best_item_dictionary and best_item == category:
-    #             return item
-
-
-            # best_item = self.inventory[0]
-
+    
