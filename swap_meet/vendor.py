@@ -3,7 +3,6 @@ from swap_meet.item import Item
 class Vendor:
     def __init__(self, inventory=None):
         '''A blueprint for different store inventories.'''
-        # inventory is a list
         if inventory is None:
             inventory = [] 
         self.inventory = inventory
@@ -32,7 +31,6 @@ class Vendor:
         '''Remove an item from this Vendor's inventory and swaps
         with other vendor.'''
         # remove and append
-        # is there a more efficient way?
         if my_item in self.inventory and their_item in other_vendor.inventory:
             self.add(their_item)
             self.remove(my_item)
@@ -45,9 +43,6 @@ class Vendor:
     def swap_first_item(self, other_vendor):
         '''Swap the first item in this vendor's inventory with
         first item of other vendor.'''
-        # why do you have to put the conditional parameters to return T or F if
-        # the swap_items function already contained a return value of T or F
-        # because two completely different conditional situations...
         if self.inventory and other_vendor.inventory:
             my_item = self.inventory[0]
             their_item = other_vendor.inventory[0]
@@ -74,6 +69,22 @@ class Vendor:
         else:
             return best_item
         
-    # def swap_best_by_category(self, other, my_priority, their_priority):
-        #use swap_items function
-       
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        '''Swap best item of certain categories with another vendor.'''
+        # use swap_items function
+        # swap best item in my inventory that matches their_priority
+        # swap best item in other inventory that matches my_priority
+        # return true
+        # if have no matching category for either person, return false
+        
+        if not self.inventory or not other.inventory:
+            return False
+
+        my_item = self.get_best_by_category(their_priority)
+        their_item = other.get_best_by_category(my_priority)
+        
+        if not my_item or not their_item:
+            return False
+
+        self.swap_items(other, my_item, their_item)
+        return True
