@@ -35,7 +35,7 @@ class Vendor:
         my_inventory = self.inventory 
         their_inventory = vendor.inventory
 
-        if len(my_inventory) == 0 or len(their_inventory) == 0:
+        if not my_inventory or not their_inventory:
             return False
 
         my_item = my_inventory[0]
