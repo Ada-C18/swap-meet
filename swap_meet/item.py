@@ -14,6 +14,4 @@ class Item:
         "Very Good Condition",
         "New Condition"]
         return condition_description_list[int(self.condition)]
-    
-    # What if condition was out of range (ex. condition is <0 or >5?; 
-    # write a test to raise index error or value error?)
+

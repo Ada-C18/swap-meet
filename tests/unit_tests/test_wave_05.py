@@ -52,16 +52,3 @@ def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type(
         assert item.condition_description() == one_condition_description
 
     assert one_condition_description != five_condition_description
-
-# @pytest.mark.skip
-# def test_invalid_condition_raises_error():
-    
-#     items = [
-#         Clothing(condition=5),
-#         Decor(condition=5),
-#         Electronics(condition=5)
-#     ]
-#     with pytest.raises(ValueError):
-#         for item in items:
-#             print(item.condition_description)
-    
