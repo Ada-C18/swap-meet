@@ -36,11 +36,8 @@ class Vendor:
     def swap_first_item(self, vendor):
         if not self.inventory or not vendor.inventory:
             return False
-        
-        my_first_inventory = self.inventory.pop(0)
-        friend_first_inventory = vendor.inventory.pop(0)
-        self.inventory.append(friend_first_inventory)
-        vendor.inventory.append(my_first_inventory)
+
+        self.swap_items(vendor, self.inventory[0], vendor.inventory[0])
         return True
 
     def get_best_by_category(self, category):
