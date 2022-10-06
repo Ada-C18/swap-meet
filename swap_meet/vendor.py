@@ -1,6 +1,5 @@
 from xmlrpc.client import INVALID_ENCODING_CHAR
 
-########### wave 1 ###########
 class Vendor:
     def __init__(self, inventory = None):
         # inventory is a empty list
@@ -20,7 +19,6 @@ class Vendor:
 
 
 
-    ########### wave 2 ###########
     def get_by_category(self, str_category):
         category_list = []
         for string in self.inventory:
@@ -30,7 +28,6 @@ class Vendor:
 
 
 
-    ########### wave 3 ############
     def swap_items(self, another_vendor, my_item, their_item):
         if my_item not in self.inventory or\
            their_item not in another_vendor.inventory:
@@ -49,7 +46,6 @@ class Vendor:
         return True
 
 
-    ########### wave 4 ############
     def swap_first_item(self, another_vendor):
         if self.inventory == [] or another_vendor.inventory == []:
             return False
@@ -62,6 +58,11 @@ class Vendor:
         another_vendor.inventory.append(my_item)
         
         return True
+
+
+
+
+    
 
 
         
