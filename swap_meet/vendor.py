@@ -55,15 +55,14 @@ class Vendor:
                 best_rating = item.condition
         return best_item
         
-    def swap_best_by_category (self, other, my_priority, their_priority):
-        other_item = other.best_by_category(my_priority)
-        my_item = self.get_best_by_category(their_priority)
-        if my_item == None or other_item == None:
-            return False
-        else: 
-            self.swap_items(other, my_item, other_item)
-            return True
-
+    def swap_best_by_category(self, other, my_priority, their_priority):
+            other_item = other.get_best_by_category(my_priority)
+            my_item = self.get_best_by_category(their_priority)
+            if my_item == None or other_item == None:
+                return False
+            else:
+                self.swap_items( other, my_item,other_item)
+                return True
 
 # Vendors have a method named get_best_by_category, which will get the item with the best condition in a certain category
 # It takes one argument: a string that represents a category
