@@ -16,6 +16,4 @@ class Item:
             description = "Okay"
         elif 4 < self.condition <=5:
             description = "Just like new"
-        return description         
-
-            
+        return description
