@@ -59,6 +59,12 @@ class Vendor:
         self.inventory.append(friend_item)
         return True
 
+    def get_best_by_category(self, category):
+        get_category = self.get_by_category(category)
+        if not get_category:
+            return None
+        for item in get_category:
+            return max(get_category, key = lambda item : item.condition)
 
     # def get_best_by_category(self, category):
     #     get_category = self.get_by_category(category)
@@ -72,28 +78,36 @@ class Vendor:
     #     get_category = self.get_by_category(category)
     #     if not get_category:
     #         return None
-    #     best_condition = 0 
-    #     best_item = get_category[0]
-    #     for item in get_category:
-    #         if item.condition > best_condition:
-    #             best_condition = item.condition
-    #             best_item = item
-    #     return best_item
+        # best_condition = 0 
+        # best_item = get_category[0]
+        # for item in get_category:
+        #     if item.condition > best_condition:
+        #         best_condition = item.condition
+        #         best_item = item
+        # return best_item
 
     def get_best_by_category(self, category):
         get_category = self.get_by_category(category)
-        print("in get_best_by_category", get_category)
         if not get_category:
             return None
+        best_condition = 0 
+        best_item = get_category[0]
         for item in get_category:
-            return max(get_category, key = lambda item : item.condition)
+            if item.condition > best_condition:
+                best_condition = item.condition
+                best_item = item
+        return best_item
+    '''
 
     def swap_best_by_category(self, other, my_priority, their_priority):
 
         their_best_item = other.get_best_by_category(my_priority)
         my_best_item = self.get_best_by_category(their_priority)
         item_swap = self.swap_items(other,my_best_item, their_best_item)
-    
+        print(their_best_item)
+        # print(my_best_item)
+        # print(item_swap)
+
         return item_swap
             
         
