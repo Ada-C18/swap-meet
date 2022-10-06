@@ -1,6 +1,13 @@
+from .clothing import Clothing
+from .decor import Decor
+from .electronics import Electronics
+
 class Vendor:
-    def __init__(self, inventory=[]):
-        self.inventory = inventory
+    def __init__(self, inventory = None):
+        if not inventory:
+            self.inventory = []
+        else:
+            self.inventory = inventory
     
     def add(self, item):
         self.inventory.append(item)
@@ -31,10 +38,18 @@ class Vendor:
     def swap_first_item(self, friend):
         if not self.inventory or not friend.inventory:
             return False
-        # my_item = self.inventory[0]
-        # their_item = friend.inventory[0]
-
         friend.inventory.append(self.inventory.pop(0))
         self.inventory.append(friend.inventory.pop(0))
         return True
+    
+    def get_best_by_category(self, category):
+        ranked_inventory = sorted(self.inventory, key = lambda i: i.condition, reverse = True)
+        for item in ranked_inventory:
+            if item.category == category:
+                return item
+        return None
 
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        giving = self.get_best_by_category(their_priority)
+        receiving = other.get_best_by_category(my_priority)
+        return self.swap_items(other, giving, receiving)
