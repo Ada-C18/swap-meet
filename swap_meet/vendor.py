@@ -102,7 +102,6 @@ class Vendor:
         my_category_list = self.get_by_category(their_priority)
         their_category_list = other.get_by_category(my_priority)
 
-        # check if priority categories are in inventories
         if len(my_category_list) > 1 and len(their_category_list) > 1:
             my_best = self.get_best_by_category(their_priority)
             their_best = other.get_best_by_category(my_priority)
