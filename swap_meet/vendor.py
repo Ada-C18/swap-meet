@@ -70,4 +70,3 @@ class Vendor:
         their_best_item = other.get_best_by_category(my_priority)
         my_best_item = self.get_best_by_category(their_priority)
         return self.swap_items(other,my_best_item, their_best_item)
-        print("we got this!")
