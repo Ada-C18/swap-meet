@@ -48,10 +48,22 @@ class Vendor:
 
         return self.swap_items(other, my_vendor, other_vendor)
 
+
+    def swap_by_age(self, age):
+
+        categories = self.get_by_category(age)
+
+        if not categories:
+            return None
+        return min(categories, key = lambda x : x.age)
+
+
     def swap_by_newest(self, other, their_newest, my_newest):
-        
-        other_vendor = other.get_best_by_category(their_newest)
-        print(other_vendor)
+
+        other_vendor = other.swap_by_age(my_newest)
+        my_vendor = self.swap_by_age(their_newest)
+
+        return self.swap_items(other, my_vendor, other_vendor)
 
 
 
