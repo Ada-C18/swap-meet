@@ -52,3 +52,17 @@ def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type(
         assert item.condition_description() == one_condition_description
 
     assert one_condition_description != five_condition_description
+
+"""
+Additional Unit Test for full code coverage
+"""
+
+def test_out_of_range_input_returns_condition_description():
+    # Arrange
+    item = Clothing(condition = 6)
+    
+    # Act
+    result = item.condition_description()
+
+    # Assert
+    assert result == "Did you even read the instructions?" 

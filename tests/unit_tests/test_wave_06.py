@@ -87,15 +87,6 @@ def test_swap_best_by_category():
     assert item_f not in jesse.inventory
     assert item_c not in tai.inventory 
 
-    # raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
-    # Assertions should check:
-    # - That the results is truthy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories, including the items which were swapped from one vendor to the other
-
 # @pytest.mark.skip
 def test_swap_best_by_category_reordered():
     # Arrange
@@ -119,17 +110,6 @@ def test_swap_best_by_category_reordered():
         my_priority="Clothing",
         their_priority="Decor"
     )
-
-    # raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
-    # Assertions should check:
-    # - That result is truthy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories, and that 
-    #   the items that were swapped are not there
-
     assert result
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
@@ -224,17 +204,6 @@ def test_swap_best_by_category_no_match_is_false():
     for item in [item_d, item_e, item_f]:
         assert item in jesse.inventory 
     
-
-
-    # raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
-    # Assertions should check:
-    # - That result is falsy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories
-
 # @pytest.mark.skip
 def test_swap_best_by_category_no_other_match_is_false():
     # Arrange
@@ -268,13 +237,3 @@ def test_swap_best_by_category_no_other_match_is_false():
 
     for item in [item_d, item_e, item_f]:
         assert item in jesse.inventory 
-    
-
-    # raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
-    # Assertions should check:
-    # - That result is falsy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories
