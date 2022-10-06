@@ -40,7 +40,10 @@ def test_condition_descriptions_with_invalid_conditon():
         Electronics(condition=1)
     ]
     first_condition_description = items[0].condition_description()
+    second_condition_description = items[1].condition_description()
     assert isinstance(first_condition_description, str)
+    assert first_condition_description == "please enter condition:  0~5"
+    assert second_condition_description == "Good"
     for item in items:
         assert isinstance(item.condition_description(), str)
         
