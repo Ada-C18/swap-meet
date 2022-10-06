@@ -4,8 +4,11 @@ from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
 
 class Vendor:
-    def __init__(self, inventory = []):
+    def __init__(self, inventory = None):
+        if inventory is None:
+            inventory = []
         self.inventory = inventory
+        
 
     def add(self,item):
         self.inventory.append(item)
@@ -28,10 +31,12 @@ class Vendor:
     def swap_items(self,friends_vendor, my_item,their_item):
         if my_item not in self.inventory or their_item not in friends_vendor.inventory:
             return False
-        self.inventory.remove(my_item)
-        friends_vendor.inventory.append(my_item)
+
         friends_vendor.inventory.remove(their_item)
         self.inventory.append(their_item)
+        self.inventory.remove(my_item)
+        friends_vendor.inventory.append(my_item)
+
         return True
     
     def swap_first_item(self , friends_vendor):
