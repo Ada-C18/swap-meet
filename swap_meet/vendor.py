@@ -107,11 +107,23 @@ class Vendor:
             return True
         
     def swap_by_newest(self,Vendor,my_item,their_item):
+        my_item_age = 100
+        their_item_age = 100
         my_items=self.get_by_category(my_item)
         their_items=Vendor.get_by_category(their_item)
-        my_item = min(my_items, key=lambda Item: Item.age) 
-        their_item = min(their_items, key=lambda Item: Item.age) 
-        if not my_item or not their_item:
+
+        if not my_items or not their_items:
             return False
+        
+        for item in my_items:
+            if item.age < my_item_age:
+                my_item_age = item.age
+                my_item = item
+        
+        for item in their_items:
+            if item.age < their_item_age:
+                their_item_age = item.age
+                their_item = item
+
         self.swap_items(Vendor,my_item,their_item)  
         return True  

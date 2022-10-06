@@ -293,15 +293,11 @@ def test_by_newest():
     # Act
     result = tai.swap_by_newest(
         Vendor=jesse,
-        my_item="Clothing",
-        their_item="Decor"
+        my_item="Decor",
+        their_item="Clothing"
     )
-
-    #raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
-    # Assertions should check:
+    
+    # Assertions
     assert result == True
     assert len(tai.inventory)==3
     assert len(jesse.inventory)==3
@@ -311,5 +307,43 @@ def test_by_newest():
     assert item_d not in jesse.inventory
     assert item_e in jesse.inventory
     assert item_f in jesse.inventory
-    assert item_c not in jesse.inventory
-    assert item_f not in tai.inventory
+    assert item_a in jesse.inventory
+    assert item_d in tai.inventory
+    
+def test_swap_by_newest_no_match_is_false():
+    # Arrange
+    item_a = Decor(age=2.0)
+    item_b = Electronics(age=4.0)
+    item_c = Decor(age=4.0)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    item_d = Clothing(age=2.0)
+    item_e = Decor(age=4.0)
+    item_f = Clothing(age=4.0)
+    jesse = Vendor(
+        inventory=[item_d, item_e, item_f]
+    )
+
+    # Act
+    result = tai.swap_by_newest(
+        Vendor=jesse,
+        my_item="Clothing",
+        their_item="Clothing"
+    )
+
+    # raise Exception("Complete this test according to comments below.")
+    # *********************************************************************
+    # ****** Complete Assert Portion of this test **********
+    # *********************************************************************
+    # Assertions should check:
+    assert result == False
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert item_a in tai.inventory
+    assert item_b in tai.inventory
+    assert item_c in tai.inventory
+    assert item_d in jesse.inventory
+    assert item_e in jesse.inventory
+    assert item_f in jesse.inventory
