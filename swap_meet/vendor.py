@@ -32,16 +32,21 @@ class Vendor:
             self.inventory.remove(item)
             return item
         return False
-<<<<<<< HEAD
-
-=======
     
     def get_by_category (self, category):
+        if not category:
+            return None
         matching_items = []
-        if category in self.category:
-            matching_items.append(category)
+        for item in self.inventory:
+            if item.category == category:
+                matching_items.append(item)
         return matching_items
->>>>>>> 48a4704a2810f44d08f76cab97c797bdcdac02c5
+    
+    """new additions"""
+    def swap_items(self, vendor, my_item, their_item):
+# add your item to their list, their item to your list, remove your item from your list and their item from their list
+# order is very important for this to work
+# returns True
 
 '''
 WAVE 3 
