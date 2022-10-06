@@ -46,7 +46,10 @@ class Vendor:
             items_by_condition.append(item.condition)
         sorted_condition = sorted(items_by_condition)
         for item in items_by_category:
-            if item.condition == sorted_condition[-1] and item.category == category:
+            # if item.condition == sorted_condition[-1] and item.category == category:
+            # i think we dont need item.category == category bc we filter by category with line 43 so 
+            # everything in the list is already the category we want
+            if item.condition == sorted_condition[-1]:
                 return item
         return None 
 
