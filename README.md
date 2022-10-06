@@ -96,7 +96,7 @@ In Wave 1 we will create the `Vendor` class.
 - When we stringify (convert to a string) an instance of `Item` using `str()`, it returns `"Hello World!"`
   - This implies `Item` overrides its stringify method. We may need to research the `__str__` method for more details! -->
 
-The remaining tests in wave 3 imply:
+<!-- The remaining tests in wave 3 imply:
 
 - Instances of `Vendor` have an instance method named `swap_items`
   - It takes 3 arguments:
@@ -106,11 +106,11 @@ The remaining tests in wave 3 imply:
   - It removes the `my_item` from this `Vendor`'s inventory, and adds it to the friend's inventory
   - It removes the `their_item` from the other `Vendor`'s inventory, and adds it to this `Vendor`'s inventory
   - It returns `True`
-  - If this `Vendor`'s inventory doesn't contain `my_item` or the friend's inventory doesn't contain `their_item`, the method returns `False`
+  - If this `Vendor`'s inventory doesn't contain `my_item` or the friend's inventory doesn't contain `their_item`, the method returns `False` -->
 
 ### Wave 4
 
-In Wave 4 we will write one method, `swap_first_item`.
+<!-- In Wave 4 we will write one method, `swap_first_item`.
 
 - Instances of `Vendor` have an instance method named `swap_first_item`
   - It takes one argument: an instance of another `Vendor`, representing the friend that the vendor is swapping with
@@ -118,38 +118,38 @@ In Wave 4 we will write one method, `swap_first_item`.
   - It removes the first item from its `inventory`, and adds the friend's first item
   - It removes the first item from the friend's `inventory`, and adds the instances first item
   - It returns `True`
-  - If either itself or the friend have an empty `inventory`, the method returns `False`
+  - If either itself or the friend have an empty `inventory`, the method returns `False` -->
 
 ### Wave 5
 
 In Wave 5 we will create three additional modules with three additional classes:
 
-- `Clothing`
+<!-- - `Clothing`
   - Has an attribute `category` that is `"Clothing"`
-  - Its stringify method returns `"The finest clothing you could wear."`
-- `Decor`
+  - Its stringify method returns `"The finest clothing you could wear."` -->
+<!-- - `Decor`
   - Has an attribute `category` that is `"Decor"`
-  - Its stringify method returns `"Something to decorate your space."`
-- `Electronics`
+  <!-- - Its stringify method returns `"Something to decorate your space."` -->
+<!-- - `Electronics`
 
   - Has an attribute `category` that is `"Electronics"`
-  - Its stringify method returns `"A gadget full of buttons and secrets."`
+  - Its stringify method returns `"A gadget full of buttons and secrets."` --> -->
 
 - All three classes and the `Item` class have an attribute called `condition`, which can be optionally provided in the initializer. The default value should be `0`.
 
 - All three classes and the `Item` class have an instance method named `condition_description`, which should describe the condition in words based on the value, assuming they all range from 0 to 5. These can be basic descriptions (eg. 'mint', 'heavily used') but feel free to have fun with these (e.g. 'You probably want a glove for this one..."). The one requirement is that the `condition_description` for all three classes above have the same behavior.
 
-#### Using Inheritance
+<!-- #### Using Inheritance
 
 Now, we may notice that these three classes hold the same types of state and have the same general behavior as `Item`. That makes this is a great opportunity to use inheritance! If you haven't already, go back and implement the `Clothing`, `Decor`, and `Electronics` classes so that they inherit from the `Item` class. This should eliminate repetition in your code and greatly reduce the total number of lines code in your program!
 
 ##### Hint: Importing Item
 
-You'll need to refer to `Item` in order to declare it as a parent. To reference the `Item` class from these modules, try this import line:
-
+You'll need to refer to `Item` in order to declare it as a parent. To reference the `Item` class from these modules, try this import line: -->
+<!-- 
 ```python
 from swap_meet.item import Item
-```
+``` -->
 
 ### Wave 6
 

@@ -1,11 +1,12 @@
-from pickle import FALSE
+# from pickle import FALSE
 from swap_meet import item
 # from swap_meet.item import Item
 
 class Vendor:
-    def __init__(self, inventory=[]):
+    def __init__(self, inventory=None):
+        if not inventory:
+            inventory = []
         self.inventory = inventory
-        # self.item = item   
 
     def add(self, item):
         self.inventory.append(item)
@@ -45,3 +46,15 @@ class Vendor:
         self.swap_items(swapping_other_vendor, self.inventory[0], swapping_other_vendor.inventory[0])
         return True
         
+    # Wave_5
+    
+    
+    # Wave_6
+    
+    
+    # def get_best_by_category(self,category):
+    #     pass
+    
+    
+    # def swap_best_by_category`(self, 
+    #     pass
