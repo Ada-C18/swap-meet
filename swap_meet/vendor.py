@@ -1,14 +1,8 @@
-# relative import
-# from .item import Item
-
-# full import
 from swap_meet.item import Item
 
 
 class Vendor:
     def __init__(self, inventory=None):
-        # inventory is an empty list by default
-        # we can optionally pass in a list with the keyword argument inventory
         if inventory is None:
             inventory = []
         self.inventory = inventory
@@ -102,7 +96,7 @@ class Vendor:
         '''
         Input: instance of Vendor(other), my_priority(category str), their_priority(category str)
         Output:
-        `True` → if their_priority in Vendor inventory, swap their_priority with my_priority
+        `True` → swap priority items
         `False` → if their_priority not in Vendor inventory OR my_priority not in `other`
         '''
 
