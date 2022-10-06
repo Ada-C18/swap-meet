@@ -1,14 +1,12 @@
 class Item:
     '''add doc string'''
-    def __init__(self, category="", condition=0):
+    def __init__(self, category="", condition=0, age=0):
         self.category = category
         self.condition = condition
+        self.age = age
     
     def __str__(self):
-        if self.category:
-            return self.category
-        else:
-            return "Hello World!"
+        return "Hello World!"
     
     def condition_description(self):
         if self.condition == 0:

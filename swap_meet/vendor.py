@@ -94,4 +94,18 @@ class Vendor(Item):
 
         else:
             return False
-            
+
+###############Extra#################            
+    
+    # def get_newest_item(self, age):
+    #     '''Get newest item.'''
+    #     newest_age = max(self.inventory, key=lambda: self.age)
+    #     return self.inventory.newest_age
+        
+
+    # def swap_by_newest(self, other, my_newest, their_newest):
+    #     my_newest = self.get_newest_item
+    #     their_newest = other.get_newest_item
+    #     print(f"{my_newest=}")
+    #     print(f"{their_newest=}")
+    #     self.swap_items(other, my_newest, their_newest)
