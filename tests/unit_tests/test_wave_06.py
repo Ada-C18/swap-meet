@@ -90,11 +90,6 @@ def test_swap_best_by_category():
     assert len(tai.inventory) == 3 and len(jesse.inventory) == 3
     assert item_a and item_b and item_f in tai.inventory
     assert item_c and item_e and item_d in jesse.inventory
-    assert result
-    assert len(tai.inventory) == 3 and len(jesse.inventory) == 3
-    assert item_a and item_b and item_f in tai.inventory
-    assert item_c and item_e and item_d in jesse.inventory
-#
 # @pytest.mark.skip
 def test_swap_best_by_category_reordered():
     # Arrange
