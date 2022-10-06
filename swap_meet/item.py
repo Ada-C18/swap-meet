@@ -1,17 +1,10 @@
-'''
-module: item.py
-    class: Item
-        attribute: .inventory
-        method: __str__ .condition_description
-'''
-
 class Item:
 
     def __init__(self, category = None, condition = 0):
         if category: # not empty:
             self.category = category
         else: 
-            self.category = "" # default
+            self.category = ""
 
     def __str__(self):
         return "Hello World!"

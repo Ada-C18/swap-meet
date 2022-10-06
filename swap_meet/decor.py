@@ -1,10 +1,3 @@
-'''
-module: decor.py
-    class: Decor
-        attribute: .category
-        method: __str__
-'''
-
 from swap_meet.item import Item
 
 class Decor(Item):

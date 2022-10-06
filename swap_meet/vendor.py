@@ -1,10 +1,3 @@
-'''
-module: vendor.py
-    class: Vendor
-        attribute: .inventory
-        method: .add .remove .get_by_category .swap_items .swap_first_item
-'''
-
 from swap_meet.item import Item
 
 class Vendor:
@@ -12,17 +5,18 @@ class Vendor:
     def __init__(self, inventory = None):
         if inventory:
             self.inventory = inventory
-        else: # default
+        else:
             self.inventory = []
 
     def add(self, one_item):
-    # add the item to the inventory
-        new_inventory = self.inventory.append(one_item)
+        # add the item to the inventory
+        self.inventory.append(one_item)
         return one_item
     
     def remove(self, one_item):
+        # remove the item to the inventory
         if one_item in self.inventory:
-            new_inventory = self.inventory.remove(one_item)
+            self.inventory.remove(one_item)
             return one_item
         else:
             return False
@@ -35,7 +29,7 @@ class Vendor:
         return items
 
     def swap_items(self, another_vendor, my_item, their_item):
-        if not my_item in self.inventory or not their_item in another_vendor.inventory:
+        if my_item not in self.inventory or their_item not in another_vendor.inventory:
             return False
         else:
             self.remove(my_item)

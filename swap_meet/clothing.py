@@ -1,10 +1,3 @@
-'''
-module: clothing.py
-    class: Clothing
-        attribute: .category
-        method: __str__
-'''
-
 from swap_meet.item import Item
 
 
