@@ -5,5 +5,7 @@ class Electronics(Item):
         self.category = "Electronics"
         self.condition = float(condition)
 
+        # how to use super() to reuse condition from Item?
+
     def __str__(self):
         return "A gadget full of buttons and secrets."
