@@ -260,3 +260,38 @@ def test_swap_best_by_category_no_other_match_is_false():
     # - That result is falsy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories
+
+def test_swap_best_by_newest_swaps_correct_item():
+    # Arrange
+    item_a = Decor(age=2.0)
+    item_b = Electronics(age=4.0)
+    item_c = Decor(age=4.0)
+    tai = Vendor(
+        inventory=[item_c, item_b, item_a]
+    )
+
+    item_d = Clothing(age=2.0)
+    item_e = Decor(age=4.0)
+    item_f = Clothing(age=4.0)
+    jesse = Vendor(
+        inventory=[item_f, item_e, item_d]
+    )
+
+    # Act
+    result = tai.swap_best_by_newest(
+        other=jesse,
+        my_newest="Decor",
+        their_newest="Clothing"
+    )
+
+    assert not result
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert item_a not in tai.inventory
+    assert item_b in tai.inventory
+    assert item_c in tai.inventory
+    assert item_d in tai.inventory
+    assert item_d not in jesse.inventory
+    assert item_a in jesse.inventory
+    assert item_f in jesse.inventory
+    assert item_e in jesse.inventory
