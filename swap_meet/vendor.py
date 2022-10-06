@@ -30,7 +30,9 @@ class Vendor:
         #         list.append(item)
         # return list
 
-        list = (list.append(item) for item in self.inventory if item.category == category)
+        list = [item for item in self.inventory if item.category == category]
+        return list
+    
  ################################## Wave 3 ##################################   
  
     def swap_items(self,vendor,my_item,their_item):
