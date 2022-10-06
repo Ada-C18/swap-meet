@@ -40,16 +40,7 @@ class Vendor:
         if len(self.inventory) < 1 or len(other_vendor.inventory) < 1:
             return False
         else:
-            self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
-            return True
-
-            # swap = self.inventory[0]
-            # self.inventory[0] = vendor.inventory[0]
-            # vendor.inventory[0] = swap
-            # return True
-            
-            self.swap_items(vendor, self.inventory[0], vendor.inventory[0])
-            return True
+            return self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
 
     def get_best_by_category(self, category):
         best_list = self.get_by_category(category)
@@ -65,14 +56,13 @@ class Vendor:
             
         
     def swap_best_by_category(self, other, my_priority, their_priority):
-        my_wanted_item = other.get_by_category(my_priority)
-        their_wanted_item = self.get_by_category(their_priority)
-        if my_wanted_item == None or their_wanted_item == None:
+        other_item = other.get_best_by_category(my_priority)
+        my_item = self.get_best_by_category(their_priority)
+        if my_item == None or other_item == None:
             return False
         else:
-            self.swap_items(other, their_wanted_item, my_wanted_item)
+            self.swap_items( other, my_item,other_item)
             return True
-
 
 
 # Vendors have a method named get_best_by_category, which will get the item with the best condition in a certain category
