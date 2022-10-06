@@ -1,5 +1,6 @@
 class Item:
-    def __init__(self, condition=None, category=None):
+    def __init__(self, age=None, condition=None, category=None):
+        self.age = age if age is not None else 0
         self.condition = condition if condition is not None else 0.0
         category = category if category is not None else ""
         self.category = category

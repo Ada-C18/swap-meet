@@ -56,5 +56,21 @@ class Vendor:
             return False
         self.swap_items(other, my_item, their_item)
         return True
+    "**************************************"
+    "**************************************"
+    "***********BONUS SECTION**************"
+    def get_by_age(self):
+        items_dict = {}
+        for item in self.inventory:
+            items_dict[item] = item.age
+        return items_dict
 
-    
+    def swap_by_newest(self, other):
+        ages = self.get_by_age()
+        other_ages = other.get_by_age()
+        if not ages or not other_ages:
+            return False
+        mine_min_age = min(ages, key = ages.get)
+        their_min_age = min(other_ages, key = other_ages.get)
+        self.swap_items(other, mine_min_age, their_min_age)
+        return True
