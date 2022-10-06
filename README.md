@@ -1,4 +1,4 @@
-# Swap Meet
+# Swap Meet - Erika & Elsje | Snow Leopards | Group 3
 
 ## Skills Assessed
 
