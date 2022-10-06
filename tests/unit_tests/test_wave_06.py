@@ -76,9 +76,10 @@ def test_swap_best_by_category():
         their_priority="Decor"
     )
 
-    assert result
+    assert result is True
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
+    # assert all(item in [item_a, item_b, item_f] for item in tai.inventory)
     assert item_f in tai.inventory
     assert item_a in tai.inventory
     assert item_b in tai.inventory
@@ -119,7 +120,7 @@ def test_swap_best_by_category_reordered():
         my_priority="Clothing",
         their_priority="Decor"
     )
-    assert result
+    assert result is True
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
     assert item_f in tai.inventory
@@ -156,7 +157,7 @@ def test_swap_best_by_category_no_inventory_is_false():
         their_priority="Decor"
     )
 
-    assert not result
+    assert result == False
     assert len(tai.inventory) == 0
     assert len(jesse.inventory) == 3
     assert item_a in jesse.inventory
@@ -182,7 +183,7 @@ def test_swap_best_by_category_no_other_inventory_is_false():
         their_priority="Clothing"
     )
 
-    assert not result
+    assert result == False
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 0
     assert item_a in tai.inventory
