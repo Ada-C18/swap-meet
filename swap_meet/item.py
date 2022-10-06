@@ -16,7 +16,7 @@ class Item:
             1:"Definitely used. Perhaps too much.",
             2:"If you're okay with some dings and things.",
             3:"Lots of life left if you handle with care.",
-            4:"Barely even a scractch.",
+            4:"Barely even a scratch.",
             5:"ULTRA RARE PIECE, NWOT CONDITION.",
 
         }
