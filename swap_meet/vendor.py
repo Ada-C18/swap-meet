@@ -2,7 +2,6 @@
 # from .item import Item
 
 # full import
-from unicodedata import category
 from swap_meet.item import Item
 
 
@@ -106,4 +105,15 @@ class Vendor:
         `True` → if their_priority in Vendor inventory, swap their_priority with my_priority
         `False` → if their_priority not in Vendor inventory OR my_priority not in `other`
         '''
-        pass
+
+        my_category_list = self.get_by_category(their_priority)
+        their_category_list = self.get_by_category(my_priority)
+
+        if len(my_category_list) > 1 and len(their_category_list) > 1:
+            my_best = self.get_best_by_category(my_priority)
+            their_best = self.get_best_by_category(my_priority)
+
+            self.swap_items(other, my_best, their_best)
+            return True
+        else:
+            return False
