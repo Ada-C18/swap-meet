@@ -33,6 +33,12 @@ class Vendor:
             return item
         return False
     
+    def get_by_category (self, category):
+        matching_items = []
+        if category in self.category:
+            matching_items.append(category)
+        return matching_items
+
 '''
 WAVE 3 
 Instances of `Vendor` have an instance method named `swap_items`

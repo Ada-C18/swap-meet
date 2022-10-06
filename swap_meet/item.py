@@ -14,13 +14,9 @@ In Wave 2 we will create the `Item` class and the `get_by_category` method.
 
 class Item:
     def __init__(self, category=None):
-        self.category = category if category != None else ""
-
-    def get_by_category (self, category):
-        matching_items = []
-        if category in self.category:
-            matching_items.append(category)
-        return matching_items
+        if category is None:
+            category = ""
+        self.category = category
 
     def __str__(self):
         return "Hello World!"
