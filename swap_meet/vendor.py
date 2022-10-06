@@ -61,6 +61,7 @@ class Vendor:
             
             
     def get_best_by_category(self, category):
+        #will get the item with the best condition in a certain category 
         max_condition =0
         max_item =None
         items_list = self.get_by_category(category)
@@ -72,6 +73,7 @@ class Vendor:
     
 
     def swap_best_by_category(self, other, my_priority, their_priority):
+        #will swap the best item of certain categories with another Vendor
         my_item = self.get_best_by_category(their_priority)
         their_item = other.get_best_by_category(my_priority)
         if not my_item or not their_item:

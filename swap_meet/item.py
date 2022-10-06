@@ -12,6 +12,7 @@ class Item():
         return "Hello World!"
     
     def condition_description(self):
+        #describe the condition in words based on the value, assuming they all range from 0 to 5
         CONDITION_DICT ={
             0: "Heavely used",
             1: "Well loved",
