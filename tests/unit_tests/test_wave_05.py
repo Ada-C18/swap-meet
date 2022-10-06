@@ -52,3 +52,22 @@ def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type(
         assert item.condition_description() == one_condition_description
 
     assert one_condition_description != five_condition_description
+
+def test_conditions_check():
+    items = [
+        Clothing(condition=0),
+        Decor(condition=3),
+        Electronics(condition=2),
+        Clothing(condition=4)
+    ]
+
+    zero_condition_description = items[0].condition_description()
+    two_condition_description = items[2].condition_description()
+    three_condition_description = items[1].condition_description()
+    four_condition_description = items[3].condition_description()
+
+    assert zero_condition_description == "Horrible"
+    assert two_condition_description == "Lightly Used"
+    assert three_condition_description == "Good"
+    assert four_condition_description == "Very Good"
+
