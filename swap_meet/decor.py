@@ -1,8 +1,8 @@
 from .item import Item
 
 class Decor(Item):
-    def __init__(self, category="Decor", condition=0):
-        super().__init__(category=category, condition=condition)
+    def __init__(self, age=None, condition=0):
+        super().__init__(age=age, category="Decor", condition=condition)
 
     
     def __str__(self):
