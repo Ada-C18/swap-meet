@@ -1,3 +1,5 @@
+# from swap_meet.item import Item
+
 class Vendor:
 
     def __init__(self, inventory=[]):
@@ -44,28 +46,34 @@ class Vendor:
         return True
 
     def get_best_by_category(self, category):
-        get_category = self.get_by_category(category)
-        best_item = None
-        # loop through get_category
-        if best_item in get_category:
-            return max(get_category(best_item))
-
-
-
-    # # refactoring - look at get_by_category to update this function
-    #     best_item_dictionary = {}
-
-    #     # building dictionarty with categories as keys and values as None
-    #     for category in self.get_by_category:
-    #         if category not in best_item_dictionary:
-    #             best_item_dictionary[category] = None
+        # get_category = self.get_by_category(category)
+        # best_item = None
+        # # loop through get_category
+        # if best_item in get_category:
+        #     return max(get_category(best_item))
+        # category_list = self.get_by_category
+        best_item_dictionary = {}
+        # building dictionary with categories as keys and values as None
+        for item in self.inventory:
+            if item.category not in best_item_dictionary:
+                best_item_dictionary[item.category] = item.condition
+            else:
+                if item.condition > best_item_dictionary[item.category]:
+                    best_item_dictionary[item.category] = item.condition
+        # print(best_item_dictionary)
+        if category not in best_item_dictionary.keys():
+            return None
+        for key, value in best_item_dictionary.items():
+            if key == category:
+                print(key, value)
+                return f"{key} {value}"
+                # return item.category
         
-    #     #looping through the inventory to get each item
-    #     for item in self.inventory:
-    #         # for each item, create dictionary entry based on category
-    #         best_item_dictionary[category] = [item]
-    #         # if the category already exists in the dictionary, add item
-    #         # to value list
+        #looping through the inventory to get each item
+        # for item in self.inventory:
+        #     if item.condition > best_item_dictionary[category]:
+        #         best_item_dictionary[category] = item
+        # return best_item_dictionary
             
     #         if item > best_item_dictionary and best_item == category:
     #             return item
