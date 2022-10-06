@@ -73,16 +73,7 @@ class Vendor:
         return self.swap_items(other,my_item, other_item)
 
 
-        
-
-
-
-
-        
-        # higest_condition= item.condition[0]
-        # for item in self.inventory:
-        #     if item.condtion >= higest_condition:
-        #         higest_condition.append(item.condition)
+    
 
 
 
