@@ -56,7 +56,6 @@ class Vendor:
         if self.inventory == []:
             return False 
 
-    # def swap_best_by_category(self):
     
 
 
