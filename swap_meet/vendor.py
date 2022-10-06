@@ -1,6 +1,5 @@
 from swap_meet.item import Item
 
-
 class Vendor:
     def __init__(self,inventory=[]):
         self.inventory = inventory
@@ -32,13 +31,6 @@ class Vendor:
 
         if my_item not in self.inventory or their_item not in vendor.inventory:
             return False
-        
-        #all tests pass without this code that checks for length
-        # unsure why, but added it anyway to be thorough. 
-        if len(self.inventory) == 0:  
-            return False
-        if len(vendor.inventory) == 0: 
-            return False 
 
         if my_item in self.inventory: 
             self.remove(my_item) 
@@ -54,12 +46,11 @@ class Vendor:
         if len(vendor.inventory) == 0: 
             return False
             
-        self.vendor = vendor #friend vendor is swapping with
-        vendor_first_item = self.inventory[0] 
+        self.vendor = vendor
+        my_first_item = self.inventory[0] 
         friend_first_item = vendor.inventory[0]
-        self.inventory[0] = friend_first_item 
-        vendor.inventory[0] = vendor_first_item 
-        return True
+        result = self.swap_items(vendor, my_first_item, friend_first_item)
+        return result
     
     def get_best_by_category(self, category):
         highest_condition = 0
@@ -73,38 +64,18 @@ class Vendor:
         return best_item
 
     def swap_best_by_category(self, other, my_priority, their_priority):
-        #self.other = other # represents another vendor instance 
-        #self.my_priority = my_priority # category this vendor receives
-        #self.their_priority = their_priority # represents a category other vendor recieves 
+        self.other = other # represents another vendor instance 
+        self.my_priority = my_priority # category this vendor receives
+        self.their_priority = their_priority # represents a category other vendor recieves 
 
-        # if self vendor has no items matching their priority
-        # or other vendor has not item matching my priority 
-        # return False
-
-        if not self.inventory or not other.inventory:
-            return False 
-
-        #check to see if you have an items in your iventory that match their priority
-        #check to see if they have your my priority items
+        # do we need to include the self above ^^? or code below
+        # if not self.inventory or not other.inventory:
+        #     return False 
 
         my_best_item = self.get_best_by_category(their_priority)
         their_best_item = other.get_best_by_category(my_priority)
         result = self.swap_items(other, my_best_item, their_best_item)
         return result
-
-            
-
-
-        
-        # if self vendor has no items matching their priority
-        # or other vendor has not item matching my priority 
-        # return False
-
-        #if i have their priority, find the best conditioned one, and give it to other vendor
-        # if they have my priority, they find the best conditioned one, and give to self vendor 
-        #return True
-        #check to see if you have an items in your iventory that match their priority
-        #check to see if they have your my priority items
 
     
 
