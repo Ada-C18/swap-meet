@@ -1,9 +1,15 @@
 from swap_meet.item import Item
+from swap_meet.clothing import Clothing
+from swap_meet.decor import Decor
+from swap_meet.electronics import Electronics
+
 class Vendor:
     def __init__(self, inventory = None):
         if inventory is None:
             inventory = []
         self.inventory = inventory
+        # self.item = Item(self.category, self.condition)
+        #am I able to use this as a composite of Item
         
         
 
@@ -47,16 +53,34 @@ class Vendor:
             my_first_item = self.inventory[0]
             their_first_item = another_vendor.inventory[0]
             return self.swap_items(another_vendor, my_first_item, their_first_item)
+
+
+
+    def get_best_by_category(self, category):
+        
+        items_in_category = self.get_by_category(category)
+
+        if items_in_category == False:
+            return None
+        else: 
+            best_item_so_far = None
+            for item in items_in_category: 
+                if best_item_so_far is None or best_item_so_far.condition < item.condition: 
+                    best_item_so_far = item
+            return best_item_so_far
+
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        pass
+        
+
+
             
 
 
 
    
             
-   
-            
-            
-
 vendor = Vendor()
 
 vendor = Vendor(inventory =["a", "b", "c"])
@@ -91,8 +115,14 @@ jolie = Vendor(
 
 
  
-
-
+item_a = Clothing(condition=2.0)
+item_b = Decor(condition=2.0)
+item_c = Clothing(condition=4.0)
+item_d = Decor(condition=5.0)
+item_e = Clothing(condition=3.0)
+tai = Vendor(
+        inventory=[item_a, item_b, item_c, item_d, item_e]
+    )
 
 
 
