@@ -2,19 +2,16 @@ from unicodedata import name
 
 
 class Item:
-    # each item will have attribute- empty list by default
     def __init__(self, category=None, condition=0):
+        # set category if it is provided, or set to empty string
         self.category = category if category is not None else ""
         self.condition = condition
 
-    # make a string method that always return Hello World!
     def __str__(self):
         return "Hello World!"
 
-    # return a condition description based on condition
     def condition_description(self):
 
-        # switched the order of the statements to match the requirements
         condition_statements = {
             0: "heavily used",
             1: "signs of wear & tear",
