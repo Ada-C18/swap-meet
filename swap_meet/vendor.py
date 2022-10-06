@@ -62,7 +62,7 @@ class Vendor():
         their_item = other.get_best_by_category(my_priority)
         if not my_item or not their_item:
             return False
-        return self.swap_items(other,my_item , their_item)
+        return self.swap_items(other, my_item, their_item)
 
 
 

@@ -76,7 +76,6 @@ def test_swap_best_by_category():
         their_priority="Decor"
     )
 
-    
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -118,7 +117,6 @@ def test_swap_best_by_category_reordered():
         their_priority="Decor"
     )
 
-    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -213,7 +211,6 @@ def test_swap_best_by_category_no_match_is_false():
         their_priority="Clothing"
     )
 
-    
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
