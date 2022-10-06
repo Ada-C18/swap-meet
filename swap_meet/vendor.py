@@ -65,6 +65,7 @@ class Vendor:
         other.get_best_by_category(my_priority))
 
         return trade_happened
+
         
 
 
