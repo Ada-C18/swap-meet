@@ -4,23 +4,21 @@ class Item:
         if category is None:
             category = ""
         self.category = category
-        self.condition = 0
+        self.condition = condition
  
         
     def __str__(self):
         return "Hello World!"
 
 
-# ******** Wave 4 ********
+# ******** Wave 5 ********
     def condition_description(self):
-        if self.condition > 5 or self.condtion < 0:
-            return "please enter condition:  0~5"
+        if self.condition > 5 or self.condition < 0:
+            return ("please enter condition:  0~5")
         elif self.condition >= 4:
-            return "Excellent"
+            return ("Excellent")
         elif self.condition >= 3:
-            return "Good"
-        elif self.condition >= 2:
-            return "Well used"
+            return ("Good")
         else:
-            return "heavily used"
+            return ("heavily used")
         

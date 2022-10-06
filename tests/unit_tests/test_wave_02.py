@@ -41,3 +41,16 @@ def test_get_no_matching_items_by_category():
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
+# @pytest.mark.skip
+def test_get_no_catagoty_by_category():
+    item_a = Item(category="clothing")
+    item_b = Item(category="clothing")
+    item_c = Item(category="clothing")
+    vendor = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+    
+    items = vendor.get_by_category()
+
+    assert len(items) == 0
+    assert items == []

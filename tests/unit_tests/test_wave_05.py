@@ -32,6 +32,21 @@ def test_items_have_condition_as_float():
         assert item.condition == pytest.approx(3.5)
 
 # @pytest.mark.skip
+# added test
+def test_condition_descriptions_with_invalid_conditon():
+    items = [
+        Clothing(condition=6),
+        Decor(condition=3.5),
+        Electronics(condition=1)
+    ]
+    first_condition_description = items[0].condition_description()
+    assert isinstance(first_condition_description, str)
+    for item in items:
+        assert isinstance(item.condition_description(), str)
+        
+    
+
+# @pytest.mark.skip
 def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type():
     items = [
         Clothing(condition=5),
