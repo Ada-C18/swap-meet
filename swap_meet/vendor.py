@@ -1,3 +1,6 @@
+from unicodedata import category
+
+
 class Vendor:
     def __init__(self,inventory = None):
         if inventory is None:
@@ -58,4 +61,8 @@ class Vendor:
 
 
     def swap_best_by_category(self,other,my_priority,their_priority):
-        pass
+        others_best = other.get_best_by_category(my_priority)
+        my_best = self.get_best_by_category(their_priority)
+        return self.swap_items(other,my_best,others_best)
+
+
