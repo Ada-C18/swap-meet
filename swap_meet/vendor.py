@@ -49,9 +49,7 @@ class Vendor:
         for_them = self.get_best_by_category(their_priority)
         for_us = other.get_best_by_category(my_priority)
 
-        if for_them == None:
-            return False
-        if for_us == None:
+        if for_them == None or for_us == None:
             return False
 
         self.swap_items(other, for_them, for_us)
