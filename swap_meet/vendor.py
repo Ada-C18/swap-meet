@@ -1,4 +1,5 @@
-'''### Wave 1
+'''
+WAVE 1
 
 In Wave 1 we will create the `Vendor` class.
 
@@ -15,7 +16,8 @@ In Wave 1 we will create the `Vendor` class.
 - Similarly, every instance of `Vendor` has an instance method named `remove`, which takes in one item
 - This method removes the matching item from the `inventory`
 - This method returns the item that was removed
-- If there is no matching item in the `inventory`, the method should return `False`'''
+- If there is no matching item in the `inventory`, the method should return `False`
+'''
 class Vendor:
     def __init__(self, inventory=None):
         self.inventory = inventory if inventory is not None else []
@@ -30,7 +32,16 @@ class Vendor:
             self.inventory.remove(item)
             return item
         return False
+<<<<<<< HEAD
 
+=======
+    
+    def get_by_category (self, category):
+        matching_items = []
+        if category in self.category:
+            matching_items.append(category)
+        return matching_items
+>>>>>>> 48a4704a2810f44d08f76cab97c797bdcdac02c5
 
 '''
 WAVE 3 
