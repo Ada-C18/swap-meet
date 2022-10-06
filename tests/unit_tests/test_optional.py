@@ -33,8 +33,8 @@ def test_swap_newest():
     assert item_d in tai.inventory
     assert item_a in jesse.inventory
 
-@pytest.mark.skip
-def test_swap_newest_no_exchange():
+#@pytest.mark.skip
+def test_swap_newest_no_inventory_no_exchange():
     # Arrange
     # me
     item_a = Decor(age=2.0)
