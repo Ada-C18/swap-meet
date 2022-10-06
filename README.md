@@ -4,7 +4,7 @@
 
 - Following directions and reading comprehension
 - Reading tests
-- Creating classes
+- Creating classes3
   - Classes have attributes and instance methods
 - Importing modules
 - Working with attributes that are lists of instances
