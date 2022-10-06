@@ -16,6 +16,6 @@ class Item:
         elif self.condition == 3:
             return "Lightly used"
         elif self.condition == 4:
-            return "Like new self.condition"
+            return "Like new condition"
         elif self.condition == 5:
             return "Brand new in box/ with tags"
