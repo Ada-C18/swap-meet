@@ -9,11 +9,11 @@ class Item:
 
     def condition_description(self):
         conditions = {
-            0: "horrible",
+            0: "not sellable",
             1: "heavily used",
-            2: "OK",
+            2: "decent condition",
             3: "slightly used",
             4: "like new",
-            5: "mint",
+            5: "mint condition",
         }
         return conditions[int(self.condition)]
