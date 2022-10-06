@@ -33,10 +33,9 @@ class Vendor:
 
     def swap_first_item(self, my_friend):
         if self.inventory == [] or my_friend.inventory == []:
-            return False 
-        self.inventory[0] , my_friend.inventory[0] = my_friend.inventory[0] , self.inventory[0]
-        return True
-        
+                return False 
+        swap_items = self.swap_items(my_friend, self.inventory[0], my_friend.inventory[0])
+        return True        
 
     def get_best_by_category(self, category):
         items_by_category = self.get_by_category(category)
@@ -54,8 +53,3 @@ class Vendor:
 
         self.swap_items(other, for_them, for_us)
         return True
-
-
-        # other - another vendor instance to trade w
-        # my_priority - category Vendor wants to receive
-        # their_priority - category other wants to receive
