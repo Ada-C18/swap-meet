@@ -37,7 +37,7 @@ class Vendor:
         
 #Wave 4
     def swap_first_item(self, other_vendor):
-        if len(self.inventory)<1 or len(other_vendor.inventory) < 1:
+        if len(self.inventory) < 1 or len(other_vendor.inventory) < 1:
             return False
         else:
             self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
@@ -64,7 +64,16 @@ class Vendor:
         return best_item
             
         
-    # def    (self, other, my_priority, their_priority)
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_wanted_item = other.get_by_category(my_priority)
+        their_wanted_item = self.get_by_category(their_priority)
+        if my_wanted_item == None or their_wanted_item == None:
+            return False
+        else:
+            self.swap_items(other, their_wanted_item, my_wanted_item)
+            return True
+
+
 
 # Vendors have a method named get_best_by_category, which will get the item with the best condition in a certain category
 # It takes one argument: a string that represents a category
