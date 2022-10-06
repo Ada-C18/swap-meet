@@ -62,7 +62,11 @@ class Vendor:
         return best_item
 
     def swap_best_by_category(self, other, my_priority, their_priority):
+        if not self.inventory or not other.inventory:
+            return False
+        #^ the condition is explicit and is deemed to be defensive 
         
+
         my_best_item = self.get_best_by_category(their_priority)
         their_best_item = other.get_best_by_category(my_priority)
         result = self.swap_items(other, my_best_item, their_best_item)
