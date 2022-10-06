@@ -1,7 +1,7 @@
 class Item:
     def __init__(self, category="", condition=0):
         self.category = category
-        self.condition = float(condition)
+        self.condition = condition
 
     def __str__(self):
         return "Hello World!"
@@ -13,7 +13,7 @@ class Item:
         "Good Condition",
         "Very Good Condition",
         "New Condition"]
-        return condition_description_list[int(self.condition) - 1]
+        return condition_description_list[int(self.condition)]
     
-    # What if condition was out of range (ex. condition = 7 or -1; 
+    # What if condition was out of range (ex. condition is <0 or >5?; 
     # write a test to raise index error or value error?)

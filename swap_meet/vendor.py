@@ -42,7 +42,7 @@ class Vendor:
         
         self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
         return True
-        
+
         # other_vendor.add(self.inventory[0])
         # self.remove(self.inventory[0])
         # self.add(other_vendor.inventory[0])
@@ -53,8 +53,14 @@ class Vendor:
         best_item_list = self.get_by_category(category)
         if not best_item_list:
             return None
-        best_item = max(best_item_list, key=lambda item: item.condition)
-        return best_item 
+        
+        try:
+            best_item = max(best_item_list, key=lambda item: item.condition)
+            return best_item 
+        except ValueError as err:
+            print(f"Condition input must be between 0-5, {err}.")
+            return None
+        except IndexError as err:
 
     def swap_best_by_category(self, other, my_priority, their_priority):
 
