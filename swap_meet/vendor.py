@@ -13,10 +13,12 @@ class Vendor:
         if item not in self.inventory:
             return False
         self.inventory.remove(item)
+
         return item
     
     def get_by_category(self, category):
-        items_in_category = [item for item in self.inventory if item.category == category]
+        items_in_category = [item for item in self.inventory 
+                            if item.category == category]
         return items_in_category 
 
     def find_index(self, item_to_find): #helper function
@@ -25,10 +27,11 @@ class Vendor:
             if item == item_to_find:
                 my_item_index = i
             i += 1
+        
         return my_item_index
     
     def swap_items(self, other, my_item, their_item):
-        if (my_item not in self.inventory or their_item not in other.inventory):
+        if my_item not in self.inventory or their_item not in other.inventory:
             return False
 
         my_item_index = self.find_index(my_item)
@@ -36,13 +39,16 @@ class Vendor:
 
         self.inventory[my_item_index] = their_item
         other.inventory[their_item_index] = my_item
+
         return True
     
     def swap_first_item(self, other):
         if not self.inventory or not other.inventory:
             return False
+
         my_first_item = self.inventory[0]
         their_first_item = other.inventory[0]
+
         return self.swap_items(other, my_first_item, their_first_item)
     
     def get_best_by_category(self, category):
@@ -54,9 +60,9 @@ class Vendor:
 
         for item in self.inventory:
             if item.category == category:
+                category_not_in_inventory = False
                 if item.condition >= best_item.condition:
                     best_item = item
-                category_not_in_inventory = False
         
         if category_not_in_inventory:
             return None
