@@ -86,7 +86,7 @@ def test_items_have_condition_as_three():
         item.condition = 3
         assert item.condition_description() == f"Good condition: {round(item.condition,1)}"
             
-def test_items_have_condition_as_four():
+def test_items_have_condition_as_three_four_five():
     items = [
         Clothing(condition=3),
         Decor(condition=4),

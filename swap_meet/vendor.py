@@ -1,6 +1,7 @@
-from operator import attrgetter
+# from operator import attrgetter
 from swap_meet.item import Item
 
+################################## Wave 1 ##################################
 class Vendor:
     
     def __init__(self, inventory = None):
@@ -18,6 +19,8 @@ class Vendor:
             self.inventory.remove(item)
             return item
         return False
+
+################################## Wave 2 ##################################
     
     def get_by_category(self,category = ""):
         list = []
@@ -27,7 +30,8 @@ class Vendor:
                 list.append(item)
         return list
     
-    
+ ################################## Wave 3 ##################################   
+ 
     def swap_items(self,vendor,my_item,their_item):
         if my_item not in self.inventory or their_item not in vendor.inventory:
             return False
@@ -38,28 +42,26 @@ class Vendor:
             vendor.remove(their_item)
             return True
 
+
+################################## Wave 4 ##################################
+
     def swap_first_item(self,vendor):
         #another way of writing the if statement using bool() function:
         #if not bool(self.inventory) or not bool(vendor.inventory)
-        if not self.inventory or not vendor.inventory: #check for empty list and return False
+        if not self.inventory or not vendor.inventory:
             return False
         else:
             self.swap_items(vendor,self.inventory[0],vendor.inventory[0])
             return True
     
     def get_best_by_category(self,category):
-        if len(self.inventory) == 0:
-            return None
-        
-        condition_list = self.get_by_category(category)
-        if len(condition_list) == 0:
-            return None
-        else:
-            #solution 1 using lambda
-            best_item = max(condition_list, key = lambda x:x.condition)
+        try:
+            best_item = max(self.get_by_category(category), key = lambda x:x.condition)
             return best_item
+        except:
+            return None
         
-            #Solution 2 using loop
+        #Solution 2 using loop
             # best_condition = 0
             # best_item = 0
             # for item in condition_list:

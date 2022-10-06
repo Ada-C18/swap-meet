@@ -255,6 +255,9 @@ def test_swap_best_by_category_no_other_match_is_false():
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
     # Assertions should check:
+    # - That result is falsy
+    # - That tai and jesse's inventories are the correct length
+    # - That all the correct items are in tai and jesse's inventories
     assert item_a in tai.inventory
     assert item_b in tai.inventory
     assert item_c in tai.inventory
@@ -262,6 +265,3 @@ def test_swap_best_by_category_no_other_match_is_false():
     assert item_e in jesse.inventory
     assert item_d in jesse.inventory
     assert result == False
-    # - That result is falsy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories
