@@ -15,10 +15,10 @@ class Item:
         "This looks almost new!",
         "This is NEW!"
         ]
-        counter = 0
-        while counter < len(describers):
+        # counter = 0
+        # while counter < len(describers):
 
-            for item in range(len(describers) + 1):
-                if item == self.condition:
-                    return describers[item - 1]
-                counter += 1
+        for item in range(len(describers) + 1):
+            if item == self.condition:
+                return describers[item - 1]
+                # counter += 1
