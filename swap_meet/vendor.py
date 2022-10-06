@@ -71,12 +71,79 @@ class Vendor:
 
 
     def swap_best_by_category(self, other, my_priority, their_priority):
-        pass
+        # my_priority="Clothing" #vendor wants to receive 
+        # their_priority="Decor"#other wants to receive
+       
+        my_best_item_in_category =self.get_best_by_category(category =  their_priority)
+        their_best_item_in_category = other.get_best_by_category(category = my_priority)
+        if my_best_item_in_category == None or their_best_item_in_category == None:
+            return False
+        return self.swap_items(other,my_best_item_in_category,their_best_item_in_category)
         
 
 
-            
 
+
+item_a = Decor(condition=2.0)
+item_b = Electronics(condition=4.0)
+item_c = Decor(condition=4.0)
+tai = Vendor(
+    inventory=[item_a, item_b, item_c]
+)
+
+    # them
+item_d = Clothing(condition=2.0)
+item_e = Decor(condition=4.0)
+item_f = Clothing(condition=4.0)
+other =jesse = Vendor(
+    inventory=[item_d, item_e, item_f]
+)
+
+
+
+
+
+# #me
+# item_a = Decor(condition=2.0)
+# item_b = Electronics(condition=4.0)
+# item_c = Decor(condition=4.0)
+# tai = Vendor(
+#     inventory=[item_a, item_b, item_c]
+# )
+
+# #them
+# item_d = Clothing(condition=2.0)
+# item_e = Decor(condition=4.0)
+# item_f = Clothing(condition=4.0)
+# other =jesse = Vendor(
+#     inventory=[item_d, item_e, item_f]
+# )
+        
+        
+#instance vendor no inventory
+tai = Vendor(
+        inventory=[]
+    )
+
+item_a = Clothing(condition=2.0)
+item_b = Decor(condition=4.0)
+item_c = Clothing(condition=4.0)
+other = jesse = Vendor(
+    inventory=[item_a, item_b, item_c]
+)
+
+#instance other no inventory            
+item_a = Clothing(condition=2.0)
+item_b = Decor(condition=4.0)
+item_c = Clothing(condition=4.0)
+tai = Vendor(
+    inventory=[item_a, item_b, item_c]
+)
+
+
+other =jesse = Vendor(
+    inventory=[]
+)
 
 
    
