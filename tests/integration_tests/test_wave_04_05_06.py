@@ -54,7 +54,7 @@ def test_integration_wave_04_05_06():
     assert item_decor1 in valentina.inventory
     assert item_decor2 in valentina.inventory
 
-    # swap_best_category - truthy
+    ## swap_best_category - truthy
     result = camila.swap_best_by_category(valentina, "Decor", "Clothing")
 
     assert result

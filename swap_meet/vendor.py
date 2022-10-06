@@ -93,10 +93,7 @@ class Vendor:
         #if there are not matches or empty return false
         if not self_best_category or not their_best_category:
             return False
-        
-
-  
-
+    
     
         # swap self best item with their best item - order?
         self.add(their_best_category)
