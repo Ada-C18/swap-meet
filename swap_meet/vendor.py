@@ -21,7 +21,7 @@ class Vendor:
                             if item.category == category]
         return items_in_category 
 
-    def find_index(self, item_to_find): #helper function
+    def find_index(self, item_to_find):
         i = 0
         for item in self.inventory:
             if item == item_to_find:
@@ -55,19 +55,19 @@ class Vendor:
         if not self.inventory:
             return False
         
-        best_item = self.inventory[0]
+        best_item_by_cat = self.inventory[0]
         category_not_in_inventory = True
 
         for item in self.inventory:
             if item.category == category:
                 category_not_in_inventory = False
-                if item.condition >= best_item.condition:
-                    best_item = item
+                if item.condition >= best_item_by_cat.condition:
+                    best_item_by_cat = item
         
         if category_not_in_inventory:
             return None
 
-        return best_item
+        return best_item_by_cat
     
     def swap_best_by_category(self, other, my_priority, their_priority):
         my_best_item = self.get_best_by_category(their_priority)
