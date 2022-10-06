@@ -32,7 +32,7 @@ class Vendor:
     def swap_first_item(self, friend):
         if len(self.inventory) == 0 or len(friend.inventory) == 0:
             return False
-        
+        # return self.swap_items(self,friend,self.inventory[0],friend.inventory[0])
         self.inventory.append(friend.inventory[0])
         friend.inventory.append(self.inventory[0])
         self.inventory.remove(self.inventory[0])
@@ -64,13 +64,13 @@ class Vendor:
             other_items_by_condition.append(item.condition)
         sorted_other_condition = sorted(other_items_by_condition)
         for item in self.inventory:
-            if not item.category in self.inventory == their_priority:
+            if not item.category == their_priority:
                 return False
         for item in other.inventory:
-            if not item.category in other.inventory == my_priority:
+            if not item.category == my_priority:
                 return False
-    
-            return self.swap_items(self, other, sorted_other_condition[-1], sorted_condition[-1])
+            else:
+                return self.swap_items(self, other, sorted_other_condition[-1], sorted_condition[-1])
             
             # self.inventory.append(sorted_other_condition[-1])
             # other.inventory.append(sorted_condition[-1])
