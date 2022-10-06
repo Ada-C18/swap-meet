@@ -51,9 +51,14 @@ class Vendor:
         else:
             friend_item = friend.inventory[0]
             our_item = self.inventory[0]
-            friend.inventory.append(our_item)
-            self.inventory.append(friend_item)
-            friend.inventory.pop(0)
-            self.inventory.pop(0)
+            self.swap_items(friend, our_item, friend_item)
             return True
-
+    
+    def swap_by_newest(self, other):
+        if other.inventory == [] or self.inventory == []:
+            return False
+        else:
+            other_item = min(other.inventory, key = lambda i: i.age)
+            our_item = min(self.inventory, key = lambda i: i.age)
+            self.swap_items(other, our_item, other_item)
+            return True
