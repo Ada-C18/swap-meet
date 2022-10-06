@@ -3,7 +3,6 @@ class Item:
         self.category = category
         self.condition = condition
 
-    # __str__ is called when str() function is invoked on an object
     def __str__(self):
         return "Hello World!"
 
