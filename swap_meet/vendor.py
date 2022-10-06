@@ -1,7 +1,4 @@
-
 from swap_meet.item import Item
-
-#from swap_meet.item import Item
 
 class Vendor:
 
@@ -45,16 +42,8 @@ class Vendor:
     #return false if either list does not have item
         if not self.inventory or not friend.inventory:
             return False
-    
-    #variables to access inventory list index 0
-        self_new_inventory = self.inventory[0]
-        friend_new_inventory = friend.inventory[0]
 
-    #remove index 0 from each list (friends and self) and swap each item 
-        self.remove(self_new_inventory)
-        friend.remove(friend_new_inventory)
-        self.add(friend_new_inventory)
-        friend.add(self_new_inventory)
+        self.swap_items(friend, self.inventory[0], friend.inventory[0])
         return True
 
         
@@ -63,16 +52,11 @@ class Vendor:
     def get_best_by_category(self, category):
         #assign variable best_category to get_by_category above to invoke
         best_category = self.get_by_category(category)
-     
-        # best_category = []
-        # #loop through self in invent"ory, if category is == item.category, append 
-        # for item in self.inventory:
-        #     if category == item.category:
 
         # If there are no items in the `inventory` that match the category return `None
         if not best_category:
             return None 
-      
+
         #variable to compare
         best_condition = best_category[0]
 
@@ -94,18 +78,6 @@ class Vendor:
         if not self_best_category or not their_best_category:
             return False
     
-    
-        # swap self best item with their best item - order?
-        self.add(their_best_category)
-        other.add(self_best_category)
-        self.remove(self_best_category)
-        other.remove(their_best_category)
-       
+        self.swap_items(other, self_best_category, their_best_category)
 
         return True
-      
-    
-            
-
-
-
