@@ -1,6 +1,6 @@
 class Vendor:
-    def __init__(self, inventory=[]):
-        self.inventory = inventory
+    def __init__(self, inventory=None):
+        self.inventory = inventory if inventory is not None else []
 
     def add(self, item):
         self.inventory.append(item)
@@ -20,14 +20,8 @@ class Vendor:
         if my_item not in self.inventory or their_item not in friend.inventory:
             return False
 
-        my_index = self.inventory.index(my_item)
-        friend_index = friend.inventory.index(their_item)
-
-        my_removed_item = self.inventory.pop(my_index)
-        friend_removed_item = friend.inventory.pop(friend_index)
-
-        friend.inventory.append(my_removed_item)
-        self.inventory.append(friend_removed_item)
+        friend.inventory.append(self.remove(my_item))
+        self.inventory.append(friend.remove(their_item))
         return True
 
     def swap_first_item(self, friend):
