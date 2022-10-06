@@ -45,4 +45,17 @@ class Vendor:
             return False
 
         
+    def get_best_by_category(self,category):
+        if self.inventory ==[]:
+            return None
+        max_item = None
+        for item in self.inventory:
+            if item.category == category:
+                if max_item == None or item.condition > max_item.condition:
+                    max_item = item
+        return  max_item 
 
+
+
+    def swap_best_by_category(self,other,my_priority,their_priority):
+        pass
