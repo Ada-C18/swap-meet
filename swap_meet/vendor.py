@@ -34,11 +34,29 @@ class Vendor:
         return False
     
     def get_by_category (self, category):
+        if not category:
+            return None
         matching_items = []
-        if category in self.category:
-            matching_items.append(category)
+        for item in self.inventory:
+            if item.category == category:
+                matching_items.append(item)
         return matching_items
 
+    def swap_items(self, friend, my_item, their_item):
+        if my_item in self.inventory and their_item in friend.inventory:
+            self.add(their_item)
+            self.remove(my_item)
+            friend.add(my_item)
+            friend.remove(their_item)
+            return True
+        return False
+
+    # If own inventory or friends inventory is not empty:
+    #       removes first item from own inventory + adds friends first item
+    #       removes first item from friends inventory + adds own first item
+    #       return True
+    #   else:
+    #       return False
 '''
 WAVE 3 
 Instances of `Vendor` have an instance method named `swap_items`
@@ -51,7 +69,6 @@ It takes 3 arguments:
 - It returns `True`
 - If this `Vendor`'s inventory doesn't contain `my_item` or the friend's inventory doesn't contain `their_item`, the method returns `False`
 '''
-    # def swap_items(self, vendor, my_item, their_item):
     #     if my_item in own inventory and their_item in friend inventory:
     #       removes my_item from own inventory, adds to friend inventory
     #       removes their_item from friend inventory, adds to own
