@@ -38,7 +38,6 @@ class Vendor:
         if not self.inventory or not other_vendor.inventory:
             return False
         else:
-    
             return self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
 
     def get_best_by_category(self, category):
@@ -57,3 +56,4 @@ class Vendor:
             return False
         else:
             return self.swap_items(other, my_best, their_best)
+    # hellooooo
