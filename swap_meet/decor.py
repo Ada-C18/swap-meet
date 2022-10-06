@@ -1,12 +1,9 @@
 from swap_meet.item import Item
 
-class Decor:
+class Decor(Item):
     def __init__(self, condition = None):
-        self.category = "Decor"
-        if condition == None: 
-            self.condition = 0 
-        else: 
-            self.condition = condition
+        category = "Decor"
+        super().__init__(category = category, condition = condition)
         
     def __str__(self):
         return "Something to decorate your space."
