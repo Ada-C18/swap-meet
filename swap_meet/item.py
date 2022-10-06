@@ -21,5 +21,4 @@ class Item:
             return "Looking good."
         elif self.condition <= 5:
             return "Perfect."
-        else:
-            return None
+
