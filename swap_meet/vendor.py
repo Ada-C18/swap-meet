@@ -18,7 +18,7 @@ class Vendor:
     def get_by_category(self, category):
 
         items_list = [item for item in self.inventory if category == item.category]
-        
+
         return items_list
 
     def swap_items(self, vendor, my_item, their_item):
