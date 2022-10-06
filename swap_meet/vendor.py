@@ -41,6 +41,14 @@ class Vendor:
             return None
         return max(categories, key = lambda x : x.condition)
 
+        # max implementation
+        # max = categories[0]
+        # for items in categories:
+        #     if items.condition > max.condition:
+        #         max = items
+        # return max
+
+
     def swap_best_by_category(self, other, my_priority, their_priority):
         
         other_vendor = other.get_best_by_category(my_priority)
@@ -49,19 +57,21 @@ class Vendor:
         return self.swap_items(other, my_vendor, other_vendor)
 
 
-    def swap_by_age(self, age):
+    def find_newest_item(self, age):
 
-        categories = self.get_by_category(age)
+        return min(self.inventory, key = lambda x : x.age)
 
-        if not categories:
-            return None
-        return min(categories, key = lambda x : x.age)
-
+        # min implementation
+        # min_age = self.inventory[0]
+        # for items in self.inventory:
+        #     if items.age < min_age.age:
+        #         min_age = items
+        # return min_age
 
     def swap_by_newest(self, other, their_newest, my_newest):
 
-        other_vendor = other.swap_by_age(my_newest)
-        my_vendor = self.swap_by_age(their_newest)
+        other_vendor = other.find_newest_item(their_newest)
+        my_vendor = self.find_newest_item(my_newest)
 
         return self.swap_items(other, my_vendor, other_vendor)
 
