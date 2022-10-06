@@ -46,7 +46,10 @@ class Vendor:
             items_by_condition.append(item.condition)
         sorted_condition = sorted(items_by_condition)
         for item in items_by_category:
-            if item.condition == sorted_condition[-1] and item.category == category:
+            # if item.condition == sorted_condition[-1] and item.category == category:
+            # i think we dont need item.category == category bc we filter by category with line 43 so 
+            # everything in the list is already the category we want
+            if item.condition == sorted_condition[-1]:
                 return item
         return None 
 
@@ -60,19 +63,6 @@ class Vendor:
         # other_items_category = other.get_by_category(my_priority)
         # other_items_by_condition = []
 
-<<<<<<< HEAD
-        for item in other_items_category:
-            other_items_by_condition.append(item.condition)
-        sorted_other_condition = sorted(other_items_by_condition)
-        for item in self.inventory:
-            if not item.category == their_priority:
-                return False
-        for item in other.inventory:
-            if not item.category == my_priority:
-                return False
-            else:
-                return self.swap_items(self, other, sorted_other_condition[-1], sorted_condition[-1])
-=======
         # for item in other_items_category:
         #     other_items_by_condition.append(item.condition)
         # sorted_other_condition = sorted(other_items_by_condition)
@@ -84,7 +74,6 @@ class Vendor:
         #         return False
     
         #     return self.swap_items(self, other, sorted_other_condition[-1], sorted_condition[-1])
->>>>>>> 027ff574a9cbe578531da7254a7a00ffc418a703
             
             # self.inventory.append(sorted_other_condition[-1])
             # other.inventory.append(sorted_condition[-1])
