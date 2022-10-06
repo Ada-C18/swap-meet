@@ -53,7 +53,7 @@ def test_best_by_category_with_duplicates():
 # @pytest.mark.skip
 def test_swap_best_by_category():
     # Arrange
-    # me
+
     item_a = Decor(condition=2.0)
     item_b = Electronics(condition=4.0)
     item_c = Decor(condition=4.0)
@@ -61,7 +61,6 @@ def test_swap_best_by_category():
         inventory=[item_a, item_b, item_c]
     )
 
-    # them
     item_d = Clothing(condition=2.0)
     item_e = Decor(condition=4.0)
     item_f = Clothing(condition=4.0)
@@ -76,7 +75,7 @@ def test_swap_best_by_category():
         their_priority="Decor"
     )
 
-    raise Exception("Complete this test according to comments below.")
+    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -117,12 +116,7 @@ def test_swap_best_by_category_reordered():
         my_priority="Clothing",
         their_priority="Decor"
     )
-    assert result == True
-    assert len(tai.inventory) == 3
-    assert len(jesse.inventory) == 3
-    assert tai.inventory ==[item_f, item_b, item_a]
-    assert jesse.inventory == [item_c, item_e, item_d]
-
+    
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
@@ -131,6 +125,7 @@ def test_swap_best_by_category_reordered():
     # - That result is truthy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories, and that the items that were swapped are not there
+    
     assert result == True
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
