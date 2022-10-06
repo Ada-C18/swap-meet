@@ -97,17 +97,17 @@ class Vendor:
                 best_condition = item.condition
                 best_item = item
         return best_item
-    '''
+    # '''
 
-    def swap_best_by_category(self, other, my_priority, their_priority):
+    #     def swap_best_by_category(self, other, my_priority, their_priority):
 
-        their_best_item = other.get_best_by_category(my_priority)
-        my_best_item = self.get_best_by_category(their_priority)
-        item_swap = self.swap_items(other,my_best_item, their_best_item)
-        print(their_best_item)
-        # print(my_best_item)
-        # print(item_swap)
+    #     their_best_item = other.get_best_by_category(my_priority)
+    #     my_best_item = self.get_best_by_category(their_priority)
+    #     item_swap = self.swap_items(other,my_best_item, their_best_item)
+    #     print(their_best_item)
+    #     # print(my_best_item)
+    #     # print(item_swap)
 
-        return item_swap
+    #     return item_swap
             
         
