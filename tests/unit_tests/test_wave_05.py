@@ -52,3 +52,30 @@ def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type(
         assert item.condition_description() == one_condition_description
 
     assert one_condition_description != five_condition_description
+
+
+##########Adding tests to improve code coverage
+def test_items_have_condition_description_strings_correct():
+    items = [
+        Clothing(condition=0),
+        Decor(condition=1),
+        Electronics(condition=2),
+        Clothing(condition=3),
+        Decor(condition=4),
+        Electronics(condition=5)
+        ]
+    
+    for i in range(len(items)):
+        items[i].condition_description
+
+    assert items[0].condition_description() == "This is pretty much garbage."
+    assert items[1].condition_description() == "Not great."
+    assert items[2].condition_description() == "This is ok."
+    assert items[3].condition_description() == "Not too bad."
+    assert items[4].condition_description() == "Looking good."
+    assert items[5].condition_description() == "Perfect."
+
+  
+
+
+    
