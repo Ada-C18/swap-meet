@@ -1,5 +1,3 @@
-import math
-
 class Item:
     def __init__(self, age=None, category="", condition=0):
         self.category = category
