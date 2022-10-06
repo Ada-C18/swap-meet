@@ -85,27 +85,19 @@ class Vendor:
         Return item, if item category in inventory (return 1 item if 2+ items with same best condition)
         Return None, if no items in the inventory that match the category
         '''
-        # if item not in self.get_by_category(category):
-        #     return None
+        category_list = self.get_by_category(given_category)
 
-        # self.get_by_category gets items with category in parameter
-        for item in self.get_by_category(given_category):
-            # Find item with the best condition in a specified category
-            best_item = ""
-            highest_condition = 0
+        if len(category_list) == 0:
+            return None
 
+        best_item = category_list[0]
+        highest_condition = best_item.condition
+        for item in category_list:
             if item.condition > highest_condition:
                 highest_condition = item.condition
                 best_item = item
-            # if item.condition == highest_condition:
-            #     best_items.append(item)
-            return best_item
 
-
-# 2. `swap_best_by_category` - swap the best item of certain categories with another `Vendor`
-#     1. can use `swap_items` here
-#     2. return `True` → if their_priority in my inventory, swap their_priority with my_priority
-#     3. return `False` → if their_priority not in Vendor/my inventory OR my_priority not in their `other`/inventory
+        return best_item
 
     def swap_best_by_category(self, other, my_priority, their_priority):
         '''
