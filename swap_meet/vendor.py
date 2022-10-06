@@ -44,5 +44,20 @@ class Vendor:
             return None 
         best_item = max(items_by_category, key=attrgetter('condition'))
         return best_item
-    
 
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        for_them = self.get_best_by_category(their_priority)
+        for_us = other.get_best_by_category(my_priority)
+
+        if for_them == None:
+            return False
+        if for_us == None:
+            return False
+
+        self.swap_items(other, for_them, for_us)
+        return True
+
+
+        # other - another vendor instance to trade w
+        # my_priority - category Vendor wants to receive
+        # their_priority - category other wants to receive
