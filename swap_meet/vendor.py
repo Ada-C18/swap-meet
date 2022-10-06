@@ -23,7 +23,6 @@ class Vendor:
         items = [item for item in self.inventory if item.category == category]
         return items
     
-        
     def swap_items(self, another_vendor, my_item, their_item):
         """
         Takes in three parameters: another_vendor (an instance of Vendor), my_item (an instance of Item), 
@@ -73,10 +72,10 @@ class Vendor:
         item with highest condition rating in self.inventory and other.inventory. 
         If both items exist, they get swapped between inventories.
         """
-        
+
         their_item = other.get_best_by_category(my_priority)
         my_item = self.get_best_by_category(their_priority)
-        
+
         if their_item and my_item: 
             return self.swap_items(other, my_item, their_item)
         return False
