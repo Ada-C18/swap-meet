@@ -46,15 +46,28 @@ class Vendor:
         self.swap_items(swapping_other_vendor, self.inventory[0], swapping_other_vendor.inventory[0])
         return True
         
-    # Wave_5
-    
-    
     # Wave_6
     
-    
-    # def get_best_by_category(self,category):
-    #     pass
-    
-    
-    # def swap_best_by_category`(self, 
-    #     pass
+    def get_best_by_category(self, category):
+        
+        inventory_items_category = self.get_by_category(category)
+        if inventory_items_category == []:
+            return None
+
+        highest_item = inventory_items_category[0]
+        for item in inventory_items_category:
+            if item.condition >= highest_item.condition:
+                highest_item = item
+        return highest_item
+        
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        
+        if not self.inventory or not other:
+            return None
+        
+        my_priority_item = other.get_best_by_category(my_priority)  # item
+        their_priority_item = self.get_best_by_category(their_priority) #item
+        
+        self.swap_items(other, my_priority_item, their_priority_item)
+        return True
+        
