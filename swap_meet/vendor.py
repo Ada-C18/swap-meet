@@ -43,15 +43,42 @@ class Vendor:
         self.add(friend_first_item)
         return True
 
-    def get_best_by_category(self, category):
+    # def get_best_by_category(self, category):
+        # get_category = self.get_by_category(category)
+        # best_item = None
+        # # loop through get_category
+        # if best_item in get_category:
+        #     return max(get_category(best_item))
+
+    def get_best_by_category(self,category):
         get_category = self.get_by_category(category)
         best_item = None
-        # loop through get_category
-        if best_item in get_category:
-            return max(get_category(best_item))
+
+        for item in get_category:
+            if item not in get_category or get_category == None:
+                return best_item
 
 
+        if get_category:  # IF its true and category is in get_category
+            
+            #CREATE LAMBDA DICT WITH ITEM: ITEM.CONDITION
+            #NOW ASSIGN IT TO BEST ITEM
+            #BEST ITEM IS NOW CALLING THE MAX FOR THE VAR GET_CATEGORY
+            best_item = max(get_category, key = lambda item: item.condition)
+            print(best_item)
+        return best_item
 
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        #other = other_vendor to trade with
+        #my_p = a cat self.vend wants
+        #their_p = a cat tha other.vender wants
+        
+        best_item_i_want = self.get_best_by_category(their_priority)
+        their_best_item_i_want = other_vendor.get_best_by_category(my_priority)
+        if not best_item_i_want or best_item_i_want:
+            return False
+        else:
+            return self.swap_items(other_vendor, best_item_i_want,their_best_item_i_want)
     # # refactoring - look at get_by_category to update this function
     #     best_item_dictionary = {}
 
@@ -72,4 +99,3 @@ class Vendor:
 
 
             # best_item = self.inventory[0]
-
