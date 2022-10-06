@@ -88,11 +88,11 @@ def test_items_have_condition_as_three():
             
 def test_items_have_condition_as_four():
     items = [
-        Clothing(condition=4),
+        Clothing(condition=3),
         Decor(condition=4),
-        Electronics(condition=4)
+        Electronics(condition=5)
     ]
 
-    for item in items:
-        item.condition = 4
-        assert item.condition_description() == f"Great condition: {round(item.condition,1)}"
+    assert items[0].condition_description() == f"Good condition: {round(items[0].condition,1)}"
+    assert items[1].condition_description() == f"Great condition: {round(items[1].condition,1)}"
+    assert items[2].condition_description() == f"Excellent condition: {round(items[2].condition,1)}"
