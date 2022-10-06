@@ -51,12 +51,14 @@ class Vendor:
             return True
         return False
 
-    # If own inventory or friends inventory is not empty:
-    #       removes first item from own inventory + adds friends first item
-    #       removes first item from friends inventory + adds own first item
-    #       return True
-    #   else:
-    #       return False
+    def swap_first_item(self, friend):
+        if self.inventory and friend.inventory:
+            first_own = self.inventory[0]
+            first_friend = friend.inventory[0]
+            self.swap_items(friend, first_own, first_friend)
+            return True
+        return False
+
 '''
 WAVE 3 
 Instances of `Vendor` have an instance method named `swap_items`
