@@ -1,4 +1,5 @@
-class Electronics:
+from .item import Item
+class Electronics(Item):
     def __init__(self):
         self.category = "Electronics"
     def __str__(self):
