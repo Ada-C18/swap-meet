@@ -48,6 +48,23 @@ class Vendor:
 # order is very important for this to work
 # returns True
 
+    def swap_items(self, friend, my_item, their_item):
+        if my_item in self.inventory and their_item in friend.inventory:
+            self.add(their_item)
+            self.remove(my_item)
+            friend.add(my_item)
+            friend.remove(their_item)
+            return True
+        return False
+
+    def swap_first_item(self, friend):
+        if self.inventory and friend.inventory:
+            first_own = self.inventory[0]
+            first_friend = friend.inventory[0]
+            self.swap_items(friend, first_own, first_friend)
+            return True
+        return False
+
 '''
 WAVE 3 
 Instances of `Vendor` have an instance method named `swap_items`
@@ -60,7 +77,6 @@ It takes 3 arguments:
 - It returns `True`
 - If this `Vendor`'s inventory doesn't contain `my_item` or the friend's inventory doesn't contain `their_item`, the method returns `False`
 '''
-    # def swap_items(self, vendor, my_item, their_item):
     #     if my_item in own inventory and their_item in friend inventory:
     #       removes my_item from own inventory, adds to friend inventory
     #       removes their_item from friend inventory, adds to own

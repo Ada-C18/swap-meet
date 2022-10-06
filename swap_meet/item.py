@@ -21,6 +21,8 @@ class Item:
     def __str__(self):
         return "Hello World!"
 
+# book = Item("book", "literature")
+
 '''
 In Wave 3 we will write a method to stringify an `Item` using `str()` and write the method `swap_items`.
 
