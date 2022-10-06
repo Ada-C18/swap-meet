@@ -35,7 +35,6 @@ class Vendor:
                 category_items.append(item)
         return category_items
 
-    # wave 3 - write method swap_items
     def swap_items(self, friend_vendor, my_item, their_item):
         '''
         Input: instance of Vendor (friend_vendor), instance of Item (my_item), instance of Item (their_item)
@@ -101,11 +100,12 @@ class Vendor:
         '''
 
         my_category_list = self.get_by_category(their_priority)
-        their_category_list = self.get_by_category(my_priority)
+        their_category_list = other.get_by_category(my_priority)
 
+        # check if priority categories are in inventories
         if len(my_category_list) > 1 and len(their_category_list) > 1:
-            my_best = self.get_best_by_category(my_priority)
-            their_best = self.get_best_by_category(my_priority)
+            my_best = self.get_best_by_category(their_priority)
+            their_best = other.get_best_by_category(my_priority)
 
             self.swap_items(other, my_best, their_best)
             return True
