@@ -59,6 +59,10 @@ class Vendor:
                 best_item=item 
                 best_item_condition=item.condition
         return best_item    
-            
-               
-           
+    
+    def swap_best_by_category(self,other,my_priority,their_priority):
+        self_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other.get_best_by_category(my_priority)
+        if self_best_item == None or their_best_item == None:
+            return False
+        return self.swap_items(other,self_best_item,their_best_item)
