@@ -1,5 +1,8 @@
+
 class Vendor:
-    def __init__(self, inventory = []):
+    def __init__(self, inventory = None):
+        if inventory == None:
+            inventory = []
         self.inventory = inventory
 
     def add(self, item):
@@ -9,6 +12,15 @@ class Vendor:
     def remove(self, item):
         if item in self.inventory:
             self.inventory.remove(item)
-            return (item)
+            return item
         else:
             return False
+
+    def get_by_category(self, category):
+        self.category = category
+        category_list = []
+        for item in self.inventory:
+            if item.category == category:
+                category_list.append(item)
+        
+        return category_list
