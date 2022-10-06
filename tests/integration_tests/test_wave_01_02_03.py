@@ -2,8 +2,8 @@ import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
-@pytest.mark.skip
-@pytest.mark.integration_test
+# @pytest.mark.skip
+# @pytest.mark.integration_test
 def test_integration_wave_01_02_03():
     # make a vendor  
     vendor = Vendor()
@@ -28,21 +28,27 @@ def test_integration_wave_01_02_03():
     assert item1 not in vendor.inventory
     assert remove_result == item1
 
+    print(f"This is vendor inventory{vendor.inventory}")
     # get item by category, truthy
     items = vendor.get_by_category("Electronics")
+    print(f"This is vendor inventory{vendor.inventory}")
 
     assert len(items) == 1
     assert item2 in items
+    print(f"This is vendor inventory{vendor.inventory}")
 
     # get item by category, falsy
     items = vendor.get_by_category("Clothing")
+    print(f"This is vendor inventory{vendor.inventory}")
     assert len(items) == 0
 
     other_vendor = Vendor()
-
+    print(f"This is vendor inventory{vendor.inventory}")
     # swap items
     item3 = Item(category="Decor")
+    print(f"This is vendor inventory{vendor.inventory}")
     other_vendor.add(item3)
+    print(f"This is vendor inventory{vendor.inventory}")
 
     vendor.swap_items(other_vendor, item2, item3)
 
