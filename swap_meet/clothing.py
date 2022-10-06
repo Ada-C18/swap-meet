@@ -1,7 +1,7 @@
 from swap_meet.item import Item
 
 class Clothing(Item):
-    def __init__(self, category=None, condition=0):
+    def __init__(self, condition=0):
         super().__init__(condition=condition, category="Clothing")
         # self.category = "Clothing"
         # self.condition = float(condition)
