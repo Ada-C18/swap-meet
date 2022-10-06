@@ -3,7 +3,7 @@ class Decor(Item):
     def __init__(self,condition = 0):
         super().__init__(category = "Decor", condition = condition)
 
-    ##Second solution
+    ##Second solution to apply to other child classes
 # class Decor(Item):
 #     def __init__(self,condition = 0):
 #         super().__init__("Decor",condition)

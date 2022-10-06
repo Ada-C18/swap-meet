@@ -25,11 +25,12 @@ class Vendor:
     def get_by_category(self,category = ""):
         list = []
         
-        for item in self.inventory:
-            if item.category == category:
-                list.append(item)
-        return list
-    
+        # for item in self.inventory:
+        #     if item.category == category:
+        #         list.append(item)
+        # return list
+
+        list = (list.append(item) for item in self.inventory if item.category == category)
  ################################## Wave 3 ##################################   
  
     def swap_items(self,vendor,my_item,their_item):
@@ -45,10 +46,8 @@ class Vendor:
 
 ################################## Wave 4 ##################################
 
-    def swap_first_item(self,vendor):
-        #another way of writing the if statement using bool() function:
-        #if not bool(self.inventory) or not bool(vendor.inventory)
-        if not self.inventory or not vendor.inventory:
+    def swap_first_item(self,vendor):        
+        if not self.inventory or not vendor.inventory: #OR #if not bool(self.inventory) or not bool(vendor.inventory)
             return False
         else:
             self.swap_items(vendor,self.inventory[0],vendor.inventory[0])
