@@ -1,3 +1,4 @@
+from queue import PriorityQueue
 from swap_meet.item import Item
 
 class Vendor:
@@ -62,9 +63,12 @@ class Vendor:
                 best_item = item
                 best_rating = item.condition
         return best_item
-            
         
-    # def    (self, other, my_priority, their_priority)
+    def swap_best_by_category (self, other, my_priority, their_priority):
+        self.inventory.get_best_by_category == their_priority
+        other. == my_priority
+        return True
+
 
 # Vendors have a method named get_best_by_category, which will get the item with the best condition in a certain category
 # It takes one argument: a string that represents a category
