@@ -1,8 +1,11 @@
 from swap_meet.item import Item
 
 class Vendor:
-    def __init__(self,inventory=[]):
-        self.inventory = inventory
+    def __init__(self,inventory = None):
+        if inventory == None:
+            self.inventory = []
+        else:
+            self.inventory = inventory 
 
     def add(self,item):
         self.item = item
@@ -25,19 +28,14 @@ class Vendor:
         return item_list
     
     def swap_items(self, vendor, my_item, their_item):
-        self.vendor = vendor # friend vendor is swapping with 
-        self.item = my_item # item vendor is giving away 
-        self.item = their_item # their friend is giving away  
 
         if my_item not in self.inventory or their_item not in vendor.inventory:
             return False
 
-        if my_item in self.inventory: 
-            self.remove(my_item) 
-            vendor.add(my_item) 
-        if their_item in vendor.inventory:
-            vendor.remove(their_item)
-            self.add(their_item)
+        self.remove(my_item) 
+        vendor.add(my_item) 
+        vendor.remove(their_item)
+        self.add(their_item)
         return True
 
     def swap_first_item(self, vendor):
@@ -64,13 +62,6 @@ class Vendor:
         return best_item
 
     def swap_best_by_category(self, other, my_priority, their_priority):
-        self.other = other # represents another vendor instance 
-        self.my_priority = my_priority # category this vendor receives
-        self.their_priority = their_priority # represents a category other vendor recieves 
-
-        # do we need to include the self above ^^? or code below
-        # if not self.inventory or not other.inventory:
-        #     return False 
 
         my_best_item = self.get_best_by_category(their_priority)
         their_best_item = other.get_best_by_category(my_priority)

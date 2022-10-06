@@ -255,7 +255,7 @@ def test_swap_best_by_category_no_match_is_false():
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories
 
-
+# @pytest.mark.skip
 def test_swap_best_by_category_no_other_match_is_false():
     # Arrange
     item_a = Decor(condition=2.0)
