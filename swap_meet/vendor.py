@@ -29,12 +29,7 @@ class Vendor:
         
 # wave 3
     def swap_items(self, friend_vendor, my_item, their_item):  #can attributes be instances of classes? 
-        # self.friend_vendor = friend_vendor
-        # self.my_item = my_item
-        # self.their_item = their_item
-        #remove my item and add it to friend_vendor inventory: 
-        # remove their_item from friend_vendor inventory and add it to my inventory
-        # if no item in inventory return False
+
         if my_item in self.inventory and their_item in friend_vendor.inventory:
             self.remove(my_item)
             self.add(their_item)
@@ -45,30 +40,33 @@ class Vendor:
         else:
             return False
 
-    # friend_vendor = Vendor()
-    # my_item = Item()
-    # their_item = Item()
-
 #wave 4:
     def swap_first_item(self, swap_vendor):
-        # self.swap_vendor = swap_vendor
-        # self.my_item = my_item
-        # takes self.inventory[0]
-        # swap_vendor.inventory[0]
-        #for item in self.inventory[0] and swap_vendor.inventory[0]:  #there is no repetion--- take the first of my items--their first and swap them
+
         if len(self.inventory) == 0 or len(swap_vendor.inventory) == 0:
             return False
         swaping = self.swap_items(swap_vendor,self.inventory[0],swap_vendor.inventory[0])
         return swaping
 
-        # my_item_to_give = self.inventory.remove([0])
-        # swap_vendor.inventory.append(my_item_to_give)
-        # their_item_to_give = swap_vendor.inventory.remove(swap_vendor.inventory[0])
-        # self.inventory.append(their_item_to_give)
-        # return True
 
-# wave 5:
-    
+# wave 6:
+    def get_best_by_category(self, category):   # gets the item with the best condition in a certain category
+        #self.category = category METHODS DONT HAVE ATTRIBUTES, ONLY CLASSES!!!!!!!!!!!!!---------
+        best_item = None
+        best_condition = 0 
+        for item in self.get_by_category(category):
+            if item.condition > best_condition:
+                best_condition = item.condition
+                best_item = item
+            # if there are no items in the inventory that match the category: returns none
+        return best_item
+
+    def swap_best_by_category(self, other, my_priority, their_priority):  #swap best item of certain categories with another VENDOR
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item  = other.get_best_by_category(my_priority)
+        if my_best_item is None or their_best_item is None:
+            return False
+        return self.swap_items(other, my_best_item, their_best_item)
 
 
 
