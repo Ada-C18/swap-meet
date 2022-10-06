@@ -1,5 +1,4 @@
-from tokenize import String
-from types import MemberDescriptorType
+
 from swap_meet.item import Item
 
 #from swap_meet.item import Item
@@ -66,7 +65,7 @@ class Vendor:
         best_category = self.get_by_category(category)
      
         # best_category = []
-        # #loop through self in inventory, if category is == item.category, append 
+        # #loop through self in invent"ory, if category is == item.category, append 
         # for item in self.inventory:
         #     if category == item.category:
 
@@ -85,9 +84,31 @@ class Vendor:
         # Return item
         return best_condition 
 
-    def swap_best_by_category(self, other, my_priority, their_priority):
-#The best item in my inventory that matches `their_priority` category is swapped with the best item in `other`'s inventory that matches `my_priority`
-#It returns `True`
-#If the `Vendor` has no item that matches `their_priority` category, swapping does not happen, and it returns `False`
-#If `other` has no item that matches `my_priority` category, swapping does not happen, and it returns `False`
-        pass
+    def swap_best_by_category(self,other, my_priority, their_priority):
+        #access best category for each parameter
+        self_best_category = self.get_best_by_category(their_priority)
+
+        their_best_category = other.get_best_by_category(my_priority)
+
+        #if there are not matches or empty return false
+        if not self_best_category or not their_best_category:
+            return False
+        
+
+  
+
+    
+        # swap self best item with their best item - order?
+        self.add(their_best_category)
+        other.add(self_best_category)
+        self.remove(self_best_category)
+        other.remove(their_best_category)
+       
+
+        return True
+      
+    
+            
+
+
+
