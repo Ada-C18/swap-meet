@@ -1,5 +1,4 @@
 from pickle import FALSE
-from swap_meet.item import Item
 
 class Vendor:
     def __init__(self, inventory=[]):
@@ -38,4 +37,14 @@ class Vendor:
             Vendor.add(my_item)
             Vendor.remove(their_item)
             self.add(their_item)
+            return True
+
+    def swap_first_item(self, Vendor):
+        if len(self.inventory) < 1 or len(Vendor.inventory) < 1: 
+            return False 
+        else:
+            item_1 = self.inventory[0]
+            item_2 = Vendor.inventory[0]
+            self.inventory[0] = item_2
+            Vendor.inventory[0] = item_1
             return True
