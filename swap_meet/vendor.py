@@ -48,10 +48,9 @@ class Vendor:
         if not self.inventory or not another_vendor.inventory: 
             return False
         else:
-            temp1 = self.inventory[0]
-            temp2 = another_vendor.inventory[0]
-            self.inventory[0] = temp2
-            another_vendor.inventory[0] = temp1
+            my_item = self.inventory[0]
+            their_item = another_vendor.inventory[0]
+            self.swap_items(another_vendor, my_item, their_item)
             return True
 
     def get_best_by_category(self, category):
