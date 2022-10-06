@@ -53,43 +53,50 @@ def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type(
 
     assert one_condition_description != five_condition_description
 
-# Added tests to increase code coverage
-def test_items_have_condition_descriptions_2():
+################# Added tests to increase code coverage  ####################
+def test_items_have_condition_descriptions_fair_condition():
     items = [
         Clothing(condition=2),
         Decor(condition=2),
         Electronics(condition=2)
     ]
-    for item in items:
-        item.condition = 2
-        assert item.condition_description() == "Fair condition"
+  
+    assert items[0].condition_description() == "Fair condition"
+    assert items[1].condition_description() == "Fair condition"
+    assert items[2].condition_description() == "Fair condition"
 
-def test_items_have_condition_descriptions_3():
+def test_items_have_condition_descriptions_good_condition():
     items = [
         Clothing(condition=3),
         Decor(condition=3),
         Electronics(condition=3)
     ]
-    for item in items:
-        item.condition = 3
-        assert item.condition_description() == "Good condition"
 
-def test_items_have_condition_descriptions_4():
+    assert items[0].condition_description() == "Good condition"
+    assert items[1].condition_description() == "Good condition"
+    assert items[2].condition_description() == "Good condition"
+
+def test_items_have_condition_descriptions_normal_condition():
     items = [
         Clothing(condition=4),
         Decor(condition=4),
         Electronics(condition=4)
     ]
-    for item in items:
-        item.condition = 4
-        assert item.condition_description() == "Normal condition"
+    
+    assert items[0].condition_description() == "Normal condition"
+    assert items[1].condition_description() == "Normal condition"
+    assert items[2].condition_description() == "Normal condition"
 
-def test_items_have_condition_descriptions_empty_str():
+def new_func():
+    return False
+
+def test_returns_false_if_items_have_condition_empty_string():
     items = [
         Clothing(condition=""),
         Decor(condition=""),
         Electronics(condition="")
     ]
-    for item in items:
-        item.condition = ""
-        assert item.condition_description() == False
+    
+    assert items[0].condition_description() == False
+    assert items[1].condition_description() == False
+    assert items[2].condition_description() == False
