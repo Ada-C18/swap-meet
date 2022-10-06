@@ -4,8 +4,8 @@ from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
 
-@pytest.mark.skip
-@pytest.mark.integration_test
+# @pytest.mark.skip
+# @pytest.mark.integration_test
 def test_integration_wave_04_05_06():
     camila = Vendor()
     valentina = Vendor()
@@ -24,7 +24,6 @@ def test_integration_wave_04_05_06():
     valentina.add(item_electronics2)
     valentina.add(item_decor1)
     valentina.add(item_decor2)
-    
 
     # swap first item
     result = camila.swap_first_item(valentina)
