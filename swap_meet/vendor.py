@@ -53,21 +53,34 @@ class Vendor:
 
     def get_best_by_category(self, category):
         '''Returns item with the best condition in a certain category.'''
+        list_of_items_of_category = self.get_by_category(category)
+        if not list_of_items_of_category:
+            return None
 
         condition_max = 0
         best_item = ""
-        for item in self.inventory:
-            category_counter = 0
-            if item.category == category:
-                category_counter += 1
-                if item.condition > condition_max:
-                    condition_max = item.condition
-                    best_item = item
+        for item in list_of_items_of_category:
+            if item.condition > condition_max:
+                condition_max = item.condition
+                best_item = item
+        
+        return best_item
+        
+
+        # condition_max = 0
+        # best_item = ""
+        # for item in self.inventory:
+        #     category_counter = 0
+        #     if item.category == category:
+        #         category_counter += 1
+        #         if item.condition > condition_max:
+        #             condition_max = item.condition
+        #             best_item = item
     
-        if category_counter == 0:
-            return None
-        else:
-            return best_item
+        # if category_counter == 0:
+        #     return None
+        # else:
+        #     return best_item
         
     def swap_best_by_category(self, other, my_priority, their_priority):
         '''Swap best item of certain categories with another vendor.'''
@@ -77,13 +90,13 @@ class Vendor:
         # return true
         # if have no matching category for either person, return false
         
-        if not self.inventory or not other.inventory:
-            return False
+        # if not self.inventory or not other.inventory:
+        #     return False
 
         my_item = self.get_best_by_category(their_priority)
         their_item = other.get_best_by_category(my_priority)
         
-        if not my_item or not their_item:
+        if my_item is None or their_item is None:
             return False
 
         self.swap_items(other, my_item, their_item)
