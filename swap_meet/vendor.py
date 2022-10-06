@@ -1,3 +1,6 @@
+from unittest.mock import NonCallableMagicMock
+
+
 class Vendor:
     def __init__(self, inventory=None):
         if inventory == None:
@@ -45,3 +48,11 @@ class Vendor:
                     best_item_by_category = item.condition
                     best_item = item
         return best_item
+    
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_best = self.get_best_by_category(their_priority)
+        their_best = other.get_best_by_category(my_priority)
+        if my_best == None or their_best == None:
+            return False
+        self.swap_items(other, my_best, their_best)
+        return True
