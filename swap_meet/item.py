@@ -15,11 +15,17 @@ class Item:
         four = f"Works well for what it is."
         five = f"Amaaaazing!"
         
-        condition_list = [one, two, three, four, five]
+        condition_list = [zero, one, two, three, four, five]
         
         # we're using round to make sure any float values
         # are rounded up or down to their nearest integer
         # we know the rounded number will be an integer
         # because we've not passed in an argument for ndigits
 
-        return condition_list[round(self.condition)-1]
+        # we didn't use floor division because we didn't want to force
+        # a condition that was very close to the upward condition down
+        # a slot when picking a condition description =>
+        # e.g., if Item.condition = 3.9, condition_description should return
+        # description four and not description three.
+
+        return condition_list[round(self.condition)]
