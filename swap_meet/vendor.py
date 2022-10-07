@@ -42,3 +42,9 @@ class Vendor:
         # access self.inventory[0] and friend.inventory[0]
         # remove my item from self.inventory and add it to friend.inventory
         # remove item from friend.inventory and add it to self.inventory
+
+    def get_best_by_category(self):
+        # will need to get the items from each category
+        # use the max method to get the item with the highest rating
+        best_category = max(self.get_by_category)
+        return best_category
