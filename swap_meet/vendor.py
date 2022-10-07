@@ -22,4 +22,14 @@ class Vendor:
                 items.append(item)
         return items
 
+    def swap_items(self, vendor, my_item, their_item):
+        if their_item not in vendor.inventory or my_item not in self.inventory:
+            return False
+            
+        self.remove(my_item)
+        vendor.add(my_item)
+        vendor.remove(their_item)
+        self.add(their_item)
+        return True
+
 
