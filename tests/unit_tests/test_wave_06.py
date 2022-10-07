@@ -319,9 +319,9 @@ def test_swap_by_newest_no_inventory_return_false():
         inventory=[]
     )
 
-    item_a = Clothing(condition=2.0)
-    item_b = Decor(condition=4.0)
-    item_c = Clothing(condition=4.0)
+    item_a = Clothing(condition=2.0, age=4)
+    item_b = Decor(condition=4.0, age=4)
+    item_c = Clothing(condition=4.0, age=3)
     jesse = Vendor(
         inventory=[item_a, item_b, item_c]
     )
@@ -339,9 +339,9 @@ def test_swap_by_newest_no_inventory_return_false():
 
 
 def test_swap_by_newest_no_other_inventory_is_false():
-    item_a = Clothing(condition=2.0)
-    item_b = Decor(condition=4.0)
-    item_c = Clothing(condition=4.0)
+    item_a = Clothing(condition=2.0, age=1)
+    item_b = Decor(condition=4.0, age=3)
+    item_c = Clothing(condition=4.0, age=2)
     tai = Vendor(
         inventory=[item_a, item_b, item_c]
     )
