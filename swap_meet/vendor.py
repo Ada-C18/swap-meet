@@ -1,7 +1,5 @@
 
 class Vendor:
-     # inventory (list of items)
-    # accept item class instances
 
     def __init__(self, inventory=None):
         if not inventory:
@@ -17,7 +15,7 @@ class Vendor:
         if not item in self.inventory:
             return False
         else:
-            self.inventory.remove(item) #explore other removal methods
+            self.inventory.remove(item) 
             return item
     
     def get_by_category(self, category):
@@ -29,7 +27,6 @@ class Vendor:
         return items_list
 
     def swap_items(self,vendor2,item1,item2):
-        #print(f"Vendor 1:{self.inventory}, Vendor 2:{vendor2.inventory}")
         if item1 in self.inventory and item2 in vendor2.inventory:
             self.inventory.remove(item1)
             vendor2.inventory.remove(item2)
@@ -37,7 +34,6 @@ class Vendor:
             self.inventory.append(item2)
             
             return True
-        #print(f"Vendor 1:{self.inventory}, Vendor 2:{vendor2.inventory}")
         else:
             return False
     
