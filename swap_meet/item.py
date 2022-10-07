@@ -2,14 +2,14 @@
 # from attr import NOTHING
 
 class Item:
-    def __init__(self, category = "", condition=None):
+    def __init__(self, category = "", condition=None, age = None):
         if not condition:
             condition = 0.0
         self.condition = condition
         self.category = category
-        # if not age:
-        #     age = 0
-        # self.age = age
+        if not age:
+            age = 0
+        self.age = age
         
         
     def __str__ (self):

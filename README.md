@@ -135,9 +135,9 @@ In Wave 5 we will create three additional modules with three additional classes:
   - Has an attribute `category` that is `"Electronics"`
   - Its stringify method returns `"A gadget full of buttons and secrets."` --> -->
 
-- All three classes and the `Item` class have an attribute called `condition`, which can be optionally provided in the initializer. The default value should be `0`.
+<!-- - All three classes and the `Item` class have an attribute called `condition`, which can be optionally provided in the initializer. The default value should be `0`.
 
-- All three classes and the `Item` class have an instance method named `condition_description`, which should describe the condition in words based on the value, assuming they all range from 0 to 5. These can be basic descriptions (eg. 'mint', 'heavily used') but feel free to have fun with these (e.g. 'You probably want a glove for this one..."). The one requirement is that the `condition_description` for all three classes above have the same behavior.
+- All three classes and the `Item` class have an instance method named `condition_description`, which should describe the condition in words based on the value, assuming they all range from 0 to 5. These can be basic descriptions (eg. 'mint', 'heavily used') but feel free to have fun with these (e.g. 'You probably want a glove for this one..."). The one requirement is that the `condition_description` for all three classes above have the same behavior. -->
 
 <!-- #### Using Inheritance
 
@@ -175,16 +175,16 @@ The remaining tests in wave 6 imply:
     - If `other` has no item that matches `my_priority` category, swapping does not happen, and it returns `False` -->
 
 ### DRYing up the code
+<!-- 
+To further reduce the amount of repeated code in your project, consider how `swap_best_by_category` and `swap_first_item` might be able to make use of `swap_items`. Is there a way that these methods could incorporate a call to `swap_items` into the body of these methods? -->
 
-To further reduce the amount of repeated code in your project, consider how `swap_best_by_category` and `swap_first_item` might be able to make use of `swap_items`. Is there a way that these methods could incorporate a call to `swap_items` into the body of these methods?
-
-Try it out and see if the tests still pass! If you can't get them to pass with this refactor, you can always return to the most recent working commit before you submit the project!
+<!-- Try it out and see if the tests still pass! If you can't get them to pass with this refactor, you can always return to the most recent working commit before you submit the project! -->
 
 ## Optional Enhancements
 
 Should a project be completed before submission, and there is a desire for optional enhancements, consider this idea:
 
-- `Item`s have age
-  - Add an `age` attribute to all `Item`s
+<!-- - `Item`s have age
+  - Add an `age` attribute to all `Item`s -->
   - Implement a `Vendor` method named `swap_by_newest`, using any logic that seems appropriate
   - Write unit tests for `swap_by_newest`

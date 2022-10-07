@@ -2,6 +2,7 @@
 # from operator import invert
 # from unittest import result
 # from swap_meet import item
+from operator import ne
 from swap_meet.item import Item
 
 class Vendor:
@@ -52,7 +53,6 @@ class Vendor:
     
     def get_best_by_category(self, category):
         inventory_items_category = self.get_by_category(category) #list
-        print("inventory>>>", inventory_items_category)
         if inventory_items_category == []:
             return None
 
@@ -62,20 +62,29 @@ class Vendor:
                 highest_item = item
         return highest_item
         
-    def swap_best_by_category(self, other, my_priority, their_priority):
-        print('inve other>>', other.inventory)
-        print('self inv>>', self.inventory)
-        
+    def swap_best_by_category(self, other, my_priority, their_priority):        
         if self.inventory == [] or other == []:
             return False
         
         my_priority_item = other.get_best_by_category(my_priority)  # item
-        print('my item>>>', my_priority_item)
         their_priority_item = self.get_best_by_category(their_priority) #item
-        print('their item>>>',their_priority_item)
         
         if my_priority_item in other.inventory and their_priority_item in self.inventory:
             return self.swap_items(other, their_priority_item, my_priority_item)
             
         return False
-        
+    
+    # Optional Enhancements
+    
+    def get_newest(self):
+        pass
+        if self.item.age == None:
+            return None
+
+        my_newest_item = min(self.inventory, key=lambda i:i[age])
+        return my_newest_item
+
+    
+    def swap_by_newest(self, age):
+        pass
+    
