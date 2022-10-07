@@ -1,6 +1,3 @@
-from unicodedata import category
-
-
 class Vendor:
     def __init__(self,inventory = None):
         if inventory is None:
@@ -47,16 +44,23 @@ class Vendor:
         else:
             return False
 
-        
+    # def get_condition_by_category(self, item, category):
+    #     if (item.category == category):
+    #         return item.condition
+    #     else:
+    #         return None
+
     def get_best_by_category(self,category):
-        if self.inventory ==[]:
-            return None
-        max_item = None
-        for item in self.inventory:
-            if item.category == category:
-                if max_item == None or item.condition > max_item.condition:
-                    max_item = item
-        return  max_item 
+        # if self.inventory ==[]:
+        #     return None
+        # max_item = None
+        # for item in self.inventory:
+        #     if item.category == category:
+        #         if max_item == None or item.condition > max_item.condition:
+        #             max_item = item
+        return max((item for item in self.inventory if item.category == category), key = lambda item: item.condition, default=None)
+        
+
 
 
 
