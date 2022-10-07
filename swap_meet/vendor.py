@@ -37,13 +37,11 @@ class Vendor:
         return True
 
     def get_best_by_category(self,category):
-        best_thing=None
-        highest_rated=0
-        for item in self.inventory:
-            if item.category==category and item.condition>highest_rated:
-                best_thing=item
-                highest_rated=item.condition
-        return best_thing
+        cat_list=self.get_by_category(category)
+        if not cat_list:
+            return None
+        print(cat_list)
+        return max(cat_list,key=lambda x:x.condition)
     
     def swap_best_by_category(self,other="", my_priority="", their_priority=""):
         my_trade_item=self.get_best_by_category(their_priority)
