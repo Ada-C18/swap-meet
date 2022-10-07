@@ -7,15 +7,16 @@ class Item:
         return "Hello World!"
     
     def condition_description(self):
-        if self.condition == 0:
+        rating = self.condition 
+        if rating == 0:
             return "very gross"
-        elif self.condition == 1: 
+        elif rating == 1: 
             return "Not that great"
-        elif self.condition == 2:
+        elif rating == 2:
             return "It's okay..."
-        elif self.condition == 3:
+        elif rating == 3:
             return "gently used"
-        elif self.condition == 4:
+        elif rating == 4:
             return "pretty good"
-        elif self.condition == 5:
+        elif rating == 5:
             return "really great!"

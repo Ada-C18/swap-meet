@@ -31,14 +31,15 @@ class Vendor:
             self.add(their_item)
             return True
 
-    def swap_first_item(self, Vendor):
-        if len(self.inventory) < 1 or len(Vendor.inventory) < 1: 
+    def swap_first_item(self, vendor):
+        if len(self.inventory) == 0 or len(vendor.inventory) == 0: 
             return False 
         else:
-            item_1 = self.inventory[0]
-            item_2 = Vendor.inventory[0]
-            self.inventory[0] = item_2
-            Vendor.inventory[0] = item_1
+            self.swap_items(vendor, self.inventory[0], vendor.inventory[0])
+            # item_1 = self.inventory[0]
+            # item_2 = vendor.inventory[0]
+            # self.inventory[0] = item_2
+            # vendor.inventory[0] = item_1
             return True
 
     def get_best_by_category(self, category):
@@ -54,19 +55,6 @@ class Vendor:
         return best_item
 
 
-# - `Vendor`s have a method named `swap_best_by_category`, which will swap the best item of 
-# certain categories with another `Vendor`
-#   - It takes in three arguments
-#     - `other`, which represents another `Vendor` instance to trade with
-#     - `my_priority`, which represents a category that the `Vendor` wants to receive
-#     - `their_priority`, which represents a category that `other` wants to receive
-#   - The best item in my inventory that matches `their_priority` category is swapped with
-#  the best item in `other`'s inventory that matches `my_priority`
-#     - It returns `True`
-#     - If the `Vendor` has no item that matches `their_priority` category, swapping does not happen, and it returns `False`
-#     - If `other` has no item that matches `my_priority` category, swapping does not happen, and it returns `False`
-
-            
     def swap_best_by_category(self, other, my_priority, their_priority):
         my_item_to_swap = self.get_best_by_category(their_priority)
         others_item_to_swap = other.get_best_by_category(my_priority)
