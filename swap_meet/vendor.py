@@ -6,10 +6,6 @@ class Vendor:
         else: 
             self.inventory = inventory
         
-        if condition == None: 
-            self.condition = 0 
-        else: 
-            self.condition = condition
 
     def add(self, added_item):
         self.inventory.append(added_item)
@@ -23,10 +19,8 @@ class Vendor:
 
     def get_by_category(self,category):
         items_in_category = []
-        # item is a object
 
         for item in self.inventory:
-            # item.category  is a string 
             if item.category == category:
                 items_in_category.append(item)
             
@@ -53,10 +47,35 @@ class Vendor:
         return True
 
     def get_best_by_category(self, category = ""):
+        best_condition_rating = 0 
+        best_condition_item = None
         if self.inventory == []:
             return False 
+        for item in self.inventory:
+            if item.category == category:
+                if item.condition > best_condition_rating:
+                    best_condition_rating  = item.condition
+                    best_condition_item = item
+        return best_condition_item
+        
 
-    
+    def swap_best_by_category(self, another_vendor, my_priority, their_priority):
+        
+        best_item_found_for_other_vendor = self.get_best_by_category(their_priority)
+        print(best_item_found_for_other_vendor)
+        best_item_found_for_me = another_vendor.get_best_by_category(my_priority)
+        print(best_item_found_for_me)
+        
+
+
+        if best_item_found_for_other_vendor is  None and best_item_found_for_me is not None:
+            self.swap_items(another_vendor, best_item_found_for_me, best_item_found_for_other_vendor)
+            print(self.swap_items(another_vendor, best_item_found_for_me, best_item_found_for_other_vendor))
+            return True
+        return False
+
+
+            
 
 
 
