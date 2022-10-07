@@ -52,6 +52,26 @@ class Vendor:
             return self.swap_items(friend, my_first_item, their_first_item)
         return False
 
+    # Wave 6
+
+    def get_best_by_category(self, category=""):
+
+        best_item = None
+
+        for item in self.inventory:
+            if category == item.category:
+                if best_item == None:
+                    best_item = item
+                elif best_item.condition < item.condition:
+                    best_item = item
+        return best_item
+
+                
+
+    # def swap_best_by_category():
+
+    
+
 
 
 vendor1 = Vendor([])
