@@ -254,4 +254,39 @@ def test_swap_best_by_category_no_other_match_is_false():
     assert len(jesse.inventory) == 3
     assert tai.inventory == [item_c, item_b, item_a]
     assert jesse.inventory==[item_f, item_e, item_d]
+
+def test_swap_newest_item():
+    # Arrange
+    item_a = Decor(condition=2.0, age = 5)
+    item_b = Electronics(condition=4.0, age = 2)
+    item_c = Decor(condition=4.0, age =7)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    item_d = Clothing(condition=2.0, age = 10)
+    item_e = Decor(condition=4.0, age = 3)
+    item_f = Clothing(condition=4.0, age = 1)
+    jesse = Vendor(
+        inventory=[item_d, item_e, item_f]
+    )
+
+    # Act
+    result = tai.swap_by_newest(other=jesse)
+
+    #raise Exception("Complete this test according to comments below.")
+    # *********************************************************************
+    # ****** Complete Assert Portion of this test **********
+    # *********************************************************************
+    # Assertions should check:
+    # - That result is falsy
+    # - That tai and jesse's inventories are the correct length
+    # - That all the correct items are in tai and jesse's inventories
+    assert result == True
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert tai.inventory == [item_a, item_c, item_f]
+    assert jesse.inventory==[item_d, item_e, item_b]
+
+
     
