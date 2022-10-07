@@ -9,17 +9,19 @@ class Item:
         return f"Hello World!"
 
     def condition_description(self):
+        
+        description = {
+            0: 'bad',
+            1: 'poor',
+            2: 'decent',
+            3: 'average',
+            4: 'good',
+            5: 'pristine'
+        }
+        
         condition = int(self.condition)
-        if condition == 0:
-            return 'bad'
-        if condition == 1:
-            return 'poor'
-        if condition == 2:
-            return 'decent'
-        if condition == 3:
-            return 'average'
-        if condition == 4:
-            return 'good'
-        if condition == 5:
-            return 'pristine'
+
+        for rating, quality in description.items():
+            if condition == rating:
+                return quality 
         
