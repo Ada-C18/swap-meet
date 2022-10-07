@@ -6,10 +6,12 @@ class Electronics:
     def __str__ (self):
         return "A gadget full of buttons and secrets."
 
-    def condition_description(self, poor=0, fair=1, good=2, excellent=3, perfect=4, new=5):
-        self.poor = poor
-        self.fair = fair
-        self.good = good
-        self.excellent = excellent
-        self.perfect = perfect
-        self.new = new
+    def condition_description(self):
+        if self.condition == "poor":
+            self.condition += 0
+        if self.condition == "fair":
+            self.condition += 1
+        if self.condition == "good":
+            self.condition += 2
+        if self.condition == "excellent":
+            self.condition += 3

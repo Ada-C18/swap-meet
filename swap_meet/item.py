@@ -10,10 +10,12 @@ class Item:
     def __str__ (self):
         return "Hello World!"
 
-    def condition_description(self, poor=0, fair=1, good=2, excellent=3, perfect=4, new=5):
-        self.poor = float(poor)
-        self.fair = float(fair)
-        self.good = float(good)
-        self.excellent = float(excellent)
-        self.perfect = float(perfect)
-        self.new = float(new)
+    def condition_description(self):
+        if self.condition == "poor":
+            self.condition += 0
+        if self.condition == "fair":
+            self.condition += 1
+        if self.condition == "good":
+            self.condition += 2
+        if self.condition == "excellent":
+            self.condition += 3
