@@ -56,7 +56,7 @@ class Vendor:
         self_inventory = self.inventory 
         other_inventory = other_vendor.inventory
 
-        if my_item not in self_inventory or their_item not in other_inventory or other_inventory == [] or self_inventory ==[]:
+        if my_item not in self_inventory or their_item not in other_inventory or len(other_inventory) == 0 or len(self_inventory) == 0:
             return False
         
         for item in self_inventory:
@@ -89,35 +89,50 @@ class Vendor:
         '''
         returns the best condition item by category
         '''
-        try:
-            condition_check = 0.0
-            best_in_category = []
+        result = []
 
-            for item in self.inventory:
-                if item.category == category and item.condition > condition_check:
-                    condition_check = item.condition
-                    best_in_category.clear()
-                    best_in_category.append(item)
-
-            return best_in_category[0]
+        for item in self.inventory:
+            if item.category == category:
+                result.append(item)
         
-        except:
+        if len(result) == 0:
             return None
 
-    def swap_best_by_category(self, other = None, my_priority = None, their_priority = None):
+        return max(result, key = lambda c: c.condition)
+
+        # condition_check = 0.0
+        # best_in_category = []
+
+        # for item in self.inventory:
+        #     if item.category == category and item.condition > condition_check:
+        #         condition_check = item.condition
+        #         best_in_category.clear()
+        #         best_in_category.append(item)
+
+        # return best_in_category[0]
+
+
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
         '''
         takes the best item by category for two vendors and swaps them with each other
         '''
-        try:
-            # Helpers
-            my_best_category = self.get_best_by_category(their_priority)
-            their_best_category = other.get_best_by_category(my_priority)
+        # Helpers
+        my_best_category = self.get_best_by_category(their_priority)
+        their_best_category = other.get_best_by_category(my_priority)
 
-            if len(self.inventory) == 0 or len(other.inventory) == 0 or my_best_category is None or their_best_category is None:
-                return False
-
-            self.swap_items(other, my_best_category, their_best_category)
-            return True
-        
-        except:
+        if len(self.inventory) == 0 or len(other.inventory) == 0 or my_best_category is None or their_best_category is None:
             return False
+
+        self.swap_items(other, my_best_category, their_best_category)
+        return True
+        
+
+    ## WIP ##
+    '''
+    def swap_by_newest(self, other, my_newest, their_newest):
+        result = swap_best_by_category(other, my_newest, their_newest)
+
+        return result
+    '''
+
