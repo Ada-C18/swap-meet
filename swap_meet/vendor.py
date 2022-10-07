@@ -4,16 +4,19 @@ class Vendor:
     def __init__(self, inventory=None):
         self.inventory = inventory if inventory is not None else []
 
+# adds item to inventory
     def add(self, item):
         self.inventory.append(item)
         return item 
 
+# removes item from inventory
     def remove(self, item):
         if item in self.inventory:
             self.inventory.remove(item)
             return item
         return False
-    
+
+# returns list of items that match by category
     def get_by_category (self, category):
         if not category:
             return None
@@ -23,6 +26,7 @@ class Vendor:
                 matching_items.append(item)
         return matching_items
 
+# swaps item that you want + item that your friend wants from each inventory, if each inventory contains it.
     def swap_items(self, friend, my_item, their_item):
         if my_item in self.inventory and their_item in friend.inventory:
             self.add(their_item)
@@ -32,6 +36,7 @@ class Vendor:
             return True
         return False
 
+# swaps items, but specifically the first items of each inventory.
     def swap_first_item(self, friend):
         if self.inventory and friend.inventory:
             first_own = self.inventory[0]
@@ -40,6 +45,7 @@ class Vendor:
             return True
         return False
 
+# loops through a list of items matching requested category and outputs the item with the highest condition.
     def get_best_by_category(self, category):
         inventory = self.get_by_category(category)
         if not inventory:
@@ -52,6 +58,8 @@ class Vendor:
                 best_item = item
         return best_item
 
+# finds best condition item in a category you want and a category your friend wants.
+# if either doesn't have item, returns false. otherwise, swaps those two items.
     def swap_best_by_category(self, other, my_priority, their_priority):
         my_best = self.get_best_by_category(their_priority)
         their_best = other.get_best_by_category(my_priority)
