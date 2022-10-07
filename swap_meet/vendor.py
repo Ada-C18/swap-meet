@@ -1,6 +1,6 @@
-from xmlrpc.client import INVALID_ENCODING_CHAR
+# from xmlrpc.client import INVALID_ENCODING_CHAR
 
-from attr import s
+# from attr import s
 
 class Vendor:
     def __init__(self, inventory = None):
@@ -44,7 +44,6 @@ class Vendor:
         # another_vendor.inventory.append(my_item)
         # another_vendor.inventory.remove(their_item)
         # self.inventory.append(their_item)
-
         return True
 
 
@@ -81,10 +80,10 @@ class Vendor:
         # their_priority, which represents a category that other wants to receive
         my_best = self.get_best_by_category(their_priority)
         their_best = other.get_best_by_category(my_priority)
-        if not my_best or not their_best:
-            return False
-        self.swap_items(other, my_best, their_best)
-        return True
+        # if not my_best or not their_best:
+        #     return False
+        return self.swap_items(other, my_best, their_best)
+        # return True
 
 
 

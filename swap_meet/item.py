@@ -1,4 +1,4 @@
-from attr import validate
+# from attr import validate
 
 class Item:
     def __init__(self, category = None, condition = 0):

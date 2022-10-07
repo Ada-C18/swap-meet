@@ -77,7 +77,7 @@ def test_swap_best_by_category():
     )
 
     # raise Exception("Complete this test according to comments below.")
-    assert result 
+    assert result is True
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
     assert item_a in tai.inventory
@@ -125,7 +125,7 @@ def test_swap_best_by_category_reordered():
     )
 
     # raise Exception("Complete this test according to comments below.")
-    assert result 
+    assert result is True
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
     assert item_a in tai.inventory
