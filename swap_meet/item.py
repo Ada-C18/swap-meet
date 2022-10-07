@@ -1,7 +1,8 @@
 class Item:
-    def __init__(self, category = "", condition = 0):
+    def __init__(self, age = 0, category = "", condition = 0):
         self.category = category
         self.condition = condition
+        self.age = age
         
 # Wave 3       
     def __str__(self):
@@ -9,18 +10,11 @@ class Item:
 
 # Wave 5
     def condition_description(self):
-        if self.condition == 0:
-            return "I dont like zero"
-        elif self.condition == 1:
-            return "I dont like one either"
-        elif self.condition == 2:
-            return "Maybe I like two"
-        elif self.condition == 3:
-            return "Hmmmm.....probably three is nice"
-        elif self.condition == 4:
-            return "I like four"
-        elif self.condition == 5:
-            return "Five is a nice number"
+        condition_descriptions = ["I dont like zero", "I dont like one either", 
+        "Maybe I like two", "Hmmmm.....probably three is nice", "I like four",
+        "Five is a nice number"]
+        return condition_descriptions[self.condition]
+
         
 
 

@@ -1,4 +1,5 @@
 class Vendor:
+    MAX_AGE = 1000
 # Wave 1    
     def __init__(self, inventory = None):
         if inventory is None:
@@ -9,7 +10,7 @@ class Vendor:
         return item
     def remove(self,item):
         for inventory_item in self.inventory:
-            if inventory_item==item:
+            if inventory_item == item:
                 self.inventory.remove(item)
                 return item
         return False
@@ -27,47 +28,60 @@ class Vendor:
         if my_item not in self.inventory or their_item not in friend_vendor.inventory:
             return False 
 
-        self.inventory.remove(my_item)
-        friend_vendor.inventory.append(my_item)
-        friend_vendor.inventory.remove(their_item)
-        self.inventory.append(their_item)
+        self.remove(my_item)
+        friend_vendor.add(my_item)
+        friend_vendor.remove(their_item)
+        self.add(their_item)
         return True
         
 
 # Wave 4
     def swap_first_item(self, friend_vendor):
-        if len(self.inventory)==0 or len(friend_vendor.inventory)==0:
+        if len(self.inventory) == 0 or len(friend_vendor.inventory) == 0:
             return False
-        self_first_inventory = self.inventory[0]
-        friend_first_inventory = friend_vendor.inventory[0]
-        self.inventory.remove(self_first_inventory)
-        friend_vendor.inventory.remove(friend_first_inventory)
-        self.inventory.append(friend_first_inventory)
-        friend_vendor.inventory.append(self_first_inventory)
-        return True
+
+        return self.swap_items(friend_vendor, self.inventory[0], 
+        friend_vendor.inventory[0])
+
 
 # Wave 6
 
     def get_best_by_category(self, category): 
+        matching_category_items = self.get_by_category(category)
         highest_condition = 0
         highest_item = None
-        for inv in self.inventory:
-            if inv.category == category:
-                if (inv.condition > highest_condition):
-                    highest_condition = inv.condition
-                    highest_item = inv 
+        for item in matching_category_items:
+            if item.condition > highest_condition:
+                highest_condition = item.condition
+                highest_item = item
         return highest_item
+
+
 
     def swap_best_by_category(self, other, my_priority, their_priority):
         my_best_item = self.get_best_by_category(their_priority)
         their_best_item = other.get_best_by_category(my_priority)
         if my_best_item == None or their_best_item == None:
             return False
-        self.inventory.remove(my_best_item)
-        other.inventory.append(my_best_item)
-        other.inventory.remove(their_best_item)
-        self.inventory.append(their_best_item)
-        return True
+        return self.swap_items(other, my_best_item, their_best_item)
+
+
+# Optional Enhancement
+    def find_newest_item (self):
+        min_item_age = self.MAX_AGE
+        min_item = None
+        for item in self.inventory:
+            if item.age < min_item_age:
+                min_item_age = item.age
+                min_item = item
+        return min_item
+
+    def swap_by_newest(self, friend_vendor):
+        vendor_newest_item = self.find_newest_item()
+        friend_newest_item = friend_vendor.find_newest_item()
+        return self.swap_items(friend_vendor, vendor_newest_item, friend_newest_item)
+
+
 
 
 

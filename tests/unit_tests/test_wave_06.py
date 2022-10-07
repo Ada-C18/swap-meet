@@ -3,6 +3,7 @@ from swap_meet.vendor import Vendor
 from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
+from swap_meet.item import Item
 
 # @pytest.mark.skip
 def test_best_by_category():
@@ -304,3 +305,38 @@ def test_swap_best_by_category_no_other_match_is_false():
 #     # - That result is falsy
 #     # - That tai and jesse's inventories are the correct length
 #     # - That all the correct items are in tai and jesse's inventories
+
+# Optional enhancement 
+# @pytest.mark.skip
+def test_swap_by_newest_returns_True():
+    # Arrange
+    item_a = Item(age = 5)
+    item_b = Item(age = 1)
+    item_c = Item(age = 13)
+    fatimah = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    item_d = Item(age = 6)
+    item_e = Item(age = 2) 
+    jolie = Vendor(
+        inventory=[item_d, item_e]
+    )
+    # Act
+
+    result = fatimah.swap_items(jolie, item_b, item_e)
+
+    # Assert
+
+    assert len(fatimah.inventory) == 3
+    assert item_b not in fatimah.inventory
+    assert item_a in fatimah.inventory
+    assert item_c in fatimah.inventory
+    assert item_e in fatimah.inventory
+    assert len(jolie.inventory) == 2
+    assert item_e not in jolie.inventory
+    assert item_d in jolie.inventory
+    assert item_b in jolie.inventory
+    assert result
+
+    
