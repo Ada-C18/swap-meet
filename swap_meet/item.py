@@ -11,12 +11,12 @@ class Item:
     def condition_rank(self):
         if self.condition == 1.0:
             return "Poor"
-        elif self.contion == 2.0:
+        elif self.condition == 2.0:
             return "Acceptable"
-        elif self.contion == 3.0:
+        elif self.condition == 3.0:
             return "Good"
-        elif self.contion == 4.0:
+        elif self.condition == 4.0:
             return "Very Good"
-        elif self.contion == 5.0:
+        elif self.condition == 5.0:
             return "Brand New"
         
