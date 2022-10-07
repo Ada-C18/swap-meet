@@ -7,5 +7,7 @@ class Decor(Item):
         self.category = "Decor"
         self.condition = condition
         
+        #super().__init__("Decor", condition, age)
+   
     def __str__(self):
         return "Something to decorate your space."
