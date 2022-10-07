@@ -227,7 +227,7 @@ def test_swap_best_by_category_no_other_match_is_false():
 
 # we wrote these to test the age attribute of item
 # @pytest.mark.skip
-def test_newest_by_age():
+def test_newest_by_age_nominal_case():
     item_a = Clothing(age=7)
     item_b = Decor(age=10)
     item_c = Clothing(age=15)
@@ -276,7 +276,7 @@ def test_priority_by_newest():
     )
 
     # Act
-    result = tai.swap_newest_by_category(
+    result = tai.swap_by_newest(
         other_vendor=jesse,
         my_priority="Clothing",
         their_priority="Decor"
@@ -309,7 +309,7 @@ def test_priority_not_available_to_swap_returns_false():
     )
 
     # Act
-    result = tai.swap_newest_by_category(
+    result = tai.swap_by_newest(
         other_vendor=jesse,
         my_priority="Clothing",
         their_priority="Electronics"

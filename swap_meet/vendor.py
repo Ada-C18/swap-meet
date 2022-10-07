@@ -64,8 +64,7 @@ class Vendor:
             return min(get_age, key = lambda item: item.age)
 
     # swap to get the newest items within a category
-    def swap_newest_by_category(self, other_vendor, my_priority,\
-        their_priority):
+    def swap_by_newest(self, other_vendor, my_priority, their_priority):
         newest_item_they_want = self.get_newest_by_age(their_priority)
         newest_item_i_want = other_vendor.get_newest_by_age(my_priority)
         if not newest_item_they_want or not newest_item_i_want:
