@@ -87,6 +87,13 @@ When we instantiate an instance of Vendor, we can optionally pass in a list with
             return True
     
     def get_best_by_category(self,category):
+        """ Expectation: which will get the item with the best condition in a certain category. 
+            This method looks through the instance's inventory for the item with the highest condition and matching category
+            If there are no items in the inventory that match the category, it returns None
+            It returns a single item even if there are duplicates (two or more of the same item with the same condition)
+            Input: It takes one argument: a string that represents a category
+            Output: return best item if match the criteria or return None """
+
         try:
             best_item = max(self.get_by_category(category), key = lambda x:x.condition)
             return best_item
@@ -106,6 +113,16 @@ When we instantiate an instance of Vendor, we can optionally pass in a list with
             
             
     def swap_best_by_category(self,other,my_priority,their_priority):
+        """Expectation: swapping  the best item of certain categories with another Vendor. 
+            The best item in my inventory that matches their_priority category is swapped with the best item in other's inventory that matches my_priority. It returns True
+            If the Vendor has no item that matches their_priority category, swapping does not happen, and it returns False
+            If other has no item that matches my_priority category, swapping does not happen, and it returns False
+            Input: It takes in three arguments:
+                other: which represents another Vendor instance to trade with
+                my_priority: which represents a category that the Vendor wants to receive
+                their_priority: which represents a category that other wants to receive
+            Output: if matches requirements, swapping happens and return True. If not, returns False"""
+        
         my_best_item = self.get_best_by_category(their_priority)
         their_best_item = other.get_best_by_category(my_priority)
         if not my_best_item or not their_best_item:
