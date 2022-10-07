@@ -19,6 +19,8 @@ class Vendor:
 
     #return a list of items that the vendor has in a given category  
     def get_by_category(self, category):
+        # category_list = filter(lambda item: item.category == category, self.inventory)
+      
         category_list = []
         for item in self.inventory:
             if item.category == category:
@@ -55,19 +57,11 @@ class Vendor:
     """
     
     def get_best_by_category(self, category):
-        #leverage the get_by_category method to get a list of inventory items in the given category
-        category_list = self.get_by_category(category)
-        
-        #iterate through list of items to find best condition 
-        max_condition = 0.0
-        for item in category_list:
-            if item.condition > max_condition:
-                max_condition = item.condition
-        
-        #iterate through the category list again to find the best item 
-        for item in category_list:
-            if item.condition == max_condition:
-                return item
+        items_by_category_list = self.get_by_category(category)
+        if len(items_by_category_list) > 0:
+            best_in_category = max(items_by_category_list, key=lambda item: item.condition)
+            return best_in_category
+
 
     """
     swap_best_by_category method
@@ -91,12 +85,7 @@ class Vendor:
     """
     
     def find_newest(self):
-        if len(self.inventory) == 0:
-            return None
         newest_item = min(self.inventory, key = lambda item: item.age)
-
-        
-        print(newest_item)
         return newest_item
 
     
@@ -104,7 +93,6 @@ class Vendor:
         if len(other_vendor.inventory) == 0 or len(self.inventory) == 0:
             return False
         
-
         my_newest_item = self.find_newest()
         their_newest_item = other_vendor.find_newest()
 
