@@ -21,8 +21,6 @@ class Vendor:
         return [item for item in self.inventory if item.category == category]
 
     def swap_items(self, other, my_item, their_item):
-        if not my_item or not their_item:
-            return False
         if not my_item in self.inventory or not their_item in other.inventory:
             return False
         self.inventory.remove(my_item)
