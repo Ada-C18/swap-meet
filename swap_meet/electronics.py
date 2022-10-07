@@ -1,5 +1,10 @@
 from swap_meet.item import Item
+
 class Electronics(Item):
+    """
+    A class to represent the category of the item.
+    """
+
     def __init__(self, condition = 0):
         super().__init__("Electronics", condition)
         
