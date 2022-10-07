@@ -1,5 +1,5 @@
 class Item:
-    '''add doc string'''
+    '''Creating parent class for all items to include category, condition and age.'''
     def __init__(self, category="", condition=0, age=0):
         self.category = category
         self.condition = condition

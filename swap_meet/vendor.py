@@ -5,7 +5,7 @@ from swap_meet.item import Item
 class Vendor(Item):
     '''Creating vendor with inventory. Includes methods for adding and removing
     items from inventory by category and condition. Includes methods for swapping
-    items by category and condition.'''
+    items by category, condition and age.'''
     def __init__(self, inventory=None):
         if inventory is None:
             self.inventory = []
@@ -95,7 +95,8 @@ class Vendor(Item):
             return False
 
     def swap_by_newest(self, other):
-        '''Swap newest item from inventory with newest item from another vendor.'''
+        '''Swap newest item from inventory with newest item from another vendor. Returns false
+        if either inventory is empty.'''
         if len(self.inventory) > 0 and len(other.inventory) > 0:
 
             my_newest = self.get_newest_item()

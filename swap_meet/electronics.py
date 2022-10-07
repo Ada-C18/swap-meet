@@ -1,7 +1,7 @@
 from swap_meet.item import Item
 
 class Electronics(Item):
-    
+    '''Creating child class of item for electronics category.'''
     def __init__(self, condition=0, age=0):
         super().__init__("Electronics", condition, age)
 
