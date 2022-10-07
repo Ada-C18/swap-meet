@@ -37,3 +37,13 @@ class Vendor:
                 return False
         else:
             return False
+
+    def swap_first_item(self, friend_list):
+        if len(self.inventory) !=0:
+            if len(friend_list.inventory) !=0:
+                self.swap_items(friend_list,self.inventory[0], friend_list.inventory[0])
+                return True
+            else:
+                return False
+        else:
+            return False
