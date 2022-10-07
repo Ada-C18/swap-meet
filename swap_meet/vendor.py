@@ -24,9 +24,7 @@ class Vendor:
         return list_category
 
     def swap_items(self,vendor,my_item,their_item):
-
         if their_item in vendor.inventory and my_item in self.inventory:
-        
             vendor.remove(their_item)
             self.add(their_item)
 

@@ -19,3 +19,5 @@ class Item:
             return(f"Not too bad")
         elif self.condition == 1:
             return(f"OH MY GOD")
+        elif self.condition == 0:
+            return (f"Ahhh")
