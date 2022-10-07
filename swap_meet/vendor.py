@@ -19,12 +19,12 @@ class Vendor:
 
     #return a list of items that the vendor has in a given category  
     def get_by_category(self, category):
-        # category_list = filter(lambda item: item.category == category, self.inventory)
+        category_list = list(filter(lambda item: item.category == category, self.inventory))
       
-        category_list = []
-        for item in self.inventory:
-            if item.category == category:
-                category_list.append(item)
+        # category_list = []
+        # for item in self.inventory:
+        #     if item.category == category:
+        #         category_list.append(item)
 
         return category_list
 
