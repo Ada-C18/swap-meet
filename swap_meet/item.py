@@ -5,12 +5,17 @@ class Item:
     def __init__(self,category = "",condition = 0):
         """Expectation: each Item will have an attribute named category, which is an empty string by default
         When we initialize an instance of Item, we can optionally pass in a string with the keyword argument category """
+        
         self.category = category
         self.condition = condition 
         
 
 ################################## Wave 3 ##################################
     def __str__(self):
+        """ Expectation: write a method to stringify an Item using str(). When we stringify (convert to a string) an instance of Item using str()
+        Ouput: returns "Hello World!"
+        """
+        
         return ("Hello World!")
 
 
@@ -18,6 +23,8 @@ class Item:
 
 
     def condition_description(self):
+
+        
         if self.condition <=2:
             return f"Fair condition:{round(self.condition,1)}"
         elif self.condition <=3:

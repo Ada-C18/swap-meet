@@ -49,6 +49,15 @@ When we instantiate an instance of Vendor, we can optionally pass in a list with
  ################################## Wave 3 ##################################   
  
     def swap_items(self,vendor,my_item,their_item):
+        """Input: It takes 3 arguments:
+        an instance of another Vendor, representing the friend that the vendor is swapping with
+        an instance of an Item (my_item), representing the item this Vendor instance plans to give
+        an instance of an Item (their_item), representing the item the friend Vendor plans to give
+        Output: It removes the my_item from this Vendor's inventory, and adds it to the friend's inventory
+        It removes the their_item from the other Vendor's inventory, and adds it to this Vendor's inventory
+        It returns True
+        If this Vendor's inventory doesn't contain my_item or the friend's inventory doesn't contain their_item, the method returns False"""
+        
         if my_item not in self.inventory or their_item not in vendor.inventory:
             return False
         else:
@@ -61,7 +70,16 @@ When we instantiate an instance of Vendor, we can optionally pass in a list with
 
 ################################## Wave 4 ##################################
 
-    def swap_first_item(self,vendor):        
+    def swap_first_item(self,vendor):
+        """
+        Expectation: This method considers the first item in the instance's inventory, and the first item in the friend's inventory
+        It removes the first item from its inventory, and adds the friend's first item
+        It removes the first item from the friend's inventory, and adds the instances first item
+        It returns True
+        If either itself or the friend have an empty inventory, the method returns False
+        Input: It takes one argument: an instance of another Vendor, representing the friend that the vendor is swapping with
+        Output: True or False """
+                
         if not self.inventory or not vendor.inventory: #OR #if not bool(self.inventory) or not bool(vendor.inventory)
             return False
         else:
