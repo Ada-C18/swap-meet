@@ -27,9 +27,9 @@ class Vendor:
             return False
 
         self.remove(my_item)
-        vendor.add(my_item)
-        vendor.remove(their_item)
         self.add(their_item)
+        vendor.remove(their_item)
+        vendor.add(my_item)
         return True
 
     def swap_first_item(self, vendor):
@@ -38,10 +38,14 @@ class Vendor:
 
         instance_first_item = self.inventory[0]
         vendor_first_item = vendor.inventory[0]
-        self.remove(instance_first_item)
-        self.add(vendor_first_item)
-        vendor.remove(vendor_first_item)
-        vendor.add(instance_first_item)
-        return True
+        self.swap_items(vendor, instance_first_item, vendor_first_item)
+        # self.remove(instance_first_item)
+        # self.add(vendor_first_item)
+        # vendor.remove(vendor_first_item)
+        # vendor.add(instance_first_item)
+        # return True
+
+    def best_by_category(self, category_str):
+        pass
 
 
