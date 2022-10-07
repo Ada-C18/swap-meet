@@ -26,8 +26,7 @@ class Vendor:
             friend.inventory.append(my_item)
             return True
         return False
-
-        
+    
     def swap_first_item(self, friend):
 
         if self.inventory and friend.inventory:
@@ -41,14 +40,6 @@ class Vendor:
             return None
         return max(categories, key = lambda x : x.condition)
 
-        # max implementation
-        # max = categories[0]
-        # for items in categories:
-        #     if items.condition > max.condition:
-        #         max = items
-        # return max
-
-
     def swap_best_by_category(self, other, my_priority, their_priority):
         
         other_vendor = other.get_best_by_category(my_priority)
@@ -56,24 +47,9 @@ class Vendor:
 
         return self.swap_items(other, my_vendor, other_vendor)
 
-
-    def find_newest_item(self, age):
-
-        return min(self.inventory, key = lambda x : x.age)
-
-        # min implementation
-        # min_age = self.inventory[0]
-        # for items in self.inventory:
-        #     if items.age < min_age.age:
-        #         min_age = items
-        # return min_age
-
     def swap_by_newest(self, other, their_newest, my_newest):
 
-        other_vendor = other.find_newest_item(their_newest)
-        my_vendor = self.find_newest_item(my_newest)
-
-        return self.swap_items(other, my_vendor, other_vendor)
+        return self.swap_items(other, min(self.inventory, key = lambda x : x.age) , min(other.inventory, key = lambda x : x.age))
 
 
 
