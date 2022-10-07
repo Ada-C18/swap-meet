@@ -1,5 +1,7 @@
 from xmlrpc.client import INVALID_ENCODING_CHAR
 
+from attr import s
+
 class Vendor:
     def __init__(self, inventory = None):
         # inventory is a empty list
@@ -60,9 +62,31 @@ class Vendor:
         return True
 
 
+    def get_best_by_category(self, str_category):
+        category_list = self.get_by_category(str_category)
+        # call the get_by_category funtion and assign to a variable
+        if len(category_list) == 0:
+            return None 
+        best_condition = category_list[0]
+        for item in category_list:
+            if item.condition > best_condition.condition:
+                best_condition = item
+                # will only get the first one that appear with the best condition
+        return best_condition
 
 
-    
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        # other, which represents another Vendor instance to trade with
+        # my_priority, which represents a category that the Vendor wants to receive
+        # their_priority, which represents a category that other wants to receive
+        my_best = self.get_best_by_category(their_priority)
+        their_best = other.get_best_by_category(my_priority)
+        if not my_best or not their_best:
+            return False
+        self.swap_items(other, my_best, their_best)
+        return True
+
+
 
 
         
