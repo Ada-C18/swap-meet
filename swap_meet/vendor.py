@@ -38,14 +38,22 @@ class Vendor:
 
         instance_first_item = self.inventory[0]
         vendor_first_item = vendor.inventory[0]
-        self.swap_items(vendor, instance_first_item, vendor_first_item)
-        # self.remove(instance_first_item)
-        # self.add(vendor_first_item)
-        # vendor.remove(vendor_first_item)
-        # vendor.add(instance_first_item)
-        # return True
+        return self.swap_items(vendor, instance_first_item, vendor_first_item)
 
-    def best_by_category(self, category_str):
-        pass
+    def get_best_by_category(self, category_str):
+        highest_item_pair = (-1.0, None)
+        for item in self.inventory:
+            if item.category == category_str and item.condition > highest_item_pair[0]:
+                highest_item_pair = (item.condition, item)
+        return highest_item_pair[1]
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_best = self.get_best_by_category(their_priority)
+        their_best = other.get_best_by_category(my_priority)
+        if my_best is None or their_best is None:
+            return False
+        return self.swap_items(other, my_best, their_best)
+
+
 
 
