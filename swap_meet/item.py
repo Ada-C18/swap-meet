@@ -17,5 +17,5 @@ class Item:
             return "Good"
         elif self.condition == 4:
             return "Very Good"
-        elif self.condition == 4:
+        elif self.condition == 5.0:
             return "Exceptional"
