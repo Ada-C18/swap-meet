@@ -1,10 +1,15 @@
 class Vendor:
-    def __init__(self, inventory=[]):
-        self.inventory = inventory 
+    def __init__(self, inventory=None):
+        if inventory:
+            self.inventory = inventory
+        else:
+            self.inventory = []
+
 
     def add(self, added_item):
         self.inventory.append(added_item)
         return added_item
+
 
     def remove(self, removed_item):
         if removed_item not in self.inventory:
@@ -13,14 +18,15 @@ class Vendor:
             self.inventory.remove(removed_item)
             return removed_item  
 
+
     def get_by_category(self, category=""):
         items = []
-        for Item in self.inventory:
-            if category == Item.category:
-                items.append(Item)
-
+        for item in self.inventory:
+            if category == item.category:
+                items.append(item)
         return items
     
+
     def swap_items(self, vendor, my_item, their_item):
         if my_item not in self.inventory or their_item not in vendor.inventory:
             return False
@@ -31,16 +37,14 @@ class Vendor:
             self.add(their_item)
             return True
 
+
     def swap_first_item(self, vendor):
         if len(self.inventory) == 0 or len(vendor.inventory) == 0: 
             return False 
         else:
             self.swap_items(vendor, self.inventory[0], vendor.inventory[0])
-            # item_1 = self.inventory[0]
-            # item_2 = vendor.inventory[0]
-            # self.inventory[0] = item_2
-            # vendor.inventory[0] = item_1
             return True
+
 
     def get_best_by_category(self, category):
         items = self.get_by_category(category)
@@ -54,13 +58,12 @@ class Vendor:
                 best_condition = item.condition 
         return best_item
 
-
+        
     def swap_best_by_category(self, other, my_priority, their_priority):
         my_item_to_swap = self.get_best_by_category(their_priority)
         others_item_to_swap = other.get_best_by_category(my_priority)
         if my_item_to_swap is None or others_item_to_swap is None:
             return False 
         else:
-            self.swap_items(self, other, my_item_to_swap, others_item_to_swap)
+            self.swap_items(other, my_item_to_swap, others_item_to_swap)
             return True
-        
