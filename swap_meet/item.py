@@ -1,8 +1,9 @@
 class Item:
 
-    def __init__(self, category = "", condition = 0):
+    def __init__(self, category = "", condition = 0, age = 0):
         self.category = category
         self.condition = condition 
+        self.age = age
         
 
     def __str__(self):
@@ -21,6 +22,8 @@ class Item:
             return "heavily used"
         elif self.condition <= 5.0:
             return "You probably want a glove for this one..."
+        
+        # return str(self.condition)
             
 
     
