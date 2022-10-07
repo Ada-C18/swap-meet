@@ -1,4 +1,3 @@
-# The following line imports the Vendor class from the module vendor inside the swap_meet package.
 import pytest
 from swap_meet.vendor import Vendor
 
@@ -50,4 +49,4 @@ def test_removing_not_found_is_false():
     result = vendor.remove(item)
 
     # raise Exception("Complete this test according to comments below.")
-    assert result is False
+    assert not result
