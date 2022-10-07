@@ -5,6 +5,7 @@ from swap_meet.item import Item
 class Vendor:
     """ Each Vendor will have an attribute named inventory, which is an empty list by default
 When we instantiate an instance of Vendor, we can optionally pass in a list with the keyword argument inventory """
+    
     def __init__(self, inventory = None):
         if inventory:
             self.inventory = inventory
@@ -24,6 +25,7 @@ When we instantiate an instance of Vendor, we can optionally pass in a list with
         """ Expectation: This method removes the matching item from the inventory
         Input: takes in one item.
         Output: This method returns the item that was removed. If there is no matching item in the inventory, the method should return False"""
+        
         if item in self.inventory:
             self.inventory.remove(item)
             return item
@@ -36,15 +38,17 @@ When we instantiate an instance of Vendor, we can optionally pass in a list with
         Expectation: Instances of Vendor have an instance method named get_by_category
         Input: Takes one argument: a string, representing a category
         Output: This method returns a list of Items in the inventory with that category"""
+        
         list = []
         
+        list = [item for item in self.inventory if item.category == category]
+        return list
+    
+        #Solution 2
         # for item in self.inventory:
         #     if item.category == category:
         #         list.append(item)
         # return list
-
-        list = [item for item in self.inventory if item.category == category]
-        return list
     
  ################################## Wave 3 ##################################   
  
