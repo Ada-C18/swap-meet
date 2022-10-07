@@ -21,11 +21,10 @@ class Vendor:
     
     def remove(self, item):
         '''
-        Input: item
-        Returns item or False
+        Input: item, Returns item or False
 
-        Will take in an item to remove from vendor's inventory
-        If item is not in vendor's inventory, will return False
+        Will take in an item to remove from vendor's inventory. 
+        If item is not in vendor's inventory, will return False.
         '''
         if item not in self.inventory:
             return False
@@ -79,7 +78,7 @@ class Vendor:
             # vendor.add(self.remove(self.inventory[0]))
             return True
         return False
-        
+
     def get_best_by_category(self, category):
         '''
         Input: Category 
@@ -89,13 +88,19 @@ class Vendor:
         best_condition = -1
         best_item = None
         
-        for item in self.inventory:
-            if item.category == category:
-                if item.condition > best_condition:
-                    best_condition = item.condition
-                    best_item = item
-        return best_item
-    
+        # for item in self.inventory:
+        #     if item.category == category:
+        #         if item.condition > best_condition:
+        #             best_condition = item.condition
+        #             best_item = item
+
+        # best_items = [item for item in self.inventory if item.category == category]
+        # if len(best_items) > 0:
+        #     best_item = max(best_items, key=lambda item:item.condition)
+        # return best_item
+
+        return max([item for item in self.inventory if item.category == category], key=lambda item: item.condition, default=None)
+
     def swap_best_by_category(self, other, my_priority, their_priority):
         '''
         Input: other vendor, my priority category, their priority category
@@ -113,15 +118,17 @@ class Vendor:
         Return newest item or False if inventory is empty 
         will find the newest item in the inventory
         '''
-        if len(self.inventory) > 0:
-            newest = self.inventory[0]
-            youngest_age = self.inventory[0].age
-            for item in self.inventory:
-                if item.age < youngest_age:
-                    youngest_age = item.age
-                    newest = item
-            return newest
-        return False
+        # if len(self.inventory) > 0:
+        #     newest = self.inventory[0]
+        #     youngest_age = self.inventory[0].age
+        #     for item in self.inventory:
+        #         if item.age < youngest_age:
+        #             youngest_age = item.age
+        #             newest = item
+        #     return newest
+        # return False
+        
+        return min(self.inventory, key = lambda item:item.age, default=False)
 
     def swap_by_newest(self, other):
         '''
