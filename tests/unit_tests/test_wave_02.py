@@ -32,13 +32,4 @@ def test_get_no_matching_items_by_category():
 
     items = vendor.get_by_category("electronics")
 
-<<<<<<< HEAD
-    assert items == [] 
-
-    # raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
-=======
     assert items == []
->>>>>>> e25bc4f2319eeb14587b930aab48763c398d0643

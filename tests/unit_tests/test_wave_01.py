@@ -30,9 +30,7 @@ def test_adding_to_inventory():
 # @pytest.mark.skip
 def test_removing_from_inventory_returns_item():
     item = "item to remove"
-    vendor = Vendor(
-        inventory=["a", "b", "c", item]
-    )
+    vendor = Vendor(inventory=["a", "b", "c", item])
 
     result = vendor.remove(item)
 
@@ -43,15 +41,14 @@ def test_removing_from_inventory_returns_item():
 # @pytest.mark.skip
 def test_removing_not_found_is_false():
     item = "item to remove"
-    vendor = Vendor(
-        inventory=["a", "b", "c"]
-    )
+    vendor = Vendor(inventory=["a", "b", "c"])
 
     result = vendor.remove(item)
 
     assert result == False
 
-    # raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
+    assert len(vendor.inventory) == 3
+    assert "a" in vendor.inventory
+    assert "b" in vendor.inventory
+    assert "c" in vendor.inventory
+
