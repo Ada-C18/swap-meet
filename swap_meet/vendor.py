@@ -12,15 +12,18 @@ When we instantiate an instance of Vendor, we can optionally pass in a list with
             self.inventory = []
     
     def add(self,item):
-        """Every instance of Vendor has an instance method named add, which takes in one item. This method adds the item to the inventory
-        This method returns the item that was added"""
+        """
+        Expectation: Every instance of Vendor has an instance method named add. This method adds the item to the inventory
+        Input: takes in one item. 
+        Output: This method returns the item that was added"""
         
         self.inventory.append(item)
         return item
     
     def remove(self,item):
-        """E very instance of Vendor has an instance method named remove, which takes in one item. This method removes the matching item from the inventory
-This method returns the item that was removed. If there is no matching item in the inventory, the method should return False"""
+        """ Expectation: This method removes the matching item from the inventory
+        Input: takes in one item.
+        Output: This method returns the item that was removed. If there is no matching item in the inventory, the method should return False"""
         if item in self.inventory:
             self.inventory.remove(item)
             return item
@@ -29,6 +32,10 @@ This method returns the item that was removed. If there is no matching item in t
 ################################## Wave 2 ##################################
     
     def get_by_category(self,category = ""):
+        """ 
+        Expectation: Instances of Vendor have an instance method named get_by_category
+        Input: Takes one argument: a string, representing a category
+        Output: This method returns a list of Items in the inventory with that category"""
         list = []
         
         # for item in self.inventory:
