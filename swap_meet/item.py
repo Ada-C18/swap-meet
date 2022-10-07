@@ -1,6 +1,7 @@
 class Item:
     """creates an Item object with an attribute called 'category'."""
-    def __init__(self, category = "", condition = 0):
+    def __init__(self, age = 1, category = "", condition = 0):
+        self.age = age
         self.category = category
         self.condition = condition
         
