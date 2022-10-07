@@ -1,3 +1,4 @@
+from re import I
 from swap_meet.item import Item
 
 class Vendor:
@@ -18,13 +19,10 @@ class Vendor:
             return False
         self.inventory.remove(item)
         return item
-      
     
     def get_by_category(self, category):
-        category_list = []
-        for i in self.inventory:
-            if i.category == category:
-                category_list.append(i)
+        '''Return a list of items in the inventory with category.'''
+        category_list = [i for i in self.inventory if i.category == category]
         return category_list
             
     def swap_items(self, other_vendor, my_item, their_item):
