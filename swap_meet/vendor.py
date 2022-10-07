@@ -23,6 +23,7 @@ class Vendor:
                 category_items.append(item)
         return category_items
     
+    
     def swap_items(self,other_vendor,my_item,their_item):
         if my_item in self.inventory and their_item in other_vendor.inventory:
             self.add(other_vendor.remove(their_item))
@@ -38,42 +39,28 @@ class Vendor:
             self.inventory.insert(0,other_vendor.inventory.pop(0))
             other_vendor.inventory.insert(0,self.inventory.pop(1))
             return True
+    
 
     def get_best_by_category(self,category):
-        condition = -1
-        highest_condition_item = ""
         if self.inventory:
             category_included = False
             for item in self.inventory:
                 if item.category == category:
                     category_included = True
             if category_included == True:
-                for item in self.inventory:
-                    if item.condition > condition  and item.category == category:
-                        highest_condition_item = item
-                        condition = item.condition
-                return highest_condition_item
+                return max(self.get_by_category(category), key=lambda item: item.condition)
     
     def swap_best_by_category(self,other,my_priority,their_priority):
         if self.get_best_by_category(their_priority) and other.get_best_by_category(my_priority):
             self.swap_items(other,self.get_best_by_category(their_priority),other.get_best_by_category(my_priority))
             return True
-        else:
-            return False
+        return False
     
     def get_newest(self):
-        year = -1
-        newest_item = ""
-        for item in self.inventory:
-            if item.year_created > year:
-                newest_item = item
-                year = item.year_created
-        return newest_item
-    
+        return max(self.inventory, key=lambda item: item.year_created)
+
     def swap_by_newest(self,other):
-        my_item = self.get_newest()
-        their_item = other.get_newest()
-        self.swap_items(other,my_item,their_item)
+        self.swap_items(other,self.get_newest(),other.get_newest())
 
         
     

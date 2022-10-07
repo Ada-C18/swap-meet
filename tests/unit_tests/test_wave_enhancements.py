@@ -51,11 +51,4 @@ def test_swap_by_newest():
     assert jesse.inventory[1] == item_e
     assert tai.inventory[1] == item_b
     assert tai.inventory[0] == item_a
-    assert tai.inventory[-1] == item_f
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
-    # Assertions should check:
-    # - That the results is truthy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories, including the items which were swapped from one vendor to the other
+    assert tai.inventory[2] == item_f
