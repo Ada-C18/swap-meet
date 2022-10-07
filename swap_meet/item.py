@@ -1,7 +1,7 @@
 # from msilib.schema import Condition
 
 class Item:
-    def __init__(self,category= "", condition =0.0):
+    def __init__(self,category= "", condition = 0.0):
         self.category = category
         self.condition = condition
         
