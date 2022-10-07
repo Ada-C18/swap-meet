@@ -43,12 +43,10 @@ class Vendor:
 
     def get_best_by_category(self,category):
         get_category = self.get_by_category(category)
-        best_item = None
         if not get_category:
-            return best_item
+            return None
         if get_category: 
-            best_item = max(get_category, key = lambda item: item.condition)
-        return best_item
+            return max(get_category, key = lambda item: item.condition)
 
     def swap_best_by_category(self, other, my_priority, their_priority):
         best_item_they_want = self.get_best_by_category(their_priority)
@@ -61,12 +59,10 @@ class Vendor:
 
     def get_newest_by_age(self,age):
         get_age = self.get_by_category(age)
-        newest_item = None
         if not get_age:
-            return newest_item
+            return None
         if get_age: 
-            newest_item = min(get_age, key = lambda item: item.age)
-        return newest_item
+            return min(get_age, key = lambda item: item.age)
 
     # swap to get the newest items within a category
     def swap_newest_by_category(self, other_vendor, my_priority,\
