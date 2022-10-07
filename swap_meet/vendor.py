@@ -2,7 +2,7 @@ from tkinter import N
 from xml.dom.expatbuilder import theDOMImplementation
 from swap_meet.item import Item
 
-class Vendor(Item):
+class Vendor():
     '''Creating vendor with inventory. Includes methods for adding and removing
     items from inventory by category and condition. Includes methods for swapping
     items by category, condition and age.'''
