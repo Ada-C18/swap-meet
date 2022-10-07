@@ -8,26 +8,18 @@ class Vendor:
         if inventory is None:
             inventory = []
         self.inventory = inventory
-        # self.item = Item(self.category, self.condition)
-        #am I able to use this as a composite of Item
-        
-        
+               
 
     def add(self, item):
         self.inventory.append(item)
-        
         return item
         
     def remove(self, item):
         if item in self.inventory:
-            self.inventory.remove(item)
-            
+            self.inventory.remove(item)    
             return item
-        else:
-             return False
 
 
-    
     def get_by_category(self, category):
         items = []
         for item in self.inventory:
@@ -42,8 +34,8 @@ class Vendor:
             self.remove(my_item) 
             another_vendor.add(my_item)
             another_vendor.remove(their_item)
-            self.add(their_item)
-            return True
+            return self.add(their_item)
+            
 
 
     def swap_first_item(self, another_vendor):
@@ -71,12 +63,12 @@ class Vendor:
 
 
     def swap_best_by_category(self, other, my_priority, their_priority):
-        # my_priority="Clothing" #vendor wants to receive 
-        # their_priority="Decor"#other wants to receive
+        # my_priority= category vendor wants to receive 
+        # their_priority=category other wants to receive
        
-        my_best_item_in_category =self.get_best_by_category(category =  their_priority)
-        their_best_item_in_category = other.get_best_by_category(category = my_priority)
-        if my_best_item_in_category == None or their_best_item_in_category == None:
+        my_best_item_in_category =self.get_best_by_category(their_priority)  
+        their_best_item_in_category = other.get_best_by_category(my_priority)
+        if my_best_item_in_category is None or their_best_item_in_category is None:
             return False
         return self.swap_items(other,my_best_item_in_category,their_best_item_in_category)
         
@@ -84,119 +76,6 @@ class Vendor:
 
 
 
-item_a = Decor(condition=2.0)
-item_b = Electronics(condition=4.0)
-item_c = Decor(condition=4.0)
-tai = Vendor(
-    inventory=[item_a, item_b, item_c]
-)
 
-    # them
-item_d = Clothing(condition=2.0)
-item_e = Decor(condition=4.0)
-item_f = Clothing(condition=4.0)
-other =jesse = Vendor(
-    inventory=[item_d, item_e, item_f]
-)
-
-
-
-
-
-# #me
-# item_a = Decor(condition=2.0)
-# item_b = Electronics(condition=4.0)
-# item_c = Decor(condition=4.0)
-# tai = Vendor(
-#     inventory=[item_a, item_b, item_c]
-# )
-
-# #them
-# item_d = Clothing(condition=2.0)
-# item_e = Decor(condition=4.0)
-# item_f = Clothing(condition=4.0)
-# other =jesse = Vendor(
-#     inventory=[item_d, item_e, item_f]
-# )
-        
-        
-#instance vendor no inventory
-tai = Vendor(
-        inventory=[]
-    )
-
-item_a = Clothing(condition=2.0)
-item_b = Decor(condition=4.0)
-item_c = Clothing(condition=4.0)
-other = jesse = Vendor(
-    inventory=[item_a, item_b, item_c]
-)
-
-#instance other no inventory            
-item_a = Clothing(condition=2.0)
-item_b = Decor(condition=4.0)
-item_c = Clothing(condition=4.0)
-tai = Vendor(
-    inventory=[item_a, item_b, item_c]
-)
-
-
-other =jesse = Vendor(
-    inventory=[]
-)
-
-
-   
-            
-vendor = Vendor()
-
-vendor = Vendor(inventory =["a", "b", "c"])
-
-
-
-
-
-item = Item()
-item_a=Item("clothing")
-item_b =Item("electronics")
-item_c = Item("clothing")
-vendor = Vendor(
-        inventory=[item_a, item_b, item_c]
-    )
-
-
-
-
-my_item = item_a = Item(category="clothing")
-my_item = item_b = Item(category="clothing")
-my_item =item_c = Item(category="clothing")
-fatimah = Vendor(
-    inventory=[item_a, item_b, item_c]
-    )
-
-their_item = item_d = Item(category="electronics")
-their_item =item_e = Item(category="decor")
-jolie = Vendor(
-        inventory=[item_d, item_e]
-    )
-
-
- 
-item_a = Clothing(condition=2.0)
-item_b = Decor(condition=2.0)
-item_c = Clothing(condition=4.0)
-item_d = Decor(condition=5.0)
-item_e = Clothing(condition=3.0)
-tai = Vendor(
-        inventory=[item_a, item_b, item_c, item_d, item_e]
-    )
-
-
-
-
-    
-
- 
-    
 
     
