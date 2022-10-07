@@ -281,6 +281,13 @@ def test_get_newest_item_is_correct():
 
     assert result == item_b
 
+def test_get_newest_item_returns_false_if_no_inventory():
+    tai = Vendor(inventory=[])
+    
+    result = tai.get_newest_item()
+
+    assert result == False
+
 def test_swap_by_newest_is_correct():
     item_a = Decor(age=3)
     item_b = Electronics(age=2)
@@ -304,4 +311,20 @@ def test_swap_by_newest_is_correct():
     assert len(jesse.inventory) == 3
     assert item_c in jesse.inventory
     assert item_d in tai.inventory
+
     
+def test_swap_by_newest_is_false_if_vendor_no_inventory():
+    item_a = Decor(age=3)
+    item_b = Electronics(age=2)
+    item_c = Decor(age=1)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+)
+
+
+    jesse = Vendor(inventory=[]
+)
+
+    result = tai.swap_by_newest(jesse)
+
+    assert result == False
