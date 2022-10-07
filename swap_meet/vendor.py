@@ -60,20 +60,10 @@ class Vendor:
         
     def swap_best_by_category(self, other, my_priority, their_priority):
         '''Swap best item of certain categories with another vendor.'''
-        # use swap_items function
-        # swap best item in my inventory that matches their_priority
-        # swap best item in other inventory that matches my_priority
-        # return true
-        # if have no matching category for either person, return false
-        
-        # if not self.inventory or not other.inventory:
-        #     return False
-
         my_item = self.get_best_by_category(their_priority)
         their_item = other.get_best_by_category(my_priority)
         
         if my_item is None or their_item is None:
             return False
-
         self.swap_items(other, my_item, their_item)
         return True
