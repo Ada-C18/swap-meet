@@ -40,19 +40,16 @@ class Vendor:
             return True
 
     """
-    swap_first_item function 
+    swap_first_item function using swap_item method with inventory index position 
     """
 
     def swap_first_item(self, other_vendor):
         if len(self.inventory) == 0 or len(other_vendor.inventory) ==0:
             return False
 
-        self.add(other_vendor.inventory[0])
-        other_vendor.add(self.inventory[0])
-        self.remove(self.inventory[0])
-        other_vendor.remove(other_vendor.inventory[0])
+        self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
         return True
-    
+
     """
     get_best_by_category class method returns the item with the best condiiton filtered by the category argument
     """
@@ -88,4 +85,27 @@ class Vendor:
         self.swap_items(other, my_item, their_item)
         return True
 
+    """
+    use find_newest method to identify the item with the smallest age in each vendor's inventory
+    creat swap by newest method that will pass each newest item into the swap method
+    """
+    
+    def find_newest(self):
+        if len(self.inventory) == 0:
+            return None
+        newest_item = min(self.inventory, key = lambda item: item.age)
 
+        
+        print(newest_item)
+        return newest_item
+
+    
+    def swap_by_newest(self, other_vendor):
+        if len(other_vendor.inventory) == 0 or len(self.inventory) == 0:
+            return False
+        
+
+        my_newest_item = self.find_newest()
+        their_newest_item = other_vendor.find_newest()
+
+        return self.swap_items(other_vendor, my_newest_item, their_newest_item)
