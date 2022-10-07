@@ -50,16 +50,10 @@ class Vendor:
 
     def get_best_by_category(self, category):
         '''Returns item with the best condition in a certain category.'''
-        list_of_items_of_category = self.get_by_category(category)
-        if not list_of_items_of_category:
+        items_in_category = self.get_by_category(category)
+        if not items_in_category:
             return None
-
-        condition_max = 0
-        best_item = ""
-        for item in list_of_items_of_category:
-            if item.condition > condition_max:
-                condition_max = item.condition
-                best_item = item
+        best_item = max(items_in_category, key=lambda item: item.condition)
         
         return best_item
         
