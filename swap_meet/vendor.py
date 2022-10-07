@@ -42,7 +42,7 @@ class Vendor:
         Returns False, if this Vendor's inventory doesn't contain my_item
         or the other Vendor's inventory doesn't contain their_item.
         """
-        if self.contain(my_item) and other.contain(their_item):
+        if my_item in self.inventory and their_item in other.inventory:
             return self.swap(other, my_item, their_item)
         return False
     
@@ -107,13 +107,6 @@ class Vendor:
 #======================================#        
 #========== Helper Functions ==========#
 #======================================#  
-    
-    def contain(self, item):
-        """
-        Returns True if the inventory contains the given item, otherwise False.
-        """
-        return item in self.inventory
-    
     def get_item_by_index(self, index):
         """
         Returns the item at the given index in the inventory.
