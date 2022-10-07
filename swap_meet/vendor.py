@@ -34,12 +34,6 @@ class Vendor:
     def swap_first_item(self, friend):
         if not self.inventory or not friend.inventory:
             return False 
-        
-        self_item = self.inventory[0]
-        friend_item = friend.inventory[0]
-
-        return self.swap_items(friend, self_item, friend_item)
-
-       
+        return self.swap_items(friend, self.inventory[0], friend.inventory[0])
 
 
