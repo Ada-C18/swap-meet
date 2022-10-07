@@ -23,7 +23,7 @@ class Vendor:
         return category_list
 
     def swap_items(self, other_vendor, my_item, other_vendor_item):
-        if not my_item in self.inventory or \
+        if not my_item in self.inventory or\
             not other_vendor_item in other_vendor.inventory:
             return False
         my_item_to_swap = self.remove(my_item)
@@ -37,7 +37,7 @@ class Vendor:
             return False
         my_first_item = self.inventory[0]
         other_vendor_first_item = other_vendor.inventory[0]
-        return self.swap_items(other_vendor, my_first_item, \
+        return self.swap_items(other_vendor, my_first_item,\
             other_vendor_first_item)
 
     def get_best_by_category(self,category):
@@ -49,12 +49,11 @@ class Vendor:
 
     def swap_best_by_category(self, other, my_priority, their_priority):
         best_item_they_want = self.get_best_by_category(their_priority)
-        their_best_item_i_want = other.get_best_by_category(my_priority)
-        if not best_item_they_want or not their_best_item_i_want:
+        best_item_i_want = other.get_best_by_category(my_priority)
+        if not best_item_they_want or not best_item_i_want:
             return False
         else:
-            return self.swap_items(other, best_item_they_want,\
-                their_best_item_i_want)
+            return self.swap_items(other, best_item_they_want, best_item_i_want)
 
     def get_newest_by_age(self,age):
         get_age = self.get_by_category(age)
