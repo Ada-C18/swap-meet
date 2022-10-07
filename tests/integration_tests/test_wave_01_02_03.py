@@ -2,8 +2,8 @@ import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
-@pytest.mark.skip
-@pytest.mark.integration_test
+# @pytest.mark.skip
+# @pytest.mark.integration_test
 def test_integration_wave_01_02_03():
     # make a vendor  
     vendor = Vendor()
@@ -42,7 +42,7 @@ def test_integration_wave_01_02_03():
 
     # swap items
     item3 = Item(category="Decor")
-    other_vendor.add(item3)
+    other_vendor.add(item3) #for some reason both lists are the same and item 3 and item 2 are on both lists... not creating a 
 
     vendor.swap_items(other_vendor, item2, item3)
 
