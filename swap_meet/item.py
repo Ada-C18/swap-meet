@@ -8,15 +8,5 @@ class Item:
     
     def condition_description(self):
         rating = self.condition 
-        if rating == 0:
-            return "very gross"
-        elif rating == 1: 
-            return "Not that great"
-        elif rating == 2:
-            return "It's okay..."
-        elif rating == 3:
-            return "gently used"
-        elif rating == 4:
-            return "pretty good"
-        elif rating == 5:
-            return "really great!"
+        description = ["very gross", "Not that great", "It's okay...", "gently used", "pretty good", "really great!"]
+        return description[rating]
