@@ -28,15 +28,14 @@ class Vendor:
     def swap_items(self, other_vendor, my_item, their_item):
         '''Remove an item from this Vendor's inventory and swaps
         with other vendor.'''
-        # remove and append
-        if my_item in self.inventory and their_item in other_vendor.inventory:
-            self.add(their_item)
-            self.remove(my_item)
-            other_vendor.add(my_item)
-            other_vendor.remove(their_item)
-            return True
-        else:
-            return False 
+        if my_item not in self.inventory or their_item not in other_vendor.inventory:
+            return False
+        self.add(their_item)
+        self.remove(my_item)
+        other_vendor.add(my_item)
+        other_vendor.remove(their_item)
+        return True
+      
 
     def swap_first_item(self, other_vendor):
         '''Swap the first item in this vendor's inventory with
