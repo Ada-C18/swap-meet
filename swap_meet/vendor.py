@@ -31,9 +31,13 @@ class Vendor:
         if their_item not in another_vendor.inventory or my_item not in self.inventory:
             return False 
         self.remove(my_item)
+
         another_vendor.remove(their_item)
+
         another_vendor.add(my_item)
+
         self.add(their_item)
+
         return True 
 
     def swap_first_item(self, another_vendor):
@@ -59,27 +63,17 @@ class Vendor:
         return best_condition_item
         
 
-    def swap_best_by_category(self, another_vendor, my_priority, their_priority):
+    def swap_best_by_category(self, other, my_priority, their_priority):
         
         best_item_found_for_other_vendor = self.get_best_by_category(their_priority)
-        print(best_item_found_for_other_vendor)
-        best_item_found_for_me = another_vendor.get_best_by_category(my_priority)
-        print(best_item_found_for_me)
-        
+        best_item_found_for_me = other.get_best_by_category(my_priority)
 
 
-        if best_item_found_for_other_vendor is  None and best_item_found_for_me is not None:
-            self.swap_items(another_vendor, best_item_found_for_me, best_item_found_for_other_vendor)
-            print(self.swap_items(another_vendor, best_item_found_for_me, best_item_found_for_other_vendor))
-            return True
+        if best_item_found_for_other_vendor is not None and best_item_found_for_me is not None:
+            return self.swap_items(other, best_item_found_for_other_vendor, best_item_found_for_me)
         return False
 
 
-            
-
-
-
-    
 
 
         
