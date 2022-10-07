@@ -4,8 +4,8 @@ from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
 
-@pytest.mark.skip
-@pytest.mark.integration_test
+#@pytest.mark.skip
+#@pytest.mark.integration_test
 def test_integration_wave_04_05_06():
     camila = Vendor()
     valentina = Vendor()
@@ -54,7 +54,7 @@ def test_integration_wave_04_05_06():
     assert item_decor1 in valentina.inventory
     assert item_decor2 in valentina.inventory
 
-    # swap_best_category - truthy
+    ## swap_best_category - truthy
     result = camila.swap_best_by_category(valentina, "Decor", "Clothing")
 
     assert result
