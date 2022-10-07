@@ -61,7 +61,6 @@ class Vendor:
 
     def get_newest_by_age(self,age):
         get_age = self.get_by_category(age)
-        print(get_age)
         newest_item = None
         if not get_age:
             return newest_item
