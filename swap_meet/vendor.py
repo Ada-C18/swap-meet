@@ -14,11 +14,11 @@ class Vendor:
 
     def remove(self, item):
         '''Remove an item from inventory list.'''
-        if item in self.inventory:
-            self.inventory.remove(item)
-            return item
-        else:
+        if item not in self.inventory:
             return False
+        self.inventory.remove(item)
+        return item
+      
     
     def get_by_category(self, category):
         category_list = []
@@ -66,21 +66,6 @@ class Vendor:
         
         return best_item
         
-
-        # condition_max = 0
-        # best_item = ""
-        # for item in self.inventory:
-        #     category_counter = 0
-        #     if item.category == category:
-        #         category_counter += 1
-        #         if item.condition > condition_max:
-        #             condition_max = item.condition
-        #             best_item = item
-    
-        # if category_counter == 0:
-        #     return None
-        # else:
-        #     return best_item
         
     def swap_best_by_category(self, other, my_priority, their_priority):
         '''Swap best item of certain categories with another vendor.'''
