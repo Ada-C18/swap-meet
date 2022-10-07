@@ -1,6 +1,10 @@
 class Vendor:
-    def __init__(self, inventory=[]):
-        self.inventory = inventory 
+    def __init__(self, inventory=None):
+        if inventory:
+            self.inventory = inventory
+        else:
+            self.inventory = []
+
 
     def add(self, added_item):
         self.inventory.append(added_item)
@@ -15,9 +19,9 @@ class Vendor:
 
     def get_by_category(self, category=""):
         items = []
-        for Item in self.inventory:
-            if category == Item.category:
-                items.append(Item)
+        for item in self.inventory:
+            if category == item.category:
+                items.append(item)
 
         return items
     
@@ -31,14 +35,14 @@ class Vendor:
             self.add(their_item)
             return True
 
-    def swap_first_item(self, Vendor):
-        if len(self.inventory) < 1 or len(Vendor.inventory) < 1: 
+    def swap_first_item(self, vendor):
+        if len(self.inventory) < 1 or len(vendor.inventory) < 1: 
             return False 
         else:
             item_1 = self.inventory[0]
-            item_2 = Vendor.inventory[0]
+            item_2 = vendor.inventory[0]
             self.inventory[0] = item_2
-            Vendor.inventory[0] = item_1
+            vendor.inventory[0] = item_1
             return True
 
     def get_best_by_category(self, category):
@@ -73,6 +77,6 @@ class Vendor:
         if my_item_to_swap is None or others_item_to_swap is None:
             return False 
         else:
-            self.swap_items(self, other, my_item_to_swap, others_item_to_swap)
+            self.swap_items(other, my_item_to_swap, others_item_to_swap)
             return True
         
