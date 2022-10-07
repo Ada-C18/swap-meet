@@ -151,7 +151,7 @@ You'll need to refer to `Item` in order to declare it as a parent. To reference 
 from swap_meet.item import Item
 ``` -->
 
-### Wave 6
+<!-- ### Wave 6
 
 In Wave 6 we will write two methods, `get_best_by_category` and `swap_best_by_category`.
 
@@ -172,7 +172,7 @@ The remaining tests in wave 6 imply:
   - The best item in my inventory that matches `their_priority` category is swapped with the best item in `other`'s inventory that matches `my_priority`
     - It returns `True`
     - If the `Vendor` has no item that matches `their_priority` category, swapping does not happen, and it returns `False`
-    - If `other` has no item that matches `my_priority` category, swapping does not happen, and it returns `False`
+    - If `other` has no item that matches `my_priority` category, swapping does not happen, and it returns `False` -->
 
 ### DRYing up the code
 

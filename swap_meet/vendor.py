@@ -1,6 +1,8 @@
 # from pickle import FALSE
-from swap_meet import item
-# from swap_meet.item import Item
+# from operator import invert
+# from unittest import result
+# from swap_meet import item
+from swap_meet.item import Item
 
 class Vendor:
     def __init__(self, inventory=None):
@@ -31,9 +33,9 @@ class Vendor:
     def swap_items(self, swapping_other_vendor, my_item, their_item):  
         if my_item in self.inventory and their_item in swapping_other_vendor.inventory:
                 self.remove(my_item)
+                swapping_other_vendor.remove(their_item)
                 self.add(their_item)
                 swapping_other_vendor.add(my_item)
-                swapping_other_vendor.remove(their_item)
                 return True
         else:
             return False
@@ -49,8 +51,8 @@ class Vendor:
     # Wave_6
     
     def get_best_by_category(self, category):
-        
-        inventory_items_category = self.get_by_category(category)
+        inventory_items_category = self.get_by_category(category) #list
+        print("inventory>>>", inventory_items_category)
         if inventory_items_category == []:
             return None
 
@@ -61,13 +63,19 @@ class Vendor:
         return highest_item
         
     def swap_best_by_category(self, other, my_priority, their_priority):
+        print('inve other>>', other.inventory)
+        print('self inv>>', self.inventory)
         
-        if not self.inventory or not other:
-            return None
+        if self.inventory == [] or other == []:
+            return False
         
         my_priority_item = other.get_best_by_category(my_priority)  # item
+        print('my item>>>', my_priority_item)
         their_priority_item = self.get_best_by_category(their_priority) #item
+        print('their item>>>',their_priority_item)
         
-        self.swap_items(other, my_priority_item, their_priority_item)
-        return True
+        if my_priority_item in other.inventory and their_priority_item in self.inventory:
+            return self.swap_items(other, their_priority_item, my_priority_item)
+            
+        return False
         

@@ -7,7 +7,11 @@ class Item:
             condition = 0.0
         self.condition = condition
         self.category = category
-
+        # if not age:
+        #     age = 0
+        # self.age = age
+        
+        
     def __str__ (self):
         return "Hello World!"
     
