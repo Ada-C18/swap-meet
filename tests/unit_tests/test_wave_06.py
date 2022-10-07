@@ -152,7 +152,7 @@ def test_swap_best_by_category_reordered():
 
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_best_by_category_no_inventory_is_false():
     tai = Vendor(
         inventory=[]
