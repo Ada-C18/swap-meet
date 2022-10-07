@@ -6,14 +6,13 @@ class Vendor:
 
     def add(self, new_item):
         self.inventory.append(new_item)
-        return self.inventory[-1]
+        return new_item
 
     def remove(self, item_to_remove):
         if item_to_remove in self.inventory:
             removed_item = self.inventory.pop(self.inventory.index(item_to_remove))
             return removed_item
-        else:
-            return False
+        return False
 
     def get_by_category(self, category):
         category_items = []
@@ -28,8 +27,7 @@ class Vendor:
             other.add(self.inventory.pop(self.inventory.index(my_item)))
             self.add(other.inventory.pop(other.inventory.index(their_item)))
             return True
-        else:
-            return False
+        return False
 
     def swap_first_item(self, other):
         if self.inventory and other.inventory:
@@ -40,8 +38,7 @@ class Vendor:
         category_list = self.get_by_category(category)
         if category_list:
             return max(category_list, key=lambda item: item.condition)
-        else:
-            return None
+        return None
 
     def swap_best_by_category(self, other, my_priority, their_priority):
         if self.inventory and other.inventory:
@@ -59,4 +56,3 @@ class Vendor:
             self.swap_items(other, self_newest_item, other_newest_item)
             return True
         return False
-
