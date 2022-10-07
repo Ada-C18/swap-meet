@@ -3,7 +3,7 @@ from swap_meet.vendor import Vendor
 from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
-from swap_meet.item import Item
+
 
 # @pytest.mark.skip
 def test_best_by_category():
@@ -268,16 +268,40 @@ def test_swap_best_by_category_no_other_match_is_false():
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories
 
-    item_a = Clothing(condition=2.0)
-    item_b = Decor(condition=1.0)
-    item_c = Clothing(condition=4.0)
-    item_d = Decor(condition=5.0)
-    item_e = Clothing(condition=3.0)
+#############Adding tests for newest items
+def test_get_newest_item_is_correct():
+    item_a = Decor(age=2)
+    item_b = Electronics(age=1)
+    item_c = Decor(age=3)
     tai = Vendor(
-        inventory=[item_a, item_b, item_c, item_d, item_e]
-    )
+        inventory=[item_a, item_b, item_c]
+)
 
-    best_item = tai.get_best_by_category("Decor")
+    result = tai.get_newest_item()
 
-    assert best_item.category == "Decor"
-    assert best_item.condition == pytest.approx(5.0)
+    assert result == item_b
+
+def test_swap_by_newest_is_correct():
+    item_a = Decor(age=3)
+    item_b = Electronics(age=2)
+    item_c = Decor(age=1)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+)
+
+    item_d = Clothing(age=1)
+    item_e = Decor(age=2)
+    item_f = Clothing(age=3)
+    jesse = Vendor(
+        inventory=[item_f, item_e, item_d]
+)
+
+    tai.swap_by_newest(jesse)
+
+    assert tai.get_newest_item() == item_d
+    assert jesse.get_newest_item() == item_c
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert item_c in jesse.inventory
+    assert item_d in tai.inventory
+    
