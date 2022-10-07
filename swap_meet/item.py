@@ -23,7 +23,7 @@ class Item:
         elif self.condition <= 5.0:
             return "You probably want a glove for this one..."
         
-        # return str(self.condition)
+        # return str(self.condition) with 100% code coverage
             
 
     
