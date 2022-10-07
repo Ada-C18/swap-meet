@@ -1,5 +1,5 @@
 from swap_meet.item import Item
-
+#wave1
 class Vendor:
     def __init__(self, inventory=None):
     # inventory is an empty list
@@ -28,7 +28,7 @@ class Vendor:
         return items_inventory
         
 # wave 3
-    def swap_items(self, friend_vendor, my_item, their_item):  #can attributes be instances of classes? 
+    def swap_items(self, friend_vendor, my_item, their_item): 
 
         if my_item in self.inventory and their_item in friend_vendor.inventory:
             self.remove(my_item)
@@ -50,18 +50,16 @@ class Vendor:
 
 
 # wave 6:
-    def get_best_by_category(self, category):   # gets the item with the best condition in a certain category
-        #self.category = category METHODS DONT HAVE ATTRIBUTES, ONLY CLASSES!!!!!!!!!!!!!---------
+    def get_best_by_category(self, category):   
         best_item = None
         best_condition = 0 
         for item in self.get_by_category(category):
             if item.condition > best_condition:
                 best_condition = item.condition
                 best_item = item
-            # if there are no items in the inventory that match the category: returns none
         return best_item
 
-    def swap_best_by_category(self, other, my_priority, their_priority):  #swap best item of certain categories with another VENDOR
+    def swap_best_by_category(self, other, my_priority, their_priority):  
         my_best_item = self.get_best_by_category(their_priority)
         their_best_item  = other.get_best_by_category(my_priority)
         if my_best_item is None or their_best_item is None:
