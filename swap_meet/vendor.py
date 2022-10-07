@@ -41,6 +41,12 @@ class Vendor:
             if item.category == category:
                 matching_items.append(item)
         return matching_items
+    
+    """new additions"""
+    def swap_items(self, vendor, my_item, their_item):
+# add your item to their list, their item to your list, remove your item from your list and their item from their list
+# order is very important for this to work
+# returns True
 
     def swap_items(self, friend, my_item, their_item):
         if my_item in self.inventory and their_item in friend.inventory:
