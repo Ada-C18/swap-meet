@@ -2,7 +2,7 @@ class Item:
 
 # Wave 2 & 5
     def __init__(self, category = None, condition = 0.0):  
-        # category & condition are the property of Item     
+        # category & condition are the properties of Item     
         if category is None:
             category = ""
         self.category = category 

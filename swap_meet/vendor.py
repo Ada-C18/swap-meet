@@ -2,9 +2,7 @@
 
 class Vendor:
     # def __init__(self, inventory = []):
-    # By having MUTABLE TYPE in DEFAULT argument, HAVE PROBLEMS in INTERGRATION TEST ISSUE
-    # default value none is immutable. mutable type should not be used.
-    # self.inventory : list of Strings, multiple items; Vendor(inventory=[item_a, item_b, item_c]
+    # default value None is IMMUTABLE. MUTABLE type should not be used in DEFAULT argument.
 
 # Wave 1    
     def __init__(self, inventory = None):    
@@ -12,8 +10,6 @@ class Vendor:
             inventory = []
         self.inventory = inventory
     
-            
-
     def add(self, add_item):
         '''
         Returns the item that was added
@@ -32,13 +28,10 @@ class Vendor:
             return False
 
 # Wave 2
-
     def get_by_category(self, category_str):
         '''
         Returns a list of Strings (items) in the inventory with given category.
         '''
-        # a string with the keyword argument category
-        # return list of items in that category
         same_category_list = []
         for item in self.inventory:
             # does not need import at this point
@@ -63,8 +56,9 @@ class Vendor:
             self.remove(my_item)
             swap_vendor.add(my_item)
             return True
-        #- okay to delete?
+        # okay to delete, clear to leave it?
         return False 
+
 
 # Wave 4      
     def swap_first_item(self, swap_vendor):
@@ -74,41 +68,27 @@ class Vendor:
         '''
         if len(self.inventory) >= 1 and len(swap_vendor.inventory) >= 1:
             return self.swap_items(swap_vendor, self.inventory[0], swap_vendor.inventory[0])
-         
+
+
 # Wave 6
     def get_best_by_category(self, given_category):
         '''
         Returns the item with the best condition in a certain category.
         '''
-        
         items = self.get_by_category(given_category)
         if len(items) > 0:
-            best_item = items[0]   
-            for item in items:
-                if item.condition > best_item.condition:
-                    best_item = item
+            best_item = max(items, key=lambda i:i.condition)
             return best_item
-        return None
-        
+        return None         
 
     def swap_best_by_category(self, other, my_priority, their_priority):
         '''
         Returns True if swap the best item (category) action is successful.
         Otherwise, returns False.
         '''
+        # watch out for self.func or other.func
         my_best_item = self.get_best_by_category(their_priority)
         their_best_item = other.get_best_by_category(my_priority)
-
-        if my_best_item is None or their_best_item is None:
-            return False            
-        self.swap_items(other, my_best_item, their_best_item)
-        return True
-        
-
-
-
-        
-
-
-
-
+        if my_best_item is not None and their_best_item is not None:           
+            self.swap_items(other, my_best_item, their_best_item)
+            return True
