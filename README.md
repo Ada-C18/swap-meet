@@ -1,11 +1,31 @@
 # Swap Meet
 
+# Pair Plan
+
+- JL and JM both on Eastern Time
+- JL prefers to not Zoom after 6pm ET (chat anytime)
+
+Learning style:
+
+- JL and JM both like having time to explore problem first before coming together
+- JM prefers to check in before pushes, or document well if need to push before checking in
+
+Feedback:
+
+- Assume positive intent
+- Nonviolent communication
+
+Communication to improve on:
+
+- JL: letting there be silence
+- JM: talk out the code and be vocal about ideas; also interested in trying to use fewer words to explain ideas
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
 - Reading tests
 - Creating classes
-  - Classes have attributes and instance methods
+- Classes have attributes and instance methods
 - Importing modules
 - Working with attributes that are lists of instances
 - Implementing instance methods that interact with other instances and objects
@@ -30,13 +50,13 @@ For this project, there are tests that you must complete for Waves 01, 02, and 0
 
 ## Integration Tests
 
-We provided **integration tests** for this project. The integration tests provided in this project do not cover all the test cases verified by the unit tests. While unit tests are small, fast, and should cover most of our program's behavior down to individual functions, integration tests verify that the various pieces of a program are working together correctly. For this project, the integration tests mainly verify that the functions work together when invoked correctly. We could classify them as the subset of Integration Tests called *Smoke Tests*, tests that check basic functionality of the application.
+We provided **integration tests** for this project. The integration tests provided in this project do not cover all the test cases verified by the unit tests. While unit tests are small, fast, and should cover most of our program's behavior down to individual functions, integration tests verify that the various pieces of a program are working together correctly. For this project, the integration tests mainly verify that the functions work together when invoked correctly. We could classify them as the subset of Integration Tests called _Smoke Tests_, tests that check basic functionality of the application.
 
-The integration tests for this project are in the directory `tests/integration_tests`, and the tests have the decorator `@pytest.mark.integration_test` provided by the `pytest-integration` package. Marking these tests as integration tests makes them run after the unit tests. The isolated nature and specficity of *unit tests* make them a much better tool for debugging. Hence, we want to run the unit tests before the integration tests.
+The integration tests for this project are in the directory `tests/integration_tests`, and the tests have the decorator `@pytest.mark.integration_test` provided by the `pytest-integration` package. Marking these tests as integration tests makes them run after the unit tests. The isolated nature and specficity of _unit tests_ make them a much better tool for debugging. Hence, we want to run the unit tests before the integration tests.
 
-For more on different types of software testing, [here is a helpful resource](https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing). 
+For more on different types of software testing, [here is a helpful resource](https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing).
 
-*The integration tests use the package `pytest-integration`. To insure that `pytest` is using the version installed in your `venv` and not the globally installed `pytest`, deactivate and reactive your virtual environment after you've installed the requirements. This step is important to make sure the integration tests run after the unit tests.*
+_The integration tests use the package `pytest-integration`. To insure that `pytest` is using the version installed in your `venv` and not the globally installed `pytest`, deactivate and reactive your virtual environment after you've installed the requirements. This step is important to make sure the integration tests run after the unit tests._
 
 ## Code Coverage
 
@@ -44,11 +64,11 @@ Code coverage is a term used to describe how much application code is executed w
 
 Given that Ada provided all tests cases in this project, we should anticipate high code coverage.
 
-Review the [code coverage exercise](https://github.com/adaGold/code-coverage-exercise) on how to use `pytest-cov` to generate a code coverage report. We will need to change the directory where the application code is located from `student` to `swap_meet`.  
+Review the [code coverage exercise](https://github.com/adaGold/code-coverage-exercise) on how to use `pytest-cov` to generate a code coverage report. We will need to change the directory where the application code is located from `student` to `swap_meet`.
 
 `pytest --cov=swap_meet --cov-report html --cov-report term`
 
-*Note: Code coverage is disabled for integration tests, since unit tests should cover all the code.* [source](https://pypi.org/project/pytest-integration/#:~:text=Overview,integration%20tests%20are%20not%20run)
+_Note: Code coverage is disabled for integration tests, since unit tests should cover all the code._ [source](https://pypi.org/project/pytest-integration/#:~:text=Overview,integration%20tests%20are%20not%20run)
 
 ## Project Directions
 
@@ -58,6 +78,19 @@ When our test failures leave us confused and stuck, let's use the detailed proje
 
 At submission time, no matter where you are, submit the project via Learn.
 
+### Replit example on using mutable objects as default parameters, DO THIS:
+
+def add_to_list_ok(word, word_list=None):
+word_list = word_list if word_list is not None else []
+word_list.append(word)
+return word_list
+
+### DO NOT DO THIS:
+
+def add_to_list_surprise(word, word_list=[]):
+word_list.append(word)
+return word_list
+
 ### Wave 1
 
 In Wave 1 we will create the `Vendor` class.
@@ -66,7 +99,6 @@ In Wave 1 we will create the `Vendor` class.
 - Inside this module, there is a class named `Vendor`
 - Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
 - When we instantiate an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
-
 
 - Every instance of `Vendor` has an instance method named `add`, which takes in one item
 - This method adds the item to the `inventory`
