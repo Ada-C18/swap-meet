@@ -1,3 +1,4 @@
+from unicodedata import category
 from swap_meet.item import Item
 
 
@@ -43,8 +44,6 @@ class Vendor:
         # remove my item from self.inventory and add it to friend.inventory
         # remove item from friend.inventory and add it to self.inventory
 
-    def get_best_by_category(self):
-        # will need to get the items from each category
-        # use the max method to get the item with the highest rating
-        best_category = max(self.get_by_category)
-        return best_category
+    def get_best_by_category(self, category):
+        if len(category) == 0:
+            return None
