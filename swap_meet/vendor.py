@@ -1,10 +1,6 @@
 class Vendor:
     def __init__(self, inventory=None):
-        if inventory:
-            self.inventory = inventory
-        else:
-            self.inventory = []
-
+      self.inventory = inventory if inventory is not None else []   
 
     def add(self, added_item):
         self.inventory.append(added_item)
@@ -14,9 +10,9 @@ class Vendor:
     def remove(self, removed_item):
         if removed_item not in self.inventory:
             return False 
-        else:
-            self.inventory.remove(removed_item)
-            return removed_item  
+        
+        self.inventory.remove(removed_item)
+        return removed_item  
 
 
     def get_by_category(self, category=""):
@@ -30,20 +26,20 @@ class Vendor:
     def swap_items(self, vendor, my_item, their_item):
         if my_item not in self.inventory or their_item not in vendor.inventory:
             return False
-        else:
-            self.remove(my_item)
-            vendor.add(my_item)
-            vendor.remove(their_item)
-            self.add(their_item)
-            return True
+        
+        self.remove(my_item)
+        vendor.add(my_item)
+        vendor.remove(their_item)
+        self.add(their_item)
+        return True
 
 
     def swap_first_item(self, vendor):
         if len(self.inventory) == 0 or len(vendor.inventory) == 0: 
             return False 
-        else:
-            self.swap_items(vendor, self.inventory[0], vendor.inventory[0])
-            return True
+      
+        self.swap_items(vendor, self.inventory[0], vendor.inventory[0])
+        return True
 
 
     def get_best_by_category(self, category):
@@ -64,6 +60,6 @@ class Vendor:
         others_item_to_swap = other.get_best_by_category(my_priority)
         if my_item_to_swap is None or others_item_to_swap is None:
             return False 
-        else:
-            self.swap_items(other, my_item_to_swap, others_item_to_swap)
-            return True
+        
+        self.swap_items(other, my_item_to_swap, others_item_to_swap)
+        return True
