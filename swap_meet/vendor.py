@@ -2,6 +2,7 @@ class Vendor:
     def __init__(self, inventory=None):
       self.inventory = inventory if inventory is not None else []   
 
+
     def add(self, added_item):
         self.inventory.append(added_item)
         return added_item
@@ -37,8 +38,8 @@ class Vendor:
     def swap_first_item(self, vendor):
         if len(self.inventory) == 0 or len(vendor.inventory) == 0: 
             return False 
-      
-        self.swap_items(vendor, self.inventory[0], vendor.inventory[0])
+        
+        self.inventory[0], vendor.inventory[0] = vendor.inventory[0], self.inventory[0]
         return True
 
 
