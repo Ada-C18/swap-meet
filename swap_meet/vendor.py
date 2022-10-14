@@ -1,3 +1,4 @@
+from multiprocessing import Condition
 from unicodedata import category
 from swap_meet.item import Item
 
@@ -45,5 +46,11 @@ class Vendor:
         # remove item from friend.inventory and add it to self.inventory
 
     def get_best_by_category(self, category):
-        if len(category) == 0:
-            return None
+        # loop through the self.inventory
+        best_item = None
+        for item in self.get_by_category(category):
+            if best_item == None:
+                best_item = item
+            elif item.condition > best_item.condition:
+                best_item = item
+        return best_item
