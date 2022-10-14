@@ -149,7 +149,7 @@ Now, we may notice that these three classes hold the same types of state and hav
 You'll need to refer to `Item` in order to declare it as a parent. To reference the `Item` class from these modules, try this import line:
 
 ```python
-from swap_meet.item import Item
+ 
 ```
 
 ### Wave 6
