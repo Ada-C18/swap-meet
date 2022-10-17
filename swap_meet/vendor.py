@@ -29,10 +29,7 @@ class Vendor:
         """
         Returns a list of Items in the inventory with given category.
         """
-        item_list = list()
-        for item in self.inventory:
-            if item.category == category:
-                item_list.append(item)
+        item_list = [item for item in self.inventory if item.category == category]
         return item_list
     
     def swap_items(self, other, my_item, their_item):
