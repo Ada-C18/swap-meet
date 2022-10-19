@@ -5,8 +5,8 @@ class Item:
     def __init__(self, category=""):
         self.category = category
     
-    # def __iter__(self):
-    #     return self
+    def __str__(self):
+        return ("Hello World!")
 
     
 
