@@ -1,6 +1,3 @@
-from unicodedata import category
-
-
 class Item:
     def __init__(self, category = "", condition = 0, age = float('inf')):
         self.category = category

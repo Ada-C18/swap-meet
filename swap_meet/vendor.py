@@ -1,4 +1,3 @@
-from operator import contains, truediv
 from swap_meet.item import Item
 
 class Vendor:
