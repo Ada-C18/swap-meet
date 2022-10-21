@@ -11,7 +11,6 @@ class Item:
     # conditional statements 
     
     def condition_description(self):
-
         if self.condition == 5:
             description = "Perfect"
         elif 0 <= self.condition <= 2:
@@ -21,17 +20,3 @@ class Item:
         elif 3.1 <= self.condition <= 4.9:
             description = "Like New"
         return description
-        
-    
-    #    condition_dict = {
-    #         "0": "Used with visible flaws",
-    #         "1": "Used with minor flaws",
-    #         "2": "Used with little to no flaws",
-    #         "3": "Used with no flaws",
-    #         "4": "Like new",
-    #         "5": "Perfect condition"
-    #     }
-    #     return(condition_dict[condition_rate])
-
-    
-
