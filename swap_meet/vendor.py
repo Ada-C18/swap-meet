@@ -22,10 +22,11 @@ class Vendor:
         self.category = category
         items_in_category = []
         # instance from item class
-        item_category = Item(category=self.category)
+        # item_category = Item(category=self.category)
         for item in self.inventory:
             # item_category = Item(category=self.category)
-            if item.category == item_category.category:
+            # if item.category == item_category.category:
+            if item.category  == category:
                 items_in_category.append(item)
         return items_in_category
     
