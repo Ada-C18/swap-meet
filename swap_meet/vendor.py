@@ -1,7 +1,4 @@
-from multiprocessing import Condition
-from unicodedata import category
 from swap_meet.item import Item
-
 
 class Vendor:
     def __init__(self, inventory=[]): # to set initial attributes
@@ -21,7 +18,7 @@ class Vendor:
     def get_by_category(self, category):
         merch =[]
         for item in self.inventory:
-            if item.category is category:
+            if item.category == category:
                 merch.append(item)
         return merch
 
@@ -32,8 +29,8 @@ class Vendor:
             friend.remove(their_item)
             self.add(their_item)
             return True
-        else:
-            return False
+
+        return False
 
     def swap_first_item(self, friend):
         if len(self.inventory) == 0 or len(friend.inventory) == 0:
@@ -46,11 +43,23 @@ class Vendor:
         # remove item from friend.inventory and add it to self.inventory
 
     def get_best_by_category(self, category):
-        # loop through the self.inventory
         best_item = None
         for item in self.get_by_category(category):
-            if best_item == None:
+            if best_item is None:
                 best_item = item
             elif item.condition > best_item.condition:
                 best_item = item
         return best_item
+
+    # this function will swap with other, get my priority, get their priority
+    # def swap_best_by_category(self, other, my_priority, their_priority):
+    # can use get_best_by_category and swap_first_item (since it's the best by category)
+
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other.get_best_by_category(my_priority)
+        if their_best_item is None or my_best_item is None:
+            return False
+        else:
+            self.swap_items(other, my_best_item, their_best_item)
+            return True

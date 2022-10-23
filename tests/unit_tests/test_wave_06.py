@@ -50,7 +50,7 @@ def test_best_by_category_with_duplicates():
     assert best_item.category == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_best_by_category():
     # Arrange
     # me
@@ -70,7 +70,7 @@ def test_swap_best_by_category():
     )
 
     # Act
-    result = tai.swap_best_by_category(
+    result = tai.swap_best_by_category( # jesse wants Decor, tai wants Clothing
         other=jesse,
         my_priority="Clothing",
         their_priority="Decor"
@@ -89,12 +89,12 @@ def test_swap_best_by_category():
     # - That all the correct items are in tai and jesse's inventories, including the items which were swapped from one vendor to the other
     assert item_a in tai.inventory
     assert item_b in tai.inventory
-    assert item_c in tai.inventory
+    assert item_f in tai.inventory
     assert item_d in jesse.inventory
     assert item_e in jesse.inventory
-    assert item_f in jesse.inventory
+    assert item_c in jesse.inventory
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_best_by_category_reordered():
     # Arrange
     item_a = Decor(condition=2.0)
@@ -129,8 +129,8 @@ def test_swap_best_by_category_reordered():
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
     # - That all the correct items are in tai and jesse's inventories, and that the items that were swapped are not there
-    assert tai.inventory == [item_c, item_b, item_a]
-    assert jesse.inventory == [item_f, item_e, item_d]
+    assert tai.inventory == [item_b, item_a, item_f]
+    assert jesse.inventory == [item_e, item_d, item_c]
 
 # @pytest.mark.skip
 def test_swap_best_by_category_no_inventory_is_false():
@@ -184,7 +184,7 @@ def test_swap_best_by_category_no_other_inventory_is_false():
     assert item_b in tai.inventory
     assert item_c in tai.inventory
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_best_by_category_no_match_is_false():
     # Arrange
     item_a = Decor(condition=2.0)
@@ -226,7 +226,7 @@ def test_swap_best_by_category_no_match_is_false():
     assert item_e in jesse.inventory
     assert item_d in jesse.inventory
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_best_by_category_no_other_match_is_false():
     # Arrange
     item_a = Decor(condition=2.0)

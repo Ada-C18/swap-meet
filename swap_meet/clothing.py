@@ -1,4 +1,3 @@
-from hashlib import new
 from swap_meet.item import Item
 
 class Clothing(Item):
