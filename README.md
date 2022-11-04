@@ -1,5 +1,7 @@
 # Swap Meet
 
+# Another challenging week begins!
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
