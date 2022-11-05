@@ -1,5 +1,12 @@
 # Swap Meet
 
+- Pavi and Lisa - D18 Tigers
+- Both PST Cali
+- Practice separating waves and git push/pull
+- Communicating over Slack DM's when pushing commits
+- Touching base over Slack and over some coworking times
+
+
 ## Skills Assessed
 
 - Following directions and reading comprehension
