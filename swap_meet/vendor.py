@@ -1,9 +1,6 @@
-from pytest import Item
-
-
 class Vendor:
     def __init__(self, inventory= None):
-        self.inventory = inventory if inventory is not None else []
+        self.inventory = inventory if inventory else []
     
     def add(self, item):
         self.inventory.append(item)
@@ -21,21 +18,21 @@ class Vendor:
                             if item.category == category]
         return items_in_category 
 
-    def find_index(self, item_to_find):
+    """def find_index(self, item_to_find):
         i = 0
         for item in self.inventory:
             if item == item_to_find:
-                my_item_index = i
+                item_index = i
             i += 1
         
-        return my_item_index
+        return item_index"""
     
     def swap_items(self, other, my_item, their_item):
         if my_item not in self.inventory or their_item not in other.inventory:
             return False
 
-        my_item_index = self.find_index(my_item)
-        their_item_index = other.find_index(their_item)
+        my_item_index = self.inventory.index(my_item)
+        their_item_index = other.inventory.index(their_item)
 
         self.inventory[my_item_index] = their_item
         other.inventory[their_item_index] = my_item
@@ -63,7 +60,10 @@ class Vendor:
                 category_not_in_inventory = False
                 if item.condition >= best_item_by_cat.condition:
                     best_item_by_cat = item
-        
+        # try:
+        # return max(self.get_by_category(category), key= lambda item: item.condition)
+        # except ValueError:
+        # return None
         if category_not_in_inventory:
             return None
 
