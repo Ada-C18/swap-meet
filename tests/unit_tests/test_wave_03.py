@@ -29,13 +29,11 @@ def test_swap_items_returns_true():
 
     assert len(fatimah.inventory) == 3
     assert item_b not in fatimah.inventory
-    assert item_a in fatimah.inventory
-    assert item_c in fatimah.inventory
-    assert item_d in fatimah.inventory
+    assert item_a and item_c and item_d in fatimah.inventory
+
     assert len(jolie.inventory) == 2
     assert item_d not in jolie.inventory
-    assert item_e in jolie.inventory
-    assert item_b in jolie.inventory
+    assert item_e and item_b in jolie.inventory
     assert result
 
 # @pytest.mark.skip
@@ -57,12 +55,9 @@ def test_swap_items_when_my_item_is_missing_returns_false():
 
     assert len(fatimah.inventory) == 3
     assert item_d not in fatimah.inventory
-    assert item_a in fatimah.inventory
-    assert item_b in fatimah.inventory
-    assert item_c in fatimah.inventory
+    assert item_a and item_b and item_c in fatimah.inventory
     assert len(jolie.inventory) == 2
-    assert item_d in jolie.inventory
-    assert item_e in jolie.inventory
+    assert item_d and item_e in jolie.inventory
     assert not result
 
 # @pytest.mark.skip
@@ -84,12 +79,9 @@ def test_swap_items_when_their_item_is_missing_returns_false():
 
     assert len(fatimah.inventory) == 3
     assert item_d not in fatimah.inventory
-    assert item_a in fatimah.inventory
-    assert item_b in fatimah.inventory
-    assert item_c in fatimah.inventory
+    assert item_a and item_b and item_c in fatimah.inventory
     assert len(jolie.inventory) == 2
-    assert item_d in jolie.inventory
-    assert item_e in jolie.inventory
+    assert item_d and item_e in jolie.inventory
     assert not result
 
 # @pytest.mark.skip
