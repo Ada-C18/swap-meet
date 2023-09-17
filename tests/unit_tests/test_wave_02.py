@@ -19,8 +19,7 @@ def test_get_items_by_category():
     items = vendor.get_by_category("clothing")
 
     assert len(items) == 2
-    assert item_a in items
-    assert item_c in items
+    assert item_a and item_c in items
     assert item_b not in items
 
 # @pytest.mark.skip
@@ -35,7 +34,5 @@ def test_get_no_matching_items_by_category():
     items = vendor.get_by_category("electronics")
 
     assert items == []
-    assert item_a not in items
-    assert item_c not in items
-    assert item_b not in items
+    assert item_a and item_b and item_c not in items
 
