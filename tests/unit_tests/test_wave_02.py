@@ -39,4 +39,3 @@ def test_get_no_matching_items_by_category():
     assert item_c not in items
     assert item_b not in items
 
-    

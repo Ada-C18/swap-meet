@@ -85,22 +85,6 @@ def test_swap_best_by_category():
     assert all(item in [item_d, item_e, item_c] for item in jesse.inventory)
     assert all(item in [item_a, item_b, item_f] for item in tai.inventory)
 
-    # assert item_d in jesse.inventory
-    # assert item_e in jesse.inventory
-    # assert item_c in jesse.inventory
-    # assert item_a in tai.inventory
-    # assert item_b in tai.inventory
-    # assert item_f in tai.inventory
-
-    # raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
-    # Assertions should check:
-    # - That the results is truthy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories, including the items which were swapped from one vendor to the other
-
 # @pytest.mark.skip
 def test_swap_best_by_category_reordered():
     # Arrange
@@ -132,21 +116,6 @@ def test_swap_best_by_category_reordered():
     assert all(item in [item_d, item_e, item_c] for item in jesse.inventory)
     assert all(item in [item_a, item_b, item_f] for item in tai.inventory)
 
-    # assert item_d in jesse.inventory
-    # assert item_e in jesse.inventory
-    # assert item_c in jesse.inventory
-    # assert item_a in tai.inventory
-    # assert item_b in tai.inventory
-    # assert item_f in tai.inventory
-
-    # raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
-    # Assertions should check:
-    # - That result is truthy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories, and that the items that were swapped are not there
 
 # @pytest.mark.skip
 def test_swap_best_by_category_no_inventory_is_false():
@@ -231,15 +200,6 @@ def test_swap_best_by_category_no_match_is_false():
     assert all(item in [item_a, item_b, item_c] for item in tai.inventory)
 
 
-    # raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
-    # Assertions should check:
-    # - That result is falsy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories
-
 # @pytest.mark.skip
 def test_swap_best_by_category_no_other_match_is_false():
     # Arrange
@@ -270,12 +230,3 @@ def test_swap_best_by_category_no_other_match_is_false():
     assert all(item in [item_d, item_e, item_f] for item in jesse.inventory)
     assert all(item in [item_a, item_b, item_c] for item in tai.inventory)
     
-    
-    # raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
-    # Assertions should check:
-    # - That result is falsy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories
