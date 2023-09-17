@@ -20,6 +20,7 @@ def test_best_by_category():
     assert best_item.category == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
 
+
 # @pytest.mark.skip
 def test_best_by_category_no_matches_is_none():
     item_a = Decor(condition=2.0)
@@ -32,6 +33,7 @@ def test_best_by_category_no_matches_is_none():
     best_item = tai.get_best_by_category("Electronics")
 
     assert best_item is None
+
 
 # @pytest.mark.skip
 def test_best_by_category_with_duplicates():
@@ -49,6 +51,7 @@ def test_best_by_category_with_duplicates():
     # Assert
     assert best_item.category == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
+
 
 # @pytest.mark.skip
 def test_swap_best_by_category():
@@ -77,13 +80,12 @@ def test_swap_best_by_category():
     )
 
     # Assert
-
     assert result == True 
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
-    # refactored
-    assert all(item in [item_d, item_e, item_c] for item in jesse.inventory)
-    assert all(item in [item_a, item_b, item_f] for item in tai.inventory)
+    assert item_d and item_e and item_c in jesse.inventory
+    assert item_a and item_b and item_f in tai.inventory
+
 
 # @pytest.mark.skip
 def test_swap_best_by_category_reordered():
@@ -112,9 +114,8 @@ def test_swap_best_by_category_reordered():
     assert result == True 
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
-    # refactored
-    assert all(item in [item_d, item_e, item_c] for item in jesse.inventory)
-    assert all(item in [item_a, item_b, item_f] for item in tai.inventory)
+    assert item_d and  item_e and item_c in jesse.inventory
+    assert item_a and  item_b and item_f in tai.inventory
 
 
 # @pytest.mark.skip
@@ -139,9 +140,8 @@ def test_swap_best_by_category_no_inventory_is_false():
     assert not result
     assert len(tai.inventory) == 0
     assert len(jesse.inventory) == 3
-    assert item_a in jesse.inventory
-    assert item_b in jesse.inventory
-    assert item_c in jesse.inventory
+    assert item_a and  item_b and item_c in jesse.inventory
+    
 
 # @pytest.mark.skip
 def test_swap_best_by_category_no_other_inventory_is_false():
@@ -165,9 +165,8 @@ def test_swap_best_by_category_no_other_inventory_is_false():
     assert not result
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 0
-    assert item_a in tai.inventory
-    assert item_b in tai.inventory
-    assert item_c in tai.inventory
+    assert item_a and item_b and item_c in tai.inventory
+
 
 # @pytest.mark.skip
 def test_swap_best_by_category_no_match_is_false():
@@ -196,8 +195,8 @@ def test_swap_best_by_category_no_match_is_false():
     assert result == False
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
-    assert all(item in [item_d, item_e, item_f] for item in jesse.inventory)
-    assert all(item in [item_a, item_b, item_c] for item in tai.inventory)
+    assert item_d and  item_e and item_f in jesse.inventory
+    assert item_a and  item_b and item_c in tai.inventory
 
 
 # @pytest.mark.skip
@@ -227,6 +226,5 @@ def test_swap_best_by_category_no_other_match_is_false():
     assert result == False
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
-    assert all(item in [item_d, item_e, item_f] for item in jesse.inventory)
-    assert all(item in [item_a, item_b, item_c] for item in tai.inventory)
-    
+    assert item_d and item_e and item_f in jesse.inventory
+    assert item_a and item_b and item_c in tai.inventory
