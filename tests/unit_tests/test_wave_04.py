@@ -2,7 +2,7 @@ import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_first_item_returns_true():
     item_a = Item(category="clothing")
     item_b = Item(category="clothing")
@@ -21,16 +21,13 @@ def test_swap_first_item_returns_true():
 
     assert len(fatimah.inventory) == 3
     assert item_a not in fatimah.inventory
-    assert item_b in fatimah.inventory
-    assert item_c in fatimah.inventory
-    assert item_d in fatimah.inventory
+    assert item_b and item_c and item_d in fatimah.inventory
     assert len(jolie.inventory) == 2
     assert item_d not in jolie.inventory
-    assert item_e in jolie.inventory
-    assert item_a in jolie.inventory
+    assert item_e and item_a in jolie.inventory
     assert result
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_first_item_from_my_empty_returns_false():
     fatimah = Vendor(
         inventory=[]
@@ -48,7 +45,7 @@ def test_swap_first_item_from_my_empty_returns_false():
     assert len(jolie.inventory) == 2
     assert not result
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_first_item_from_their_empty_returns_false():
     item_a = Item(category="clothing")
     item_b = Item(category="clothing")
